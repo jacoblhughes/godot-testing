@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7wsr5qlwmbvt"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_307y7"]
+[ext_resource type="PackedScene" uid="uid://dr7ywkyakrtqy" path="res://scenes/player.tscn" id="2_n0irh"]
+[ext_resource type="Texture2D" uid="uid://cp8aah4w86ghe" path="res://icon.svg" id="3_gisj0"]
+[ext_resource type="PackedScene" uid="uid://b86x07prgfdoo" path="res://scenes/jump_pad.tscn" id="4_pgtkj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3h3kb"]
+size = Vector2(1534, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykty8"]
+size = Vector2(2448, 14)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_307y7")
+
+[node name="Player" parent="." instance=ExtResource("2_n0irh")]
+position = Vector2(385.864, 249.355)
+collision_mask = 6
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(568, 440)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(11.9375, 0.234375)
+texture = ExtResource("3_gisj0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_3h3kb")
+
+[node name="Deathzone" type="Area2D" parent="."]
+position = Vector2(568, 504)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
+shape = SubResource("RectangleShape2D_ykty8")
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(622, 191)
+
+[node name="JumpPad" parent="." instance=ExtResource("4_pgtkj")]
+position = Vector2(568, 384)
+
+[connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
