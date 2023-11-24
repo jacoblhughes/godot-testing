@@ -1,28 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://db5y5etfib7uh"]
+[gd_scene load_steps=6 format=3 uid="uid://db5y5etfib7uh"]
 
 [ext_resource type="PackedScene" uid="uid://bo74c7cne8mnx" path="res://wall.tscn" id="1_86r1o"]
 [ext_resource type="PhysicsMaterial" uid="uid://cylt8ixxpbnu4" path="res://bounce_test.tres" id="1_aqe2j"]
-[ext_resource type="Script" path="res://RigidBody2D.gd" id="3_ydvt6"]
+[ext_resource type="Script" path="res://game.gd" id="1_u0xfj"]
+[ext_resource type="Script" path="res://ball.gd" id="4_qerca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jspam"]
 size = Vector2(16, 16)
 
-[node name="Node2D" type="Node2D"]
+[node name="CircleBounce" type="Node2D"]
 metadata/_edit_vertical_guides_ = [386.0]
 
-[node name="Node2D4" parent="." instance=ExtResource("1_86r1o")]
+[node name="Game" type="Node2D" parent="."]
+script = ExtResource("1_u0xfj")
+
+[node name="Wall" parent="." instance=ExtResource("1_86r1o")]
 position = Vector2(512, 192)
 
-[node name="Node2D3" parent="." instance=ExtResource("1_86r1o")]
+[node name="Wall2" parent="." instance=ExtResource("1_86r1o")]
 position = Vector2(384, 64)
 
-[node name="Node2D2" parent="." instance=ExtResource("1_86r1o")]
+[node name="Wall3" parent="." instance=ExtResource("1_86r1o")]
 position = Vector2(256, 192)
 
-[node name="Node2D" parent="." instance=ExtResource("1_86r1o")]
+[node name="Wall4" parent="." instance=ExtResource("1_86r1o")]
 position = Vector2(384, 320)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="Ball" type="RigidBody2D" parent="."]
 position = Vector2(384, 136)
 physics_material_override = ExtResource("1_aqe2j")
 gravity_scale = 0.0
@@ -31,9 +35,9 @@ contact_monitor = true
 linear_velocity = Vector2(30, 30)
 linear_damp_mode = 1
 angular_damp_mode = 1
-script = ExtResource("3_ydvt6")
+script = ExtResource("4_qerca")
 
-[node name="ColorRect" type="ColorRect" parent="RigidBody2D"]
+[node name="ColorRect" type="ColorRect" parent="Ball"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -48,7 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 shape = SubResource("RectangleShape2D_jspam")
 
-[connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Ball" to="Ball" method="_on_body_entered"]
