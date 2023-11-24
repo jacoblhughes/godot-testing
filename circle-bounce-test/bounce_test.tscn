@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://db5y5etfib7uh"]
+
+[ext_resource type="PackedScene" uid="uid://bo74c7cne8mnx" path="res://wall.tscn" id="1_86r1o"]
+[ext_resource type="PhysicsMaterial" uid="uid://cylt8ixxpbnu4" path="res://bounce_test.tres" id="1_aqe2j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jspam"]
+size = Vector2(16, 16)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node2D4" parent="." instance=ExtResource("1_86r1o")]
+position = Vector2(512, 192)
+
+[node name="Node2D3" parent="." instance=ExtResource("1_86r1o")]
+position = Vector2(384, 64)
+
+[node name="Node2D2" parent="." instance=ExtResource("1_86r1o")]
+position = Vector2(256, 192)
+
+[node name="Node2D" parent="." instance=ExtResource("1_86r1o")]
+position = Vector2(384, 320)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(248, 88)
+motion_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="CharacterBody2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_jspam")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(384, 136)
+physics_material_override = ExtResource("1_aqe2j")
+gravity_scale = 0.0
+linear_velocity = Vector2(30, 30)
+linear_damp_mode = 1
+angular_damp_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="RigidBody2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_jspam")
