@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://db5y5etfib7uh"]
+[gd_scene load_steps=5 format=3 uid="uid://db5y5etfib7uh"]
 
 [ext_resource type="PackedScene" uid="uid://bo74c7cne8mnx" path="res://wall.tscn" id="1_86r1o"]
 [ext_resource type="PhysicsMaterial" uid="uid://cylt8ixxpbnu4" path="res://bounce_test.tres" id="1_aqe2j"]
+[ext_resource type="Script" path="res://RigidBody2D.gd" id="3_ydvt6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jspam"]
 size = Vector2(16, 16)
@@ -46,9 +47,12 @@ shape = SubResource("RectangleShape2D_jspam")
 position = Vector2(384, 136)
 physics_material_override = ExtResource("1_aqe2j")
 gravity_scale = 0.0
+max_contacts_reported = 10000
+contact_monitor = true
 linear_velocity = Vector2(30, 30)
 linear_damp_mode = 1
 angular_damp_mode = 1
+script = ExtResource("3_ydvt6")
 
 [node name="ColorRect" type="ColorRect" parent="RigidBody2D"]
 anchors_preset = 8
@@ -66,3 +70,5 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("RectangleShape2D_jspam")
+
+[connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]
