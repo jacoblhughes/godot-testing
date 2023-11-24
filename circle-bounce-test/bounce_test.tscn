@@ -21,6 +21,7 @@ position = Vector2(256, 192)
 position = Vector2(384, 320)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+visible = false
 position = Vector2(248, 88)
 motion_mode = 1
 
