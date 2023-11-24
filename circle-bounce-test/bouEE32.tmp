@@ -1,13 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://db5y5etfib7uh"]
+[gd_scene load_steps=6 format=3 uid="uid://db5y5etfib7uh"]
 
 [ext_resource type="PackedScene" uid="uid://bo74c7cne8mnx" path="res://wall.tscn" id="1_86r1o"]
 [ext_resource type="PhysicsMaterial" uid="uid://cylt8ixxpbnu4" path="res://bounce_test.tres" id="1_aqe2j"]
-[ext_resource type="AudioStream" uid="uid://bspricep103jt" path="res://kick.wav" id="1_libdx"]
 [ext_resource type="Script" path="res://game.gd" id="1_u0xfj"]
-[ext_resource type="AudioStream" uid="uid://dxtm2e2hi5xrp" path="res://snare.wav" id="2_6vte1"]
-[ext_resource type="AudioStream" uid="uid://daeh6jftee4eg" path="res://hi_hat.wav" id="3_btisi"]
 [ext_resource type="Script" path="res://ball.gd" id="4_qerca"]
-[ext_resource type="AudioStream" uid="uid://b8pke52087yq" path="res://vocal.wav" id="4_vs0t0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jspam"]
 size = Vector2(16, 16)
@@ -15,42 +11,28 @@ size = Vector2(16, 16)
 [node name="CircleBounce" type="Node2D"]
 metadata/_edit_vertical_guides_ = [360.0]
 
-[node name="Music" type="Node2D" parent="."]
-
-[node name="Kick" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("1_libdx")
-
-[node name="Snare" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("2_6vte1")
-
-[node name="HiHat" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("3_btisi")
-
-[node name="Vocal" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("4_vs0t0")
-
 [node name="Game" type="Node2D" parent="."]
 script = ExtResource("1_u0xfj")
 
 [node name="Wall" parent="." instance=ExtResource("1_86r1o")]
-position = Vector2(616, 632)
+position = Vector2(488, 632)
 
 [node name="Wall2" parent="." instance=ExtResource("1_86r1o")]
-position = Vector2(360, 376)
+position = Vector2(360, 504)
 
 [node name="Wall3" parent="." instance=ExtResource("1_86r1o")]
-position = Vector2(104, 632)
+position = Vector2(232, 632)
 
 [node name="Wall4" parent="." instance=ExtResource("1_86r1o")]
-position = Vector2(360, 888)
+position = Vector2(360, 760)
 
 [node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2(360, 512)
+position = Vector2(360, 576)
 physics_material_override = ExtResource("1_aqe2j")
 gravity_scale = 0.0
 max_contacts_reported = 10000
 contact_monitor = true
-linear_velocity = Vector2(20, 20)
+linear_velocity = Vector2(30, 30)
 linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("4_qerca")
@@ -73,14 +55,10 @@ metadata/_edit_use_anchors_ = true
 shape = SubResource("RectangleShape2D_jspam")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 72.0
-offset_top = 152.0
-offset_right = 648.0
-offset_bottom = 240.0
-theme_override_font_sizes/font_size = 20
+offset_left = 144.0
+offset_top = 328.0
+offset_right = 578.0
+offset_bottom = 416.0
 text = "Each bounce increases the speed and changes the color."
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
 
 [connection signal="body_entered" from="Ball" to="Game" method="_on_ball_body_entered"]

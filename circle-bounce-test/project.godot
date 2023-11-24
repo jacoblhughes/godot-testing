@@ -14,3 +14,8 @@ config/name="CircleBounceTest"
 run/main_scene="res://bounce_test.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=1280
