@@ -1,35 +1,45 @@
 extends Node2D
 
 @export var trail = []
-var my_size : Vector2
+var my_size : Vector2 = Vector2(16,16)
 var timer_node : Timer
 var balls
-#var color_rect
+
 var random_color
 var music_notes
 
-# Called when the node enters the scene tree for the first time.
+var sound_files = ["res://sounds/C.wav", "res://sounds/E.wav", "res://sounds/G.wav", "res://sounds/C2.wav"]
+var wall_elements : Array
+var new_ball = preload("res://square_ball/square_ball.tscn")
+
+
 func _ready():
+	wall_elements = get_tree().get_nodes_in_group("wall")
+	load_sounds_and_assign_to_walls()
 
-	pass # Replace with function body.
-
-func set_color_rect_size(node_size):
-	my_size = Vector2(16,16)
-
+func load_sounds_and_assign_to_walls():
+	for i in range(wall_elements.size()):
+		var sound_index = i % sound_files.size()
+		var sound = load(sound_files[sound_index])
+		if sound:
+			var audio_player = AudioStreamPlayer.new()
+			audio_player.stream = sound
+			wall_elements[i].add_child(audio_player,true)
+		else:
+			print("Failed to load sound:", sound_files[sound_index])
+			
 func _draw():
 	for point in trail:
-		draw_rect(Rect2(point["pos"] - Vector2(my_size.x/2,my_size.y/2),my_size), point["color"])
+		draw_texture_rect(point["texture"],Rect2(point["pos"]-(point["texture"].get_size()*point["this_scale"]/2),point["texture"].get_size()*point["this_scale"]),false,point["color"])
 
-func add_position_info(ball_position,ball_color):
-	trail.append({"pos": ball_position, "color": ball_color})
+func add_position_info(ball_position,ball_color,this_texture,this_scale):
+	trail.append({"pos": ball_position, "color": ball_color,"texture":this_texture,"this_scale":this_scale})
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if(trail.size() >1):
 		queue_redraw()
 	pass
 
-
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("ui_accept"):
 		get_tree().reload_current_scene()

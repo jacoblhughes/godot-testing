@@ -1,78 +1,31 @@
-[gd_scene load_steps=10 format=3 uid="uid://db5y5etfib7uh"]
+[gd_scene load_steps=4 format=3 uid="uid://db5y5etfib7uh"]
 
-[ext_resource type="PackedScene" uid="uid://bo74c7cne8mnx" path="res://wall.tscn" id="1_86r1o"]
-[ext_resource type="PhysicsMaterial" uid="uid://cylt8ixxpbnu4" path="res://bounce_test.tres" id="1_aqe2j"]
-[ext_resource type="AudioStream" uid="uid://bspricep103jt" path="res://kick.wav" id="1_libdx"]
 [ext_resource type="Script" path="res://game.gd" id="1_u0xfj"]
-[ext_resource type="AudioStream" uid="uid://dxtm2e2hi5xrp" path="res://snare.wav" id="2_6vte1"]
-[ext_resource type="AudioStream" uid="uid://daeh6jftee4eg" path="res://hi_hat.wav" id="3_btisi"]
-[ext_resource type="Script" path="res://ball.gd" id="4_qerca"]
-[ext_resource type="AudioStream" uid="uid://b8pke52087yq" path="res://vocal.wav" id="4_vs0t0"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jspam"]
-size = Vector2(16, 16)
+[ext_resource type="PackedScene" uid="uid://bo74c7cne8mnx" path="res://wall/wall.tscn" id="2_ivi1w"]
+[ext_resource type="PackedScene" uid="uid://b64frhxhkxuic" path="res://square_ball/square_ball.tscn" id="7_co24o"]
 
 [node name="CircleBounce" type="Node2D"]
 metadata/_edit_vertical_guides_ = [360.0]
-
-[node name="Music" type="Node2D" parent="."]
-
-[node name="Kick" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("1_libdx")
-
-[node name="Snare" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("2_6vte1")
-
-[node name="HiHat" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("3_btisi")
-
-[node name="Vocal" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("4_vs0t0")
+metadata/_edit_horizontal_guides_ = [640.0]
 
 [node name="Game" type="Node2D" parent="."]
 script = ExtResource("1_u0xfj")
 
-[node name="Wall" parent="." instance=ExtResource("1_86r1o")]
-position = Vector2(616, 632)
+[node name="Wall" parent="Game" instance=ExtResource("2_ivi1w")]
+position = Vector2(360, 360)
 
-[node name="Wall2" parent="." instance=ExtResource("1_86r1o")]
-position = Vector2(360, 376)
+[node name="Wall2" parent="Game" instance=ExtResource("2_ivi1w")]
+position = Vector2(-152, 616)
 
-[node name="Wall3" parent="." instance=ExtResource("1_86r1o")]
-position = Vector2(104, 632)
+[node name="Wall3" parent="Game" instance=ExtResource("2_ivi1w")]
+position = Vector2(872, 616)
 
-[node name="Wall4" parent="." instance=ExtResource("1_86r1o")]
-position = Vector2(360, 888)
+[node name="Wall4" parent="Game" instance=ExtResource("2_ivi1w")]
+position = Vector2(360, 872)
 
-[node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2(360, 512)
-physics_material_override = ExtResource("1_aqe2j")
-gravity_scale = 0.0
-max_contacts_reported = 10000
-contact_monitor = true
-linear_velocity = Vector2(20, 20)
-linear_damp_mode = 1
-angular_damp_mode = 1
-script = ExtResource("4_qerca")
+[node name="Ball" parent="Game" instance=ExtResource("7_co24o")]
 
-[node name="ColorRect" type="ColorRect" parent="Ball"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-shape = SubResource("RectangleShape2D_jspam")
-
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="Game"]
 offset_left = 72.0
 offset_top = 152.0
 offset_right = 648.0
@@ -83,4 +36,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[connection signal="body_entered" from="Ball" to="Game" method="_on_ball_body_entered"]
+[node name="Timer" type="Timer" parent="Game"]
+wait_time = 0.25
+autostart = true
