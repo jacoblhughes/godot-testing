@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://jwubqba1bqgs"]
+
+[ext_resource type="AudioStream" uid="uid://bspricep103jt" path="res://kick.wav" id="1_mlskk"]
+[ext_resource type="AudioStream" uid="uid://dxtm2e2hi5xrp" path="res://snare.wav" id="2_rm0yv"]
+[ext_resource type="AudioStream" uid="uid://daeh6jftee4eg" path="res://hi_hat.wav" id="3_hl052"]
+[ext_resource type="AudioStream" uid="uid://b8pke52087yq" path="res://vocal.wav" id="4_emio1"]
+[ext_resource type="Script" path="res://game.gd" id="5_0eukb"]
+[ext_resource type="PackedScene" uid="uid://bo74c7cne8mnx" path="res://wall.tscn" id="6_ydp5n"]
+[ext_resource type="PackedScene" uid="uid://b64frhxhkxuic" path="res://square_ball.tscn" id="7_8oipd"]
+
+[node name="CircleDoubleBounce" type="Node2D"]
+metadata/_edit_vertical_guides_ = [360.0]
+
+[node name="Game" type="Node2D" parent="."]
+script = ExtResource("5_0eukb")
+
+[node name="Music" type="Node2D" parent="Game"]
+
+[node name="Kick" type="AudioStreamPlayer" parent="Game/Music"]
+stream = ExtResource("1_mlskk")
+
+[node name="Snare" type="AudioStreamPlayer" parent="Game/Music"]
+stream = ExtResource("2_rm0yv")
+
+[node name="HiHat" type="AudioStreamPlayer" parent="Game/Music"]
+stream = ExtResource("3_hl052")
+
+[node name="Vocal" type="AudioStreamPlayer" parent="Game/Music"]
+stream = ExtResource("4_emio1")
+
+[node name="Wall" parent="Game" instance=ExtResource("6_ydp5n")]
+position = Vector2(616, 632)
+
+[node name="Wall2" parent="Game" instance=ExtResource("6_ydp5n")]
+position = Vector2(360, 376)
+
+[node name="Wall3" parent="Game" instance=ExtResource("6_ydp5n")]
+position = Vector2(104, 632)
+
+[node name="Wall4" parent="Game" instance=ExtResource("6_ydp5n")]
+position = Vector2(360, 888)
+
+[node name="Label" type="Label" parent="Game"]
+offset_left = 72.0
+offset_top = 152.0
+offset_right = 648.0
+offset_bottom = 240.0
+theme_override_font_sizes/font_size = 20
+text = "Each bounce increases the speed and changes the color."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Timer" type="Timer" parent="Game"]
+wait_time = 0.25
+autostart = true
+
+[node name="Ball" parent="Game" instance=ExtResource("7_8oipd")]
+position = Vector2(240, 512)
+
+[node name="Ball2" parent="Game" instance=ExtResource("7_8oipd")]
+position = Vector2(320, 512)
+
+[node name="Ball3" parent="Game" instance=ExtResource("7_8oipd")]
+position = Vector2(400, 512)
+linear_velocity = Vector2(-30, 30)
+
+[node name="Ball4" parent="Game" instance=ExtResource("7_8oipd")]
+position = Vector2(480, 512)
+linear_velocity = Vector2(-30, 30)

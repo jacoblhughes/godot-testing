@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://b64frhxhkxuic"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://cylt8ixxpbnu4" path="res://bounce_test.tres" id="1_hkhhw"]
+[ext_resource type="Script" path="res://ball.gd" id="2_2d50n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jspam"]
+size = Vector2(16, 16)
+
+[node name="Ball" type="RigidBody2D"]
+position = Vector2(360, 512)
+physics_material_override = ExtResource("1_hkhhw")
+gravity_scale = 0.0
+max_contacts_reported = 10000
+contact_monitor = true
+lock_rotation = true
+linear_velocity = Vector2(30, 30)
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("2_2d50n")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jspam")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
