@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csb0slecr0l3w"
-path="res://.godot/imported/Sprite-0001.png-5cd9476f93e588ed7fbbd2a97fa979f7.ctex"
+uid="uid://dlywe7r3jd5n5"
+path="res://.godot/imported/square_ball.png-ebb39f1d113ed47fafd17130e9dc2ba9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://circle_ball/Sprite-0001.png"
-dest_files=["res://.godot/imported/Sprite-0001.png-5cd9476f93e588ed7fbbd2a97fa979f7.ctex"]
+source_file="res://shooting_ball/square_ball.png"
+dest_files=["res://.godot/imported/square_ball.png-ebb39f1d113ed47fafd17130e9dc2ba9.ctex"]
 
 [params]
 

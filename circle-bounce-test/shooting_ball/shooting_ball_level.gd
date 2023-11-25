@@ -10,13 +10,17 @@ var music_notes
 
 var sound_files = ["res://sounds/C.wav", "res://sounds/E.wav", "res://sounds/G.wav", "res://sounds/C2.wav"]
 var wall_elements : Array
-var new_ball = preload("res://square_ball/square_ball.tscn")
-
+var ball_elements: Array
+var shooting_ball_scene = preload("res://shooting_ball/shooting_ball.tscn")
+var shooting_ball_instance
 
 func _ready():
 	wall_elements = get_tree().get_nodes_in_group("wall")
 	load_sounds_and_assign_to_walls()
-
+	ball_elements = get_tree().get_nodes_in_group("ball")
+	for element in ball_elements:
+		element.wall_collision.connect(_on_wall_collision)
+		
 func load_sounds_and_assign_to_walls():
 	for i in range(wall_elements.size()):
 		var sound_index = i % sound_files.size()
@@ -43,3 +47,12 @@ func _process(_delta):
 func _input(_event):
 	if Input.is_action_just_pressed("ui_accept"):
 		get_tree().reload_current_scene()
+
+func _on_wall_collision(this_position,this_velocity):
+	shooting_ball_instance = shooting_ball_scene.instantiate()
+	shooting_ball_instance.position = this_position
+	shooting_ball_instance.linear_velocity = -this_velocity
+#	if not shooting_ball_instance.has_method("_on_wall_collision"):
+#		shooting_ball_instance.wall_collision.connect(_on_wall_collision)
+	add_child.call_deferred(shooting_ball_instance,true)
+

@@ -1,28 +1,27 @@
 [gd_scene load_steps=5 format=3 uid="uid://c3dfpfs6n2r1n"]
 
-[ext_resource type="PhysicsMaterial" uid="uid://cylt8ixxpbnu4" path="res://bounce_test.tres" id="1_ml4cn"]
-[ext_resource type="Script" path="res://ball.gd" id="2_8x4ri"]
-[ext_resource type="Texture2D" uid="uid://csb0slecr0l3w" path="res://circle_ball/Sprite-0001.png" id="3_xh4vp"]
+[ext_resource type="PhysicsMaterial" uid="uid://cylt8ixxpbnu4" path="res://bounce_test.tres" id="1_3tujp"]
+[ext_resource type="Script" path="res://shooting_ball/shooting_ball.gd" id="2_wtfp2"]
+[ext_resource type="Texture2D" uid="uid://cy85nknvyuj3h" path="res://shooting_ball/circle_ball.png" id="3_er8er"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kcmq8"]
 radius = 8.0
 
-[node name="CircleBall" type="RigidBody2D" groups=["ball"]]
-position = Vector2(360, 512)
+[node name="ShootingBall" type="RigidBody2D" groups=["ball"]]
 collision_mask = 2
-physics_material_override = ExtResource("1_ml4cn")
+physics_material_override = ExtResource("1_3tujp")
 gravity_scale = 0.0
 max_contacts_reported = 10000
 contact_monitor = true
 lock_rotation = true
-linear_velocity = Vector2(30, 30)
+linear_velocity = Vector2(60, 50)
 linear_damp_mode = 1
 angular_damp_mode = 1
-script = ExtResource("2_8x4ri")
+script = ExtResource("2_wtfp2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_xh4vp")
+texture = ExtResource("3_er8er")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kcmq8")

@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://bo74c7cne8mnx"]
 
-[ext_resource type="Script" path="res://wall/wall.gd" id="1_2u3hc"]
+[ext_resource type="Script" path="res://wall/square_wall.gd" id="1_j3kew"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb7hm"]
 size = Vector2(512, 256)
 
 [node name="Wall" type="StaticBody2D" groups=["wall"]]
 collision_layer = 2
-script = ExtResource("1_2u3hc")
+script = ExtResource("1_j3kew")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8
