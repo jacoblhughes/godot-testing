@@ -37,5 +37,5 @@ func _on_body_entered(body):
 		body.get_node("AudioStreamPlayer").play()
 		sprite.modulate = random_color
 		linear_velocity *= 1.05
-		wall_collision.emit(position,linear_velocity)
+#		wall_collision.emit(position,linear_velocity)
 	pass

@@ -12,16 +12,18 @@ metadata/_edit_horizontal_guides_ = [640.0, 320.0, 640.0]
 script = ExtResource("1_wgfrl")
 
 [node name="Wall" parent="Game" instance=ExtResource("2_01lt2")]
-position = Vector2(360, 384)
+position = Vector2(360, 256)
 
 [node name="Wall2" parent="Game" instance=ExtResource("2_01lt2")]
-position = Vector2(872, 640)
+position = Vector2(744, 640)
+rotation = 1.5708
 
 [node name="Wall3" parent="Game" instance=ExtResource("2_01lt2")]
-position = Vector2(360, 896)
+position = Vector2(360, 1024)
 
 [node name="Wall4" parent="Game" instance=ExtResource("2_01lt2")]
-position = Vector2(-152, 640)
+position = Vector2(-24, 640)
+rotation = 1.5708
 
 [node name="Label" type="Label" parent="Game"]
 offset_left = 72.0
@@ -41,3 +43,4 @@ autostart = true
 
 [node name="ShootingBall" parent="Game" instance=ExtResource("3_ovoes")]
 position = Vector2(360, 640)
+constant_force = Vector2(100, 0)
