@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6mkopwg1p257"]
+
+[ext_resource type="Script" path="res://shooting_ball/gravity.gd" id="1_jvmao"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rckfl"]
+size = Vector2(512, 512)
+
+[node name="Gravity" type="Area2D" groups=["gravity"]]
+position = Vector2(104, 384)
+gravity_space_override = 3
+gravity_point = true
+script = ExtResource("1_jvmao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(256, 256)
+shape = SubResource("RectangleShape2D_rckfl")

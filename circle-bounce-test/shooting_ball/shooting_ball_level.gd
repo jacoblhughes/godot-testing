@@ -13,14 +13,26 @@ var wall_elements : Array
 var ball_elements: Array
 var shooting_ball_scene = preload("res://shooting_ball/shooting_ball.tscn")
 var shooting_ball_instance
-
+var grav_elements: Array
+var collision_shape: CollisionShape2D
 func _ready():
 	wall_elements = get_tree().get_nodes_in_group("wall")
 	load_sounds_and_assign_to_walls()
 	ball_elements = get_tree().get_nodes_in_group("ball")
 	for element in ball_elements:
 		element.wall_collision.connect(_on_wall_collision)
-		
+	grav_elements = get_tree().get_nodes_in_group("gravity")
+	
+	for i in len(grav_elements):
+		print(i)
+		collision_shape = grav_elements[i].get_node("CollisionShape2D")
+		print(collision_shape)
+		if i==0:
+			grav_elements[i].set_gravity_point_center(Vector2(collision_shape.shape.get_rect().size.x/2,collision_shape.shape.get_rect().size.y/2))
+			print(grav_elements[i].get_gravity_point_center())
+		elif i==1:
+			grav_elements[i].set_gravity_point_center(Vector2(collision_shape.shape.get_rect().size.x/2,collision_shape.shape.get_rect().size.y/4))
+			print(grav_elements[i].get_gravity_point_center())
 func load_sounds_and_assign_to_walls():
 	for i in range(wall_elements.size()):
 		var sound_index = i % sound_files.size()
