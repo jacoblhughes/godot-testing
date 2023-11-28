@@ -32,7 +32,7 @@ offset_top = 128.0
 offset_right = 616.0
 offset_bottom = 384.0
 theme_override_font_sizes/font_size = 20
-text = "Four balls, each in top corners and sides. Gravity in center and one more location, can you guess?"
+text = "Four balls, top corners and sides. Gravity in center and one more location, can you guess?"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -48,10 +48,10 @@ position = Vector2(120, 400)
 position = Vector2(600, 400)
 
 [node name="ShootingBall3" parent="Game" instance=ExtResource("3_ovoes")]
-position = Vector2(120, 640)
+position = Vector2(600, 640)
 
 [node name="ShootingBall4" parent="Game" instance=ExtResource("3_ovoes")]
-position = Vector2(600, 640)
+position = Vector2(120, 640)
 
 [node name="Gravity" parent="Game" instance=ExtResource("4_axndw")]
 
