@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddb8dyh4rtcgb"
-path="res://.godot/imported/wooden_panels.png-ea393ba46c88d03462ab13c1fc9ad4ef.ctex"
+path="res://.godot/imported/wooden_panels.png-66e8c07deb5e153e46932c1f97a4ae79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level_design/wooden_panels.png"
-dest_files=["res://.godot/imported/wooden_panels.png-ea393ba46c88d03462ab13c1fc9ad4ef.ctex"]
+source_file="res://src/levels/wooden_panels.png"
+dest_files=["res://.godot/imported/wooden_panels.png-66e8c07deb5e153e46932c1f97a4ae79.ctex"]
 
 [params]
 
