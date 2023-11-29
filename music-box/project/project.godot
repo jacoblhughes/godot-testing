@@ -14,6 +14,35 @@ config/name="MusicBox"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[input]
+
+quit={
+"deadzone": 0.5,
+"events": []
+}
+reset={
+"deadzone": 0.5,
+"events": []
+}
+jump={
+"deadzone": 0.5,
+"events": []
+}
+move_left={
+"deadzone": 0.5,
+"events": []
+}
+move_right={
+"deadzone": 0.5,
+"events": []
+}
+
 [layer_names]
 
 2d_physics/layer_1="world"
+2d_physics/layer_2="player"
+2d_physics/layer_3="death_zone"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
