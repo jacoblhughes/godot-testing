@@ -1,8 +1,8 @@
 extends CharacterBody2D
 class_name Player
 
-const SPEED = 300.0
-const JUMP_VELOCITY = 400.0
+const SPEED = 200.00
+const JUMP_VELOCITY = 200.00
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -39,10 +39,10 @@ func _update_animations(direction):
 	if is_on_floor():
 		if direction == 0:
 			animated_sprite.play("idle")
-#		else:
-#			animated_sprite.play('run')
-#	else:
-#		if velocity.y < 0:
-#			animated_sprite.play("jump")
-#		else:
-#			animated_sprite.play('fall')
+		else:
+			animated_sprite.play('run')
+	else:
+		if velocity.y < 0:
+			animated_sprite.play("jump")
+		else:
+			animated_sprite.play('fall')
