@@ -42,9 +42,9 @@ func jump(pulse_velocity):
 func _update_animations(direction):
 	if is_on_floor():
 		if direction == 0:
-			if idle_time < 10:
+			if idle_time < 20:
 				animated_sprite.play("idle")
-			elif idle_time > 10 and idle_time < 20:
+			elif idle_time > 20 and idle_time < 40:
 				animated_sprite.play("idle_2")
 			else:
 				animated_sprite.play("idle_3")

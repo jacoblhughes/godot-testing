@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name Trap
 signal touched_player
 # Called when the node enters the scene tree for the first time.
 func _ready():

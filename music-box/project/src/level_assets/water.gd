@@ -1,7 +1,7 @@
 extends Node2D
 
-signal player_entered
-
+signal player_entered(body)
+signal player_exited(body)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -13,5 +13,11 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	player_entered.emit()
+	print('here',body)
+	player_entered.emit(body)
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_exited(body):
+	player_exited.emit(body)
 	pass # Replace with function body.

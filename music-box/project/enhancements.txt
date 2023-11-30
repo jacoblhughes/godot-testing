@@ -1,1 +1,38 @@
 When the cat falls, the animation loops I am guessing due to code. For now it is fixed
+
+	Spikes:
+		Spikes are a classic obstacle in platformers. They can be placed on the ground or on walls to harm the player upon contact.
+		Consider adding variations, such as moving spikes or spikes that emerge from the ground periodically.
+
+	Moving Platforms:
+		Moving platforms add an element of timing and precision to the gameplay. These platforms can move horizontally, vertically, or follow complex patterns.
+		Include platforms that change direction or speed to increase difficulty.
+
+	Pits and Gaps:
+		Gaps in the floor or pits that the player must jump over create a sense of vertical challenge. Ensure that the player's jumping abilities are well-tuned to handle these gaps.
+
+	Moving Obstacles:
+		Enemies or hazards that move back and forth can be placed on platforms. This could include creatures, projectiles, or other dynamic elements.
+		Adjust the speed and patterns of movement to vary difficulty.
+
+	Breakable Platforms:
+		Platforms that break or disappear after the player steps on them can add an element of urgency and strategy to the game.
+		Allow the player to anticipate when a platform will break, requiring careful planning.
+
+	Switches and Doors:
+		Introduce switches that the player can activate to open doors or reveal new platforms. This adds puzzle-solving elements to your platformer.
+		Combine switches with timed challenges to increase complexity.
+
+	Moving Hazards:
+		Hazards that move independently of platforms, such as rotating blades or rolling boulders, can create dynamic and engaging levels.
+		Design levels that require the player to time their movements to avoid these hazards.
+
+	Vertical Moving Platforms:
+		Elevators or platforms that move vertically can create interesting level designs. Consider integrating them with other obstacles to increase difficulty.
+
+	Climbable Surfaces:
+		Ladders, vines, or other climbable surfaces add verticality to your levels. Ensure that the climbing mechanic is responsive and intuitive.
+
+	Traps:
+		Hidden traps or triggers that activate obstacles when the player approaches can add surprise and challenge.
+		Include visual cues to hint at the presence of traps.

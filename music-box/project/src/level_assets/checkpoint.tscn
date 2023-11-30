@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://bbek7a4vl2yxq"]
+
+[ext_resource type="Script" path="res://src/level_assets/checkpoint.gd" id="1_hjyyd"]
+[ext_resource type="Texture2D" uid="uid://c83t1t1caljnj" path="res://textures/checkpoint.png" id="1_uqdew"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4g3u"]
+atlas = ExtResource("1_uqdew")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aitbg"]
+atlas = ExtResource("1_uqdew")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmfks"]
+atlas = ExtResource("1_uqdew")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lnau"]
+atlas = ExtResource("1_uqdew")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8wba"]
+atlas = ExtResource("1_uqdew")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn612"]
+atlas = ExtResource("1_uqdew")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0jd2h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4g3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aitbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmfks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lnau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8wba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yn612")
+}],
+"loop": false,
+"name": &"check",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mq6h6"]
+size = Vector2(64, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1yer"]
+size = Vector2(50, 4)
+
+[node name="Checkpoint" type="Node2D" groups=["checkpoint"]]
+script = ExtResource("1_hjyyd")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(0, -64)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_0jd2h")
+animation = &"check"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -64)
+shape = SubResource("RectangleShape2D_mq6h6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Area2D"]
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/StaticBody2D"]
+position = Vector2(-7, -78)
+shape = SubResource("RectangleShape2D_p1yer")
+
+[node name="CheckpointPosition" type="Marker2D" parent="Area2D/StaticBody2D"]
+position = Vector2(-7, -95)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
