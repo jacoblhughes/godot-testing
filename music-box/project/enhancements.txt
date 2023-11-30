@@ -1,0 +1,1 @@
+When the cat falls, the animation loops I am guessing due to code. For now it is fixed

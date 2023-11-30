@@ -15,6 +15,13 @@ func _ready():
 	for trap in traps:
 		trap.touched_player.connect(_on_trap_touched_player)
 	#add the quit and stuff from the other one
+	var waters = get_tree().get_nodes_in_group("water")
+	for water in waters:
+		water.get_node("Area2D").body_entered.connect(_on_water_entered)
+	for water in waters:
+		water.get_node("Area2D").body_exited.connect(_on_water_exited)
+	for water in waters:
+		water.player_entered.connect(_on_character_entered)
 	exit.body_entered.connect(_on_exit_body_entered)
 	death_zone.body_entered.connect(_on_death_zone_body_entered)
 	pass # Replace with function body.
@@ -48,4 +55,19 @@ func _on_exit_body_entered(body):
 		player.active = false
 		await get_tree().create_timer(1.5).timeout
 		get_tree().change_scene_to_packed(next_level)
-	
+
+func _on_water_entered(body):
+
+	if body is Player:
+		player.velocity.y = 0
+		player.gravity = 100
+		player.under_water = true
+
+func _on_water_exited(body):
+
+	if body is Player:
+		player.gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+		player.under_water = false
+
+func _on_character_entered():
+	print("HERERERE")

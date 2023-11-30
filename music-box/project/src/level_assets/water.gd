@@ -1,7 +1,7 @@
-extends Area2D
+extends Node2D
 
-@onready var animated_sprite = $AnimatedSprite2D
-@export var jump_force = 400.00
+signal player_entered
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -12,8 +12,6 @@ func _process(delta):
 	pass
 
 
-func _on_body_entered(body):
-	if body is Player:
-		animated_sprite.play("jump")
-		body.jump(jump_force)
+func _on_area_2d_body_entered(body):
+	player_entered.emit()
 	pass # Replace with function body.
