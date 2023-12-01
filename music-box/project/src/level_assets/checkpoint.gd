@@ -2,7 +2,7 @@ extends Node2D
 
 signal checkpoint_touched
 @onready var animated_sprite = $Area2D/AnimatedSprite2D
-@onready var checkpoint_pos = $Area2D/StaticBody2D/CheckpointPosition
+@onready var checkpoint_pos = $Area2D/CheckpointPosition
 var checked = false
 # Called when the node enters the scene tree for the first time.
 func animate():

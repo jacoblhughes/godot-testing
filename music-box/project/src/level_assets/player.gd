@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 const SPEED = 200.00
-const JUMP_VELOCITY = 200.00
+const JUMP_VELOCITY = 250.00
 var active = true
 var under_water = false
 var falling = false
