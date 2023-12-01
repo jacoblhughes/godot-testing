@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://djulf7wiiwg8s"]
 
 [ext_resource type="Script" path="res://src/level_assets/water.gd" id="1_hbjdy"]
-[ext_resource type="Texture2D" uid="uid://c0a2gnipdg3mh" path="res://src/level_assets/tilemap_packed-sheet.png" id="1_m5nlg"]
+[ext_resource type="Texture2D" uid="uid://bbupug3wgep3m" path="res://textures/tilemap_packed-sheet.png" id="2_8pnds"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1i6wv"]
 size = Vector2(64, 56)
@@ -22,7 +22,7 @@ gravity = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 scale = Vector2(2, 2)
-texture = ExtResource("1_m5nlg")
+texture = ExtResource("2_8pnds")
 centered = false
 region_enabled = true
 region_rect = Rect2(112, 296, 32, 24)

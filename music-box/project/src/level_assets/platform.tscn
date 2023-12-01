@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2ueqn0c6h2hn"]
+
+[ext_resource type="Texture2D" uid="uid://c3j5ohywye13o" path="res://textures/platform_bed.png" id="1_vyda8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72tvr"]
+size = Vector2(64, 8)
+
+[node name="Platform" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(0, -16)
+texture = ExtResource("1_vyda8")
+region_enabled = true
+region_rect = Rect2(0, 0, 63, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_72tvr")
