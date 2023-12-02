@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnuxmnoxxwsjb"
-path="res://.godot/imported/yellow.png-dc170c7e356e87983f903fcd55db8276.ctex"
+uid="uid://dg00step4pkn2"
+path="res://.godot/imported/far_1.png-6780193273f2b7034c6862bda1ff1965.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/yellow.png"
-dest_files=["res://.godot/imported/yellow.png-dc170c7e356e87983f903fcd55db8276.ctex"]
+source_file="res://textures/level_1/far_1.png"
+dest_files=["res://.godot/imported/far_1.png-6780193273f2b7034c6862bda1ff1965.ctex"]
 
 [params]
 

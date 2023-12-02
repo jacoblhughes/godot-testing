@@ -19,11 +19,9 @@ region_enabled = true
 region_rect = Rect2(0, 0, 256, 192)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2(768, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
-position = Vector2(384, 600)
-scale = Vector2(3, 2)
+position = Vector2(128, 584)
 texture = ExtResource("3_2x17u")
 region_enabled = true
 region_rect = Rect2(0, 0, 256, 272)
