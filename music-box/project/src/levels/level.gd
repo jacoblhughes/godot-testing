@@ -4,6 +4,7 @@ extends Node2D
 @onready var start = $Start
 @onready var exit = $Exit
 @onready var death_zone = $DeathZone
+
 @export var next_level : PackedScene = null
 var respawn_position
 # Called when the node enters the scene tree for the first time.
@@ -26,6 +27,7 @@ func _ready():
 	var checkpoints = get_tree().get_nodes_in_group("checkpoint")
 	for checkpoint in checkpoints:
 		checkpoint.checkpoint_touched.connect(_on_checkpoint_entered)
+
 	pass # Replace with function body.
 
 
@@ -76,3 +78,4 @@ func _on_character_entered():
 
 func _on_checkpoint_entered(pos):
 	respawn_position=pos
+
