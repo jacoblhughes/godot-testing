@@ -1,9 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgtisycrmfnb7"]
 
 [ext_resource type="Texture2D" uid="uid://c4uuung0xkfqn" path="res://textures/level_1/middle_1.png" id="1_vf3xi"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fu1b"]
-size = Vector2(318, 20)
+[ext_resource type="PackedScene" uid="uid://xoxcpr50neg5" path="res://src/level_assets/solar_panel.tscn" id="2_1jlb1"]
 
 [node name="House" type="Node2D"]
 
@@ -13,16 +11,19 @@ scale = Vector2(3, 3)
 texture = ExtResource("1_vf3xi")
 flip_h = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_mask = 2
+[node name="SolarPanel" parent="." instance=ExtResource("2_1jlb1")]
+position = Vector2(-320, -448)
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(-340, -455)
-polygon = PackedVector2Array(-26, -11, 115, -11, 115, -50, 376, -50, 376, 4, -26, 4)
+[node name="SolarPanel2" parent="." instance=ExtResource("2_1jlb1")]
+position = Vector2(-176, -480)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-collision_mask = 2
+[node name="SolarPanel3" parent="." instance=ExtResource("2_1jlb1")]
+position = Vector2(-16, -480)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(225, -465)
-shape = SubResource("RectangleShape2D_7fu1b")
+[node name="SolarPanel4" parent="." instance=ExtResource("2_1jlb1")]
+position = Vector2(160, -448)
+
+[node name="SolarPanel5" parent="." instance=ExtResource("2_1jlb1")]
+position = Vector2(328, -448)
+
+[node name="SolarPanel6" parent="." instance=ExtResource("2_1jlb1")]
