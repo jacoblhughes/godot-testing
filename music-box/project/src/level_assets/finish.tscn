@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://de2simas1caav"]
+
+[ext_resource type="Script" path="res://src/level_assets/finish.gd" id="1_00b4c"]
+[ext_resource type="Texture2D" uid="uid://bim4rh1l8bsw0" path="res://textures/finish.png" id="2_dqilj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxxu4"]
+size = Vector2(32, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v57cn"]
+size = Vector2(91.5, 27.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m26uo"]
+size = Vector2(75.5, 8)
+
+[node name="Finish" type="Node2D"]
+script = ExtResource("1_00b4c")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -60)
+shape = SubResource("RectangleShape2D_cxxu4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -128)
+scale = Vector2(4, 4)
+texture = ExtResource("2_dqilj")
+
+[node name="SpawnPosition" type="Marker2D" parent="."]
+position = Vector2(0, -74)
+
+[node name="Static2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static2D"]
+position = Vector2(-1.75, -13.75)
+shape = SubResource("RectangleShape2D_v57cn")
+one_way_collision = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1.75, -52)
+shape = SubResource("RectangleShape2D_m26uo")
+one_way_collision = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

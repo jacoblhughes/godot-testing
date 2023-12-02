@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://f7tkuf2hwq1n" path="res://src/level_assets/dog.tscn" id="8_b356g"]
 [ext_resource type="Texture2D" uid="uid://lwxy8rx43aom" path="res://textures/dog_walk_2.png" id="9_fjgq8"]
 [ext_resource type="PackedScene" uid="uid://rf37w5ejwt3r" path="res://src/level_assets/start.tscn" id="10_v6hc6"]
-[ext_resource type="PackedScene" uid="uid://cc5shj5m3dsqk" path="res://src/level_assets/exit.tscn" id="11_mx2re"]
+[ext_resource type="PackedScene" uid="uid://de2simas1caav" path="res://src/level_assets/finish.tscn" id="11_mx2re"]
 [ext_resource type="PackedScene" uid="uid://fatdp2tmx3ru" path="res://src/level_assets/player.tscn" id="12_e42rf"]
 [ext_resource type="PackedScene" uid="uid://c2v576k47yum7" path="res://src/level_assets/medal.tscn" id="13_fic86"]
 

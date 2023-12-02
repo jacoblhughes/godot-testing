@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var player = null
 @onready var start = $Start
-@onready var exit = $Exit
+@onready var finish = $Finish
 @onready var death_zone = $DeathZone
 
 @export var next_level : PackedScene = null
@@ -22,7 +22,7 @@ func _ready():
 		water.player_entered.connect(_on_water_entered)
 	for water in waters:
 		water.player_exited.connect(_on_water_exited)
-	exit.body_entered.connect(_on_exit_body_entered)
+	finish.player_finish.connect(_on_finish_body_entered)
 	death_zone.body_entered.connect(_on_death_zone_body_entered)
 	var checkpoints = get_tree().get_nodes_in_group("checkpoint")
 	for checkpoint in checkpoints:
@@ -53,9 +53,9 @@ func reset_player():
 	player.velocity = Vector2.ZERO
 	player.global_position = respawn_position
 
-func _on_exit_body_entered(body):
+func _on_finish_body_entered(body):
 	if body is Player:
-		exit.animate()
+#		finish.animate()
 		player.active = false
 		await get_tree().create_timer(1.5).timeout
 		get_tree().change_scene_to_packed(next_level)
