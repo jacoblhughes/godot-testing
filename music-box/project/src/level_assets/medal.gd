@@ -2,10 +2,11 @@ extends Node2D
 
 signal medal_obtained
 @export var level : int = 1
-
-
+@export var medal_text : String = "Double Jump"
+@onready var medal_label = $Area2D/Label
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	medal_label.text = medal_text
 	pass # Replace with function body.
 
 

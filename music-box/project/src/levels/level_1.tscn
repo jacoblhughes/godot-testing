@@ -63,10 +63,10 @@ position = Vector2(1688, 648)
 position = Vector2(1800, 648)
 
 [node name="Platform6" parent="Platforms" instance=ExtResource("6_5wuee")]
-position = Vector2(3592, 328)
+position = Vector2(3600, 328)
 
 [node name="Platform7" parent="Platforms" instance=ExtResource("6_5wuee")]
-position = Vector2(3688, 304)
+position = Vector2(3728, 304)
 
 [node name="Checkpoints" type="Node2D" parent="."]
 
@@ -101,11 +101,11 @@ position = Vector2(480, 656)
 position = Vector2(584, 656)
 dog_texture = ExtResource("9_r7ufe")
 
-[node name="Medal" parent="." instance=ExtResource("15_iechj")]
-position = Vector2(2232, 416)
-
 [node name="DeathZone" parent="." instance=ExtResource("5_npbjr")]
 position = Vector2(2512, 728)
+
+[node name="Medal" parent="." instance=ExtResource("15_iechj")]
+position = Vector2(2232, 416)
 
 [node name="Start" parent="." instance=ExtResource("8_sngnh")]
 position = Vector2(104, 656)

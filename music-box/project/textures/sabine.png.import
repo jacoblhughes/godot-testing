@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kvqqimjrud21"
-path="res://.godot/imported/Start.png-6d87270c4c8beda05a798b52e4284ea1.ctex"
+uid="uid://b4fa61747iua2"
+path="res://.godot/imported/sabine.png-0e38609ce3ad39340e3f6d6cecdf6891.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/Start.png"
-dest_files=["res://.godot/imported/Start.png-6d87270c4c8beda05a798b52e4284ea1.ctex"]
+source_file="res://textures/sabine.png"
+dest_files=["res://.godot/imported/sabine.png-0e38609ce3ad39340e3f6d6cecdf6891.ctex"]
 
 [params]
 
