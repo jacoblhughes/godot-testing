@@ -6,6 +6,7 @@ extends Node2D
 @onready var death_zone = $DeathZone
 
 @export var next_level : PackedScene = null
+@export var level_number_for_powers : int = 1
 var respawn_position
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,7 +28,7 @@ func _ready():
 	var checkpoints = get_tree().get_nodes_in_group("checkpoint")
 	for checkpoint in checkpoints:
 		checkpoint.checkpoint_touched.connect(_on_checkpoint_entered)
-
+	player.unlock_power(level_number_for_powers - 1)
 	pass # Replace with function body.
 
 
@@ -73,8 +74,6 @@ func _on_water_exited(body):
 		player.gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 		player.under_water = false
 
-func _on_character_entered():
-	print("HERERERE")
 
 func _on_checkpoint_entered(pos):
 	respawn_position=pos
