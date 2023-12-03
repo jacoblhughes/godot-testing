@@ -1,50 +1,49 @@
-[gd_scene load_steps=15 format=3 uid="uid://i1wtdktnxbi"]
+[gd_scene load_steps=14 format=3 uid="uid://i1wtdktnxbi"]
 
 [ext_resource type="Script" path="res://src/level_assets/jump_pad.gd" id="1_la5lv"]
-[ext_resource type="Texture2D" uid="uid://bddpvandws824" path="res://textures/idle.png" id="1_tdxma"]
-[ext_resource type="Texture2D" uid="uid://bkmnarbl3jia8" path="res://textures/jump.png" id="2_joicp"]
+[ext_resource type="Texture2D" uid="uid://wn0b1nbl33vt" path="res://textures/jump_1.png" id="3_ciino"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ty1x6"]
-atlas = ExtResource("1_tdxma")
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjydt"]
+atlas = ExtResource("3_ciino")
+region = Rect2(196, 0, 28, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i34a8"]
+atlas = ExtResource("3_ciino")
 region = Rect2(0, 0, 28, 28)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o5yps"]
-atlas = ExtResource("2_joicp")
-region = Rect2(0, 0, 28, 28)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7wsvx"]
-atlas = ExtResource("2_joicp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kedch"]
+atlas = ExtResource("3_ciino")
 region = Rect2(28, 0, 28, 28)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ppr3x"]
-atlas = ExtResource("2_joicp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwawm"]
+atlas = ExtResource("3_ciino")
 region = Rect2(56, 0, 28, 28)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k0m7p"]
-atlas = ExtResource("2_joicp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ey37s"]
+atlas = ExtResource("3_ciino")
 region = Rect2(84, 0, 28, 28)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eghpr"]
-atlas = ExtResource("2_joicp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_w45ki"]
+atlas = ExtResource("3_ciino")
 region = Rect2(112, 0, 28, 28)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ps01q"]
-atlas = ExtResource("2_joicp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_258pp"]
+atlas = ExtResource("3_ciino")
 region = Rect2(140, 0, 28, 28)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g7i04"]
-atlas = ExtResource("2_joicp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_deyid"]
+atlas = ExtResource("3_ciino")
 region = Rect2(168, 0, 28, 28)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tm055"]
-atlas = ExtResource("2_joicp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qs0d1"]
+atlas = ExtResource("3_ciino")
 region = Rect2(196, 0, 28, 28)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a3km5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ty1x6")
+"texture": SubResource("AtlasTexture_yjydt")
 }],
 "loop": false,
 "name": &"idle",
@@ -52,28 +51,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o5yps")
+"texture": SubResource("AtlasTexture_i34a8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7wsvx")
+"texture": SubResource("AtlasTexture_kedch")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ppr3x")
+"texture": SubResource("AtlasTexture_jwawm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k0m7p")
+"texture": SubResource("AtlasTexture_ey37s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eghpr")
+"texture": SubResource("AtlasTexture_w45ki")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ps01q")
+"texture": SubResource("AtlasTexture_258pp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g7i04")
+"texture": SubResource("AtlasTexture_deyid")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tm055")
+"texture": SubResource("AtlasTexture_qs0d1")
 }],
 "loop": false,
 "name": &"jump",
@@ -90,7 +89,7 @@ script = ExtResource("1_la5lv")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_a3km5")
-animation = &"jump"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9)

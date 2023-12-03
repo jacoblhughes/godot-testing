@@ -45,11 +45,12 @@ layer_0/tile_data = PackedInt32Array(2686978, 458752, 4, 2686979, 458752, 4, 268
 [node name="Platforms" type="Node2D" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("6_0j7d6")]
-position = Vector2(351, 590)
+position = Vector2(400, 590)
 platform_choice = 2
+platform_scale = Vector2(-1, 1)
 
 [node name="Platform2" parent="Platforms" instance=ExtResource("6_0j7d6")]
-position = Vector2(240, 512)
+position = Vector2(400, 524)
 platform_choice = 2
 
 [node name="Checkpoints" type="Node2D" parent="."]
@@ -74,7 +75,7 @@ position = Vector2(3024, 656)
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="JumpPad" parent="Objects" instance=ExtResource("8_c5g3g")]
-position = Vector2(248, 656)
+position = Vector2(400, 656)
 
 [node name="Traps" type="Node2D" parent="."]
 
