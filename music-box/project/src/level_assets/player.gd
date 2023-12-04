@@ -11,7 +11,7 @@ var double_jump_unlocked = false
 var jumps = 0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+var dash_unlocked = false
 @onready var animated_sprite = $AnimatedSprite2D
 #test
 func _physics_process(delta):
@@ -22,6 +22,10 @@ func _physics_process(delta):
 		jumps = 0
 	var direction = 0
 	if active == true:
+
+		if !under_water and Input.is_action_just_pressed('jump'):
+			pass
+
 		if under_water and Input.is_action_just_pressed("jump"):
 			jump(JUMP_VELOCITY/2)
 		if !under_water and Input.is_action_just_pressed("jump") and Input.is_action_pressed("move_down"):
@@ -34,6 +38,9 @@ func _physics_process(delta):
 			
 			
 		direction = Input.get_axis("move_left", "move_right")
+		if Input.is_action_just_pressed('dash'):
+			print('heeeeeee')
+			velocity.x = direction * 2000
 	if direction !=0:
 		idle_time = 0
 		animated_sprite.flip_h = (direction < 0)
@@ -52,7 +59,10 @@ func _physics_process(delta):
 func jump(pulse_velocity):
 	velocity.y = -pulse_velocity
 
-
+func dash(dash_velocity):
+	print('dashed')
+	velocity.x = dash_velocity
+	velocity.y = 200
 func _update_animations(direction):
 	if is_on_floor():
 		if direction == 0:
@@ -71,6 +81,9 @@ func _update_animations(direction):
 			animated_sprite.play('fall')
 
 func unlock_power(level_for_power):
-	if level_for_power ==  1:
-		double_jump_unlocked = true
-	pass
+	for i in level_for_power:
+		if level_for_power ==  1:
+			double_jump_unlocked = true
+		if level_for_power == 2:
+			dash_unlocked == true
+		pass

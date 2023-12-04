@@ -29,5 +29,3 @@ func _process(delta):
 
 	pass
 
-func testing():
-	print('here')
