@@ -1,4 +1,14 @@
+
+Make a way for the project viewpiort to easily switch for phone takes
+
+
+
+
+
 When the cat falls, the animation loops I am guessing due to code. For now it is fixed
+
+
+
 
 	Spikes:
 		Spikes are a classic obstacle in platformers. They can be placed on the ground or on walls to harm the player upon contact.

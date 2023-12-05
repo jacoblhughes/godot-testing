@@ -28,7 +28,7 @@ func _ready():
 	var checkpoints = get_tree().get_nodes_in_group("checkpoint")
 	for checkpoint in checkpoints:
 		checkpoint.checkpoint_touched.connect(_on_checkpoint_entered)
-	player.unlock_power(level_number_for_powers - 1)
+	player.unlock_power(level_number_for_powers)
 	pass # Replace with function body.
 
 
