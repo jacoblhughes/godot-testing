@@ -3,15 +3,18 @@ class_name Player
 
 const SPEED = 200.00
 const JUMP_VELOCITY = 250.00
+const DASH_VELOCITY = 800.00
 var active = true
 var under_water = false
 var falling = false
 var idle_time = 0
 var double_jump_unlocked = false
 var jumps = 0
+var dash_direction = 1
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var dash_unlocked = false
+var can_dash = true
 @onready var animated_sprite = $AnimatedSprite2D
 #test
 func _physics_process(delta):
@@ -22,7 +25,10 @@ func _physics_process(delta):
 		jumps = 0
 	var direction = 0
 	if active == true:
-		if Input.is_action_just_pressed('dash'):
+		if Input.is_action_just_pressed('dash') and dash_unlocked:
+#			dash(DASH_VELOCITY)
+			move_and_collide(Vector2(50,0)*dash_direction)
+			print('dash')
 			pass
 		if under_water and Input.is_action_just_pressed("jump"):
 			jump(JUMP_VELOCITY/2)
@@ -40,6 +46,10 @@ func _physics_process(delta):
 	if direction !=0:
 		idle_time = 0
 		animated_sprite.flip_h = (direction < 0)
+		if direction < 0:
+			dash_direction = -1
+		elif direction >0:
+			dash_direction = 1 
 	else:
 		idle_time += delta
 	if direction:
@@ -56,9 +66,9 @@ func jump(pulse_velocity):
 	velocity.y = -pulse_velocity
 
 func dash(dash_velocity):
-	print('dashed')
+	
 	velocity.x = dash_velocity
-	velocity.y = 200
+
 func _update_animations(direction):
 	if is_on_floor():
 		if direction == 0:
