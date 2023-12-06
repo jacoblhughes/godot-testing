@@ -1,7 +1,8 @@
-[gd_scene load_steps=44 format=3 uid="uid://fatdp2tmx3ru"]
+[gd_scene load_steps=45 format=3 uid="uid://fatdp2tmx3ru"]
 
 [ext_resource type="Script" path="res://src/level_assets/player.gd" id="1_vuvew"]
 [ext_resource type="Texture2D" uid="uid://b4fa61747iua2" path="res://textures/sabine.png" id="2_b5mpe"]
+[ext_resource type="Texture2D" uid="uid://do0ordsr4jbha" path="res://textures/parachute.png" id="2_sltna"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0vgo8"]
 atlas = ExtResource("2_b5mpe")
@@ -316,6 +317,11 @@ size = Vector2(22, 21)
 collision_layer = 2
 collision_mask = 77
 script = ExtResource("1_vuvew")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -37)
+texture = ExtResource("2_sltna")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)

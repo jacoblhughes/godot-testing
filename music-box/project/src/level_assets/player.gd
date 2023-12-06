@@ -22,6 +22,7 @@ var direction=0
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var dash_timer = $DashTimer
+@onready var sprite = $Sprite2D
 #test
 
 func _ready():
@@ -77,6 +78,7 @@ func jump(pulse_velocity):
 
 func dash():
 	gravity = glider_gravity
+	sprite.visible = true
 	dash_timer.start()
 	can_dash = false
 	movement_speed = DASH_VELOCITY
@@ -108,6 +110,7 @@ func unlock_power(level_for_power):
 
 
 func _on_dash_timer_timeout():
+	sprite.visible = false
 	gravity = default_gravity
 	movement_speed = SPEED
 	can_dash = true
