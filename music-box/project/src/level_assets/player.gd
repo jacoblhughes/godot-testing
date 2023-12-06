@@ -2,8 +2,9 @@ extends CharacterBody2D
 class_name Player
 
 const SPEED = 200.00
-const JUMP_VELOCITY = 250.00
-const DASH_VELOCITY = 800.00
+var	movement_speed = 0
+const JUMP_VELOCITY = 275.00
+const DASH_VELOCITY = 400.00
 var active = true
 var under_water = false
 var falling = false
@@ -12,23 +13,33 @@ var double_jump_unlocked = false
 var jumps = 0
 var dash_direction = 1
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var default_gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var glider_gravity = 100
+var gravity
 var dash_unlocked = false
 var can_dash = true
+var direction=0
+
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var dash_timer = $DashTimer
 #test
+
+func _ready():
+	movement_speed = SPEED
+	gravity = default_gravity
+	
 func _physics_process(delta):
 
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else:
 		jumps = 0
-	var direction = 0
+		
+	direction = 0
 	if active == true:
 		if Input.is_action_just_pressed('dash') and dash_unlocked:
-#			dash(DASH_VELOCITY)
-			move_and_collide(Vector2(50,0)*dash_direction)
-			print('dash')
+			if can_dash:
+				dash()
 			pass
 		if under_water and Input.is_action_just_pressed("jump"):
 			jump(JUMP_VELOCITY/2)
@@ -43,31 +54,32 @@ func _physics_process(delta):
 			
 		direction = Input.get_axis("move_left", "move_right")
 
-	if direction !=0:
+	if direction < 0:
+		dash_direction = -1
+	elif direction >0:
+		dash_direction = 1 
+		
+	if direction:
 		idle_time = 0
 		animated_sprite.flip_h = (direction < 0)
-		if direction < 0:
-			dash_direction = -1
-		elif direction >0:
-			dash_direction = 1 
+		velocity.x = direction * movement_speed
 	else:
 		idle_time += delta
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		velocity.x = move_toward(velocity.x, 0, movement_speed)
 	_update_animations(direction)
 	move_and_slide()
+
 
 
 
 func jump(pulse_velocity):
 	velocity.y = -pulse_velocity
 
-func dash(dash_velocity):
-	
-	velocity.x = dash_velocity
+func dash():
+	gravity = glider_gravity
+	dash_timer.start()
+	can_dash = false
+	movement_speed = DASH_VELOCITY
 
 func _update_animations(direction):
 	if is_on_floor():
@@ -87,9 +99,16 @@ func _update_animations(direction):
 			animated_sprite.play('fall')
 
 func unlock_power(level_for_power):
-	for i in level_for_power:
-		if level_for_power ==  1:
+	for level in range(1, level_for_power + 1):
+		if level == 1:
 			double_jump_unlocked = true
-		if level_for_power == 2:
+		elif level == 2:
 			dash_unlocked = true
-		pass
+	pass
+
+
+func _on_dash_timer_timeout():
+	gravity = default_gravity
+	movement_speed = SPEED
+	can_dash = true
+	pass # Replace with function body.

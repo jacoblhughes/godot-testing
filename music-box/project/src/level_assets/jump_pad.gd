@@ -14,6 +14,7 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body is Player:
+		body.jumps=0
 		animated_sprite.play("jump")
 		body.jump(jump_force)
 	pass # Replace with function body.

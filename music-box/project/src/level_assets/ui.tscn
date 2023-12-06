@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb8esxq0hjwo5"]
+
+[ext_resource type="PackedScene" uid="uid://cpjoo6hp7rcmg" path="res://src/level_assets/win_screen.tscn" id="1_krtlk"]
+[ext_resource type="Script" path="res://src/level_assets/ui.gd" id="1_ufdrw"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_ufdrw")
+
+[node name="WinScreen" parent="." instance=ExtResource("1_krtlk")]
+visible = false

@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://c8y0frtw0fs06"]
+[gd_scene load_steps=19 format=3 uid="uid://c8y0frtw0fs06"]
 
 [ext_resource type="Script" path="res://src/levels/level.gd" id="1_ambk5"]
 [ext_resource type="PackedScene" uid="uid://fatdp2tmx3ru" path="res://src/level_assets/player.tscn" id="2_bm34k"]
 [ext_resource type="PackedScene" uid="uid://cdjrv20cbxuat" path="res://src/levels/level_2.tscn" id="2_gume1"]
 [ext_resource type="PackedScene" uid="uid://bps0uy7stune2" path="res://src/level_assets/bg.tscn" id="2_pdjmq"]
+[ext_resource type="PackedScene" uid="uid://bb8esxq0hjwo5" path="res://src/level_assets/ui.tscn" id="4_3elkp"]
 [ext_resource type="TileSet" uid="uid://drebtprpx30ut" path="res://src/level_tileset.tres" id="4_a2n5s"]
 [ext_resource type="PackedScene" uid="uid://i1wtdktnxbi" path="res://src/level_assets/jump_pad.tscn" id="4_pnrf6"]
 [ext_resource type="PackedScene" uid="uid://bi4jrum8jm2th" path="res://src/level_assets/death_zone.tscn" id="5_npbjr"]
@@ -36,6 +37,8 @@ theme = SubResource("Theme_w0bue")
 [node name="BG" parent="." instance=ExtResource("2_pdjmq")]
 far_motion = Vector2(0, 0)
 close_motion = Vector2(0.25, 1)
+
+[node name="UI" parent="." instance=ExtResource("4_3elkp")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("4_a2n5s")

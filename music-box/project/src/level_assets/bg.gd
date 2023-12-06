@@ -10,12 +10,14 @@ extends ParallaxBackground
 @export var close_motion = Vector2(1,1)
 @onready var close_sprite = $ParallaxLayer2/Sprite2D
 @onready var close_parallax = $ParallaxLayer2
+@export var far_parallax_mirror_y = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	far_sprite.texture = far_texture
 	close_sprite.texture = close_texture
 	far_parallax.motion_scale = far_motion
 	close_parallax.motion_scale = close_motion
+	far_parallax.motion_mirroring.y = far_parallax_mirror_y
 	pass # Replace with function body.
 
 

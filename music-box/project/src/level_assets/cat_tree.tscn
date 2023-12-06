@@ -29,7 +29,6 @@ one_way_collision = true
 position = Vector2(-135, -850)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_u6m0c")
 one_way_collision = true
 
@@ -58,7 +57,6 @@ one_way_collision = true
 position = Vector2(-55, -920)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
-position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_u6m0c")
 one_way_collision = true
 
