@@ -1,7 +1,6 @@
-<REAPER_PROJECT 0.1 "6.81/win64" 1701918144
+<REAPER_PROJECT 0.1 "6.81/win64" 1701917450
   <NOTES 0 2
   >
-  UNDO_FTS 1701918144
   RIPPLE 0
   GROUPOVERRIDE 0 0 0
   AUTOXFADE 129
@@ -17,8 +16,8 @@
   TIMEMODE 1 5 -1 30 0 0 -1
   VIDEO_CONFIG 0 0 256
   PANMODE 3
-  CURSOR 2
-  ZOOM 25.47655226259529 0 0
+  CURSOR 37.25
+  ZOOM 100.00000000000026 3258 0
   VZOOMEX 5 0
   USE_REC_CFG 0
   RECMODE 1
@@ -105,7 +104,7 @@
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 1
+    SEL 0
     REC 0 5056 1 0 0 0 0 0
     VU 2
     TRACKHEIGHT 81 0 0 0 0 0
@@ -140,7 +139,7 @@
       FADEIN 1 0 0 1 0 0 0
       FADEOUT 1 0 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {2A39AA8A-E2A2-4472-9C5E-04679738E07A}
       IID 1
       NAME "untitled MIDI item"
@@ -153,32 +152,46 @@
         HASDATA 1 960 QN
         CCINTERP 32
         POOLEDEVTS {5276D70B-BF82-4A22-A7B0-E76E2F4D56E1}
-        E 0 90 30 60
-        E 720 80 30 00
-        E 0 90 32 60
-        E 480 80 32 00
-        E 0 90 35 60
-        E 720 80 35 00
-        E 0 90 39 60
-        E 480 80 39 00
-        E 480 90 3c 60
-        E 1920 80 3c 00
-        E 0 90 39 60
-        E 720 80 39 00
-        E 0 90 3b 60
-        E 720 80 3b 00
-        E 0 90 39 60
-        E 720 80 39 00
-        E 0 90 37 60
-        E 720 80 37 00
-        E 7680 b0 7b 00
+        E 0 90 3e 60
+        E 240 80 3e 00
+        E 240 90 3e 60
+        E 240 80 3e 00
+        E 240 90 3e 60
+        E 240 80 3e 00
+        E 240 90 3e 60
+        E 240 80 3e 00
+        E 240 90 3e 60
+        E 240 80 3e 00
+        E 240 90 39 60
+        E 240 80 39 00
+        E 240 90 3c 60
+        E 240 80 3c 00
+        E 240 90 3e 60
+        E 240 80 3e 00
+        e 240 90 3e 60
+        e 240 80 3e 00
+        e 240 90 3e 60
+        e 240 80 3e 00
+        e 240 90 3e 60
+        e 240 80 3e 00
+        e 240 90 3e 60
+        e 240 80 3e 00
+        e 240 90 3e 60
+        e 240 80 3e 00
+        e 240 90 39 60
+        e 240 80 39 00
+        e 240 90 3c 60
+        e 240 80 3c 00
+        e 240 90 3e 60
+        e 240 80 3e 00
+        E 240 b0 7b 00
         CCINTERP 32
         CHASE_CC_TAKEOFFS 1
         GUID {1F8222CE-E46B-4475-B7FF-1A63623FB64F}
         IGNTEMPO 0 120 4 4
         SRCCOLOR 0
         VELLANE 31 191 0
-        CFGEDITVIEW -859.102174 0.089249 44 12 0 -1 0 0 0 0.5
+        CFGEDITVIEW -752.200196 0.160367 44 12 0 -1 0 0 0 0.5
         KEYSNAP 0
         TRACKSEL 252
         EVTFILTER 1 -1 -1 -1 -1 0 0 0 0 -1 -1 -1 -1 0 -1 0 -1 -1
@@ -398,7 +411,7 @@
       FADEIN 1 0 0 1 0 0 0
       FADEOUT 1 0 0 1 0 0 0
       MUTE 0 0
-      SEL 0
+      SEL 1
       IGUID {1EFBC099-4635-484E-97C8-6508EB5CC024}
       IID 25
       NAME "untitled MIDI item"
@@ -805,7 +818,7 @@
       FADEIN 1 0 0 1 0 0 0
       FADEOUT 1 0 0 1 0 0 0
       MUTE 0 0
-      SEL 0
+      SEL 1
       IGUID {2C311A6A-E148-4765-821F-4F7FF1BB79B3}
       IID 9
       NAME "untitled MIDI item"
@@ -953,7 +966,7 @@
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 0
+    SEL 1
     REC 1 4096 1 0 0 0 0 0
     VU 2
     TRACKHEIGHT 64 0 0 0 0 0
@@ -1165,7 +1178,7 @@
       FADEIN 1 0 0 1 0 0 0
       FADEOUT 1 0 0 1 0 0 0
       MUTE 0 0
-      SEL 0
+      SEL 1
       IGUID {4A496755-1FC3-4B02-847F-390F4A6EB014}
       IID 19
       NAME "untitled MIDI item"
