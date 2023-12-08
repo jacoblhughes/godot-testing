@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ooybq0jovfgh"]
+[gd_scene load_steps=3 format=3 uid="uid://ooybq0jovfgh"]
 
+[ext_resource type="Script" path="res://src/levels/AudioManager.gd" id="1_5tcpx"]
 [ext_resource type="AudioStream" uid="uid://bhbos0qhufmlh" path="res://src/audio/MeowMix.wav" id="1_orus8"]
 
 [node name="AudioManager" type="Node"]
+script = ExtResource("1_5tcpx")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_orus8")

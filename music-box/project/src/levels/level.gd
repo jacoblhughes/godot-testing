@@ -53,14 +53,17 @@ func _process(delta):
 
 
 func _on_death_zone_body_entered(body):
+	AudioManager.play_sfx('hurt')
 	reset_player()
 	pass # Replace with function body.
 
 func _on_trap_touched_player():
+	AudioManager.play_sfx('hurt')
 	reset_player()
 	pass
 	
 func reset_player():
+
 	player.velocity = Vector2.ZERO
 	player.global_position = respawn_position
 

@@ -74,7 +74,9 @@ func _physics_process(delta):
 
 
 func jump(pulse_velocity):
+	AudioManager.play_sfx("jump")
 	velocity.y = -pulse_velocity
+	
 
 func dash():
 	gravity = glider_gravity

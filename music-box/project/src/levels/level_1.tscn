@@ -24,6 +24,7 @@
 script = ExtResource("1_ambk5")
 next_level = ExtResource("2_gume1")
 level_number_for_powers = 0
+checkpoint_spawn = 2
 metadata/_edit_horizontal_guides_ = [384.0, 376.0, 295.0]
 
 [node name="ColorRect" type="ColorRect" parent="."]

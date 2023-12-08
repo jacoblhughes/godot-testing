@@ -21,6 +21,7 @@
 
 [node name="Level_2" type="Node2D"]
 script = ExtResource("1_6yd3m")
+checkpoint_spawn = 1
 last_level = true
 metadata/_edit_horizontal_guides_ = [-624.0]
 
@@ -108,9 +109,8 @@ position = Vector2(2048, -702)
 platform_choice = 2
 
 [node name="Platform16" parent="Platforms" instance=ExtResource("6_0j7d6")]
-position = Vector2(2368, -512)
+position = Vector2(2368, -728)
 platform_choice = 2
-platform_scale = Vector2(1, -1)
 
 [node name="Platform17" parent="Platforms" instance=ExtResource("6_0j7d6")]
 position = Vector2(2496, -624)
@@ -120,9 +120,8 @@ platform_choice = 1
 position = Vector2(2816, -624)
 
 [node name="Platform19" parent="Platforms" instance=ExtResource("6_0j7d6")]
-position = Vector2(3008, -512)
+position = Vector2(3008, -752)
 platform_choice = 2
-platform_scale = Vector2(1, -1)
 
 [node name="Platform20" parent="Platforms" instance=ExtResource("6_0j7d6")]
 position = Vector2(3160, -624)
