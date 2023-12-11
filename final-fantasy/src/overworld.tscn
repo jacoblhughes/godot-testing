@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c2lidbaa5pgf7"]
+
+[node name="Overworld" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
