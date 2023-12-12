@@ -1,8 +1,14 @@
-[gd_scene format=3 uid="uid://c2lidbaa5pgf7"]
+[gd_scene load_steps=3 format=3 uid="uid://c2lidbaa5pgf7"]
+
+[ext_resource type="Texture2D" uid="uid://cu8jrgf6ghhyi" path="res://src/luryn_worldmap.png" id="1_10vv7"]
+[ext_resource type="PackedScene" uid="uid://b7ttvlj3agwll" path="res://src/player_overworld.tscn" id="2_e3874"]
 
 [node name="Overworld" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2560, 1280)
+scale = Vector2(2, 2.002)
+texture = ExtResource("1_10vv7")
 
-[node name="TileMap" type="TileMap" parent="."]
-format = 2
+[node name="Player" parent="." instance=ExtResource("2_e3874")]
+position = Vector2(3424, 2288)
