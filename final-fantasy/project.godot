@@ -10,15 +10,6 @@ config_version=5
 
 [application]
 
-config/name="FirstContoller"
-run/main_scene="res://src/main/main.tscn"
+config/name="FinalFantasy"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
-
-[input]
-
-joystick_left={
-"deadzone": 0.5,
-"events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":0,"axis_value":-1.0,"script":null)
-]
-}
