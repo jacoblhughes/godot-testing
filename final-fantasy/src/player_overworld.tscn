@@ -1,20 +1,151 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7ttvlj3agwll"]
+[gd_scene load_steps=10 format=3 uid="uid://b7ttvlj3agwll"]
 
-[ext_resource type="Texture2D" uid="uid://uwtcv03stx6b" path="res://icon.svg" id="1_apicj"]
 [ext_resource type="Script" path="res://src/player_overworld.gd" id="1_j64ac"]
+[ext_resource type="Texture2D" uid="uid://bfhpfqmul5e7p" path="res://src/body.png" id="2_hhp44"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sec32"]
 size = Vector2(16, 16)
 
+[sub_resource type="Animation" id="Animation_oykbe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [48]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_j17ie"]
+resource_name = "move"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 48, 49, 50]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ffbjo"]
+resource_name = "move_up"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [52, 53, 54, 52, 53, 54]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_0q4ls"]
+resource_name = "move_side"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [64, 65, 66, 67, 68, 69]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x0ejc"]
+_data = {
+"RESET": SubResource("Animation_oykbe"),
+"move_down": SubResource("Animation_j17ie"),
+"move_side": SubResource("Animation_0q4ls"),
+"move_up": SubResource("Animation_ffbjo")
+}
+
+[sub_resource type="AnimationRootNode" id="AnimationRootNode_shsl4"]
+
 [node name="Player" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_j64ac")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.125, 0.125)
-texture = ExtResource("1_apicj")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_hhp44")
+hframes = 16
+vframes = 16
+frame = 48
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sec32")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+limit_left = -1920
+limit_top = -1920
+limit_right = 1920
+limit_bottom = 1920
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x0ejc")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationRootNode_shsl4")
+anim_player = NodePath("../AnimationPlayer")
