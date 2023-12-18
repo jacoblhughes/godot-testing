@@ -1,5 +1,6 @@
 res://main.tscn
 res://player.tscn
 res://mob.tscn
-res://main.gd
-res://score_label.gd
+res://music_player.tscn
+res://player_mesh.tscn
+res://perry_test_mesh.tscn
