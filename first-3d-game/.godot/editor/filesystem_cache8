@@ -1,10 +1,15 @@
 ea4bc82a6ad023ab7ee23ee620429895
+<<<<<<< HEAD
 ::res://::1702937069
+=======
+::res://::1702861430
+>>>>>>> 5a3dd82d23446d3f535b18cdff72347f5645ae54
 animation_player.tscn::PackedScene::1741851447014426756::1702851209::0::1::::<><>::
 default_bus_layout.tres::AudioBusLayout::-1::1702757484::0::1::::<><>::
 default_env.tres::Environment::-1::1702757484::0::1::::<><>::
 icon.png::CompressedTexture2D::3992201748504897617::1702757409::1702757512::1::::<><>::
 main.gd::GDScript::-1::1702824638::0::1::::<>Node<>::
+<<<<<<< HEAD
 main.tscn::PackedScene::2540254997185605961::1702861707::0::1::::<><>::res://main.gd<>uid://cnlirpbudccmv::::res://player.tscn<>uid://co3afwdf18sx8::::res://mob.tscn<>res://score_label.gd
 mob.gd::GDScript::-1::1702829369::0::1::::<>CharacterBody3D<>::
 mob.tscn::PackedScene::5813297844813210623::1702861707::0::1::::<><>::uid://dqrup311p15au::::res://art/mob.glb<>res://mob.gd
@@ -14,6 +19,17 @@ perry_test_mesh.tscn::PackedScene::7430524650866830444::1702861708::0::1::::<><>
 player.gd::GDScript::-1::1702829320::0::1::::<>CharacterBody3D<>::
 player.tscn::PackedScene::5708521374721650997::1702861707::0::1::::<><>::res://player.gd<>uid://dd4nwjvkvjiqu::::res://perry_test_mesh.tscn<>uid://y21bk50q8eci::::res://animation_player.tscn
 player_mesh.tscn::PackedScene::2709668223705983123::1702861708::0::1::::<><>::uid://bti17blqurho5::::res://art/player.glb
+=======
+main.tscn::PackedScene::2540254997185605961::1702852891::0::1::::<><>::res://main.gd<>uid://cnlirpbudccmv::::res://player.tscn<>uid://co3afwdf18sx8::::res://mob.tscn<>res://score_label.gd
+mob.gd::GDScript::-1::1702829369::0::1::::<>CharacterBody3D<>::
+mob.tscn::PackedScene::5813297844813210623::1702852891::0::1::::<><>::uid://dqrup311p15au::::res://art/mob.glb<>res://mob.gd
+music_player.tscn::PackedScene::2642007105795943225::1702852891::0::1::::<><>::uid://bbp1mcjsqlkmi::::res://art/House In a Forest Loop.ogg
+perry_test.glb::PackedScene::6146943196672557512::1702851868::1702851694::1::::<><>::
+perry_test_mesh.tscn::PackedScene::7430524650866830444::1702852908::0::1::::<><>::uid://cttviyml4rbh5::::res://perry_test.glb
+player.gd::GDScript::-1::1702829320::0::1::::<>CharacterBody3D<>::
+player.tscn::PackedScene::5708521374721650997::1702852891::0::1::::<><>::res://player.gd<>uid://dd4nwjvkvjiqu::::res://perry_test_mesh.tscn<>uid://y21bk50q8eci::::res://animation_player.tscn
+player_mesh.tscn::PackedScene::2709668223705983123::1702852892::0::1::::<><>::uid://bti17blqurho5::::res://art/player.glb
+>>>>>>> 5a3dd82d23446d3f535b18cdff72347f5645ae54
 score_label.gd::GDScript::-1::1702824638::0::1::::<>Label<>::
 ::res://art/::1702851704
 body.material::StandardMaterial3D::-1::1702757409::0::1::::<><>::
@@ -24,7 +40,11 @@ mob_body.material::StandardMaterial3D::-1::1702757409::0::1::::<><>::
 mob_eye.material::StandardMaterial3D::-1::1702757409::0::1::::<><>::
 player.glb::PackedScene::3738159592335648286::1702757409::1702757513::1::::<><>::
 pupil.material::StandardMaterial3D::-1::1702757409::0::1::::<><>::
+<<<<<<< HEAD
 ::res://assets/::1702868027
+=======
+::res://assets/::1702852921
+>>>>>>> 5a3dd82d23446d3f535b18cdff72347f5645ae54
 ::res://fonts/::1702757512
 LICENSE.txt::TextFile::-1::1702757409::0::1::::<><>::
 Montserrat-Medium.ttf::FontFile::4550737178909343143::1702757409::1702757512::1::::<><>::
