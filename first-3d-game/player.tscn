@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnlirpbudccmv"]
+[gd_scene load_steps=6 format=3 uid="uid://cnlirpbudccmv"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_8ibe4"]
-[ext_resource type="PackedScene" uid="uid://bti17blqurho5" path="res://art/player.glb" id="1_dud0m"]
+[ext_resource type="PackedScene" uid="uid://dd4nwjvkvjiqu" path="res://perry_test_mesh.tscn" id="2_e3f14"]
+[ext_resource type="PackedScene" uid="uid://y21bk50q8eci" path="res://animation_player.tscn" id="3_vwlqs"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bnfxw"]
 radius = 1.039
@@ -15,7 +16,9 @@ script = ExtResource("1_8ibe4")
 
 [node name="Pivot" type="Node3D" parent="."]
 
-[node name="Character" parent="Pivot" instance=ExtResource("1_dud0m")]
+[node name="Character" type="Node3D" parent="Pivot"]
+
+[node name="perry_test" parent="Pivot/Character" instance=ExtResource("2_e3f14")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_bnfxw")
@@ -29,5 +32,7 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MobDetector"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_02a14")
+
+[node name="AnimationPlayer" parent="." instance=ExtResource("3_vwlqs")]
 
 [connection signal="body_entered" from="MobDetector" to="." method="_on_mob_detector_body_entered"]
