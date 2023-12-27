@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 35.0
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
+@onready var camera : Camera2D = $Camera2D
 
 func _physics_process(delta):
 	var direction_x = Input.get_axis("move_left", "move_right")
@@ -31,3 +32,9 @@ func _physics_process(delta):
 		animation_player.stop()
 
 	move_and_slide()
+
+func setCameraLimits(left = -1920, right = 1920, top = 1920, bottom = -1920):
+	camera.limit_left = left
+	camera.limit_right = right
+	camera.limit_top = top
+	camera.limit_bottom = bottom

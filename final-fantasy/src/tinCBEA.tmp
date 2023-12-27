@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://btlx1fjax4nnb"]
+
+[ext_resource type="Texture2D" uid="uid://ca7iaj4uys6vp" path="res://src/Tinaville.png" id="1_10rh7"]
+[ext_resource type="Script" path="res://src/tinaville.gd" id="1_uty3e"]
+[ext_resource type="PackedScene" uid="uid://b7ttvlj3agwll" path="res://src/player_overworld.tscn" id="2_4l4ju"]
+
+[node name="Tinaville" type="Node2D"]
+script = ExtResource("1_uty3e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(512, 256)
+texture = ExtResource("1_10rh7")
+region_enabled = true
+region_rect = Rect2(0, 0, 1024, 512)
+
+[node name="Player" parent="." instance=ExtResource("2_4l4ju")]
+position = Vector2(712, 370)
