@@ -7,6 +7,9 @@ const SPEED = 35.0
 @onready var camera : Camera2D = $Camera2D
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed('space'):
+		camera.zoom = Vector2(5,5)
+	
 	var direction_x = Input.get_axis("move_left", "move_right")
 	var direction_y = Input.get_axis("move_up", "move_down")
 
