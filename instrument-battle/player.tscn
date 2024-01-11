@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://hvcoab6g0vjf"]
+
+[ext_resource type="Texture2D" uid="uid://dwodaa26awmro" path="res://textures/gael.png" id="1_7ohli"]
+[ext_resource type="Script" path="res://player.gd" id="1_ekpax"]
+[ext_resource type="Texture2D" uid="uid://c7bp7pawio823" path="res://textures/trumpet.png" id="2_o7l4r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huqet"]
+atlas = ExtResource("1_7ohli")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfo0w"]
+atlas = ExtResource("1_7ohli")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ll7hk"]
+atlas = ExtResource("1_7ohli")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trih3"]
+atlas = ExtResource("1_7ohli")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_phssi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_huqet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfo0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ll7hk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trih3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h5sys"]
+radius = 55.0
+height = 238.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cpo47"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 150.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 2.0
+scale_max = 2.0
+color = Color(0.964706, 0.741176, 0.192157, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+collision_mask = 2
+script = ExtResource("1_ekpax")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_phssi")
+autoplay = "default"
+frame_progress = 0.140937
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_h5sys")
+
+[node name="Instrument" type="Node2D" parent="."]
+position = Vector2(69, 31)
+
+[node name="Sprite2D" type="Sprite2D" parent="Instrument"]
+scale = Vector2(0.398438, 0.398438)
+texture = ExtResource("2_o7l4r")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Instrument"]
+position = Vector2(49, -5)
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_cpo47")
