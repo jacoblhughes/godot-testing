@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvoeytnjf5ico"]
+[gd_scene load_steps=4 format=3 uid="uid://bvoeytnjf5ico"]
 
 [ext_resource type="PackedScene" uid="uid://hvcoab6g0vjf" path="res://player.tscn" id="1_jm3fm"]
+[ext_resource type="PackedScene" uid="uid://de1xdum8ka4np" path="res://enemy.tscn" id="2_sbjbo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wott4"]
 size = Vector2(576, 20)
 
 [node name="TestingGrounds" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_jm3fm")]
-position = Vector2(72, 352)
+[node name="EnemyGhost" parent="." instance=ExtResource("2_sbjbo")]
+position = Vector2(696, 272)
+motion_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("1_jm3fm")]
+position = Vector2(392, 272)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
