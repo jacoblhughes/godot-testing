@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="InstrumentBattle"
-run/main_scene="res://testing_grounds.tscn"
+run/main_scene="res://src/level/level.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -64,3 +64,7 @@ quit={
 2d_physics/layer_2="world"
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="instrument_attack"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

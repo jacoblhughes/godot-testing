@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chvjrvuocfyld"
-path="res://.godot/imported/ghost_player.png-0323be0a1f28a96cf8017b75e072dedb.ctex"
+uid="uid://ng8e5ot0dtpd"
+path="res://.godot/imported/square_foot.png-9e5f2a2a3212e3fdfcfd3d75c2f005b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/ghost_player.png"
-dest_files=["res://.godot/imported/ghost_player.png-0323be0a1f28a96cf8017b75e072dedb.ctex"]
+source_file="res://xextra/characters/happy_boo/square_foot.png"
+dest_files=["res://.godot/imported/square_foot.png-9e5f2a2a3212e3fdfcfd3d75c2f005b6.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

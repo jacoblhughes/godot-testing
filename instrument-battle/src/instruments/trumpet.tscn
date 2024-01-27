@@ -1,0 +1,155 @@
+[gd_scene load_steps=11 format=3 uid="uid://u80ieml52gji"]
+
+[ext_resource type="Script" path="res://src/instruments/trumpet.gd" id="1_tq87y"]
+[ext_resource type="Texture2D" uid="uid://c7bp7pawio823" path="res://textures/trumpet.png" id="2_j4h8u"]
+[ext_resource type="Texture2D" uid="uid://jsgcl8av7b0d" path="res://textures/trumpet_blast.png" id="3_mm3un"]
+
+[sub_resource type="Animation" id="Animation_b6ea8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Trumpet/Blast/Area2D/CollisionPolygon2D:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array()]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Trumpet/Blast/Area2D/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Trumpet/Blast/Area2D/Polygon2D:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array()]
+}
+
+[sub_resource type="Animation" id="Animation_wre6o"]
+resource_name = "blast"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Trumpet/Blast/Area2D/AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Trumpet/Blast/Area2D/CollisionPolygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [PackedVector2Array(), PackedVector2Array(0, 0, 24, -16, 24, 16), PackedVector2Array(0, 0, 48, -24, 48, 24), PackedVector2Array(0, 0, 72, -32, 72, 32)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Trumpet/Blast/Area2D/Polygon2D:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [PackedVector2Array(), PackedVector2Array(0, 0, 24, -16, 24, 16), PackedVector2Array(0, 0, 48, -24, 48, 24), PackedVector2Array(0, 0, 72, -32, 72, 32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4jal3"]
+_data = {
+"RESET": SubResource("Animation_b6ea8"),
+"blast": SubResource("Animation_wre6o")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvp4c"]
+atlas = ExtResource("3_mm3un")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frjgl"]
+atlas = ExtResource("3_mm3un")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0wy1"]
+atlas = ExtResource("3_mm3un")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6nsdn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvp4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frjgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0wy1")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Trumpet" type="Node2D"]
+position = Vector2(0, -16)
+script = ExtResource("1_tq87y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_4jal3")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16.5408, 0.0967407)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_j4h8u")
+
+[node name="Blast" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Blast"]
+collision_layer = 8
+collision_mask = 4
+
+[node name="Polygon2D" type="Polygon2D" parent="Blast/Area2D"]
+color = Color(1, 1, 1, 0.266667)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Blast/Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Blast/Area2D"]
+position = Vector2(32, 0)
+scale = Vector2(2, 1)
+sprite_frames = SubResource("SpriteFrames_6nsdn")
+
+[connection signal="body_entered" from="Blast/Area2D" to="." method="_on_blast_body_entered"]
