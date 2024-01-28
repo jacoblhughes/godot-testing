@@ -1,5 +1,6 @@
-extends Area2D
+extends Node
 
+var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,5 +11,5 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_body_entered(body):
-	print(body)
+func add_score(value):
+	score+=value
