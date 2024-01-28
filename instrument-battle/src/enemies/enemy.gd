@@ -3,6 +3,11 @@ class_name Enemy
 @export var health = 3
 @export var fade_scene : PackedScene
 @export var treasure_scene : PackedScene
+
+func _ready():
+	
+	pass
+
 func take_damage(amount):
 	health -= amount
 	if health == 0:

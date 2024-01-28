@@ -1,34 +1,34 @@
 [gd_scene load_steps=11 format=3 uid="uid://dxymmgg2y8g1m"]
 
-[ext_resource type="Script" path="res://xextra/smoke_explosion/smoke_explosion.gd" id="1_mk42r"]
-[ext_resource type="Texture2D" uid="uid://c5fmtr1hx0688" path="res://textures/ghost_smoke.png" id="2_iavo2"]
+[ext_resource type="Script" path="res://xextra/smoke_explosion/smoke_explosion.gd" id="1_qlq26"]
+[ext_resource type="Texture2D" uid="uid://c5fmtr1hx0688" path="res://textures/ghost_smoke.png" id="2_l51oj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i68ob"]
-atlas = ExtResource("2_iavo2")
+atlas = ExtResource("2_l51oj")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kidln"]
-atlas = ExtResource("2_iavo2")
+atlas = ExtResource("2_l51oj")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pcm3l"]
-atlas = ExtResource("2_iavo2")
+atlas = ExtResource("2_l51oj")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ia2dn"]
-atlas = ExtResource("2_iavo2")
+atlas = ExtResource("2_l51oj")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mdrh6"]
-atlas = ExtResource("2_iavo2")
+atlas = ExtResource("2_l51oj")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ogc5t"]
-atlas = ExtResource("2_iavo2")
+atlas = ExtResource("2_l51oj")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yy6c6"]
-atlas = ExtResource("2_iavo2")
+atlas = ExtResource("2_l51oj")
 region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o1e5m"]
@@ -62,7 +62,7 @@ animations = [{
 
 [node name="GhostSmoke" type="Node2D"]
 z_index = 10
-script = ExtResource("1_mk42r")
+script = ExtResource("1_qlq26")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true

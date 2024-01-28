@@ -1,9 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://hvcoab6g0vjf"]
+[gd_scene load_steps=19 format=3 uid="uid://hvcoab6g0vjf"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_myn5c"]
 [ext_resource type="Texture2D" uid="uid://chvjrvuocfyld" path="res://textures/ghost_player.png" id="3_psihw"]
 [ext_resource type="PackedScene" uid="uid://u80ieml52gji" path="res://src/instruments/trumpet.tscn" id="3_rd2bj"]
-[ext_resource type="Script" path="res://src/player/collect.gd" id="4_a1epd"]
+[ext_resource type="PackedScene" uid="uid://bjh0lvgjr5jhi" path="res://src/player/collect.tscn" id="4_660oc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_15wlj"]
 atlas = ExtResource("3_psihw")
@@ -111,9 +111,6 @@ animations = [{
 radius = 8.0
 height = 32.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d0mr2"]
-radius = 40.0
-
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 6
 motion_mode = 1
@@ -136,13 +133,5 @@ shape = SubResource("CapsuleShape2D_h5sys")
 
 [node name="Trumpet" parent="." instance=ExtResource("3_rd2bj")]
 
-[node name="Collect" type="Node2D" parent="."]
-script = ExtResource("4_a1epd")
-
-[node name="Area2D" type="Area2D" parent="Collect"]
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collect/Area2D"]
-shape = SubResource("CircleShape2D_d0mr2")
-
-[connection signal="area_entered" from="Collect/Area2D" to="Collect" method="_on_area_2d_area_entered"]
+[node name="Collect" parent="." instance=ExtResource("4_660oc")]
+position = Vector2(0, -16)
