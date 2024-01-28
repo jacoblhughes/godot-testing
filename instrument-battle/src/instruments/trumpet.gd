@@ -3,7 +3,7 @@ extends Node2D
 const DEADZONE = .25
 var can_blast = true
 @onready var attack_animation : AnimationPlayer = $AnimationPlayer
-@onready var blast_area : Area2D = $Blast/Area2D
+@onready var blast_area : Area2D = $Blast
 var enemies_list = []
 var damage_amount = 1
 # Called when the node enters the scene tree for the first time.

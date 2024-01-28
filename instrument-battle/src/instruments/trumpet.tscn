@@ -9,7 +9,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Trumpet/Blast/Area2D/CollisionPolygon2D:polygon")
+tracks/0/path = NodePath("Trumpet/Blast/CollisionPolygon2D:polygon")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -21,7 +21,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Trumpet/Blast/Area2D/AnimatedSprite2D:frame")
+tracks/1/path = NodePath("Trumpet/Blast/AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -33,7 +33,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Trumpet/Blast/Area2D/Polygon2D:polygon")
+tracks/2/path = NodePath("Trumpet/Blast/Polygon2D:polygon")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -49,7 +49,7 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Trumpet/Blast/Area2D/AnimatedSprite2D:frame")
+tracks/0/path = NodePath("Trumpet/Blast/AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -61,7 +61,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Trumpet/Blast/Area2D/CollisionPolygon2D:polygon")
+tracks/1/path = NodePath("Trumpet/Blast/CollisionPolygon2D:polygon")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -73,7 +73,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Trumpet/Blast/Area2D/Polygon2D:polygon")
+tracks/2/path = NodePath("Trumpet/Blast/Polygon2D:polygon")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -136,20 +136,18 @@ position = Vector2(16.5408, 0.0967407)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_j4h8u")
 
-[node name="Blast" type="Node2D" parent="."]
-
-[node name="Area2D" type="Area2D" parent="Blast"]
+[node name="Blast" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 4
 
-[node name="Polygon2D" type="Polygon2D" parent="Blast/Area2D"]
+[node name="Polygon2D" type="Polygon2D" parent="Blast"]
 color = Color(1, 1, 1, 0.266667)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Blast/Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Blast"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Blast/Area2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Blast"]
 position = Vector2(32, 0)
 scale = Vector2(2, 1)
 sprite_frames = SubResource("SpriteFrames_6nsdn")
 
-[connection signal="body_entered" from="Blast/Area2D" to="." method="_on_blast_body_entered"]
+[connection signal="body_entered" from="Blast" to="." method="_on_blast_body_entered"]

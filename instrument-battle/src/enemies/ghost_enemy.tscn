@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://de1xdum8ka4np"]
+[gd_scene load_steps=5 format=3 uid="uid://de1xdum8ka4np"]
 
 [ext_resource type="Script" path="res://src/enemies/ghost_enemy.gd" id="1_40dbp"]
+[ext_resource type="PackedScene" uid="uid://dxymmgg2y8g1m" path="res://src/enemies/ghost_smoke.tscn" id="2_1slb5"]
 [ext_resource type="Texture2D" uid="uid://donlngrhyxk3t" path="res://textures/ghost_enemy.png" id="2_8je6a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_miq13"]
@@ -11,6 +12,7 @@ height = 32.0
 collision_layer = 4
 collision_mask = 9
 script = ExtResource("1_40dbp")
+fade_scene = ExtResource("2_1slb5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
