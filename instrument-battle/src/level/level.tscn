@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvoeytnjf5ico"]
+[gd_scene load_steps=8 format=3 uid="uid://bvoeytnjf5ico"]
 
 [ext_resource type="Script" path="res://src/level/level.gd" id="1_5tkaa"]
 [ext_resource type="PackedScene" uid="uid://hvcoab6g0vjf" path="res://src/player/player.tscn" id="1_jm3fm"]
 [ext_resource type="PackedScene" uid="uid://de1xdum8ka4np" path="res://src/enemies/ghost_enemy.tscn" id="2_sbjbo"]
 [ext_resource type="Texture2D" uid="uid://chrydlko6a7sm" path="res://textures/battle_ground.png" id="3_7plsp"]
+[ext_resource type="PackedScene" uid="uid://doxo203mnm04c" path="res://src/treasure/diamond.tscn" id="5_l681k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_smhik"]
 texture = ExtResource("3_7plsp")
@@ -143,7 +144,7 @@ terrain_set_0/terrain_1/name = "props"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/1 = SubResource("TileSetAtlasSource_smhik")
 
-[node name="TestingGrounds" type="Node2D"]
+[node name="Level" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_5tkaa")
 
@@ -169,3 +170,6 @@ motion_mode = 1
 
 [node name="Player" parent="." instance=ExtResource("1_jm3fm")]
 position = Vector2(456, 328)
+
+[node name="Diamond" parent="." instance=ExtResource("5_l681k")]
+position = Vector2(512, 313)

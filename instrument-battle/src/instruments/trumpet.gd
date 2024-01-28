@@ -16,8 +16,10 @@ func _ready():
 func _process(delta):
 	var controller_x =  Input.get_joy_axis(0,JOY_AXIS_RIGHT_X)
 	var controller_y =  Input.get_joy_axis(0,JOY_AXIS_RIGHT_Y)
+	
 	if(abs(controller_x) > DEADZONE or abs(controller_y) >DEADZONE):
 		rotation = (Vector2(controller_x,controller_y)).angle()
+		
 	if Input.is_action_pressed("play_instrument") and can_blast:
 		attack_animation.play("blast")
 		enemies_list=[]
