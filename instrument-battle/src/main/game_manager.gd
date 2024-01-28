@@ -8,16 +8,16 @@ func _ready():
 	print(score_label)
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 func add_score(value):
 	score+=value
 	set_score()
+	
 func change_score(value):
 	score=value
 	set_score()
+	
 func set_score():
 	score_label.text = str(score)

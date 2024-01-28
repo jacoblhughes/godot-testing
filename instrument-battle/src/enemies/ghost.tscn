@@ -12,7 +12,9 @@ height = 32.0
 [node name="Ghost" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 9
+motion_mode = 1
 script = ExtResource("1_e7ckx")
+ghost_speed = 50.0
 fade_scene = ExtResource("2_lcyqb")
 treasure_scene = ExtResource("3_su1gr")
 

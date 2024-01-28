@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvoeytnjf5ico"]
+[gd_scene load_steps=7 format=3 uid="uid://bvoeytnjf5ico"]
 
 [ext_resource type="Script" path="res://src/level/level.gd" id="1_5tkaa"]
 [ext_resource type="PackedScene" uid="uid://hvcoab6g0vjf" path="res://src/player/player.tscn" id="1_jm3fm"]
-[ext_resource type="PackedScene" uid="uid://de1xdum8ka4np" path="res://src/enemies/ghost.tscn" id="2_sbjbo"]
-[ext_resource type="Script" path="res://src/level/enemies.gd" id="2_tt3vb"]
+[ext_resource type="Script" path="res://src/level/enemy_spawn.gd" id="3_5bm8k"]
 [ext_resource type="Texture2D" uid="uid://chrydlko6a7sm" path="res://textures/battle_ground.png" id="3_7plsp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_smhik"]
@@ -183,15 +182,13 @@ vertical_alignment = 1
 
 [node name="Treasure" type="Node2D" parent="."]
 
-[node name="Enemies" type="Node2D" parent="."]
-script = ExtResource("2_tt3vb")
+[node name="EnemySpawn" type="Node2D" parent="."]
+script = ExtResource("3_5bm8k")
 
-[node name="Ghost2" parent="Enemies" instance=ExtResource("2_sbjbo")]
-position = Vector2(624, 288)
-
-[node name="Ghost" parent="Enemies" instance=ExtResource("2_sbjbo")]
-position = Vector2(616, 328)
-motion_mode = 1
+[node name="EnemySpawnMarker" type="Marker2D" parent="EnemySpawn"]
+unique_name_in_owner = true
+position = Vector2(667.972, 281.22)
 
 [node name="Player" parent="." instance=ExtResource("1_jm3fm")]
+unique_name_in_owner = true
 position = Vector2(456, 328)

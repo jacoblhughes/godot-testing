@@ -1,6 +1,6 @@
 extends Node2D
 
-var attraction_strength = 10.0
+var attraction_strength = 50.0
 var attracted_areas : Array = []  # To store attracted Area2D objects
 
 
