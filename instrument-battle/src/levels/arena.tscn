@@ -1,13 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvoeytnjf5ico"]
+[gd_scene load_steps=10 format=3 uid="uid://bvoeytnjf5ico"]
 
-[ext_resource type="Script" path="res://src/level/arena.gd" id="1_nbud1"]
+[ext_resource type="Script" path="res://src/levels/arena.gd" id="1_nbud1"]
 [ext_resource type="Texture2D" uid="uid://chrydlko6a7sm" path="res://textures/battle_ground.png" id="2_plm0p"]
-[ext_resource type="Script" path="res://src/level/enemy_spawn.gd" id="3_xmov5"]
+[ext_resource type="Script" path="res://src/levels/enemy_spawn.gd" id="3_xmov5"]
 [ext_resource type="PackedScene" uid="uid://hvcoab6g0vjf" path="res://src/player/player.tscn" id="4_vvg8d"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rysi"]
+[sub_resource type="TileMapPattern" id="TileMapPattern_ng4gm"]
+tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 2, 196608, 0, 3, 262144, 0, 4, 1, 65536, 0, 65537, 65536, 1, 131073, 65536, 2, 196609, 65536, 3, 262145, 65536, 4, 2, 131072, 0, 65538, 131072, 1, 131074, 131072, 2, 196610, 131072, 3, 262146, 131072, 4, 3, 196608, 0, 65539, 196608, 1, 131075, 196608, 2, 196611, 196608, 3, 262147, 196608, 4, 4, 262144, 0, 65540, 262144, 1, 131076, 262144, 2, 196612, 262144, 3, 262148, 262144, 4, 5, 327680, 0, 65541, 327680, 1, 131077, 327680, 2, 196613, 327680, 3, 262149, 327680, 4, 6, 393216, 0, 65542, 393216, 1, 131078, 393216, 2, 196614, 393216, 3, 262150, 393216, 4)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_smhik"]
+[sub_resource type="TileMapPattern" id="TileMapPattern_4ksdm"]
+tile_data = PackedInt32Array(0, 0, 7, 65536, 0, 8, 131072, 0, 9, 1, 65536, 7, 65537, 65536, 8, 131073, 65536, 9, 196609, 65536, 10)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_535bg"]
 texture = ExtResource("2_plm0p")
 0:0/0 = 0
 1:0/0 = 0
@@ -52,26 +56,22 @@ texture = ExtResource("2_plm0p")
 0:9/0 = 0
 1:9/0 = 0
 1:10/0 = 0
+0:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+0:13/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+0:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
 0:15/0 = 0
-0:15/0/terrain_set = 0
-0:15/0/terrain = 0
-0:15/0/terrains_peering_bit/right_side = 0
-0:15/0/terrains_peering_bit/bottom_right_corner = 0
-0:15/0/terrains_peering_bit/bottom_side = 0
 1:15/0 = 0
-1:15/0/terrain_set = 0
-1:15/0/terrain = 0
-1:15/0/terrains_peering_bit/right_side = 0
-1:15/0/terrains_peering_bit/bottom_right_corner = 0
-1:15/0/terrains_peering_bit/bottom_side = 0
-1:15/0/terrains_peering_bit/bottom_left_corner = 0
-1:15/0/terrains_peering_bit/left_side = 0
 2:15/0 = 0
-2:15/0/terrain_set = 0
-2:15/0/terrain = 0
-2:15/0/terrains_peering_bit/bottom_side = 0
-2:15/0/terrains_peering_bit/bottom_left_corner = 0
-2:15/0/terrains_peering_bit/left_side = 0
 3:15/0 = 0
 4:15/0 = 0
 5:15/0 = 0
@@ -79,33 +79,15 @@ texture = ExtResource("2_plm0p")
 7:15/0 = 0
 8:15/0 = 0
 9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+15:15/0 = 0
+16:15/0 = 0
 0:16/0 = 0
-0:16/0/terrain_set = 0
-0:16/0/terrain = 0
-0:16/0/terrains_peering_bit/right_side = 0
-0:16/0/terrains_peering_bit/bottom_right_corner = 0
-0:16/0/terrains_peering_bit/bottom_side = 0
-0:16/0/terrains_peering_bit/top_side = 0
-0:16/0/terrains_peering_bit/top_right_corner = 0
 1:16/0 = 0
-1:16/0/terrain_set = 0
-1:16/0/terrain = 0
-1:16/0/terrains_peering_bit/right_side = 0
-1:16/0/terrains_peering_bit/bottom_right_corner = 0
-1:16/0/terrains_peering_bit/bottom_side = 0
-1:16/0/terrains_peering_bit/bottom_left_corner = 0
-1:16/0/terrains_peering_bit/left_side = 0
-1:16/0/terrains_peering_bit/top_left_corner = 0
-1:16/0/terrains_peering_bit/top_side = 0
-1:16/0/terrains_peering_bit/top_right_corner = 0
 2:16/0 = 0
-2:16/0/terrain_set = 0
-2:16/0/terrain = 0
-2:16/0/terrains_peering_bit/bottom_side = 0
-2:16/0/terrains_peering_bit/bottom_left_corner = 0
-2:16/0/terrains_peering_bit/left_side = 0
-2:16/0/terrains_peering_bit/top_left_corner = 0
-2:16/0/terrains_peering_bit/top_side = 0
 3:16/0 = 0
 4:16/0 = 0
 5:16/0 = 0
@@ -113,29 +95,24 @@ texture = ExtResource("2_plm0p")
 7:16/0 = 0
 8:16/0 = 0
 9:16/0 = 0
+10:16/0 = 0
+11:16/0 = 0
+12:16/0 = 0
+13:16/0 = 0
+15:16/0 = 0
+16:16/0 = 0
 0:17/0 = 0
-0:17/0/terrain_set = 0
-0:17/0/terrain = 0
-0:17/0/terrains_peering_bit/right_side = 0
-0:17/0/terrains_peering_bit/top_side = 0
-0:17/0/terrains_peering_bit/top_right_corner = 0
 1:17/0 = 0
-1:17/0/terrain_set = 0
-1:17/0/terrain = 0
-1:17/0/terrains_peering_bit/right_side = 0
-1:17/0/terrains_peering_bit/left_side = 0
-1:17/0/terrains_peering_bit/top_left_corner = 0
-1:17/0/terrains_peering_bit/top_side = 0
-1:17/0/terrains_peering_bit/top_right_corner = 0
 2:17/0 = 0
-2:17/0/terrain_set = 0
-2:17/0/terrain = 0
-2:17/0/terrains_peering_bit/left_side = 0
-2:17/0/terrains_peering_bit/top_left_corner = 0
-2:17/0/terrains_peering_bit/top_side = 0
 3:17/0 = 0
 4:17/0 = 0
 5:17/0 = 0
+10:17/0 = 0
+11:17/0 = 0
+12:17/0 = 0
+13:17/0 = 0
+15:17/0 = 0
+16:17/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ck7wp"]
 terrain_set_0/mode = 0
@@ -143,20 +120,15 @@ terrain_set_0/terrain_0/name = "ground"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_0/terrain_1/name = "props"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
-sources/1 = SubResource("TileSetAtlasSource_smhik")
+sources/0 = SubResource("TileSetAtlasSource_535bg")
+pattern_0 = SubResource("TileMapPattern_ng4gm")
+pattern_1 = SubResource("TileMapPattern_4ksdm")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rysi"]
 
 [node name="Arena" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_nbud1")
-
-[node name="TownDoor" type="Node2D" parent="."]
-position = Vector2(178.303, -72.9065)
-
-[node name="Area2D" type="Area2D" parent="TownDoor"]
-position = Vector2(-154.303, 312.907)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TownDoor/Area2D"]
-shape = SubResource("RectangleShape2D_5rysi")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ck7wp")
@@ -169,7 +141,16 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(1179678, 1, 0, 1245214, 1, 1, 1310750, 1, 2, 1376286, 1, 3, 1441822, 1, 4, 1179679, 65537, 0, 1245215, 65537, 1, 1310751, 65537, 2, 1376287, 65537, 3, 1441823, 65537, 4, 1179680, 131073, 0, 1245216, 131073, 1, 1310752, 131073, 2, 1376288, 131073, 3, 1441824, 131073, 4, 1179681, 196609, 0, 1245217, 196609, 1, 1310753, 196609, 2, 1376289, 196609, 3, 1441825, 196609, 4, 1179682, 262145, 0, 1245218, 262145, 1, 1310754, 262145, 2, 1376290, 262145, 3, 1441826, 262145, 4, 1179683, 327681, 0, 1245219, 327681, 1, 1310755, 327681, 2, 1376291, 327681, 3, 1441827, 327681, 4, 1179684, 393217, 0, 1245220, 393217, 1, 1310756, 393217, 2, 1376292, 393217, 3, 1441828, 393217, 4, 458790, 1, 7, 524326, 1, 8, 589862, 1, 9, 458791, 65537, 7, 524327, 65537, 8, 589863, 65537, 9, 655399, 65537, 10, 458781, 1, 7, 524317, 1, 8, 589853, 1, 9, 458782, 65537, 7, 524318, 65537, 8, 589854, 65537, 9, 655390, 65537, 10, 1572890, 589825, 3, 1835037, 589825, 3, 1376298, 589825, 3, 1900586, 589825, 3, 655393, 589825, 3, 1179667, 589825, 3, 1703959, 1, 7, 1769495, 1, 8, 1835031, 1, 9, 1703960, 65537, 7, 1769496, 65537, 8, 1835032, 65537, 9, 1900568, 65537, 10, 1703988, 1, 7, 1769524, 1, 8, 1835060, 1, 9, 1703989, 65537, 7, 1769525, 65537, 8, 1835061, 65537, 9, 1900597, 65537, 10, 524295, 1, 7, 589831, 1, 8, 655367, 1, 9, 524296, 65537, 7, 589832, 65537, 8, 655368, 65537, 9, 720904, 65537, 10, 1900549, 1, 7, 1966085, 1, 8, 2031621, 1, 9, 1900550, 65537, 7, 1966086, 65537, 8, 2031622, 65537, 9, 2097158, 65537, 10, 589888, 1, 7, 655424, 1, 8, 720960, 1, 9, 589889, 65537, 7, 655425, 65537, 8, 720961, 65537, 9, 786497, 65537, 10, 2162751, 1, 7, 2228287, 1, 8, 2293823, 1, 9, 2162752, 65537, 7, 2228288, 65537, 8, 2293824, 65537, 9, 2359360, 65537, 10)
+layer_1/tile_data = PackedInt32Array(458790, 1, 7, 524326, 1, 8, 589862, 1, 9, 458791, 65537, 7, 524327, 65537, 8, 589863, 65537, 9, 655399, 65537, 10, 1572890, 589825, 3, 1835037, 589825, 3, 1376298, 589825, 3, 1900586, 589825, 3, 655393, 589825, 3, 1179667, 589825, 3, 1703959, 1, 7, 1769495, 1, 8, 1835031, 1, 9, 1703960, 65537, 7, 1769496, 65537, 8, 1835032, 65537, 9, 1900568, 65537, 10, 1703988, 1, 7, 1769524, 1, 8, 1835060, 1, 9, 1703989, 65537, 7, 1769525, 65537, 8, 1835061, 65537, 9, 1900597, 65537, 10, 524295, 1, 7, 589831, 1, 8, 655367, 1, 9, 524296, 65537, 7, 589832, 65537, 8, 655368, 65537, 9, 720904, 65537, 10, 1900549, 1, 7, 1966085, 1, 8, 2031621, 1, 9, 1900550, 65537, 7, 1966086, 65537, 8, 2031622, 65537, 9, 2097158, 65537, 10, 589888, 1, 7, 655424, 1, 8, 720960, 1, 9, 589889, 65537, 7, 655425, 65537, 8, 720961, 65537, 9, 786497, 65537, 10, 2162751, 1, 7, 2228287, 1, 8, 2293823, 1, 9, 2162752, 65537, 7, 2228288, 65537, 8, 2293824, 65537, 9, 2359360, 65537, 10, 1179678, 0, 0, 1245214, 0, 1, 1310750, 0, 2, 1376286, 0, 3, 1441822, 0, 4, 1179679, 65536, 0, 1245215, 65536, 1, 1310751, 65536, 2, 1376287, 65536, 3, 1441823, 65536, 4, 1179680, 131072, 0, 1245216, 131072, 1, 1310752, 131072, 2, 1376288, 131072, 3, 1441824, 131072, 4, 1179681, 196608, 0, 1245217, 196608, 1, 1310753, 196608, 2, 1376289, 196608, 3, 1441825, 196608, 4, 1179682, 262144, 0, 1245218, 262144, 1, 1310754, 262144, 2, 1376290, 262144, 3, 1441826, 262144, 4, 1179683, 327680, 0, 1245219, 327680, 1, 1310755, 327680, 2, 1376291, 327680, 3, 1441827, 327680, 4, 1179684, 393216, 0, 1245220, 393216, 1, 1310756, 393216, 2, 1376292, 393216, 3, 1441828, 393216, 4, 458781, 0, 7, 524317, 0, 8, 589853, 0, 9, 458782, 65536, 7, 524318, 65536, 8, 589854, 65536, 9, 655390, 65536, 10)
+
+[node name="Door" type="Node2D" parent="."]
+position = Vector2(178.303, -72.9065)
+
+[node name="Area2D" type="Area2D" parent="Door"]
+position = Vector2(-154.303, 312.907)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D"]
+shape = SubResource("RectangleShape2D_5rysi")
 
 [node name="UI" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
