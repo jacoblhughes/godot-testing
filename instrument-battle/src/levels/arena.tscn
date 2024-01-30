@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bvoeytnjf5ico"]
 
 [ext_resource type="Script" path="res://src/levels/arena.gd" id="1_nbud1"]
-[ext_resource type="Texture2D" uid="uid://chrydlko6a7sm" path="res://textures/battle_ground.png" id="2_plm0p"]
+[ext_resource type="Texture2D" uid="uid://chrydlko6a7sm" path="res://textures/level.png" id="2_t8oid"]
 [ext_resource type="Script" path="res://src/levels/enemy_spawn.gd" id="3_xmov5"]
 [ext_resource type="PackedScene" uid="uid://hvcoab6g0vjf" path="res://src/player/player.tscn" id="4_vvg8d"]
 
@@ -12,7 +12,7 @@ tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 2, 196608, 0, 3, 2
 tile_data = PackedInt32Array(0, 0, 7, 65536, 0, 8, 131072, 0, 9, 1, 65536, 7, 65537, 65536, 8, 131073, 65536, 9, 196609, 65536, 10)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_535bg"]
-texture = ExtResource("2_plm0p")
+texture = ExtResource("2_t8oid")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
