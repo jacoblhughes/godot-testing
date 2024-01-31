@@ -1,6 +1,6 @@
 extends Node2D
 
-
+var simultaneous_scene = preload("res://src/town/home_inside.tscn").instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,8 +11,7 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func _on_door_body_entered(body):
 	if body is Player:
-		print('go inside house')
+		get_tree().root.add_child(simultaneous_scene)
 	pass # Replace with function body.

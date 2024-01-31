@@ -1,11 +1,11 @@
 extends Node
 
 var score = 0
-@onready var score_label : Label = get_tree().get_root().get_node("Level/UI/Control/Label")
+#@onready var score_label : Label = get_tree().get_root().get_node("Level/UI/Control/Label")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(score_label)
+#	print(score_label)
 	pass # Replace with function body.
 
 func _process(delta):
@@ -20,4 +20,5 @@ func change_score(value):
 	set_score()
 	
 func set_score():
-	score_label.text = str(score)
+#	score_label.text = str(score)
+	pass

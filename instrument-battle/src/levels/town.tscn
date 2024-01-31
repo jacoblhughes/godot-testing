@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://10vhs0us0asy"]
 
-[ext_resource type="PackedScene" uid="uid://ckqvhq5vtuem4" path="res://src/town/home.tscn" id="1_q5wo1"]
-[ext_resource type="Texture2D" uid="uid://chrydlko6a7sm" path="res://textures/level.png" id="2_kqu36"]
-[ext_resource type="PackedScene" uid="uid://hvcoab6g0vjf" path="res://src/player/player.tscn" id="3_c4dfp"]
+[ext_resource type="PackedScene" uid="uid://ckqvhq5vtuem4" path="res://src/town/home.tscn" id="1_bc41l"]
+[ext_resource type="Texture2D" uid="uid://chrydlko6a7sm" path="res://textures/level.png" id="2_ptb2p"]
+[ext_resource type="PackedScene" uid="uid://hvcoab6g0vjf" path="res://src/player/player.tscn" id="3_dkb8d"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_nunb1"]
 tile_data = PackedInt32Array(0, 1048577, 15, 65536, 1048577, 16, 131072, 1048577, 17)
@@ -29,10 +29,10 @@ tile_data = PackedInt32Array(0, 983041, 131087, 1, 983041, 131088, 2, 983041, 13
 tile_data = PackedInt32Array(0, 983041, 196623, 1, 983041, 196624, 2, 983041, 196625)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_wnlyx"]
-scenes/1/scene = ExtResource("1_q5wo1")
+scenes/1/scene = ExtResource("1_bc41l")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_smhik"]
-texture = ExtResource("2_kqu36")
+texture = ExtResource("2_ptb2p")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -600,8 +600,8 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(1245184, 1048577, 15, 1310720, 1048577, 16, 1376256, 1048577, 17, 1245255, 983041, 65551, 1310791, 983041, 65552, 1376327, 983041, 65553)
 
-[node name="Player" parent="." instance=ExtResource("3_c4dfp")]
+[node name="Player" parent="." instance=ExtResource("3_dkb8d")]
 position = Vector2(1104, 336)
 
-[node name="Home" parent="." instance=ExtResource("1_q5wo1")]
+[node name="Home" parent="." instance=ExtResource("1_bc41l")]
 position = Vector2(1016, 320)
