@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://chrydlko6a7sm" path="res://textures/level.png" id="1_g2oie"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dupii"]
-size = Vector2(16, 16)
+size = Vector2(16, 8)
 
 [node name="Home" type="Node2D"]
 position = Vector2(0, 8)
@@ -20,13 +20,17 @@ region_enabled = true
 region_rect = Rect2(160, 192, 64, 96)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
-position = Vector2(-16, -24)
+position = Vector2(-16, -4)
 shape = SubResource("RectangleShape2D_dupii")
+
+[node name="Marker2D" type="Marker2D" parent="Door"]
+position = Vector2(18, -24)
 
 [node name="Walls" type="StaticBody2D" parent="."]
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
-polygon = PackedVector2Array(-32, -40, 32, -40, 32, -31, -5, -31, -32, -31)
+position = Vector2(0, 32)
+polygon = PackedVector2Array(-32, -64, -24, -64, -8, -64, 32, -64, 32, -32, 0, -32, -8, -40, -24, -40, -24, -40, -32, -32)
 
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]

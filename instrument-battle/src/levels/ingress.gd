@@ -1,9 +1,8 @@
 extends Node2D
 
-#@export var ingress_scene : PackedScene
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
 	pass # Replace with function body.
 
 
@@ -11,9 +10,8 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_door_body_entered(body):
+
+func _on_area_2d_body_entered(body):
 	if body is Player:
-#		var ingress = ingress_scene.instantiate()
-		
-		get_tree().change_scene_to_file("res://src/town/home_inside.tscn")
-		pass # Replace with function body.
+		get_tree().change_scene_to_file("res://src/levels/town.tscn")
+	pass # Replace with function body.

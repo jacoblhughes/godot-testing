@@ -7,24 +7,27 @@ class_name Enemy
 var speed
 signal treasure_drop
 func _ready():
-	print(player)
+
 	pass
 
 func take_damage(amount):
 	health -= amount
 	if health == 0:
-		queue_free()                         
-#		const SMOKE_SCRENE = preload("res://src/enemies/ghost_smoke.tscn")
-		var fade = fade_scene.instantiate()
-		get_parent().add_child(fade)
+		fade_away()
 		var treasure = treasure_scene.instantiate()
-#		get_parent().add_child(treasure)
-		fade.global_position = global_position
+	#	get_parent().add_child(treasure)
 		treasure_drop.emit(global_position,treasure)
-#		treasure.global_position = global_position
 
 func _physics_process(delta):
 	var player_position = player.global_position
 	var direction = global_position.direction_to(player_position)
 	velocity = direction * speed
 	move_and_slide()
+
+func fade_away():
+	queue_free()                         
+#	const SMOKE_SCRENE = preload("res://src/enemies/ghost_smoke.tscn")
+	var fade = fade_scene.instantiate()
+	get_parent().add_child(fade)
+	fade.global_position = global_position
+#	treasure.global_position = global_position

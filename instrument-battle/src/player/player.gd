@@ -4,10 +4,13 @@ class_name Player
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 @onready var player_animation : AnimatedSprite2D = $AnimatedSprite2D
-
-
-
+@export var body_collision_disabled = false
+@export var feet_collision_disabled = false
+@export var show_instrument = true
 func _ready():
+	%BodyCollision.disabled = body_collision_disabled
+	%FeetCollision.disabled = feet_collision_disabled
+	%Trumpet.visible = show_instrument
 	pass
 
 func _physics_process(delta):
@@ -44,4 +47,3 @@ func _physics_process(delta):
 
 
 	move_and_slide()
-

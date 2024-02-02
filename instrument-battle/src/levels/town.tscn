@@ -602,6 +602,8 @@ layer_1/tile_data = PackedInt32Array(1245184, 1048577, 15, 1310720, 1048577, 16,
 
 [node name="Player" parent="." instance=ExtResource("3_dkb8d")]
 position = Vector2(1104, 336)
+body_collision_disabled = true
+show_instrument = false
 
 [node name="Home" parent="." instance=ExtResource("1_bc41l")]
-position = Vector2(1016, 320)
+position = Vector2(1016, 304)

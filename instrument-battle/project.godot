@@ -77,6 +77,8 @@ quit={
 2d_physics/layer_4="instrument_attack"
 2d_physics/layer_5="treasure"
 2d_physics/layer_6="enter"
+2d_physics/layer_7="player_town"
+2d_physics/layer_8="town"
 
 [rendering]
 
