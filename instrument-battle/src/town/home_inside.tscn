@@ -468,17 +468,17 @@ shape = SubResource("RectangleShape2D_2f5uh")
 position = Vector2(528, 400)
 script = ExtResource("2_4ikcc")
 
+[node name="Sprite2D" type="Sprite2D" parent="Exit"]
+texture = ExtResource("1_l0yph")
+region_enabled = true
+region_rect = Rect2(336, 208, 32, 32)
+
 [node name="Area2D" type="Area2D" parent="Exit"]
 collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit/Area2D"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_lwy7f")
-
-[node name="Sprite2D" type="Sprite2D" parent="Exit"]
-texture = ExtResource("1_l0yph")
-region_enabled = true
-region_rect = Rect2(336, 208, 32, 32)
 
 [node name="Player" parent="." instance=ExtResource("2_uwybg")]
 position = Vector2(528, 376)
