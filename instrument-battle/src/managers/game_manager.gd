@@ -1,7 +1,7 @@
 extends Node
 
 var score = 0
-@onready var score_label : Label = get_tree().get_root().get_node("Arena/UI/Control/Label")
+@onready var score_label : Label = UI.get_node("Label")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

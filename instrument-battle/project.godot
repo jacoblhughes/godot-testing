@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://src/managers/game_manager.gd"
 NavigationManager="*res://src/managers/navigation_manager.gd"
+UI="*res://src/ui/ui.tscn"
 
 [input]
 
