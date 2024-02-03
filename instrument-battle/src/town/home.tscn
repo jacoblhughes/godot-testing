@@ -2,29 +2,26 @@
 
 [ext_resource type="Script" path="res://src/town/home.gd" id="1_1viwe"]
 [ext_resource type="Texture2D" uid="uid://chrydlko6a7sm" path="res://textures/level.png" id="1_g2oie"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dupii"]
-size = Vector2(16, 8)
+[ext_resource type="PackedScene" uid="uid://clxmivsqbcd26" path="res://src/levels/portal.tscn" id="3_dngk0"]
 
 [node name="Home" type="Node2D"]
 position = Vector2(0, 8)
 script = ExtResource("1_1viwe")
 
-[node name="Door" type="Area2D" parent="."]
-collision_layer = 32
+[node name="Enter" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Door"]
+[node name="Sprite2D" type="Sprite2D" parent="Enter"]
 position = Vector2(0, -48)
 texture = ExtResource("1_g2oie")
 region_enabled = true
 region_rect = Rect2(160, 192, 64, 96)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
-position = Vector2(-16, -4)
-shape = SubResource("RectangleShape2D_dupii")
+[node name="Portal" parent="Enter" instance=ExtResource("3_dngk0")]
+position = Vector2(-16, -8)
+destination_level_tag = "home_inside"
 
-[node name="Marker2D" type="Marker2D" parent="Door"]
-position = Vector2(18, -24)
+[node name="Marker2D" parent="Enter/Portal" index="1"]
+position = Vector2(0, 24)
 
 [node name="Walls" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -33,4 +30,4 @@ collision_layer = 2
 position = Vector2(0, 32)
 polygon = PackedVector2Array(-32, -64, -24, -64, -8, -64, 32, -64, 32, -32, 0, -32, -8, -40, -24, -40, -24, -40, -32, -32)
 
-[connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
+[editable path="Enter/Portal"]

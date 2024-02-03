@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccfmojtrnhhdl"]
+[gd_scene load_steps=9 format=3 uid="uid://ccfmojtrnhhdl"]
 
 [ext_resource type="Texture2D" uid="uid://chrydlko6a7sm" path="res://textures/level.png" id="1_l0yph"]
 [ext_resource type="Script" path="res://src/town/bed.gd" id="2_21f2j"]
@@ -428,6 +428,8 @@ sources/1 = SubResource("TileSetAtlasSource_iey01")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2f5uh"]
 size = Vector2(8, 32)
 
+[sub_resource type="PackedScene" id="PackedScene_xd3nl"]
+
 [node name="HomeInside" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -470,10 +472,8 @@ region_enabled = true
 region_rect = Rect2(336, 208, 32, 32)
 
 [node name="Portal" parent="Exit" instance=ExtResource("3_7ahvw")]
-destination_level_tag = "village"
-
-[node name="Marker2D" parent="Exit/Portal" index="1"]
-position = Vector2(0, -16)
+position = Vector2(20, 20)
+changed_to_packed = SubResource("PackedScene_xd3nl")
 
 [node name="Player" parent="." instance=ExtResource("2_uwybg")]
 position = Vector2(528, 376)
@@ -481,5 +481,3 @@ body_collision_disabled = true
 show_instrument = false
 
 [connection signal="body_entered" from="Bed/Area2D" to="Bed" method="_on_area_2d_body_entered"]
-
-[editable path="Exit/Portal"]

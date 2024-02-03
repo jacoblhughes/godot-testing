@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="InstrumentBattle"
-run/main_scene="res://src/levels/town.tscn"
+run/main_scene="res://src/levels/village.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://src/managers/game_manager.gd"
 NavigationManager="*res://src/managers/navigation_manager.gd"
-UI="*res://src/ui/ui.tscn"
+UI="*res://src/managers/ui.tscn"
 
 [input]
 
