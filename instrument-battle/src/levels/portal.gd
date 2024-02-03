@@ -1,6 +1,6 @@
 extends Node2D
 
-
+@export var change_to_file : PackedScene = preload("res://src/levels/town.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -14,5 +14,5 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body is Player:
-		get_tree().change_scene_to_file("res://src/levels/town.tscn")
+		get_tree().change_scene_to_packed(change_to_file)
 	pass # Replace with function body.

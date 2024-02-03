@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://clxmivsqbcd26"]
 
-[ext_resource type="Script" path="res://src/levels/ingress.gd" id="1_cfbln"]
+[ext_resource type="Script" path="res://src/levels/portal.gd" id="1_cfbln"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dbu7"]
 size = Vector2(24, 48)
 
-[node name="Ingress" type="Node2D"]
+[node name="Portal" type="Node2D"]
 position = Vector2(32, 320)
 script = ExtResource("1_cfbln")
 
@@ -14,5 +14,7 @@ script = ExtResource("1_cfbln")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-20, 0)
 shape = SubResource("RectangleShape2D_2dbu7")
+
+[node name="Marker2D" type="Marker2D" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

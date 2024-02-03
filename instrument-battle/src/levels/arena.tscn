@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/levels/arena.gd" id="1_nbud1"]
 [ext_resource type="Texture2D" uid="uid://chrydlko6a7sm" path="res://textures/level.png" id="2_t8oid"]
-[ext_resource type="PackedScene" uid="uid://clxmivsqbcd26" path="res://src/levels/ingress.tscn" id="3_u6chb"]
+[ext_resource type="PackedScene" uid="uid://clxmivsqbcd26" path="res://src/levels/portal.tscn" id="3_u6chb"]
 [ext_resource type="Script" path="res://src/levels/enemy_spawn.gd" id="3_xmov5"]
 [ext_resource type="PackedScene" uid="uid://hvcoab6g0vjf" path="res://src/player/player.tscn" id="4_vvg8d"]
 
@@ -214,7 +214,7 @@ texture = ExtResource("2_t8oid")
 region_enabled = true
 region_rect = Rect2(272, 224, 64, 64)
 
-[node name="Ingress" parent="Stage" instance=ExtResource("3_u6chb")]
+[node name="Portal" parent="Stage" instance=ExtResource("3_u6chb")]
 
 [node name="Treasure" type="Node2D" parent="."]
 
