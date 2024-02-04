@@ -11,25 +11,9 @@ func _ready():
 		nodes.queue_free()
 	new_arena = true
 	$Start.start.connect(_on_start)
-	_on_level_spawn()
-	print('arenaaa')
+	NavigationManager.on_level_spawn()
+	%StagePortal.collision.disabled=true
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _on_level_spawn():
-	print(NavigationManager.specific_portal_tag)
-	if NavigationManager.specific_portal_tag != null and NavigationManager.specific_portal_tag != "":
-		for portals in  get_tree().get_nodes_in_group("portals"):
-
-			if portals.name == NavigationManager.specific_portal_tag:
-				var portal = portals as Portal
-				NavigationManager.spawn_player(portal.marker.global_position)
-	else:
-		for portals in  get_tree().get_nodes_in_group("portals"):
-			print(portals)
-			var portal = portals as Portal
-			NavigationManager.spawn_player(portal.marker.global_position)
 
 # Called every fleverame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -45,7 +29,7 @@ func _check_status():
 		arena_finished.emit()
 		get_tree().call_group("enemies", "fade_away")
 		new_arena = false
-
+		%StagePortal.collision.disabled=false
 
 func _on_start():
 	if new_arena:

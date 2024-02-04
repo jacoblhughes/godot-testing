@@ -3,6 +3,7 @@ class_name Portal
 @export var destination_scene : String
 @export var specific_portal_tag : String
 @onready var marker = $Marker2D
+@onready var collision = $Area2D/CollisionShape2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 

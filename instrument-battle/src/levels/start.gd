@@ -13,7 +13,7 @@ func _process(delta):
 
 func _on_area_2d_area_entered(area):
 
-	if area is InstrumentAttack:
+	if area is InstrumentAttack and get_parent().new_arena:
 		start.emit()
 		$AnimationPlayer.play("ring")
 		await get_tree().create_timer(5).timeout
