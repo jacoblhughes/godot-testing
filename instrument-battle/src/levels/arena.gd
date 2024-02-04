@@ -10,6 +10,7 @@ func _ready():
 		nodes.remove_from_group("enemies")
 		nodes.queue_free()
 	new_arena = true
+	$Start.start.connect(_on_start)
 	pass # Replace with function body.
 
 
@@ -29,7 +30,8 @@ func _check_status():
 		new_arena = false
 
 
-func _on_area_2d_body_entered(body):
+func _on_start():
 	if new_arena:
 		$EnemySpawn.start_timer()
+		
 	pass # Replace with function body.

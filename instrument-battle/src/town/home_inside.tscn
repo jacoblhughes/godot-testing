@@ -471,6 +471,7 @@ region_rect = Rect2(336, 208, 32, 32)
 
 [node name="Portal" parent="Exit" instance=ExtResource("3_7ahvw")]
 destination_level_tag = "village"
+village_tag = "Home"
 
 [node name="Marker2D" parent="Exit/Portal" index="1"]
 position = Vector2(0, -16)

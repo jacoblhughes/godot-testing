@@ -5,7 +5,7 @@ const scene_village = preload("res://src/levels/village.tscn")
 const scene_home_inside = preload("res://src/town/home_inside.tscn")
 
 var village_tag
-
+signal on_village_trigger_spawn
 # Called when the node enters the scene tree for the first time.
 func go_to_level(level_tag, door_tag):
 	var scene_to_load
@@ -22,8 +22,8 @@ func go_to_level(level_tag, door_tag):
 	get_tree().change_scene_to_packed(scene_to_load)
 	if level_tag == "village" and door_tag != null:
 		village_tag = door_tag
-		
-
-#
-#
 		pass
+
+func village_spawn_player(position):
+	on_village_trigger_spawn.emit(position)
+	

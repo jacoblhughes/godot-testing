@@ -1,11 +1,8 @@
 extends Node2D
-class_name Portal
-@export var destination_level_tag : String
-@export var village_tag : String
-@onready var marker = $Marker2D
+
+signal start
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
 	pass # Replace with function body.
 
 
@@ -16,6 +13,8 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body is Player:
-		NavigationManager.go_to_level(destination_level_tag, village_tag)
-		pass
+		start.emit()
+		$AnimatedSprite2D.play()
+		await get_tree().create_timer(5).timeout
+		$AnimatedSprite2D.stop()
 	pass # Replace with function body.

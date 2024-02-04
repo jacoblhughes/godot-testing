@@ -11,6 +11,7 @@ func _ready():
 	%BodyCollision.disabled = body_collision_disabled
 	%FeetCollision.disabled = feet_collision_disabled
 	%Trumpet.visible = show_instrument
+	NavigationManager.on_village_trigger_spawn.connect(_on_spawn)
 	pass
 
 func _physics_process(delta):
@@ -47,3 +48,6 @@ func _physics_process(delta):
 
 
 	move_and_slide()
+
+func _on_spawn(spawn_position):
+	global_position = spawn_position

@@ -1,11 +1,70 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvoeytnjf5ico"]
+[gd_scene load_steps=19 format=3 uid="uid://bvoeytnjf5ico"]
 
 [ext_resource type="Script" path="res://src/levels/arena.gd" id="1_nbud1"]
 [ext_resource type="TileSet" uid="uid://ce3mfk6qnlg7b" path="res://src/levels/level.tres" id="2_s34sk"]
 [ext_resource type="Texture2D" uid="uid://chrydlko6a7sm" path="res://textures/level.png" id="2_t8oid"]
+[ext_resource type="Script" path="res://src/levels/start.gd" id="3_4owva"]
+[ext_resource type="Texture2D" uid="uid://bktf4g0d3shcp" path="res://textures/trumpet_boom.png" id="3_glyou"]
 [ext_resource type="PackedScene" uid="uid://clxmivsqbcd26" path="res://src/levels/portal.tscn" id="3_u6chb"]
 [ext_resource type="Script" path="res://src/levels/enemy_spawn.gd" id="3_xmov5"]
 [ext_resource type="PackedScene" uid="uid://hvcoab6g0vjf" path="res://src/player/player.tscn" id="4_vvg8d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4dv2"]
+atlas = ExtResource("3_glyou")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_867wm"]
+atlas = ExtResource("3_glyou")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d3be"]
+atlas = ExtResource("3_glyou")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pecdo"]
+atlas = ExtResource("3_glyou")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdlqk"]
+atlas = ExtResource("3_glyou")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axw7u"]
+atlas = ExtResource("3_glyou")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xexbj"]
+atlas = ExtResource("3_glyou")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4h3xy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4dv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_867wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d3be")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pecdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdlqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axw7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xexbj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pmjr5"]
 radius = 8.0
@@ -35,11 +94,12 @@ layer_1/tile_data = PackedInt32Array(458790, 0, 7, 524326, 0, 8, 589862, 0, 9, 4
 
 [node name="Start" type="Node2D" parent="."]
 position = Vector2(536, 328)
+script = ExtResource("3_4owva")
 
-[node name="Sprite2D" type="Sprite2D" parent="Start"]
-texture = ExtResource("2_t8oid")
-region_enabled = true
-region_rect = Rect2(104, 248, 16, 16)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Start"]
+sprite_frames = SubResource("SpriteFrames_4h3xy")
+frame = 2
+frame_progress = 0.26692
 
 [node name="Area2D" type="Area2D" parent="Start"]
 
@@ -57,6 +117,7 @@ region_rect = Rect2(272, 224, 64, 64)
 [node name="Portal" parent="Stage" instance=ExtResource("3_u6chb")]
 position = Vector2(8, 320)
 destination_level_tag = "village"
+village_tag = "Arena"
 
 [node name="Treasure" type="Node2D" parent="."]
 
@@ -79,4 +140,4 @@ unique_name_in_owner = true
 position = Vector2(456, 328)
 feet_collision_disabled = true
 
-[connection signal="body_entered" from="Start/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Start/Area2D" to="Start" method="_on_area_2d_body_entered"]
