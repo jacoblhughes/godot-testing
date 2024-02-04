@@ -13,6 +13,7 @@ func _ready():
 	$Start.start.connect(_on_start)
 	NavigationManager.on_level_spawn()
 	%StagePortal.collision.disabled=true
+
 	pass # Replace with function body.
 
 # Called every fleverame. 'delta' is the elapsed time since the previous frame.
