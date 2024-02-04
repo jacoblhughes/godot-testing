@@ -1,11 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckqvhq5vtuem4"]
+[gd_scene load_steps=4 format=3 uid="uid://ckqvhq5vtuem4"]
 
-[ext_resource type="Script" path="res://src/town/home.gd" id="1_1viwe"]
 [ext_resource type="Texture2D" uid="uid://chrydlko6a7sm" path="res://textures/level.png" id="1_g2oie"]
+[ext_resource type="PackedScene" uid="uid://clxmivsqbcd26" path="res://src/levels/portal.tscn" id="3_y81wh"]
+
+[sub_resource type="GDScript" id="GDScript_aja8h"]
+script/source = "extends Node2D
+
+#@export var ingress_scene : PackedScene
+# Called when the node enters the scene tree for the first time.
+func _ready():
+
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [node name="Home" type="Node2D"]
 position = Vector2(0, 8)
-script = ExtResource("1_1viwe")
+script = SubResource("GDScript_aja8h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -48)
@@ -19,3 +34,12 @@ collision_layer = 2
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
 position = Vector2(0, 32)
 polygon = PackedVector2Array(-32, -64, -24, -64, -8, -64, 32, -64, 32, -32, 0, -32, -8, -40, -24, -40, -24, -40, -32, -32)
+
+[node name="Home" parent="." instance=ExtResource("3_y81wh")]
+position = Vector2(-16, -8)
+destination_scene = "home_inside"
+
+[node name="Marker2D" parent="Home" index="1"]
+position = Vector2(0, 24)
+
+[editable path="Home"]

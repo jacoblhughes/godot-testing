@@ -38,21 +38,11 @@ position = Vector2(672, 328)
 body_collision_disabled = true
 show_instrument = false
 
-[node name="Portals" type="Node2D" parent="."]
-
-[node name="Home" parent="Portals" instance=ExtResource("4_f4jjq")]
-position = Vector2(768, 304)
-destination_level_tag = "home_inside"
-
-[node name="Marker2D" parent="Portals/Home" index="1"]
-position = Vector2(0, 24)
-
-[node name="Arena" parent="Portals" instance=ExtResource("4_f4jjq")]
+[node name="Arena" parent="." instance=ExtResource("4_f4jjq")]
 position = Vector2(944, 328)
-destination_level_tag = "arena"
+destination_scene = "arena"
 
-[node name="Marker2D" parent="Portals/Arena" index="1"]
+[node name="Marker2D" parent="Arena" index="1"]
 position = Vector2(-24, 3.05176e-05)
 
-[editable path="Portals/Home"]
-[editable path="Portals/Arena"]
+[editable path="Arena"]

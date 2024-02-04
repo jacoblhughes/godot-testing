@@ -11,10 +11,11 @@ func _process(delta):
 	pass
 
 
-func _on_area_2d_body_entered(body):
-	if body is Player:
+func _on_area_2d_area_entered(area):
+
+	if area is InstrumentAttack:
 		start.emit()
-		$AnimatedSprite2D.play()
+		$AnimationPlayer.play("ring")
 		await get_tree().create_timer(5).timeout
-		$AnimatedSprite2D.stop()
+		$AnimationPlayer.stop()
 	pass # Replace with function body.

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccfmojtrnhhdl"]
+[gd_scene load_steps=9 format=3 uid="uid://ccfmojtrnhhdl"]
 
 [ext_resource type="Texture2D" uid="uid://chrydlko6a7sm" path="res://textures/level.png" id="1_l0yph"]
+[ext_resource type="Script" path="res://src/town/home_inside.gd" id="1_wnjut"]
 [ext_resource type="Script" path="res://src/town/bed.gd" id="2_21f2j"]
 [ext_resource type="PackedScene" uid="uid://hvcoab6g0vjf" path="res://src/player/player.tscn" id="2_uwybg"]
 [ext_resource type="PackedScene" uid="uid://clxmivsqbcd26" path="res://src/levels/portal.tscn" id="3_7ahvw"]
@@ -429,6 +430,7 @@ sources/1 = SubResource("TileSetAtlasSource_iey01")
 size = Vector2(8, 32)
 
 [node name="HomeInside" type="Node2D"]
+script = ExtResource("1_wnjut")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_8kw3s")
@@ -470,11 +472,11 @@ region_enabled = true
 region_rect = Rect2(336, 208, 32, 32)
 
 [node name="Portal" parent="Exit" instance=ExtResource("3_7ahvw")]
-destination_level_tag = "village"
-village_tag = "Home"
+destination_scene = "village"
+specific_portal_tag = "Home"
 
 [node name="Marker2D" parent="Exit/Portal" index="1"]
-position = Vector2(0, -16)
+position = Vector2(0, -32)
 
 [node name="Player" parent="." instance=ExtResource("2_uwybg")]
 position = Vector2(528, 376)

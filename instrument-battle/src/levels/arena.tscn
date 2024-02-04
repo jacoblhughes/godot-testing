@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bvoeytnjf5ico"]
+[gd_scene load_steps=23 format=3 uid="uid://bvoeytnjf5ico"]
 
 [ext_resource type="Script" path="res://src/levels/arena.gd" id="1_nbud1"]
 [ext_resource type="TileSet" uid="uid://ce3mfk6qnlg7b" path="res://src/levels/level.tres" id="2_s34sk"]
@@ -7,7 +7,46 @@
 [ext_resource type="Texture2D" uid="uid://bktf4g0d3shcp" path="res://textures/trumpet_boom.png" id="3_glyou"]
 [ext_resource type="PackedScene" uid="uid://clxmivsqbcd26" path="res://src/levels/portal.tscn" id="3_u6chb"]
 [ext_resource type="Script" path="res://src/levels/enemy_spawn.gd" id="3_xmov5"]
+[ext_resource type="Texture2D" uid="uid://1qudy0a1wwab" path="res://textures/bell.png" id="4_bs4ro"]
 [ext_resource type="PackedScene" uid="uid://hvcoab6g0vjf" path="res://src/player/player.tscn" id="4_vvg8d"]
+
+[sub_resource type="Animation" id="Animation_gdehi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bell:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_hmcvq"]
+resource_name = "ring"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bell:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.261799, -0.523599, -0.645772, -0.785398, -0.645772, -0.523599, -0.261799, 0.0, 0.261799, 0.523599, 0.645772, 0.785398, 0.645772, 0.523599, 0.261799, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o6irc"]
+_data = {
+"RESET": SubResource("Animation_gdehi"),
+"ring": SubResource("Animation_hmcvq")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4dv2"]
 atlas = ExtResource("3_glyou")
@@ -93,15 +132,32 @@ layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(458790, 0, 7, 524326, 0, 8, 589862, 0, 9, 458791, 65536, 7, 524327, 65536, 8, 589863, 65536, 9, 655399, 65536, 10, 1572890, 589824, 3, 1835037, 589824, 3, 1376298, 589824, 3, 1900586, 589824, 3, 655393, 589824, 3, 1179667, 589824, 3, 1703959, 0, 7, 1769495, 0, 8, 1835031, 0, 9, 1703960, 65536, 7, 1769496, 65536, 8, 1835032, 65536, 9, 1900568, 65536, 10, 1900597, 65536, 10, 1179678, 0, 0, 1245214, 0, 1, 1310750, 0, 2, 1376286, 0, 3, 1441822, 0, 4, 1179679, 65536, 0, 1245215, 65536, 1, 1310751, 65536, 2, 1376287, 65536, 3, 1441823, 65536, 4, 1179680, 131072, 0, 1245216, 131072, 1, 1310752, 131072, 2, 1376288, 131072, 3, 1441824, 131072, 4, 1179681, 196608, 0, 1245217, 196608, 1, 1310753, 196608, 2, 1376289, 196608, 3, 1441825, 196608, 4, 1179682, 262144, 0, 1245218, 262144, 1, 1310754, 262144, 2, 1376290, 262144, 3, 1441826, 262144, 4, 1179683, 327680, 0, 1245219, 327680, 1, 1310755, 327680, 2, 1376291, 327680, 3, 1441827, 327680, 4, 1179684, 393216, 0, 1245220, 393216, 1, 1310756, 393216, 2, 1376292, 393216, 3, 1441828, 393216, 4, 458781, 0, 7, 524317, 0, 8, 589853, 0, 9, 458782, 65536, 7, 524318, 65536, 8, 589854, 65536, 9, 655390, 65536, 10)
 
 [node name="Start" type="Node2D" parent="."]
-position = Vector2(536, 328)
+position = Vector2(536, 312)
 script = ExtResource("3_4owva")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Start"]
+libraries = {
+"": SubResource("AnimationLibrary_o6irc")
+}
+
+[node name="Bell" type="Node2D" parent="Start"]
+position = Vector2(-6.10352e-05, -40)
+
+[node name="Sprite2D" type="Sprite2D" parent="Start/Bell"]
+position = Vector2(-4.81606e-05, -7.62939e-06)
+texture = ExtResource("4_bs4ro")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Start"]
+visible = false
+position = Vector2(34.4, -40.9524)
 sprite_frames = SubResource("SpriteFrames_4h3xy")
 frame = 2
 frame_progress = 0.26692
 
 [node name="Area2D" type="Area2D" parent="Start"]
+position = Vector2(-6.10352e-05, -40)
+collision_layer = 256
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Start/Area2D"]
 shape = SubResource("CircleShape2D_pmjr5")
@@ -116,8 +172,11 @@ region_rect = Rect2(272, 224, 64, 64)
 
 [node name="Portal" parent="Stage" instance=ExtResource("3_u6chb")]
 position = Vector2(8, 320)
-destination_level_tag = "village"
-village_tag = "Arena"
+destination_scene = "village"
+specific_portal_tag = "Arena"
+
+[node name="Marker2D" parent="Stage/Portal" index="1"]
+position = Vector2(24, 0)
 
 [node name="Treasure" type="Node2D" parent="."]
 
@@ -140,4 +199,7 @@ unique_name_in_owner = true
 position = Vector2(456, 328)
 feet_collision_disabled = true
 
+[connection signal="area_entered" from="Start/Area2D" to="Start" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Start/Area2D" to="Start" method="_on_area_2d_body_entered"]
+
+[editable path="Stage/Portal"]
