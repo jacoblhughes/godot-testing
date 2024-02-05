@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 uniform vec4 line_color = vec4(1.0, 1.0, 1.0, 1.0); // Default to white
-uniform float line_thickness = 1.0; // Default thickness
+uniform float line_thickness = 0.0; // Default thickness
 
 const vec2 OFFSETS[8] = {
 	vec2(-1, -1), vec2(-1, 0), vec2(-1, 1), vec2(0, -1), vec2(0, 1), 

@@ -1,0 +1,78 @@
+[gd_scene load_steps=13 format=3 uid="uid://b41rh813on3a1"]
+
+[ext_resource type="Script" path="res://src/levels/npc.gd" id="1_35yuh"]
+[ext_resource type="Script" path="res://src/town/npc_character.gd" id="2_ne4c3"]
+[ext_resource type="Shader" path="res://src/levels/npc.gdshader" id="2_ohbtq"]
+[ext_resource type="Texture2D" uid="uid://bc025c5yxgnr" path="res://textures/npc.png" id="3_3hcbi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_07ga6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eq3ek"]
+shader = ExtResource("2_ohbtq")
+shader_parameter/line_color = Vector4(1, 1, 1, 1)
+shader_parameter/line_thickness = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7kgd"]
+atlas = ExtResource("3_3hcbi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7nm2"]
+atlas = ExtResource("3_3hcbi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahe8c"]
+atlas = ExtResource("3_3hcbi")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy4cg"]
+atlas = ExtResource("3_3hcbi")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5solm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7kgd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7nm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahe8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gy4cg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v8axu"]
+radius = 16.0
+
+[node name="NPC" type="Node2D"]
+script = ExtResource("1_35yuh")
+
+[node name="NPC" type="CharacterBody2D" parent="."]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("2_ne4c3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
+shape = SubResource("CapsuleShape2D_07ga6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_eq3ek")
+sprite_frames = SubResource("SpriteFrames_5solm")
+autoplay = "default"
+frame_progress = 0.629444
+
+[node name="Detection" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+position = Vector2(-16, 0)
+shape = SubResource("CircleShape2D_v8axu")
+
+[connection signal="body_entered" from="Detection" to="." method="_on_area_2d_body_entered"]

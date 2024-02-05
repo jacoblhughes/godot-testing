@@ -1,3 +1,5 @@
 Make a better way to add the streasure to the treasure node or just clean that up in general
 
 Call the enemies group in the Enemy class
+
+Clean up detection, arrange raycast direction depending on looking direction

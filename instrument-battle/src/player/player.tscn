@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://chvjrvuocfyld" path="res://textures/ghost_player.png" id="3_psihw"]
 [ext_resource type="PackedScene" uid="uid://u80ieml52gji" path="res://src/instruments/trumpet.tscn" id="3_rd2bj"]
 [ext_resource type="PackedScene" uid="uid://bjh0lvgjr5jhi" path="res://src/player/collect.tscn" id="4_660oc"]
+[ext_resource type="Script" path="res://src/player/detection.gd" id="5_xhm14"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_15wlj"]
 atlas = ExtResource("3_psihw")
@@ -114,9 +115,6 @@ height = 32.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7u5t"]
 size = Vector2(16, 12)
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_iq8a4"]
-points = PackedVector2Array(100, 100, 200, 200)
-
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 6
 motion_mode = 1
@@ -148,13 +146,13 @@ unique_name_in_owner = true
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_y7u5t")
 
-[node name="NPCDetection" type="RayCast2D" parent="."]
-target_position = Vector2(93, -13)
-collision_mask = 256
-collide_with_areas = true
+[node name="Detection" type="Node2D" parent="."]
+position = Vector2(0, -16)
+script = ExtResource("5_xhm14")
 
-[node name="ShapeCast2D" type="ShapeCast2D" parent="."]
-shape = SubResource("ConvexPolygonShape2D_iq8a4")
-target_position = Vector2(262, -42)
+[node name="NPC" type="RayCast2D" parent="Detection"]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(8, 0)
+target_position = Vector2(16, 0)
 collision_mask = 256
 collide_with_areas = true
