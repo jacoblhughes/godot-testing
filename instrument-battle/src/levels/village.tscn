@@ -1,10 +1,58 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj75ipoooov4a"]
+[gd_scene load_steps=17 format=3 uid="uid://dj75ipoooov4a"]
 
 [ext_resource type="Script" path="res://src/levels/village.gd" id="1_67nnk"]
 [ext_resource type="TileSet" uid="uid://ce3mfk6qnlg7b" path="res://src/levels/level.tres" id="1_afkjo"]
 [ext_resource type="PackedScene" uid="uid://ckqvhq5vtuem4" path="res://src/town/home.tscn" id="2_5h46x"]
 [ext_resource type="PackedScene" uid="uid://hvcoab6g0vjf" path="res://src/player/player.tscn" id="2_8cw1h"]
 [ext_resource type="PackedScene" uid="uid://clxmivsqbcd26" path="res://src/levels/portal.tscn" id="4_f4jjq"]
+[ext_resource type="Texture2D" uid="uid://bc025c5yxgnr" path="res://textures/npc.png" id="6_0dven"]
+[ext_resource type="Shader" path="res://src/levels/npc.gdshader" id="6_3x1vt"]
+[ext_resource type="Script" path="res://src/levels/npc.gd" id="6_ddwgw"]
+[ext_resource type="Texture2D" uid="uid://c7gkn5oau58sg" path="res://textures/arena_ingress.png" id="6_v4m7q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eq3ek"]
+shader = ExtResource("6_3x1vt")
+shader_parameter/line_color = Vector4(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7kgd"]
+atlas = ExtResource("6_0dven")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7nm2"]
+atlas = ExtResource("6_0dven")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahe8c"]
+atlas = ExtResource("6_0dven")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy4cg"]
+atlas = ExtResource("6_0dven")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5solm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7kgd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7nm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahe8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gy4cg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v8axu"]
+radius = 16.0
 
 [node name="Village" type="Node2D"]
 script = ExtResource("1_67nnk")
@@ -31,18 +79,42 @@ layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array()
 
 [node name="Home" parent="." instance=ExtResource("2_5h46x")]
-position = Vector2(784, 312)
-
-[node name="Player" parent="." instance=ExtResource("2_8cw1h")]
-position = Vector2(672, 328)
-body_collision_disabled = true
-show_instrument = false
+position = Vector2(733, 312)
 
 [node name="Arena" parent="." instance=ExtResource("4_f4jjq")]
-position = Vector2(944, 328)
+position = Vector2(896, 328)
 destination_scene = "arena"
 
 [node name="Marker2D" parent="Arena" index="1"]
 position = Vector2(-24, 3.05176e-05)
+
+[node name="Sprite2D" type="Sprite2D" parent="Arena"]
+texture = ExtResource("6_v4m7q")
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="NPC" type="Node2D" parent="NPCs"]
+position = Vector2(840, 320)
+script = ExtResource("6_ddwgw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPCs/NPC"]
+material = SubResource("ShaderMaterial_eq3ek")
+sprite_frames = SubResource("SpriteFrames_5solm")
+autoplay = "default"
+frame_progress = 0.629444
+
+[node name="Area2D" type="Area2D" parent="NPCs/NPC"]
+collision_layer = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC/Area2D"]
+position = Vector2(-16, 0)
+shape = SubResource("CircleShape2D_v8axu")
+
+[node name="Player" parent="." instance=ExtResource("2_8cw1h")]
+position = Vector2(640, 328)
+body_collision_disabled = true
+show_instrument = false
+
+[connection signal="body_entered" from="NPCs/NPC/Area2D" to="NPCs/NPC" method="_on_area_2d_body_entered"]
 
 [editable path="Arena"]

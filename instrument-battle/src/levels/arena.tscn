@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://src/levels/arena.gd" id="1_nbud1"]
 [ext_resource type="TileSet" uid="uid://ce3mfk6qnlg7b" path="res://src/levels/level.tres" id="2_s34sk"]
-[ext_resource type="Texture2D" uid="uid://chrydlko6a7sm" path="res://textures/level.png" id="2_t8oid"]
 [ext_resource type="Script" path="res://src/levels/start.gd" id="3_4owva"]
 [ext_resource type="Texture2D" uid="uid://bktf4g0d3shcp" path="res://textures/trumpet_boom.png" id="3_glyou"]
 [ext_resource type="PackedScene" uid="uid://clxmivsqbcd26" path="res://src/levels/portal.tscn" id="3_u6chb"]
 [ext_resource type="Script" path="res://src/levels/enemy_spawn.gd" id="3_xmov5"]
 [ext_resource type="Texture2D" uid="uid://1qudy0a1wwab" path="res://textures/bell.png" id="4_bs4ro"]
 [ext_resource type="PackedScene" uid="uid://hvcoab6g0vjf" path="res://src/player/player.tscn" id="4_vvg8d"]
+[ext_resource type="Texture2D" uid="uid://c7gkn5oau58sg" path="res://textures/arena_ingress.png" id="6_6c2in"]
 
 [sub_resource type="Animation" id="Animation_gdehi"]
 length = 0.001
@@ -163,16 +163,16 @@ collision_mask = 8
 shape = SubResource("CircleShape2D_pmjr5")
 
 [node name="Stage" type="Node2D" parent="."]
+position = Vector2(32, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Stage"]
 position = Vector2(32, 320)
-texture = ExtResource("2_t8oid")
-region_enabled = true
+texture = ExtResource("6_6c2in")
 region_rect = Rect2(272, 224, 64, 64)
 
 [node name="StagePortal" parent="Stage" instance=ExtResource("3_u6chb")]
 unique_name_in_owner = true
-position = Vector2(8, 320)
+position = Vector2(32, 320)
 destination_scene = "village"
 specific_portal_tag = "Arena"
 

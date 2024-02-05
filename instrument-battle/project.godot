@@ -88,6 +88,7 @@ quit={
 2d_physics/layer_6="enter"
 2d_physics/layer_7="player_town"
 2d_physics/layer_8="town"
+2d_physics/layer_9="npc"
 
 [rendering]
 

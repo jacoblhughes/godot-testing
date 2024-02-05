@@ -13,7 +13,6 @@ MarginContainer/constants/margin_top = 10
 script = ExtResource("1_g1jj3")
 
 [node name="Arena" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -32,6 +31,7 @@ columns = 2
 [node name="TextureRect" type="TextureRect" parent="Arena/MarginContainer/GridContainer"]
 layout_mode = 2
 texture = ExtResource("2_f3du5")
+expand_mode = 2
 
 [node name="Score" type="Label" parent="Arena/MarginContainer/GridContainer"]
 layout_mode = 2

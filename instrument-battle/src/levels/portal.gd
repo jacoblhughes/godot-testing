@@ -4,6 +4,7 @@ class_name Portal
 @export var specific_portal_tag : String
 @onready var marker = $Marker2D
 @onready var collision = $Area2D/CollisionShape2D
+@export var unlocked = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -16,7 +17,7 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if body is Player:
+	if body is Player and unlocked:
 		NavigationManager.go_to_level(destination_scene, specific_portal_tag)
 		pass
 	pass # Replace with function body.

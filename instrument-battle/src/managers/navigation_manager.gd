@@ -4,7 +4,7 @@ const scene_arena = preload("res://src/levels/arena.tscn")
 const scene_village = preload("res://src/levels/village.tscn")
 const scene_home_inside = preload("res://src/town/home_inside.tscn")
 
-var specific_portal_tag
+var specific_portal_tag = "Home"
 signal on_trigger_spawn
 # Called when the node enters the scene tree for the first time.
 func go_to_level(level_tag, destination_portal_tag):
@@ -26,14 +26,16 @@ func spawn_player(position):
 	on_trigger_spawn.emit(position)
 
 func on_level_spawn():
+	print(NavigationManager.specific_portal_tag)
 	if NavigationManager.specific_portal_tag != null and NavigationManager.specific_portal_tag != "":
 		for portals in  get_tree().get_nodes_in_group("portals"):
-
+			print("!null")
+			print(portals)
 			if portals.name == NavigationManager.specific_portal_tag:
 				var portal = portals as Portal
 				NavigationManager.spawn_player(portal.marker.global_position)
 	else:
 		for portals in  get_tree().get_nodes_in_group("portals"):
-
+			print(portals)
 			var portal = portals as Portal
 			NavigationManager.spawn_player(portal.marker.global_position)
