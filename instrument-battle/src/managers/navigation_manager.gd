@@ -26,11 +26,8 @@ func spawn_player(position):
 	on_trigger_spawn.emit(position)
 
 func on_level_spawn():
-	print(NavigationManager.specific_portal_tag)
 	if NavigationManager.specific_portal_tag != null and NavigationManager.specific_portal_tag != "":
 		for portals in  get_tree().get_nodes_in_group("portals"):
-			print("!null")
-			print(portals)
 			if portals.name == NavigationManager.specific_portal_tag:
 				var portal = portals as Portal
 				NavigationManager.spawn_player(portal.marker.global_position)

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ckqvhq5vtuem4" path="res://src/town/home.tscn" id="2_5h46x"]
 [ext_resource type="PackedScene" uid="uid://hvcoab6g0vjf" path="res://src/player/player.tscn" id="2_8cw1h"]
 [ext_resource type="PackedScene" uid="uid://clxmivsqbcd26" path="res://src/levels/portal.tscn" id="4_f4jjq"]
-[ext_resource type="PackedScene" uid="uid://b41rh813on3a1" path="res://src/town/npc.tscn" id="6_fjsj3"]
+[ext_resource type="PackedScene" uid="uid://j3cor4q7v1my" path="res://src/town/npc.tscn" id="6_fjsj3"]
 [ext_resource type="Texture2D" uid="uid://c7gkn5oau58sg" path="res://textures/arena_ingress.png" id="6_v4m7q"]
 
 [node name="Village" type="Node2D"]

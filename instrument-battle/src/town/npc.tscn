@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://b41rh813on3a1"]
+[gd_scene load_steps=12 format=3 uid="uid://j3cor4q7v1my"]
 
-[ext_resource type="Script" path="res://src/levels/npc.gd" id="1_35yuh"]
-[ext_resource type="Script" path="res://src/town/npc_character.gd" id="2_ne4c3"]
+[ext_resource type="Script" path="res://src/town/npc.gd" id="1_bu0to"]
 [ext_resource type="Shader" path="res://src/levels/npc.gdshader" id="2_ohbtq"]
 [ext_resource type="Texture2D" uid="uid://bc025c5yxgnr" path="res://textures/npc.png" id="3_3hcbi"]
 
@@ -51,15 +50,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_v8axu"]
 radius = 16.0
 
-[node name="NPC" type="Node2D"]
-script = ExtResource("1_35yuh")
-
-[node name="NPC" type="CharacterBody2D" parent="."]
+[node name="NPC" type="CharacterBody2D"]
 collision_layer = 256
 collision_mask = 0
-script = ExtResource("2_ne4c3")
+script = ExtResource("1_bu0to")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_07ga6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -13,5 +13,5 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body is Player:
-		print('wow')
+
 	pass # Replace with function body.
