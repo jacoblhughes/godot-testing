@@ -35,12 +35,12 @@ func _physics_process(delta):
 	var direction = Input.get_axis("move_left", "move_right")
 
 	if direction:
-		player_animation.play("side")
+
 		if direction > 0:
-			player_animation.flip_h = false
+			player_animation.play("right")
 #			attack.rotation_degrees = 0
 		elif direction < 0:
-			player_animation.flip_h = true
+			player_animation.play("left")
 #			attack.rotation_degrees = 180
 		velocity.x = direction * SPEED
 	else:

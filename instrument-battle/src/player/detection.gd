@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var npc_ray_detection : RayCast2D = $NPC
+@onready var npc_ray_detection : ShapeCast2D = $NPC
 var npc_detect =  null
 var current_npc_detect = null
 # Called when the node enters the scene tree for the first time.
@@ -16,7 +16,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if npc_ray_detection.is_colliding():
-		current_npc_detect = npc_ray_detection.get_collider()
+		current_npc_detect = npc_ray_detection.get_collider(0)
 		if current_npc_detect != null:
 			current_npc_detect.being_viewed()
 			npc_detect = current_npc_detect
