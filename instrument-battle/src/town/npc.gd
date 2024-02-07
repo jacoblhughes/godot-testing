@@ -24,6 +24,7 @@ func _on_area_2d_body_entered(body):
 	if body is Player and player_view:
 		should_be = true
 		sprite.material.set_shader_parameter("line_thickness", 1.0)
+		body.on_npc_interact(%Marker2D.global_position)
 	else:
 		should_be = false
 func being_viewed():

@@ -21,11 +21,11 @@ func _physics_process(delta):
 
 	if direction_y:
 		if direction_y > 0:
-			player_animation.play("default")
-#			attack.rotation_degrees = 90
+			player_animation.play("down")
+			%Detection.rotation_degrees = 90
 		elif direction_y < 0:
-			player_animation.play("back")
-#			attack.rotation_degrees = -90
+			player_animation.play("up")
+			%Detection.rotation_degrees = -90
 		velocity.y = direction_y * SPEED
 
 	else:
@@ -38,10 +38,10 @@ func _physics_process(delta):
 
 		if direction > 0:
 			player_animation.play("right")
-#			attack.rotation_degrees = 0
+			%Detection.rotation_degrees = 0
 		elif direction < 0:
 			player_animation.play("left")
-#			attack.rotation_degrees = 180
+			%Detection.rotation_degrees = 180
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -51,3 +51,11 @@ func _physics_process(delta):
 
 func _on_spawn(spawn_position):
 	global_position = spawn_position
+
+func on_npc_interact(npc_position):
+
+	global_position = global_position.lerp(npc_position,1.0)
+	velocity = Vector2.ZERO
+	
+	
+	
