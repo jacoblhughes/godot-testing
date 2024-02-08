@@ -1,12 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://ceelxy0bqkhuc"]
+[gd_scene load_steps=4 format=3 uid="uid://ceelxy0bqkhuc"]
 
 [ext_resource type="Texture2D" uid="uid://dxfpx8mtw3fuv" path="res://textures/dialogue.png" id="1_5tqdo"]
+[ext_resource type="Script" path="res://src/town/dialogue.gd" id="1_ux7mb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r5e5w"]
+font_color = Color(0, 0, 0, 1)
 
 [node name="Dialogue" type="CanvasLayer"]
+script = ExtResource("1_ux7mb")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 offset_left = 64.0
-offset_top = 61.0
+offset_top = 64.0
 offset_right = 896.0
 offset_bottom = 128.0
 texture = ExtResource("1_5tqdo")
@@ -15,12 +20,13 @@ patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect"]
+[node name="Label" type="Label" parent="NinePatchRect"]
+unique_name_in_owner = true
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="NinePatchRect"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 832.0
+offset_bottom = 64.0
+text = "Good luck"
+label_settings = SubResource("LabelSettings_r5e5w")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
