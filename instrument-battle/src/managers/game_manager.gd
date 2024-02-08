@@ -9,6 +9,11 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
+	if Input.is_action_just_pressed("b"):
+		get_tree().quit()
+	elif Input.is_action_just_pressed("lt"):
+		get_tree().reload_current_scene()
+	pass
 	pass
 
 func add_score(value):

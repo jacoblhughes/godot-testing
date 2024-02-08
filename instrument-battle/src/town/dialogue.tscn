@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://ceelxy0bqkhuc"]
+
+[ext_resource type="Texture2D" uid="uid://dxfpx8mtw3fuv" path="res://textures/dialogue.png" id="1_5tqdo"]
+
+[node name="Dialogue" type="CanvasLayer"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 64.0
+offset_top = 61.0
+offset_right = 896.0
+offset_bottom = 128.0
+texture = ExtResource("1_5tqdo")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

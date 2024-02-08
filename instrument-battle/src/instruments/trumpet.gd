@@ -20,7 +20,7 @@ func _process(delta):
 	if(abs(controller_x) > DEADZONE or abs(controller_y) >DEADZONE):
 		rotation = (Vector2(controller_x,controller_y)).angle()
 		
-	if Input.is_action_pressed("play_instrument") and can_blast:
+	if Input.is_action_just_pressed("rt") and can_blast:
 		attack_animation.play("blast")
 		enemies_list=[]
 		can_blast = false

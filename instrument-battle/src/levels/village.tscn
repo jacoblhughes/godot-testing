@@ -35,15 +35,18 @@ layer_2/tile_data = PackedInt32Array()
 [node name="Home" parent="." instance=ExtResource("2_5h46x")]
 position = Vector2(733, 312)
 
-[node name="Arena" parent="." instance=ExtResource("4_f4jjq")]
+[node name="ArenaEntrance" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ArenaEntrance"]
+position = Vector2(896, 328)
+texture = ExtResource("6_v4m7q")
+
+[node name="Arena" parent="ArenaEntrance" instance=ExtResource("4_f4jjq")]
 position = Vector2(896, 328)
 destination_scene = "arena"
 
-[node name="Marker2D" parent="Arena" index="1"]
+[node name="Marker2D" parent="ArenaEntrance/Arena" index="1"]
 position = Vector2(-24, 3.05176e-05)
-
-[node name="Sprite2D" type="Sprite2D" parent="Arena"]
-texture = ExtResource("6_v4m7q")
 
 [node name="NPCs" type="Node2D" parent="."]
 
@@ -55,4 +58,4 @@ position = Vector2(640, 328)
 body_collision_disabled = true
 show_instrument = false
 
-[editable path="Arena"]
+[editable path="ArenaEntrance/Arena"]
