@@ -38,6 +38,7 @@ func _on_area_2d_body_entered(body):
 	else:
 		should_be = false
 		player = null
+		
 func being_viewed():
 	player_view=true
 
