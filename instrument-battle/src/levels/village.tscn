@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj75ipoooov4a"]
+[gd_scene load_steps=9 format=3 uid="uid://dj75ipoooov4a"]
 
 [ext_resource type="Script" path="res://src/levels/village.gd" id="1_67nnk"]
 [ext_resource type="TileSet" uid="uid://ce3mfk6qnlg7b" path="res://src/levels/level.tres" id="1_afkjo"]
 [ext_resource type="PackedScene" uid="uid://ckqvhq5vtuem4" path="res://src/town/home.tscn" id="2_5h46x"]
 [ext_resource type="PackedScene" uid="uid://hvcoab6g0vjf" path="res://src/player/player.tscn" id="2_8cw1h"]
+[ext_resource type="Script" path="res://src/levels/arena_entrance.gd" id="4_e1ij6"]
 [ext_resource type="PackedScene" uid="uid://clxmivsqbcd26" path="res://src/levels/portal.tscn" id="4_f4jjq"]
 [ext_resource type="PackedScene" uid="uid://j3cor4q7v1my" path="res://src/town/npc.tscn" id="6_fjsj3"]
 [ext_resource type="Texture2D" uid="uid://c7gkn5oau58sg" path="res://textures/arena_ingress.png" id="6_v4m7q"]
@@ -36,6 +37,7 @@ layer_2/tile_data = PackedInt32Array()
 position = Vector2(733, 312)
 
 [node name="ArenaEntrance" type="Node2D" parent="."]
+script = ExtResource("4_e1ij6")
 
 [node name="Sprite2D" type="Sprite2D" parent="ArenaEntrance"]
 position = Vector2(896, 328)
