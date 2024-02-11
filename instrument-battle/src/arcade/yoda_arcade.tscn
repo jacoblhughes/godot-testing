@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://c5j3ovxajcube"]
 
-[ext_resource type="Texture2D" uid="uid://b2v0tvotx32eg" path="res://textures/yoda_tile.png" id="1_a12is"]
-[ext_resource type="Texture2D" uid="uid://bsdyscyyr5wdt" path="res://textures/yoda.png" id="2_f5pxg"]
+[ext_resource type="Texture2D" uid="uid://b2v0tvotx32eg" path="res://textures/yoda_tile.png" id="1_ytqh4"]
+[ext_resource type="Texture2D" uid="uid://bsdyscyyr5wdt" path="res://textures/yoda.png" id="2_0ho8d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2p63h"]
 resource_name = "tile"
-texture = ExtResource("1_a12is")
+texture = ExtResource("1_ytqh4")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -24,7 +24,7 @@ sources/0 = SubResource("TileSetAtlasSource_2p63h")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tb7eb"]
 size = Vector2(48, 32)
 
-[node name="Yoda" type="Node2D"]
+[node name="YodaGame" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_fmj00")
@@ -39,7 +39,9 @@ position = Vector2(16, 16)
 [node name="Area2D" type="Area2D" parent="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Area2D"]
-texture = ExtResource("2_f5pxg")
+texture = ExtResource("2_0ho8d")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
 position = Vector2(0, 1.90735e-06)
