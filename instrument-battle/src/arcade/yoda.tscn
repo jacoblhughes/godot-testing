@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5j3ovxajcube"]
+
+[ext_resource type="Texture2D" uid="uid://b2v0tvotx32eg" path="res://textures/yoda_tile.png" id="1_a12is"]
+[ext_resource type="Texture2D" uid="uid://bsdyscyyr5wdt" path="res://textures/yoda.png" id="2_f5pxg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2p63h"]
+resource_name = "tile"
+texture = ExtResource("1_a12is")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+
+[sub_resource type="TileSet" id="TileSet_fmj00"]
+tile_size = Vector2i(32, 32)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "floor"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_2p63h")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tb7eb"]
+size = Vector2(48, 32)
+
+[node name="Yoda" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_fmj00")
+cell_quadrant_size = 32
+format = 2
+layer_0/name = "base"
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 1, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 262145, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 262146, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0, 262147, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 0, 0, 5, 0, 0, 65541, 0, 0, 131077, 0, 0, 196613, 0, 0, 262149, 0, 0)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(16, 16)
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/Area2D"]
+texture = ExtResource("2_f5pxg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+position = Vector2(0, 1.90735e-06)
+shape = SubResource("RectangleShape2D_tb7eb")
