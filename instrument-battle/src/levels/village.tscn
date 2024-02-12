@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dj75ipoooov4a"]
+[gd_scene load_steps=10 format=3 uid="uid://dj75ipoooov4a"]
 
 [ext_resource type="Script" path="res://src/levels/village.gd" id="1_67nnk"]
 [ext_resource type="TileSet" uid="uid://ce3mfk6qnlg7b" path="res://src/levels/level.tres" id="1_afkjo"]
@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://clxmivsqbcd26" path="res://src/levels/portal.tscn" id="4_f4jjq"]
 [ext_resource type="PackedScene" uid="uid://j3cor4q7v1my" path="res://src/town/npc.tscn" id="6_fjsj3"]
 [ext_resource type="Texture2D" uid="uid://c7gkn5oau58sg" path="res://textures/arena_ingress.png" id="6_v4m7q"]
+[ext_resource type="PackedScene" uid="uid://wh7aly2bx5um" path="res://src/town/yoda.tscn" id="7_fhj4w"]
 
 [node name="Village" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_67nnk")
 metadata/_edit_horizontal_guides_ = [320.0, 328.0]
 
@@ -50,12 +52,16 @@ destination_scene = "arena"
 [node name="Marker2D" parent="ArenaEntrance/Arena" index="1"]
 position = Vector2(-24, 3.05176e-05)
 
+[node name="Yoda" parent="." instance=ExtResource("7_fhj4w")]
+position = Vector2(776, 312)
+
 [node name="NPCs" type="Node2D" parent="."]
 
 [node name="NPC" parent="NPCs" instance=ExtResource("6_fjsj3")]
 position = Vector2(840, 312)
 
 [node name="Player" parent="." instance=ExtResource("2_8cw1h")]
+unique_name_in_owner = true
 position = Vector2(640, 328)
 body_collision_disabled = true
 show_instrument = false

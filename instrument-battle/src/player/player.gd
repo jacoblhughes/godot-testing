@@ -16,7 +16,7 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	print("player: ", paused)
+
 	if !paused:
 		
 		var direction_y = Input.get_axis("move_up", "move_down")

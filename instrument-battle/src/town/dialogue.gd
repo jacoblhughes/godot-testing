@@ -19,7 +19,7 @@ func _process(delta):
 	pass
 	
 func trigger():
-	print('trigger')
+
 	_determine_progress_dialogue()
 
 func _determine_progress_dialogue():
@@ -37,7 +37,7 @@ func _determine_progress_dialogue():
 		_progress_dialogue()
 
 func _progress_dialogue():
-	print('preogres')
+
 	visible=true
 	can_progress = false
 

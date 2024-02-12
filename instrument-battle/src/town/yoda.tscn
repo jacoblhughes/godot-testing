@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://wh7aly2bx5um"]
+[gd_scene load_steps=22 format=3 uid="uid://wh7aly2bx5um"]
 
 [ext_resource type="Script" path="res://src/town/yoda.gd" id="1_ah4mm"]
 [ext_resource type="Texture2D" uid="uid://bsdyscyyr5wdt" path="res://textures/yoda.png" id="1_d41gd"]
@@ -50,6 +50,10 @@ region = Rect2(96, 0, 48, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3cbi"]
 atlas = ExtResource("1_d41gd")
 region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vifrw"]
+atlas = ExtResource("1_d41gd")
+region = Rect2(0, 160, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3bcay"]
 atlas = ExtResource("1_d41gd")
@@ -122,6 +126,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_vifrw")
+}],
+"loop": true,
+"name": &"sit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3bcay")
 }, {
 "duration": 1.0,
@@ -138,17 +150,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rm3uy"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hy8al"]
+radius = 5.0
+height = 18.0
 
-[node name="yoda" type="CharacterBody2D"]
+[node name="Yoda" type="CharacterBody2D"]
+collision_layer = 2147483648
+collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_ah4mm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v4nvj")
-animation = &"left"
-frame = 3
-frame_progress = 0.141142
+animation = &"sit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_rm3uy")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_hy8al")
