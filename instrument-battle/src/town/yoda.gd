@@ -13,7 +13,10 @@ func _physics_process(delta):
 	var direction = global_position.direction_to(%Player.global_position)
 	var direction_normalized = global_position.direction_to(%Player.global_position).normalized()
 	if distance_to_player < 20:
-		$AnimatedSprite2D.play("sit")
+		if direction_normalized.x >=0:			
+			$AnimatedSprite2D.play("sit_face_right")
+		else: 
+			$AnimatedSprite2D.play("sit_face_left")
 		velocity = Vector2.ZERO
 	else:
 		if abs(direction_normalized).x < abs(direction_normalized).y:

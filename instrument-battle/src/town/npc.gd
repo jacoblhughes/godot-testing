@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
+@export var node_for_signal : Node2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -11,10 +12,14 @@ var paused = false
 @export var has_quest = false
 var quest_given = false
 signal quest_start
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
 func _ready():
 	%Dialogue.completed.connect(_on_dialogue_completed)
+	if node_for_signal:
+		print(node_for_signal)
+		self.quest_start.connect(node_for_signal._on_npc_interaction)
 	pass # Replace with function body.
 
 func _physics_process(delta):
@@ -25,9 +30,6 @@ func _physics_process(delta):
 			player.paused=true
 			paused = true
 			%Dialogue.trigger()
-			if has_quest and !quest_given:
-				quest_given = true
-				quest_start.emit()
 	pass
 
 func _on_area_2d_body_entered(body):
@@ -51,3 +53,7 @@ func stop_being_viewed():
 func _on_dialogue_completed():
 	paused = false
 	player.paused=false
+	if has_quest and !quest_given:
+		quest_given = true
+		quest_start.emit()
+

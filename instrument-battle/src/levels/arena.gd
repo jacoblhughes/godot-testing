@@ -12,7 +12,7 @@ func _ready():
 	new_arena = true
 	$Start.start.connect(_on_start)
 	NavigationManager.on_level_spawn()
-	%StagePortal.collision.disabled=true
+	%StagePortal.turn_off_portal()
 
 	pass # Replace with function body.
 
@@ -26,7 +26,7 @@ func _check_status():
 		arena_finished.emit()
 		get_tree().call_group("enemies", "fade_away")
 		new_arena = false
-		%StagePortal.collision.disabled=false
+		%StagePortal.turn_on_portal()
 
 func _on_start():
 	if new_arena:

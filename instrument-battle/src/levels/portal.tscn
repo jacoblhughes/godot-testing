@@ -1,6 +1,63 @@
-[gd_scene load_steps=3 format=3 uid="uid://clxmivsqbcd26"]
+[gd_scene load_steps=11 format=3 uid="uid://clxmivsqbcd26"]
 
 [ext_resource type="Script" path="res://src/levels/portal.gd" id="1_cfbln"]
+[ext_resource type="Texture2D" uid="uid://bktf4g0d3shcp" path="res://textures/trumpet_boom.png" id="2_r0pjd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chn7e"]
+atlas = ExtResource("2_r0pjd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmiis"]
+atlas = ExtResource("2_r0pjd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ihy7"]
+atlas = ExtResource("2_r0pjd")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwiqr"]
+atlas = ExtResource("2_r0pjd")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elmga"]
+atlas = ExtResource("2_r0pjd")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjx2o"]
+atlas = ExtResource("2_r0pjd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vrq6x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chn7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmiis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ihy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwiqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elmga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjx2o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chn7e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dbu7"]
 size = Vector2(16, 16)
@@ -10,8 +67,14 @@ script = ExtResource("1_cfbln")
 
 [node name="Area2D" type="Area2D" parent="."]
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(2.38419e-07, 2.38419e-07)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_vrq6x")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_2dbu7")
+disabled = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, 8)

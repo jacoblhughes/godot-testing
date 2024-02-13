@@ -28,7 +28,7 @@ func _determine_progress_dialogue():
 		visible=true
 		can_progress = false
 		%Label.text = text_to_say[text_to_say.size()-1]
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(2.0).timeout
 		visible=false
 		can_progress = true
 		completed.emit()

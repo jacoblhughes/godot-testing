@@ -57,8 +57,9 @@ position = Vector2(776, 312)
 
 [node name="NPCs" type="Node2D" parent="."]
 
-[node name="NPC" parent="NPCs" instance=ExtResource("6_fjsj3")]
+[node name="NPC" parent="NPCs" node_paths=PackedStringArray("node_for_signal") instance=ExtResource("6_fjsj3")]
 position = Vector2(840, 312)
+node_for_signal = NodePath("../../ArenaEntrance")
 
 [node name="Player" parent="." instance=ExtResource("2_8cw1h")]
 unique_name_in_owner = true
