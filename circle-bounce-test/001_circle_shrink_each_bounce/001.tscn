@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://naqura4oq2qg"]
+
+[ext_resource type="Texture2D" uid="uid://8rcag4kyqx8f" path="res://001_circle_shrink_each_bounce/ring.png" id="1_fpq1n"]
+[ext_resource type="PackedScene" uid="uid://csud112m48jq" path="res://generic/ball_basic.tscn" id="2_fc7dx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_64wnm"]
+radius = 29.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_whu58"]
+radius = 32.249
+
+[node name="001" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(360, 640)
+texture = ExtResource("1_fpq1n")
+
+[node name="Inner" type="Area2D" parent="."]
+position = Vector2(285.646, 223.079)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inner"]
+shape = SubResource("CircleShape2D_64wnm")
+
+[node name="Outer" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outer"]
+shape = SubResource("CircleShape2D_whu58")
+debug_color = Color(0.992157, 0, 0.282353, 0.419608)
+
+[node name="BallBasic" parent="." instance=ExtResource("2_fc7dx")]
