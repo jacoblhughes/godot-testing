@@ -15,6 +15,7 @@ var shooting_ball_scene = preload("res://shooting_ball/shooting_ball.tscn")
 var shooting_ball_instance
 var grav_elements: Array
 var collision_shape: CollisionShape2D
+
 func _ready():
 	wall_elements = get_tree().get_nodes_in_group("wall")
 	load_sounds_and_assign_to_walls()

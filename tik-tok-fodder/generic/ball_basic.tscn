@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_kcmq8"]
 radius = 8.0
 
-[node name="ShootingBall" type="RigidBody2D" groups=["ball"]]
+[node name="BallBasic" type="RigidBody2D" groups=["ball"]]
 collision_mask = 2
 physics_material_override = ExtResource("1_3llox")
 gravity_scale = 0.0
