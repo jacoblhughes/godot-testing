@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://x64pbohanpqy"]
 
 [ext_resource type="Script" path="res://shooting_ball/shooting_ball_level.gd" id="1_wgfrl"]
-[ext_resource type="PackedScene" uid="uid://bo74c7cne8mnx" path="res://wall/square_wall.tscn" id="2_01lt2"]
+[ext_resource type="PackedScene" uid="uid://bo74c7cne8mnx" path="res://wall/wall.tscn" id="2_01lt2"]
 [ext_resource type="PackedScene" uid="uid://c3dfpfs6n2r1n" path="res://shooting_ball/shooting_ball.tscn" id="3_ovoes"]
 [ext_resource type="PackedScene" uid="uid://b6mkopwg1p257" path="res://shooting_ball/gravity.tscn" id="4_axndw"]
 
