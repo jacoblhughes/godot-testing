@@ -4,7 +4,7 @@ extends RigidBody2D
 @onready var game = get_parent()
 var sprite : Sprite2D
 
-signal wall_collision(current_position,current_velocity)
+signal wall_collision_and_split(current_position,current_velocity,split_number)
 var random_color
 var music_notes 
 var note = 0
@@ -18,7 +18,9 @@ var texture
 @export var grow_ball_value = 1.1
 @export var hit_wall_speed_up = false
 @export var speed_up_value = 1.1
-var scale_value = 1
+@export var hit_wall_split = false
+@export var split_value = 2
+
 func _ready():
 
 	if has_node("Sprite2D"):
@@ -39,6 +41,7 @@ func start_linear_velocity():
 
 func _on_body_entered(body):
 	if body is Wall:
+
 		if hit_wall_apply_color_to_wall:
 			body.get_node("ColorRect").color = random_color
 		if hit_wall_change_ball_color:
@@ -49,7 +52,8 @@ func _on_body_entered(body):
 			%CollisionShape2D.scale *= grow_ball_value
 		if hit_wall_speed_up:
 			linear_velocity *= speed_up_value
-
+		if hit_wall_split:
+			wall_collision_and_split.emit(global_position,linear_velocity,split_value)
 			
 	else:
 		print('okay but')

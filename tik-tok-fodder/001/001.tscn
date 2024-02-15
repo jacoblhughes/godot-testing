@@ -17,6 +17,9 @@ starting_linear_velocity_value = 100
 hit_wall_apply_color_to_wall = true
 hit_wall_change_ball_color = true
 hit_wall_grow_ball = true
+hit_wall_speed_up = true
+hit_wall_split = true
+split_value = 1
 
 [node name="Wall" parent="." instance=ExtResource("4_1yuie")]
 position = Vector2(360, 360)
