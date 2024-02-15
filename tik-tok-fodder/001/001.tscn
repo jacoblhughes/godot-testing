@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://4h1ty31e6832"]
+[gd_scene load_steps=4 format=3 uid="uid://4h1ty31e6832"]
 
 [ext_resource type="Script" path="res://001/001.gd" id="1_mg55y"]
-[ext_resource type="Texture2D" uid="uid://8rcag4kyqx8f" path="res://001/ring.png" id="2_25ek0"]
 [ext_resource type="PackedScene" uid="uid://csud112m48jq" path="res://generic/ball_basic.tscn" id="3_nu6b7"]
 [ext_resource type="PackedScene" uid="uid://ds4kioy3b1qiv" path="res://generic/wall.tscn" id="4_1yuie"]
 
@@ -10,15 +9,14 @@ script = ExtResource("1_mg55y")
 metadata/_edit_vertical_guides_ = [352.0, 368.0]
 metadata/_edit_horizontal_guides_ = [344.0, 376.0, 352.0, 368.0]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(360, 640)
-texture = ExtResource("2_25ek0")
-
 [node name="BallBasic" parent="." instance=ExtResource("3_nu6b7")]
 position = Vector2(360, 280)
 start_with_linear_velocity = true
 starting_linear_velocity_direction = Vector2(1, 0)
 starting_linear_velocity_value = 100
+hit_wall_apply_color_to_wall = true
+hit_wall_change_ball_color = true
+hit_wall_grow_ball = true
 
 [node name="Wall" parent="." instance=ExtResource("4_1yuie")]
 position = Vector2(360, 360)

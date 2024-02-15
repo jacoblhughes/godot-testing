@@ -9,20 +9,24 @@ var random_color
 var music_notes 
 var note = 0
 var texture
-var sprite_scale
 @export var start_with_linear_velocity = false
 @export var starting_linear_velocity_direction : Vector2
 @export var starting_linear_velocity_value : int
-@export var hit_wall_change_color_of_wall = false
-
+@export var hit_wall_apply_color_to_wall = false
+@export var hit_wall_change_ball_color = false
+@export var hit_wall_grow_ball = false
+@export var grow_ball_value = 1.1
+@export var hit_wall_speed_up = false
+@export var speed_up_value = 1.1
+var scale_value = 1
 func _ready():
-	print(start_with_linear_velocity)
+
 	if has_node("Sprite2D"):
 		sprite = $Sprite2D
 		random_color = Color(randf(), randf(), randf(), 1.0)
 		texture = sprite.texture
 		sprite.modulate = random_color
-		sprite_scale = sprite.scale
+
 	if start_with_linear_velocity:
 		start_linear_velocity()
 		
@@ -35,10 +39,18 @@ func start_linear_velocity():
 
 func _on_body_entered(body):
 	if body is Wall:
-		if hit_wall_change_color_of_wall:
+		if hit_wall_apply_color_to_wall:
 			body.get_node("ColorRect").color = random_color
+		if hit_wall_change_ball_color:
 			random_color = Color(randf(), randf(), randf(), 1.0)
 			sprite.modulate = random_color
+		if hit_wall_grow_ball:
+			%Sprite2D.scale *= grow_ball_value
+			%CollisionShape2D.scale *= grow_ball_value
+		if hit_wall_speed_up:
+			linear_velocity *= speed_up_value
+
+			
 	else:
 		print('okay but')
 	pass

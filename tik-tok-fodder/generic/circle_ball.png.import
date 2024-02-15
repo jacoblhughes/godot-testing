@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cy85nknvyuj3h"
-path="res://.godot/imported/circle_ball.png-31aced061bd73c2b675ce927c1345858.ctex"
+path="res://.godot/imported/circle_ball.png-e6cce8fadf5d225b59accb68a4703376.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://shooting_ball/circle_ball.png"
-dest_files=["res://.godot/imported/circle_ball.png-31aced061bd73c2b675ce927c1345858.ctex"]
+source_file="res://generic/circle_ball.png"
+dest_files=["res://.godot/imported/circle_ball.png-e6cce8fadf5d225b59accb68a4703376.ctex"]
 
 [params]
 
