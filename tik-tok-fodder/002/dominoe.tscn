@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbek0pocl3wbk"]
+[gd_scene load_steps=4 format=3 uid="uid://dbek0pocl3wbk"]
+
+[ext_resource type="Script" path="res://002/dominoe.gd" id="1_ujsrs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a36v6"]
 rough = true
@@ -7,7 +9,9 @@ rough = true
 size = Vector2(8, 40)
 
 [node name="Dominoe" type="RigidBody2D"]
+mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_a36v6")
+script = ExtResource("1_ujsrs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -20)
