@@ -10,9 +10,11 @@ func _ready():
 
 	ball_elements = get_tree().get_nodes_in_group("ball")
 	for element in ball_elements:
-
+		element.wall_collision_and_split.connect(_on_wall_collision)
 		pass
 	grav_elements = get_tree().get_nodes_in_group("gravity")
 	pass
 
 
+func _on_wall_collision():
+	
