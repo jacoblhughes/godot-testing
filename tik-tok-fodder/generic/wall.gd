@@ -9,3 +9,6 @@ func _ready():
 
 func _process(_delta):
 	pass
+	
+func change_color(new_color):
+	%ColorRect.color = new_color
