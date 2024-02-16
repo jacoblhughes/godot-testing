@@ -14,14 +14,15 @@ var texture
 @export var hit_wall_apply_color_to_wall = false
 @export var hit_wall_change_ball_color = false
 @export var hit_wall_grow_ball = false
-@export var grow_ball_value = 1.1
+@export var grow_ball_value = 1.05
 @export var hit_wall_speed_up = false
-@export var speed_up_value = 1.1
+@export var speed_up_value = 1.05
 @export var hit_wall_split = false
 @export var split_value = 2
-@export var splits = 0
-@export var allowed_splits = 1
+var splits = 0
+@export var allowed_splits = 0
 @export var infinite_splits = false
+@export var hit_wall_play_sound = true
 func _ready():
 
 	if has_node("Sprite2D"):
@@ -40,7 +41,7 @@ func start_linear_velocity():
 	linear_velocity = starting_linear_velocity_direction * starting_linear_velocity_value
 
 func _on_body_entered(body):
-
+	print(splits)
 	if body is Wall:
 
 		if hit_wall_apply_color_to_wall:
@@ -50,18 +51,17 @@ func _on_body_entered(body):
 			%Sprite2D.modulate = random_color
 		if hit_wall_grow_ball:
 			%Sprite2D.scale *= grow_ball_value
-			%CollisionShape2D.scale *= grow_ball_value
+#			%CollisionShape2D.scale *= grow_ball_value
 		if hit_wall_speed_up:
 			linear_velocity *= speed_up_value
 		if hit_wall_split:
-			if !infinite_splits:
-				if splits<allowed_splits:
-					wall_collision_and_split.emit(global_position,linear_velocity,split_value)
-					splits+=1
-			else:
+			if infinite_splits or splits<allowed_splits:
+				print("split")
 				wall_collision_and_split.emit(global_position,linear_velocity,split_value)
-			pass
-			
+				splits+=1
+		pass
+		if hit_wall_play_sound:
+			body.get_parent().get_node("AudioStreamPlayer").play()
 	else:
 		print('okay but')
 	pass
