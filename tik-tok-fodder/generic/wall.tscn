@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://generic/wall.gd" id="1_cnaoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb7hm"]
-size = Vector2(512, 16)
+size = Vector2(512, 32)
 
 [node name="Wall" type="Node2D" groups=["wall"]]
 
@@ -19,12 +19,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -256.0
-offset_top = -16.0
+offset_top = -32.0
 offset_right = 256.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, -8)
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_cb7hm")
