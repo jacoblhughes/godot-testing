@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbek0pocl3wbk"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a36v6"]
+rough = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x42wi"]
+size = Vector2(8, 40)
+
+[node name="Dominoe" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_a36v6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_x42wi")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(4, 0)
+rotation = -1.5708
+target_position = Vector2(-1.74846e-06, 40)

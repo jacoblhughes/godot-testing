@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://co61afopd414b"]
+
+[ext_resource type="PackedScene" uid="uid://dvc13q62txbsa" path="res://002/hammer.tscn" id="1_cskvg"]
+[ext_resource type="PackedScene" uid="uid://dbek0pocl3wbk" path="res://002/dominoe.tscn" id="2_he2ri"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_shpu0"]
+rough = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydtja"]
+size = Vector2(432, 104)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wkppc"]
+b = Vector2(-128, 192)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_56fk4"]
+rough = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bo4e"]
+size = Vector2(266.157, 20)
+
+[node name="002" type="Node2D"]
+
+[node name="Hammer" parent="." instance=ExtResource("1_cskvg")]
+position = Vector2(192, 32)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(216, 280)
+physics_material_override = SubResource("PhysicsMaterial_shpu0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_ydtja")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(554.5, 207)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(21.5, -15)
+shape = SubResource("SegmentShape2D_wkppc")
+
+[node name="Dominoe" parent="." instance=ExtResource("2_he2ri")]
+position = Vector2(208, 228)
+
+[node name="Dominoe2" parent="." instance=ExtResource("2_he2ri")]
+position = Vector2(248, 228)
+
+[node name="Dominoe3" parent="." instance=ExtResource("2_he2ri")]
+position = Vector2(288, 228)
+
+[node name="Dominoe4" parent="." instance=ExtResource("2_he2ri")]
+position = Vector2(328, 228)
+
+[node name="Dominoe5" parent="." instance=ExtResource("2_he2ri")]
+position = Vector2(368, 228)
+
+[node name="Dominoe6" parent="." instance=ExtResource("2_he2ri")]
+position = Vector2(408, 228)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(336, 420)
+physics_material_override = SubResource("PhysicsMaterial_56fk4")
+constant_linear_velocity = Vector2(-25, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_5bo4e")
