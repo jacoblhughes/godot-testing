@@ -1,25 +1,20 @@
-[gd_scene load_steps=15 format=3 uid="uid://co61afopd414b"]
+[gd_scene load_steps=17 format=3 uid="uid://co61afopd414b"]
 
 [ext_resource type="PackedScene" uid="uid://dvc13q62txbsa" path="res://002/hammer.tscn" id="1_cskvg"]
 [ext_resource type="PackedScene" uid="uid://dbek0pocl3wbk" path="res://002/domino.tscn" id="2_he2ri"]
-[ext_resource type="Script" path="res://002/domino.gd" id="3_lvaa7"]
+[ext_resource type="Script" path="res://002/goal.gd" id="3_mihng"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_shpu0"]
 rough = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydtja"]
-size = Vector2(432, 104)
+size = Vector2(376, 104)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0aqx8"]
 friction = 0.5
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_wkppc"]
 b = Vector2(-128, 192)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a36v6"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x42wi"]
-size = Vector2(8, 40)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_56fk4"]
 rough = true
@@ -35,6 +30,17 @@ b = Vector2(96, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bk1hf"]
 size = Vector2(256, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrw26"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hy2un"]
+friction = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ni12j"]
+radius = 40.5565
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dtmj"]
+size = Vector2(48, 40)
 
 [node name="002" type="Node2D"]
 
@@ -60,31 +66,16 @@ shape = SubResource("SegmentShape2D_wkppc")
 position = Vector2(208, 228)
 
 [node name="Dominoe2" parent="." instance=ExtResource("2_he2ri")]
-position = Vector2(248, 228)
+position = Vector2(252, 228)
 
 [node name="Dominoe3" parent="." instance=ExtResource("2_he2ri")]
-position = Vector2(288, 228)
+position = Vector2(296, 228)
 
 [node name="Dominoe4" parent="." instance=ExtResource("2_he2ri")]
-position = Vector2(328, 228)
+position = Vector2(340, 228)
 
 [node name="Dominoe5" parent="." instance=ExtResource("2_he2ri")]
-position = Vector2(368, 228)
-
-[node name="Dominoe6" type="RigidBody2D" parent="."]
-position = Vector2(408, 228)
-mass = 10.0
-physics_material_override = SubResource("PhysicsMaterial_a36v6")
-script = ExtResource("3_lvaa7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dominoe6"]
-position = Vector2(0, -20)
-shape = SubResource("RectangleShape2D_x42wi")
-
-[node name="RayCast2D" type="RayCast2D" parent="Dominoe6"]
-position = Vector2(4, 0)
-rotation = -1.5708
-target_position = Vector2(-1.74846e-06, 40)
+position = Vector2(384, 228)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2(336, 420)
@@ -107,6 +98,13 @@ position = Vector2(328, 560)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
 shape = SubResource("RectangleShape2D_bk1hf")
 
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+position = Vector2(328, 560)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
+position = Vector2(48, 40)
+shape = SubResource("RectangleShape2D_bk1hf")
+
 [node name="Dominoe7" parent="." instance=ExtResource("2_he2ri")]
 position = Vector2(244, 552)
 
@@ -124,3 +122,55 @@ position = Vector2(404, 552)
 
 [node name="Dominoe12" parent="." instance=ExtResource("2_he2ri")]
 position = Vector2(444, 552)
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2(516, 600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+shape = SubResource("RectangleShape2D_wrw26")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(520, 548)
+mass = 15.0
+physics_material_override = SubResource("PhysicsMaterial_hy2un")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_ni12j")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+position = Vector2(576, 704)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D7"]
+polygon = PackedVector2Array(0, 0, -32, -6.10352e-05, -32, 15.9999, -80, 15.9999, -80, 31.9999, -132, 31.9999, -132, 47.9999, -184, 47.9999, -184, 63.9999, -236, 63.9999, -236, 95.9999, -128, 95.9999, 0, 64)
+
+[node name="Dominoe6" parent="." instance=ExtResource("2_he2ri")]
+position = Vector2(552, 704)
+
+[node name="Dominoe13" parent="." instance=ExtResource("2_he2ri")]
+position = Vector2(500, 720)
+
+[node name="Dominoe14" parent="." instance=ExtResource("2_he2ri")]
+position = Vector2(448, 736)
+
+[node name="Dominoe15" parent="." instance=ExtResource("2_he2ri")]
+position = Vector2(396, 752)
+
+[node name="Dominoe16" parent="." instance=ExtResource("2_he2ri")]
+position = Vector2(344, 768)
+
+[node name="Goal" type="Node2D" parent="."]
+position = Vector2(256, 896)
+script = ExtResource("3_mihng")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Goal"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Goal/StaticBody2D"]
+polygon = PackedVector2Array(0, -6.10352e-05, 0, 39.9999, 48, 39.9999, 48, -6.10352e-05, 60, -6.10352e-05, 60, 51.9999, -12, 51.9999, -12, -6.10352e-05)
+
+[node name="Area2D" type="Area2D" parent="Goal"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal/Area2D"]
+position = Vector2(24, 19.9999)
+shape = SubResource("RectangleShape2D_1dtmj")
+
+[connection signal="body_entered" from="Goal/Area2D" to="Goal" method="_on_area_2d_body_entered"]
