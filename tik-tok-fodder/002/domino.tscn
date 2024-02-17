@@ -1,9 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbek0pocl3wbk"]
 
-[ext_resource type="Script" path="res://002/dominoe.gd" id="1_ujsrs"]
+[ext_resource type="Script" path="res://002/domino.gd" id="1_ujsrs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a36v6"]
-rough = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x42wi"]
 size = Vector2(8, 40)

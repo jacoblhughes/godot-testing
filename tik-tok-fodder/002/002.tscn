@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://co61afopd414b"]
+[gd_scene load_steps=15 format=3 uid="uid://co61afopd414b"]
 
 [ext_resource type="PackedScene" uid="uid://dvc13q62txbsa" path="res://002/hammer.tscn" id="1_cskvg"]
-[ext_resource type="PackedScene" uid="uid://dbek0pocl3wbk" path="res://002/dominoe.tscn" id="2_he2ri"]
+[ext_resource type="PackedScene" uid="uid://dbek0pocl3wbk" path="res://002/domino.tscn" id="2_he2ri"]
+[ext_resource type="Script" path="res://002/domino.gd" id="3_lvaa7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_shpu0"]
 rough = true
@@ -10,10 +11,15 @@ rough = true
 size = Vector2(432, 104)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0aqx8"]
-friction = 0.0
+friction = 0.5
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_wkppc"]
 b = Vector2(-128, 192)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a36v6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x42wi"]
+size = Vector2(8, 40)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_56fk4"]
 rough = true
@@ -22,13 +28,13 @@ rough = true
 size = Vector2(266.157, 20)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_72dni"]
-friction = 0.0
+friction = 0.5
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_v62wo"]
 b = Vector2(96, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bk1hf"]
-size = Vector2(192, 16)
+size = Vector2(256, 16)
 
 [node name="002" type="Node2D"]
 
@@ -65,13 +71,25 @@ position = Vector2(328, 228)
 [node name="Dominoe5" parent="." instance=ExtResource("2_he2ri")]
 position = Vector2(368, 228)
 
-[node name="Dominoe6" parent="." instance=ExtResource("2_he2ri")]
+[node name="Dominoe6" type="RigidBody2D" parent="."]
 position = Vector2(408, 228)
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_a36v6")
+script = ExtResource("3_lvaa7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dominoe6"]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_x42wi")
+
+[node name="RayCast2D" type="RayCast2D" parent="Dominoe6"]
+position = Vector2(4, 0)
+rotation = -1.5708
+target_position = Vector2(-1.74846e-06, 40)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2(336, 420)
 physics_material_override = SubResource("PhysicsMaterial_56fk4")
-constant_linear_velocity = Vector2(-25, 0)
+constant_linear_velocity = Vector2(-35, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 shape = SubResource("RectangleShape2D_5bo4e")
@@ -79,7 +97,6 @@ shape = SubResource("RectangleShape2D_5bo4e")
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 position = Vector2(128, 416)
 physics_material_override = SubResource("PhysicsMaterial_72dni")
-constant_linear_velocity = Vector2(15, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
 shape = SubResource("SegmentShape2D_v62wo")
@@ -104,3 +121,6 @@ position = Vector2(364, 552)
 
 [node name="Dominoe11" parent="." instance=ExtResource("2_he2ri")]
 position = Vector2(404, 552)
+
+[node name="Dominoe12" parent="." instance=ExtResource("2_he2ri")]
+position = Vector2(444, 552)
