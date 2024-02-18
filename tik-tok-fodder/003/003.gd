@@ -5,7 +5,7 @@ extends Node2D
 var markers = []  # Array to store the Marker2D nodes
 var current_target = 0.0  # Index of the current target marker
 var tween_duration = 2.0  # Duration of the tween in seconds
-var bpm = 120  # Example BPM value
+var bpm = 150  # Example BPM value
 var current_audio_player
 
 var C1 = "res://sounds/C1.wav"
@@ -41,28 +41,38 @@ var eighth_note_duration = whole_note_duration / 8.0
 var sixteenth_note_duration = whole_note_duration / 16.0
 
 var sound_files = [
+	{"note": E2, "duration": eighth_note_duration},
+	{"note": E2, "duration": eighth_note_duration},
+	{"note": E2, "duration": eighth_note_duration},
+	{"note": "rest", "duration": eighth_note_duration},
+	{"note": C2, "duration": eighth_note_duration},
+	{"note": E2, "duration": eighth_note_duration},
+	{"note": G2, "duration": eighth_note_duration},
+	{"note": "rest", "duration": eighth_note_duration},
+	{"note": G1, "duration": quarter_note_duration},
+	{"note": "rest", "duration": eighth_note_duration},
+	{"note": C2, "duration": eighth_note_duration},
+	{"note": "rest", "duration": eighth_note_duration},
+	{"note": G1, "duration": eighth_note_duration},
+	{"note": "rest", "duration": eighth_note_duration},
 	{"note": E1, "duration": eighth_note_duration},
-	{"note": D1s, "duration": eighth_note_duration},
-	{"note": E1, "duration": eighth_note_duration},
-	{"note": D1s, "duration": eighth_note_duration},
-	{"note": E1, "duration": eighth_note_duration},
+	{"note": "rest", "duration": eighth_note_duration},
+	{"note": A1, "duration": eighth_note_duration},
 	{"note": B1, "duration": eighth_note_duration},
-	{"note": D1, "duration": eighth_note_duration},
-	{"note": C1, "duration": eighth_note_duration},
-	{"note": A1, "duration": quarter_note_duration},
-	{"note": E1, "duration": eighth_note_duration},
-	{"note": E1, "duration": eighth_note_duration},
-	{"note": E1, "duration": eighth_note_duration},
-	{"note": E1, "duration": eighth_note_duration},
-	{"note": D1s, "duration": eighth_note_duration},
-	{"note": D1s, "duration": eighth_note_duration},
-	{"note": D1, "duration": eighth_note_duration},
-	{"note": D1s, "duration": eighth_note_duration},
-	{"note": E1, "duration": eighth_note_duration},
-	{"note": B1, "duration": eighth_note_duration},
-	{"note": D1, "duration": eighth_note_duration},
-	{"note": C1, "duration": eighth_note_duration},
-	{"note": A1, "duration": quarter_note_duration}
+	{"note": A1s, "duration": eighth_note_duration},
+	{"note": A1, "duration": eighth_note_duration},
+	{"note": "rest", "duration": eighth_note_duration},
+	{"note": G1, "duration": quarter_note_duration},
+	{"note": "rest", "duration": eighth_note_duration},
+	{"note": E2, "duration": eighth_note_duration},
+	{"note": G2, "duration": eighth_note_duration},
+	{"note": A2, "duration": eighth_note_duration},
+	{"note": F2, "duration": eighth_note_duration},
+	{"note": G2, "duration": eighth_note_duration},
+	{"note": E2, "duration": eighth_note_duration},
+	{"note": C2, "duration": eighth_note_duration},
+	{"note": D2, "duration": eighth_note_duration},
+	{"note": B1, "duration": quarter_note_duration}
 ]
 
 func _ready():

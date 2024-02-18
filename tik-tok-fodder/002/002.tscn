@@ -1,8 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://co61afopd414b"]
+[gd_scene load_steps=22 format=3 uid="uid://co61afopd414b"]
 
+[ext_resource type="Script" path="res://002/002.gd" id="1_0jph0"]
 [ext_resource type="PackedScene" uid="uid://dvc13q62txbsa" path="res://002/hammer.tscn" id="1_cskvg"]
 [ext_resource type="PackedScene" uid="uid://dbek0pocl3wbk" path="res://002/domino.tscn" id="2_he2ri"]
 [ext_resource type="Script" path="res://002/goal.gd" id="3_mihng"]
+[ext_resource type="Texture2D" uid="uid://bxuamheu0qub2" path="res://icon.svg" id="5_gnaj7"]
+[ext_resource type="Script" path="res://002/ball.gd" id="5_hxgkg"]
+[ext_resource type="Texture2D" uid="uid://cy85nknvyuj3h" path="res://generic/circle_ball.png" id="6_pyoac"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_shpu0"]
 rough = true
@@ -39,10 +43,16 @@ friction = 0.5
 [sub_resource type="CircleShape2D" id="CircleShape2D_ni12j"]
 radius = 40.5565
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kff1i"]
+radius = 8.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dtmj"]
 size = Vector2(48, 35.9999)
 
 [node name="002" type="Node2D"]
+script = ExtResource("1_0jph0")
+metadata/_edit_horizontal_guides_ = [152.0]
+metadata/_edit_vertical_guides_ = [300.0]
 
 [node name="Hammer" parent="." instance=ExtResource("1_cskvg")]
 position = Vector2(192, 32)
@@ -158,8 +168,17 @@ position = Vector2(396, 752)
 [node name="Dominoe16" parent="." instance=ExtResource("2_he2ri")]
 position = Vector2(344, 768)
 
-[node name="Dominoe17" parent="." instance=ExtResource("2_he2ri")]
-position = Vector2(304, 884)
+[node name="BallBody" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(99.4433, 105.497)
+script = ExtResource("5_hxgkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="BallBody"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_pyoac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallBody"]
+shape = SubResource("CircleShape2D_kff1i")
 
 [node name="Goal" type="Node2D" parent="."]
 position = Vector2(256, 896)
@@ -175,5 +194,12 @@ polygon = PackedVector2Array(0, -6.10352e-05, 0, 39.9999, 48, 39.9999, 48, -6.10
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal/Area2D"]
 position = Vector2(24, 21.9999)
 shape = SubResource("RectangleShape2D_1dtmj")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(300, 152)
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+scale = Vector2(0.0625, 0.0625)
+texture = ExtResource("5_gnaj7")
 
 [connection signal="body_entered" from="Goal/Area2D" to="Goal" method="_on_area_2d_body_entered"]
