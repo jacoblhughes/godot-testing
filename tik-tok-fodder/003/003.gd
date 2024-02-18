@@ -87,7 +87,7 @@ func _on_first_tween_completed():
 	pass
 
 func move_to_next_marker():
-	print(current_target," ",sound_files.size()," ",markers.size())
+
 	if markers.size() > 0 and current_target+1 < markers.size():
 		if current_audio_player:
 			current_audio_player.stop()
@@ -105,7 +105,7 @@ func move_to_next_marker():
 		var end_position = markers[current_target].get_node("Marker2D").global_position
 		var tween = get_tree().create_tween()
 		tween.finished.connect(_on_marker_tween_completed)
-		tween.tween_property(%Ball1, "global_position", end_position, tween_duration)
+		tween.tween_property(%Ball1, "global_position", end_position, tween_duration).set_ease(Tween.EASE_OUT)
 
 func _on_marker_tween_completed():
 	move_to_next_marker()

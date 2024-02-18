@@ -114,13 +114,6 @@ rotation = -0.785398
 position = Vector2(428, 1196)
 rotation = 3.14159
 
-[node name="Standard23" parent="Markers" instance=ExtResource("2_2hsm8")]
-position = Vector2(312, 1368)
-rotation = 0.785398
-
-[node name="Standard24" parent="Markers" instance=ExtResource("2_2hsm8")]
-position = Vector2(484, 1460)
-
 [node name="Ball1" parent="." instance=ExtResource("4_domtc")]
 unique_name_in_owner = true
 position = Vector2(47, 24)
