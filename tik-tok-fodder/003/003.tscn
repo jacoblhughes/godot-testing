@@ -1,19 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://drbxmfvh0yjs5"]
+[gd_scene load_steps=6 format=3 uid="uid://drbxmfvh0yjs5"]
 
+[ext_resource type="Script" path="res://003/003.gd" id="1_800lx"]
 [ext_resource type="Texture2D" uid="uid://bxuamheu0qub2" path="res://icon.svg" id="1_tscl0"]
-[ext_resource type="AudioStream" uid="uid://bw4aytyiwev13" path="res://sounds/C.wav" id="2_gb13m"]
-[ext_resource type="AudioStream" uid="uid://cl02ul1bopybe" path="res://sounds/E.wav" id="3_7rost"]
+[ext_resource type="PackedScene" uid="uid://du58idcpr40b" path="res://003/standard.tscn" id="2_2hsm8"]
 [ext_resource type="Script" path="res://003/ball_alpha.gd" id="4_lhyto"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwkc7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyxkd"]
-size = Vector2(128, 32)
-
 [node name="003" type="Node2D"]
+script = ExtResource("1_800lx")
 
 [node name="Start" type="Node2D" parent="."]
-position = Vector2(-152.749, -177.103)
+position = Vector2(48, 52)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Start"]
 
@@ -25,47 +23,55 @@ scale = Vector2(0.511697, 0.267241)
 texture = ExtResource("1_tscl0")
 
 [node name="Bounces" type="Node2D" parent="."]
+position = Vector2(200.749, 229.103)
 
-[node name="Standard" type="Node2D" parent="Bounces" groups=["markers"]]
+[node name="Standard" parent="Bounces" instance=ExtResource("2_2hsm8")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Bounces/Standard"]
+[node name="Standard2" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(155.251, -201.103)
+rotation = -3.14159
 
-[node name="Sprite2D" type="Sprite2D" parent="Bounces/Standard/StaticBody2D"]
-position = Vector2(0, -16)
-scale = Vector2(1, 0.25)
-texture = ExtResource("1_tscl0")
+[node name="Standard3" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(187.251, -1.103)
+rotation = -2.35619
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounces/Standard/StaticBody2D"]
-position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_jyxkd")
+[node name="Standard4" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(427.251, -5.103)
+rotation = 2.35619
 
-[node name="Marker2D" type="Marker2D" parent="Bounces/Standard"]
-position = Vector2(0, -64)
+[node name="Standard5" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(331.251, -201.103)
+rotation = 3.14159
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Bounces/Standard"]
-stream = ExtResource("2_gb13m")
+[node name="Standard6" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(351.251, 226.897)
+rotation = -0.785398
 
-[node name="Standard2" type="Node2D" parent="Bounces" groups=["markers"]]
-position = Vector2(192, 0)
+[node name="Standard7" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(-100.749, 214.897)
+rotation = 0.785398
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Bounces/Standard2"]
+[node name="Standard8" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(59.251, 22.897)
+rotation = 3.14159
 
-[node name="Sprite2D" type="Sprite2D" parent="Bounces/Standard2/StaticBody2D"]
-position = Vector2(0, -16)
-scale = Vector2(1, 0.25)
-texture = ExtResource("1_tscl0")
+[node name="Standard9" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(235.251, 398.897)
+rotation = -0.785398
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounces/Standard2/StaticBody2D"]
-position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_jyxkd")
+[node name="Standard10" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(23.251, 282.897)
+rotation = 3.14159
 
-[node name="Marker2D" type="Marker2D" parent="Bounces/Standard2"]
-position = Vector2(0, -64)
+[node name="Standard11" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(-92.749, 454.897)
+rotation = 0.785398
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Bounces/Standard2"]
-stream = ExtResource("3_7rost")
+[node name="Standard12" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(79.251, 546.897)
 
 [node name="BallAlpha" type="Node2D" parent="."]
+position = Vector2(200.749, 229.103)
 script = ExtResource("4_lhyto")
 
 [node name="Sprite2D" type="Sprite2D" parent="BallAlpha"]

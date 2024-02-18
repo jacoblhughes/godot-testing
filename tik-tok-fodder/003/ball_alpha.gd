@@ -14,12 +14,20 @@ func _ready():
 	move_to_next_marker()
 
 func move_to_next_marker():
-	if markers.size() > 0:
+
+	if markers.size() > 0 and current_target< markers.size():
 		var start_position = global_position
 		var end_position = markers[current_target].get_node("Marker2D").global_position
+		var tween = get_tree().create_tween()
+		tween.finished.connect(_on_Tween_tween_completed)
+		tween.tween_property($Sprite2D, "global_position", end_position, 1)
+
 #		tween.interpolate_property(self, "global_position", start_position, end_position, tween_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 #		tween.start()
-		current_target = (current_target + 1)
 
-func _on_Tween_tween_completed(object, key):
+
+
+func _on_Tween_tween_completed():
+	markers[current_target].get_node("AudioStreamPlayer").play()
+	current_target = (current_target + 1)
 	move_to_next_marker()  # Start the next tween when the current one completes
