@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://drbxmfvh0yjs5"]
+
+[ext_resource type="Script" path="res://003/003.gd" id="1_800lx"]
+[ext_resource type="Texture2D" uid="uid://bxuamheu0qub2" path="res://icon.svg" id="1_tscl0"]
+[ext_resource type="PackedScene" uid="uid://du58idcpr40b" path="res://003/standard.tscn" id="2_2hsm8"]
+[ext_resource type="PackedScene" uid="uid://doidugiokrrw" path="res://003/ball_1.tscn" id="4_domtc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwkc7"]
+
+[node name="003" type="Node2D"]
+script = ExtResource("1_800lx")
+
+[node name="Start" type="Node2D" parent="."]
+position = Vector2(48, 52)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Start"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start/StaticBody2D"]
+shape = SubResource("RectangleShape2D_dwkc7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Start/StaticBody2D"]
+scale = Vector2(0.511697, 0.267241)
+texture = ExtResource("1_tscl0")
+
+[node name="Bounces" type="Node2D" parent="."]
+position = Vector2(200.749, 229.103)
+
+[node name="Standard" parent="Bounces" instance=ExtResource("2_2hsm8")]
+
+[node name="Standard2" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(155.251, -201.103)
+rotation = -3.14159
+
+[node name="Standard3" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(175.251, 26.897)
+rotation = 0.785398
+
+[node name="Standard4" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(455.251, 26.897)
+rotation = -0.785398
+
+[node name="Standard5" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(331.251, -201.103)
+rotation = 3.14159
+
+[node name="Standard6" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(351.251, 226.897)
+rotation = -0.785398
+
+[node name="Standard7" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(-100.749, 214.897)
+rotation = 0.785398
+
+[node name="Standard8" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(59.251, 22.897)
+rotation = 3.14159
+
+[node name="Standard9" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(235.251, 398.897)
+rotation = -0.785398
+
+[node name="Standard10" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(23.251, 282.897)
+rotation = 3.14159
+
+[node name="Standard11" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(-92.749, 454.897)
+rotation = 0.785398
+
+[node name="Standard12" parent="Bounces" instance=ExtResource("2_2hsm8")]
+position = Vector2(79.251, 546.897)
+
+[node name="Ball1" parent="." instance=ExtResource("4_domtc")]
+unique_name_in_owner = true
+position = Vector2(47, 24)

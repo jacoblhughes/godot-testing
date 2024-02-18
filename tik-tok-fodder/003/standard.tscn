@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jyxkd"]
 size = Vector2(128, 32)
 
-[node name="Standard" type="Node2D" groups=["markers"]]
+[node name="Standard" type="Node2D"]
 script = ExtResource("1_w6oa0")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -21,4 +21,4 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_jyxkd")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(0, -64)
+position = Vector2(0, -48)
