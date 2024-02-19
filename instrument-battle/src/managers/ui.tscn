@@ -26,15 +26,20 @@ theme = SubResource("Theme_gwsaa")
 
 [node name="GridContainer" type="GridContainer" parent="Arena/MarginContainer"]
 layout_mode = 2
-columns = 2
+columns = 3
 
 [node name="TextureRect" type="TextureRect" parent="Arena/MarginContainer/GridContainer"]
 layout_mode = 2
 texture = ExtResource("2_f3du5")
 expand_mode = 2
 
+[node name="Label" type="Label" parent="Arena/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "X"
+
 [node name="Score" type="Label" parent="Arena/MarginContainer/GridContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
