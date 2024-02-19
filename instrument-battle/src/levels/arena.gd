@@ -3,6 +3,8 @@ extends Node2D
 @export var winning_score = 9
 signal arena_finished
 var new_arena
+var needed_kills = 3
+var current_kills = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 #	%UI/Control/Label.text = str(0)
@@ -18,11 +20,11 @@ func _ready():
 
 # Called every fleverame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-
 	_check_status()
 
 func _check_status():
-	if GameManager.return_score() >= winning_score:
+	print(current_kills)
+	if current_kills >= needed_kills:
 		arena_finished.emit()
 		get_tree().call_group("enemies", "fade_away")
 		new_arena = false
@@ -33,3 +35,6 @@ func _on_start():
 		$EnemySpawn.start_timer()
 		
 	pass # Replace with function body.
+
+func _add_kill():
+	current_kills +=1

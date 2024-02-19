@@ -6,8 +6,9 @@ class_name Enemy
 @onready var player = get_parent().get_parent().get_node("Player")
 var speed
 signal treasure_drop
+var arena
 func _ready():
-
+	arena = get_tree().get_current_scene()
 	pass
 
 func take_damage(amount):
@@ -17,7 +18,8 @@ func take_damage(amount):
 		var treasure = treasure_scene.instantiate()
 	#	get_parent().add_child(treasure)
 		treasure_drop.emit(global_position,treasure)
-
+		arena._add_kill()
+		
 func _physics_process(delta):
 	var player_position = player.global_position
 	var direction = global_position.direction_to(player_position)
