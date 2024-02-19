@@ -15,7 +15,7 @@ func _ready():
 	$Start.start.connect(_on_start)
 	NavigationManager.on_level_spawn()
 	%StagePortal.turn_off_portal()
-
+	UI.set_arena_enemies_left(needed_kills)
 	pass # Replace with function body.
 
 # Called every fleverame. 'delta' is the elapsed time since the previous frame.
@@ -23,7 +23,7 @@ func _process(delta):
 	_check_status()
 
 func _check_status():
-	print(current_kills)
+
 	if current_kills >= needed_kills:
 		arena_finished.emit()
 		get_tree().call_group("enemies", "fade_away")
@@ -37,4 +37,5 @@ func _on_start():
 	pass # Replace with function body.
 
 func _add_kill():
-	current_kills +=1
+	current_kills += 1
+	UI.set_arena_enemies_left(needed_kills-current_kills)

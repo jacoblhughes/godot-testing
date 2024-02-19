@@ -15,7 +15,7 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body is Player:
-		GameManager.add_score(value)
+		GameManager.add_money(value)
 		collected.emit(self)
 	pass
 

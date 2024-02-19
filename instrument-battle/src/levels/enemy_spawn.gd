@@ -27,6 +27,7 @@ func _on_timer_timeout():
 	
 	add_child(ghost_enemy_scene,true)
 	ghost_enemy_scene.treasure_drop.connect(_on_treasure_drop)
+	ghost_enemy_scene.fade_away_signal.connect(_on_enemy_fade_away)
 	ghost_enemy_scene.global_position = %PathFollow2D.global_position
 
 func _on_treasure_drop(drop_position,scene):
@@ -35,3 +36,6 @@ func _on_treasure_drop(drop_position,scene):
 
 func _on_arena_finished():
 	enemy_spawn_timer.stop()
+
+func _on_enemy_fade_away():
+	get_parent()._add_kill()

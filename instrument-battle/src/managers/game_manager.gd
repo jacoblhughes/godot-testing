@@ -1,7 +1,7 @@
 extends Node
 
 var arena_score = 0
-@onready var ui_arena_score : Label = UI.arena_score
+@onready var ui_arena_score : Label = UI.get_node(%MoneyValue)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,7 +16,7 @@ func _process(delta):
 	pass
 	pass
 
-func add_score(value):
+func add_money(value):
 	arena_score+=value
 	UI.set_arena_score(arena_score)
 	

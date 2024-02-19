@@ -33,6 +33,6 @@ func on_level_spawn():
 				NavigationManager.spawn_player(portal.marker.global_position)
 	else:
 		for portals in  get_tree().get_nodes_in_group("portals"):
-			print(portals)
+
 			var portal = portals as Portal
 			NavigationManager.spawn_player(portal.marker.global_position)

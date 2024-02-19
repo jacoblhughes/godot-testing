@@ -18,7 +18,7 @@ signal quest_start
 func _ready():
 	%Dialogue.completed.connect(_on_dialogue_completed)
 	if node_for_signal:
-		print(node_for_signal)
+
 		self.quest_start.connect(node_for_signal._on_npc_interaction)
 	pass # Replace with function body.
 
