@@ -19,13 +19,9 @@ func _process(delta):
 	pass
 	
 func trigger(text):
+	i =0
 	text_to_say = text
-	_determine_what_dialogue()
 	_determine_progress_dialogue()
-
-func 	_determine_what_dialogue():
-
-		_determine_progress_dialogue()
 
 func _determine_progress_dialogue():
 
@@ -35,7 +31,7 @@ func _determine_progress_dialogue():
 		%Label.text = text_to_say[text_to_say.size()-1]
 		await get_tree().create_timer(2.0).timeout
 		visible=false
-		can_progress = true
+#		can_progress = true
 		completed.emit()
 		return
 	else:

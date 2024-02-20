@@ -28,6 +28,7 @@ atlas = ExtResource("2_r0pjd")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vrq6x"]
+resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -60,6 +61,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dbu7"]
+resource_local_to_scene = true
 size = Vector2(16, 16)
 
 [node name="Portal" type="Node2D" groups=["portals"]]

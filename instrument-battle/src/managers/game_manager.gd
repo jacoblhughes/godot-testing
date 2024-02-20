@@ -2,7 +2,7 @@ extends Node
 
 var arena_score = 0
 @onready var ui_arena_score : Label = UI.money_value
-
+var chosen_instrument : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,3 +27,9 @@ func change_score(value):
 
 func return_score():
 	return arena_score
+
+func set_chosen_instrument(scene):
+	chosen_instrument = scene
+	
+func get_chosen_instrument():
+	return chosen_instrument

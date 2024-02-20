@@ -12,6 +12,10 @@ func _ready():
 
 #	%Trumpet.visible = show_instrument
 	NavigationManager.on_trigger_spawn.connect(_on_spawn)
+	if PlotManager.has_instrument:
+		var scene = GameManager.get_chosen_instrument()
+		var instanced_scene = scene.instantiate()
+		add_child.call_deferred(instanced_scene)
 	pass
 
 func _physics_process(delta):

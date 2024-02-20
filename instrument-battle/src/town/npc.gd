@@ -16,18 +16,19 @@ var text_to_say : Array
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
 func _ready():
+	print('npc just made')
 	DialogueManager.completed.connect(_on_dialogue_completed)
 	if node_for_signal:
 		self.quest_start.connect(node_for_signal._on_npc_interaction)
 		#####Could I better control how/why the NPC says what it says? In the process?
 	if PlotManager.has_instrument == false:
-		text_to_say = ["Find a way to fight, dummy"]
+		text_to_say = ["Find a way to fight, dummy!"]
 	else:
-		text_to_say = ["Okay, good luck.","Get 3 diamonds"]
+		text_to_say = ["Okay, good luck."]
 	pass # Replace with function body.
 
 func _physics_process(delta):
-
+	print(should_be, player_view)
 	if !paused:
 		if Input.is_action_just_pressed("a") and should_be:
 			player.on_npc_interact(%Marker2D.global_position)

@@ -15,10 +15,11 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	if body is Player:
 		var instrument = trumpet_scene.instantiate()
+		
 		body.add_child.call_deferred(instrument)
 		queue_free()
-		
 		PlotManager.set_has_instrument(true)
+		GameManager.set_chosen_instrument(trumpet_scene)
 	pass # Replace with function body.
 
 
@@ -26,7 +27,9 @@ func _on_area_2d_2_body_entered(body):
 
 	if body is Player:
 		var instrument = bagpipes_scene.instantiate()
+		
 		body.add_child.call_deferred(instrument)
 		queue_free()
 		PlotManager.set_has_instrument(true)
+		GameManager.set_chosen_instrument(bagpipes_scene)
 	pass # Replace with function body.

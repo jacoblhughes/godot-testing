@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dj75ipoooov4a"]
+[gd_scene load_steps=19 format=3 uid="uid://dj75ipoooov4a"]
 
 [ext_resource type="Script" path="res://src/levels/village.gd" id="1_67nnk"]
 [ext_resource type="TileSet" uid="uid://ce3mfk6qnlg7b" path="res://src/levels/level.tres" id="1_afkjo"]
@@ -9,6 +9,68 @@
 [ext_resource type="PackedScene" uid="uid://j3cor4q7v1my" path="res://src/town/npc.tscn" id="6_fjsj3"]
 [ext_resource type="Texture2D" uid="uid://c7gkn5oau58sg" path="res://textures/arena_ingress.png" id="6_v4m7q"]
 [ext_resource type="PackedScene" uid="uid://wh7aly2bx5um" path="res://src/town/yoda.tscn" id="7_fhj4w"]
+[ext_resource type="Texture2D" uid="uid://bktf4g0d3shcp" path="res://textures/trumpet_boom.png" id="7_ibu2r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chn7e"]
+atlas = ExtResource("7_ibu2r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmiis"]
+atlas = ExtResource("7_ibu2r")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ihy7"]
+atlas = ExtResource("7_ibu2r")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwiqr"]
+atlas = ExtResource("7_ibu2r")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elmga"]
+atlas = ExtResource("7_ibu2r")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjx2o"]
+atlas = ExtResource("7_ibu2r")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3bhy1"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chn7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmiis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ihy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwiqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elmga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjx2o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chn7e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_71qdg"]
+resource_local_to_scene = true
+size = Vector2(48, 48)
 
 [node name="Village" type="Node2D"]
 y_sort_enabled = true
@@ -49,7 +111,13 @@ texture = ExtResource("6_v4m7q")
 position = Vector2(896, 328)
 destination_scene = "arena"
 
+[node name="AnimatedSprite2D" parent="ArenaEntrance/Arena/Area2D" index="0"]
+position = Vector2(4.76837e-07, 4.76837e-07)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_3bhy1")
+
 [node name="CollisionShape2D" parent="ArenaEntrance/Arena/Area2D" index="1"]
+shape = SubResource("RectangleShape2D_71qdg")
 disabled = true
 
 [node name="Marker2D" parent="ArenaEntrance/Arena" index="1"]
@@ -67,25 +135,5 @@ node_for_signal = NodePath("../../ArenaEntrance")
 [node name="Player" parent="." instance=ExtResource("2_8cw1h")]
 unique_name_in_owner = true
 position = Vector2(640, 328)
-
-[node name="InstrumentChoice" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="InstrumentChoice"]
-
-[node name="Node2D" type="Node2D" parent="InstrumentChoice"]
-
-[node name="Sprite2D" type="Sprite2D" parent="InstrumentChoice/Node2D"]
-
-[node name="Area2D" type="Area2D" parent="InstrumentChoice/Node2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InstrumentChoice/Node2D/Area2D"]
-
-[node name="Node2D2" type="Node2D" parent="InstrumentChoice"]
-
-[node name="Sprite2D" type="Sprite2D" parent="InstrumentChoice/Node2D2"]
-
-[node name="Area2D2" type="Area2D" parent="InstrumentChoice/Node2D2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InstrumentChoice/Node2D2/Area2D2"]
 
 [editable path="ArenaEntrance/Arena"]
