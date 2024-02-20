@@ -1,20 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceelxy0bqkhuc"]
+[gd_scene load_steps=4 format=3 uid="uid://b0vn6ht4xjqwh"]
 
-[ext_resource type="Texture2D" uid="uid://dxfpx8mtw3fuv" path="res://textures/dialogue.png" id="1_5tqdo"]
-[ext_resource type="Script" path="res://src/town/dialogue.gd" id="1_ux7mb"]
+[ext_resource type="Script" path="res://src/managers/dialogue_manager.gd" id="1_5t60h"]
+[ext_resource type="Texture2D" uid="uid://dxfpx8mtw3fuv" path="res://textures/dialogue.png" id="2_kskaq"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_r5e5w"]
+[sub_resource type="LabelSettings" id="LabelSettings_qrbhm"]
 font_color = Color(0, 0, 0, 1)
 
-[node name="Dialogue" type="CanvasLayer"]
-script = ExtResource("1_ux7mb")
+[node name="DialogueManager" type="CanvasLayer"]
+script = ExtResource("1_5t60h")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 offset_left = 64.0
 offset_top = 64.0
 offset_right = 896.0
 offset_bottom = 128.0
-texture = ExtResource("1_5tqdo")
+texture = ExtResource("2_kskaq")
 patch_margin_left = 2
 patch_margin_top = 2
 patch_margin_right = 2
@@ -26,7 +26,7 @@ layout_mode = 0
 offset_right = 832.0
 offset_bottom = 64.0
 text = "Good luck"
-label_settings = SubResource("LabelSettings_r5e5w")
+label_settings = SubResource("LabelSettings_qrbhm")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

@@ -12,14 +12,18 @@ var paused = false
 @export var has_quest = false
 var quest_given = false
 signal quest_start
-
+var text_to_say : Array
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 
 func _ready():
-	%Dialogue.completed.connect(_on_dialogue_completed)
+	DialogueManager.completed.connect(_on_dialogue_completed)
 	if node_for_signal:
-
 		self.quest_start.connect(node_for_signal._on_npc_interaction)
+		#####Could I better control how/why the NPC says what it says? In the process?
+	if PlotManager.has_instrument == false:
+		text_to_say = ["Find a way to fight, dummy"]
+	else:
+		text_to_say = ["Okay, good luck.","Get 3 diamonds"]
 	pass # Replace with function body.
 
 func _physics_process(delta):
@@ -29,7 +33,7 @@ func _physics_process(delta):
 			player.on_npc_interact(%Marker2D.global_position)
 			player.paused=true
 			paused = true
-			%Dialogue.trigger()
+			DialogueManager.trigger(text_to_say)
 	pass
 
 func _on_area_2d_body_entered(body):
@@ -53,7 +57,7 @@ func stop_being_viewed():
 func _on_dialogue_completed():
 	paused = false
 	player.paused=false
-	if has_quest and !quest_given:
+	if has_quest and !quest_given and PlotManager.has_instrument:
 		quest_given = true
 		quest_start.emit()
 

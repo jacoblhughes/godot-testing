@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var text_to_say : Array = ["Okay, good luck.","Get 3 diamonds"]
+var text_to_say : Array
 var i=0
 var can_progress=false
 var first_encounter = true
@@ -18,15 +18,13 @@ func _process(delta):
 		_determine_progress_dialogue()
 	pass
 	
-func trigger():
+func trigger(text):
+	text_to_say = text
 	_determine_what_dialogue()
 	_determine_progress_dialogue()
 
 func 	_determine_what_dialogue():
-	if PlotManager.has_instrument == false:
-		text_to_say = ["Find a way to fight, dummy"]
-	else:
-		text_to_say = ["Okay, good luck.","Get 3 diamonds"]
+
 		_determine_progress_dialogue()
 
 func _determine_progress_dialogue():

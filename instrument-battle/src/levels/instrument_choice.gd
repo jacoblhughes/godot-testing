@@ -17,6 +17,7 @@ func _on_area_2d_body_entered(body):
 		var instrument = trumpet_scene.instantiate()
 		body.add_child.call_deferred(instrument)
 		queue_free()
+		
 		PlotManager.set_has_instrument(true)
 	pass # Replace with function body.
 
