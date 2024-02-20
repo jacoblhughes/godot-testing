@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://u80ieml52gji"]
+[gd_scene load_steps=11 format=3 uid="uid://u80ieml52gji"]
 
 [ext_resource type="Script" path="res://src/instruments/trumpet.gd" id="1_tq87y"]
 [ext_resource type="Texture2D" uid="uid://c7bp7pawio823" path="res://textures/trumpet.png" id="2_j4h8u"]
-[ext_resource type="Script" path="res://src/instruments/blast.gd" id="3_dxnay"]
 [ext_resource type="Texture2D" uid="uid://jsgcl8av7b0d" path="res://textures/trumpet_blast.png" id="3_mm3un"]
 
 [sub_resource type="Animation" id="Animation_b6ea8"]
@@ -139,8 +138,7 @@ texture = ExtResource("2_j4h8u")
 
 [node name="Blast" type="Area2D" parent="."]
 collision_layer = 8
-collision_mask = 4
-script = ExtResource("3_dxnay")
+collision_mask = 516
 
 [node name="Polygon2D" type="Polygon2D" parent="Blast"]
 color = Color(1, 1, 1, 0.266667)

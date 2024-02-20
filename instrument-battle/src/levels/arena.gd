@@ -3,7 +3,7 @@ extends Node2D
 @export var winning_score = 9
 signal arena_finished
 var new_arena
-var needed_kills = 3
+@export var needed_kills = 3
 var current_kills = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():

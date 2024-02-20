@@ -90,6 +90,7 @@ b={
 2d_physics/layer_7="player_town"
 2d_physics/layer_8="town"
 2d_physics/layer_9="npc"
+2d_physics/layer_10="instrument_interact"
 2d_physics/layer_32="figure_out"
 
 [rendering]

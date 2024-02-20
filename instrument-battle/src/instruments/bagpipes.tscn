@@ -1,0 +1,162 @@
+[gd_scene load_steps=13 format=3 uid="uid://bsfwyli2qxp5f"]
+
+[ext_resource type="Script" path="res://src/instruments/bagpipes.gd" id="1_5ikah"]
+[ext_resource type="Texture2D" uid="uid://dwodaa26awmro" path="res://textures/gael.png" id="2_3lpmk"]
+[ext_resource type="Texture2D" uid="uid://bktf4g0d3shcp" path="res://textures/trumpet_boom.png" id="2_4vnm4"]
+
+[sub_resource type="Animation" id="Animation_bg1w6"]
+resource_name = "blast"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blast/AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blast/Polygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [PackedVector2Array(), PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4), PackedVector2Array(-28, -28, 28, -28, 28, 28, -28, 28), PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Blast/CollisionShape2D:shape:points")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [PackedVector2Array(), PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4), PackedVector2Array(-28, -28, 28, -28, 28, 28, -28, 28), PackedVector2Array(-40, -40, 40, -40, 40, 40, -40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_nv1lu"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blast/AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blast/Polygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array()]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Blast/CollisionShape2D:shape:points")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array()]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gujej"]
+_data = {
+"RESET": SubResource("Animation_nv1lu"),
+"blast": SubResource("Animation_bg1w6")
+}
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_cvmkw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37t7l"]
+atlas = ExtResource("2_4vnm4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkygj"]
+atlas = ExtResource("2_4vnm4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgerg"]
+atlas = ExtResource("2_4vnm4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_014g6"]
+atlas = ExtResource("2_4vnm4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oaf0c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37t7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkygj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgerg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_014g6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bagpipes" type="Node2D"]
+position = Vector2(0, -16)
+script = ExtResource("1_5ikah")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gujej")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_3lpmk")
+region_enabled = true
+region_rect = Rect2(0, 0, 248, 256)
+
+[node name="Blast" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 516
+
+[node name="Polygon2D" type="Polygon2D" parent="Blast"]
+color = Color(1, 1, 1, 0.313726)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blast"]
+shape = SubResource("ConvexPolygonShape2D_cvmkw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Blast"]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_oaf0c")
+
+[connection signal="body_entered" from="Blast" to="." method="_on_blast_body_entered"]

@@ -67,4 +67,24 @@ position = Vector2(640, 328)
 body_collision_disabled = true
 show_instrument = false
 
+[node name="InstrumentChoice" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="InstrumentChoice"]
+
+[node name="Node2D" type="Node2D" parent="InstrumentChoice"]
+
+[node name="Sprite2D" type="Sprite2D" parent="InstrumentChoice/Node2D"]
+
+[node name="Area2D" type="Area2D" parent="InstrumentChoice/Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InstrumentChoice/Node2D/Area2D"]
+
+[node name="Node2D2" type="Node2D" parent="InstrumentChoice"]
+
+[node name="Sprite2D" type="Sprite2D" parent="InstrumentChoice/Node2D2"]
+
+[node name="Area2D2" type="Area2D" parent="InstrumentChoice/Node2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InstrumentChoice/Node2D2/Area2D2"]
+
 [editable path="ArenaEntrance/Arena"]
