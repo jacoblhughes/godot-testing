@@ -1,7 +1,11 @@
 extends Node
 
 var arena_score = 0
+<<<<<<< HEAD
 @onready var ui_arena_score : Label = UI.arena
+=======
+@onready var ui_arena_score : Label = UI.money_value
+>>>>>>> e8c9c3347f2def9674f039cbef49f1ca82c0878f
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

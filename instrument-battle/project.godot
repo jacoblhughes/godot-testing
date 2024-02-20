@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 GameManager="*res://src/managers/game_manager.gd"
 NavigationManager="*res://src/managers/navigation_manager.gd"
 UI="*res://src/managers/ui.tscn"
+PlotManager="*res://src/managers/plot_manager.gd"
 
 [display]
 
@@ -90,6 +91,7 @@ b={
 2d_physics/layer_7="player_town"
 2d_physics/layer_8="town"
 2d_physics/layer_9="npc"
+2d_physics/layer_10="instrument_interact"
 2d_physics/layer_32="figure_out"
 
 [rendering]

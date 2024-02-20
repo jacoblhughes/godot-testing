@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cc0n4pgosbvda"]
+
+[ext_resource type="Script" path="res://src/levels/instrument_choice.gd" id="1_0nshm"]
+[ext_resource type="Texture2D" uid="uid://dyisomeeg6eg8" path="res://textures/intrument_carpet.png" id="1_p50wx"]
+[ext_resource type="Texture2D" uid="uid://c7bp7pawio823" path="res://textures/trumpet.png" id="2_yty5g"]
+[ext_resource type="Texture2D" uid="uid://ddbijjaiec5ex" path="res://textures/bagpipes.png" id="3_f3anl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcan2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yry5"]
+
+[node name="InstrumentChoice" type="Node2D"]
+script = ExtResource("1_0nshm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p50wx")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-24, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("2_yty5g")
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+shape = SubResource("RectangleShape2D_mcan2")
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(24, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
+texture = ExtResource("3_f3anl")
+
+[node name="Area2D2" type="Area2D" parent="Node2D2"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2/Area2D2"]
+shape = SubResource("RectangleShape2D_2yry5")
+
+[connection signal="body_entered" from="Node2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Node2D2/Area2D2" to="." method="_on_area_2d_2_body_entered"]
