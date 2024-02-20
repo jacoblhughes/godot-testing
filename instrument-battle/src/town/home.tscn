@@ -39,12 +39,6 @@ polygon = PackedVector2Array(-32, -64, -24, -64, -8, -64, 32, -64, 32, -32, 0, -
 position = Vector2(-16, -8)
 destination_scene = "home_inside"
 
-[node name="Area2D" parent="Home" index="0"]
-collision_mask = 1
-
-[node name="CollisionShape2D" parent="Home/Area2D" index="1"]
-disabled = false
-
 [node name="Marker2D" parent="Home" index="1"]
 position = Vector2(0, 24)
 
