@@ -6,12 +6,12 @@ const JUMP_VELOCITY = -400.0
 @onready var player_animation : AnimatedSprite2D = $AnimatedSprite2D
 @export var body_collision_disabled = false
 @export var feet_collision_disabled = false
-@export var show_instrument = true
+#@export var show_instrument = true
 var paused = false
 func _ready():
 	%BodyCollision.disabled = body_collision_disabled
 	%FeetCollision.disabled = feet_collision_disabled
-	%Trumpet.visible = show_instrument
+#	%Trumpet.visible = show_instrument
 	NavigationManager.on_trigger_spawn.connect(_on_spawn)
 	pass
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dj75ipoooov4a"]
+[gd_scene load_steps=13 format=3 uid="uid://dj75ipoooov4a"]
 
 [ext_resource type="Script" path="res://src/levels/village.gd" id="1_67nnk"]
 [ext_resource type="TileSet" uid="uid://ce3mfk6qnlg7b" path="res://src/levels/level.tres" id="1_afkjo"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://j3cor4q7v1my" path="res://src/town/npc.tscn" id="6_fjsj3"]
 [ext_resource type="Texture2D" uid="uid://c7gkn5oau58sg" path="res://textures/arena_ingress.png" id="6_v4m7q"]
 [ext_resource type="PackedScene" uid="uid://wh7aly2bx5um" path="res://src/town/yoda.tscn" id="7_fhj4w"]
+[ext_resource type="PackedScene" uid="uid://cc0n4pgosbvda" path="res://src/levels/instrument_choice.tscn" id="10_icpr0"]
+[ext_resource type="PackedScene" uid="uid://u80ieml52gji" path="res://src/instruments/trumpet.tscn" id="11_oiv4u"]
+[ext_resource type="PackedScene" uid="uid://bsfwyli2qxp5f" path="res://src/instruments/bagpipes.tscn" id="12_47sae"]
 
 [node name="Village" type="Node2D"]
 y_sort_enabled = true
@@ -61,30 +64,14 @@ position = Vector2(776, 312)
 position = Vector2(840, 312)
 node_for_signal = NodePath("../../ArenaEntrance")
 
+[node name="InstrumentChoice" parent="." instance=ExtResource("10_icpr0")]
+position = Vector2(735, 448)
+trumpet_scene = ExtResource("11_oiv4u")
+bagpipes_scene = ExtResource("12_47sae")
+
 [node name="Player" parent="." instance=ExtResource("2_8cw1h")]
 unique_name_in_owner = true
 position = Vector2(640, 328)
 body_collision_disabled = true
-show_instrument = false
-
-[node name="InstrumentChoice" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="InstrumentChoice"]
-
-[node name="Node2D" type="Node2D" parent="InstrumentChoice"]
-
-[node name="Sprite2D" type="Sprite2D" parent="InstrumentChoice/Node2D"]
-
-[node name="Area2D" type="Area2D" parent="InstrumentChoice/Node2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InstrumentChoice/Node2D/Area2D"]
-
-[node name="Node2D2" type="Node2D" parent="InstrumentChoice"]
-
-[node name="Sprite2D" type="Sprite2D" parent="InstrumentChoice/Node2D2"]
-
-[node name="Area2D2" type="Area2D" parent="InstrumentChoice/Node2D2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InstrumentChoice/Node2D2/Area2D2"]
 
 [editable path="ArenaEntrance/Arena"]
