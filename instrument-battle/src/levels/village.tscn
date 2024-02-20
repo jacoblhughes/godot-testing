@@ -71,7 +71,6 @@ bagpipes_scene = ExtResource("12_47sae")
 
 [node name="Player" parent="." instance=ExtResource("2_8cw1h")]
 unique_name_in_owner = true
-position = Vector2(640, 328)
-body_collision_disabled = true
+position = Vector2(136.063, 263.799)
 
 [editable path="ArenaEntrance/Arena"]

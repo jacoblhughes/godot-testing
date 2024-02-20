@@ -1,9 +1,106 @@
-[gd_scene load_steps=25 format=3 uid="uid://hvcoab6g0vjf"]
+[gd_scene load_steps=29 format=3 uid="uid://hvcoab6g0vjf"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_myn5c"]
 [ext_resource type="Texture2D" uid="uid://chvjrvuocfyld" path="res://textures/ghost_player.png" id="3_psihw"]
 [ext_resource type="PackedScene" uid="uid://bjh0lvgjr5jhi" path="res://src/player/collect.tscn" id="4_660oc"]
 [ext_resource type="Script" path="res://src/player/detection.gd" id="5_xhm14"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h5sys"]
+radius = 8.0
+height = 32.0
+
+[sub_resource type="Animation" id="Animation_hgd6d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BodyCollision:shape")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_h5sys")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BodyCollision:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frevq"]
+size = Vector2(16, 8)
+
+[sub_resource type="Animation" id="Animation_ny0bx"]
+resource_name = "collision_village"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BodyCollision:shape")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_frevq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BodyCollision:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -4)]
+}
+
+[sub_resource type="Animation" id="Animation_xkay1"]
+resource_name = "collision_arena"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BodyCollision:shape")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape2D_h5sys")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BodyCollision:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_46qop"]
+_data = {
+"RESET": SubResource("Animation_hgd6d"),
+"collision_arena": SubResource("Animation_xkay1"),
+"collision_village": SubResource("Animation_ny0bx")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uwyfn"]
 atlas = ExtResource("3_psihw")
@@ -140,13 +237,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h5sys"]
-radius = 8.0
-height = 32.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7u5t"]
-size = Vector2(16, 12)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxr7g"]
 size = Vector2(10, 10)
 
@@ -154,6 +244,11 @@ size = Vector2(10, 10)
 collision_mask = 6
 motion_mode = 1
 script = ExtResource("1_myn5c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_46qop")
+}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 enabled = false
@@ -171,11 +266,6 @@ shape = SubResource("CapsuleShape2D_h5sys")
 
 [node name="Collect" parent="." instance=ExtResource("4_660oc")]
 position = Vector2(0, -16)
-
-[node name="FeetCollision" type="CollisionShape2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(0, -2)
-shape = SubResource("RectangleShape2D_y7u5t")
 
 [node name="Detection" type="Node2D" parent="."]
 unique_name_in_owner = true

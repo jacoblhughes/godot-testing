@@ -7,7 +7,7 @@ var new_arena
 var current_kills = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	%UI/Control/Label.text = str(0)
+	%Player.get_node("AnimationPlayer").play("collision_arena")
 	for nodes in get_tree().get_nodes_in_group("enemies"):
 		nodes.remove_from_group("enemies")
 		nodes.queue_free()

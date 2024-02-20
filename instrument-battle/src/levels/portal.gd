@@ -29,5 +29,5 @@ func _on_area_2d_body_entered(body):
 	print(body)
 	if body is Player and unlocked:
 		NavigationManager.go_to_level(destination_scene, specific_portal_tag)
-		pass
+#		pass
 	pass # Replace with function body.
