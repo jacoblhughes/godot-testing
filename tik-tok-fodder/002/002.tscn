@@ -1,10 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://co61afopd414b"]
+[gd_scene load_steps=21 format=3 uid="uid://co61afopd414b"]
 
 [ext_resource type="Script" path="res://002/002.gd" id="1_0jph0"]
 [ext_resource type="PackedScene" uid="uid://dvc13q62txbsa" path="res://002/hammer.tscn" id="1_cskvg"]
 [ext_resource type="PackedScene" uid="uid://dbek0pocl3wbk" path="res://002/domino.tscn" id="2_he2ri"]
 [ext_resource type="Script" path="res://002/goal.gd" id="3_mihng"]
 [ext_resource type="Texture2D" uid="uid://bxuamheu0qub2" path="res://icon.svg" id="5_gnaj7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3250y"]
+
+[sub_resource type="TileSet" id="TileSet_i3fs5"]
+sources/0 = SubResource("TileSetAtlasSource_3250y")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_shpu0"]
 rough = true
@@ -48,6 +53,10 @@ size = Vector2(48, 35.9999)
 script = ExtResource("1_0jph0")
 metadata/_edit_horizontal_guides_ = [152.0]
 metadata/_edit_vertical_guides_ = [300.0]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_i3fs5")
+format = 2
 
 [node name="Hammer" parent="." instance=ExtResource("1_cskvg")]
 position = Vector2(192, 32)

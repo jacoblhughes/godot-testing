@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ccfmojtrnhhdl"]
+[gd_scene load_steps=21 format=3 uid="uid://ccfmojtrnhhdl"]
 
 [ext_resource type="Texture2D" uid="uid://chrydlko6a7sm" path="res://textures/level.png" id="1_l0yph"]
 [ext_resource type="Script" path="res://src/town/home_inside.gd" id="1_wnjut"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cc0n4pgosbvda" path="res://src/levels/instrument_choice.tscn" id="3_8yxjs"]
 [ext_resource type="PackedScene" uid="uid://u80ieml52gji" path="res://src/instruments/trumpet.tscn" id="4_c3prf"]
 [ext_resource type="PackedScene" uid="uid://bsfwyli2qxp5f" path="res://src/instruments/bagpipes.tscn" id="5_t0i8q"]
+[ext_resource type="Texture2D" uid="uid://bktf4g0d3shcp" path="res://textures/trumpet_boom.png" id="8_x40aj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iey01"]
 texture = ExtResource("1_l0yph")
@@ -432,6 +433,67 @@ sources/1 = SubResource("TileSetAtlasSource_iey01")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2f5uh"]
 size = Vector2(8, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_chn7e"]
+atlas = ExtResource("8_x40aj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmiis"]
+atlas = ExtResource("8_x40aj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ihy7"]
+atlas = ExtResource("8_x40aj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwiqr"]
+atlas = ExtResource("8_x40aj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elmga"]
+atlas = ExtResource("8_x40aj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjx2o"]
+atlas = ExtResource("8_x40aj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_weupp"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chn7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmiis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ihy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwiqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elmga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjx2o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chn7e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bycs"]
+resource_local_to_scene = true
+size = Vector2(16, 16)
+
 [node name="HomeInside" type="Node2D"]
 script = ExtResource("1_wnjut")
 
@@ -482,6 +544,12 @@ region_rect = Rect2(336, 208, 32, 32)
 [node name="Portal" parent="Exit" instance=ExtResource("3_7ahvw")]
 destination_scene = "village"
 specific_portal_tag = "Home"
+
+[node name="AnimatedSprite2D" parent="Exit/Portal/Area2D" index="0"]
+sprite_frames = SubResource("SpriteFrames_weupp")
+
+[node name="CollisionShape2D" parent="Exit/Portal/Area2D" index="1"]
+shape = SubResource("RectangleShape2D_4bycs")
 
 [node name="Marker2D" parent="Exit/Portal" index="1"]
 position = Vector2(0, -32)
