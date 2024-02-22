@@ -6,13 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://bywa4khbumge6" path="res://002/conveyor.png" id="2_txr4g"]
 [ext_resource type="Script" path="res://002/goal.gd" id="3_mihng"]
 [ext_resource type="Texture2D" uid="uid://l1diubwhjeqo" path="res://002/platforms.png" id="3_qh6pi"]
-[ext_resource type="Texture2D" uid="uid://bxuamheu0qub2" path="res://icon.svg" id="5_gnaj7"]
-[ext_resource type="Texture2D" uid="uid://ci8jjybs45cwr" path="res://002/bowling_ball.png" id="5_gsl47"]
+[ext_resource type="PackedScene" uid="uid://dmpsdqj781kj3" path="res://002/bowling_ball.tscn" id="6_deidr"]
+[ext_resource type="PackedScene" uid="uid://bnhdrhfhaji81" path="res://002/basket_ball.tscn" id="6_ut3rt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dipr4"]
+friction = 0.7
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6nngv"]
-friction = 0.1
+friction = 0.3
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1cnw"]
 texture = ExtResource("2_txr4g")
@@ -362,19 +363,21 @@ use_texture_padding = false
 
 [sub_resource type="TileSet" id="TileSet_i3fs5"]
 physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 4
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_dipr4")
 physics_layer_1/collision_layer = 4
+physics_layer_1/collision_mask = 4
 physics_layer_1/physics_material = SubResource("PhysicsMaterial_6nngv")
 terrain_set_0/mode = 0
-terrain_set_0/terrain_0/name = "level"
+terrain_set_0/terrain_0/name = "platforms"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_k1cnw")
 sources/1 = SubResource("TileSetAtlasSource_rovf2")
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hy2un"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ii706"]
+friction = 0.5
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ni12j"]
-radius = 16.0
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r1kul"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dtmj"]
 size = Vector2(48, 35.9999)
@@ -401,91 +404,82 @@ tile_set = SubResource("TileSet_i3fs5")
 cell_quadrant_size = 32
 format = 2
 layer_0/name = "level"
-layer_0/tile_data = PackedInt32Array(917528, 131073, 0, 983064, 131073, 2, 917527, 65537, 0, 917526, 65537, 0, 917525, 65537, 0, 917524, 65537, 0, 917523, 65537, 0, 917522, 65537, 0, 917521, 65537, 0, 917520, 65537, 0, 917519, 65537, 0, 917518, 65537, 0, 917517, 65537, 0, 917516, 1, 0, 983052, 1, 2, 983053, 65537, 2, 983054, 65537, 2, 983056, 65537, 2, 983057, 65537, 2, 983058, 65537, 2, 983059, 65537, 2, 983060, 65537, 2, 983061, 65537, 2, 983062, 65537, 2, 983063, 65537, 2, 2293787, 65537, 2, 2228251, 65537, 0, 2293786, 65537, 2, 2228250, 65537, 0, 2293785, 65537, 2, 2228249, 65537, 0, 2293784, 65537, 2, 2228248, 65537, 0, 2293783, 65537, 2, 2228247, 65537, 0, 2293782, 65537, 2, 2228246, 65537, 0, 2293781, 65537, 2, 2228245, 65537, 0, 2293780, 65537, 2, 2228244, 65537, 0, 2293779, 65537, 2, 2228243, 65537, 0, 2293778, 65537, 2, 2228242, 65537, 0, 2293777, 65537, 2, 2228241, 65537, 0, 2293776, 65537, 2, 2228240, 65537, 0, 2293775, 65537, 2, 2228239, 65537, 0, 2293774, 1, 2, 2228238, 1, 0, 983055, 65537, 2, 2949154, 1, 0, 2949155, 131073, 0, 3014691, 131073, 1, 3014690, 262145, 1, 3211299, 131073, 2, 3145763, 131073, 1, 3080227, 131073, 1, 3211298, 65537, 2, 3145762, 65537, 1, 3080226, 65537, 1, 3211297, 65537, 2, 3145761, 65537, 1, 3080225, 65537, 1, 3014689, 65537, 0, 3211296, 65537, 2, 3145760, 65537, 1, 3080224, 65537, 1, 3014688, 65537, 0, 3211295, 65537, 2, 3145759, 65537, 1, 3080223, 262145, 1, 3014687, 1, 0, 3211294, 65537, 2, 3145758, 65537, 1, 3080222, 65537, 0, 3211293, 65537, 2, 3145757, 65537, 1, 3080221, 65537, 0, 3211292, 65537, 2, 3145756, 262145, 1, 3080220, 1, 0, 3211291, 65537, 2, 3145755, 65537, 0, 3211290, 65537, 2, 3145754, 65537, 0, 3211289, 65537, 2, 3145753, 1, 0, 3211288, 65537, 2, 3211287, 65537, 2, 3211286, 65537, 2, 3211285, 1, 2, 983069, 458753, 0, 983068, 393217, 0, 917533, 393217, 0, 917534, 458753, 0, 851998, 393217, 0, 851999, 458753, 0, 1048603, 393217, 0, 1048604, 458753, 0, 1114138, 393217, 0, 1114139, 458753, 0, 1179673, 393217, 0, 1179674, 458753, 0, 1245208, 393217, 0, 1245209, 458753, 0, 1441804, 0, 5, 1441805, 0, 4, 1441806, 0, 4, 1441807, 0, 4, 1441808, 0, 4, 1441809, 0, 4, 1441810, 0, 4, 1441811, 0, 4, 1441812, 0, 4, 1441813, 0, 4, 1441814, 0, 4, 1441815, 0, 4, 1441816, 0, 4, 1441818, 0, 2, 1638407, 524289, 0, 1638408, 589825, 0, 1703944, 524289, 0, 1703945, 589825, 0, 1769481, 524289, 0, 1769482, 589825, 0, 1835018, 524289, 0, 1835019, 589825, 0, 1900555, 524289, 0, 1900556, 589825, 0, 2228252, 65537, 0, 2293788, 65537, 2, 2228253, 131073, 0, 2293789, 131073, 2, 2293790, 524289, 0, 2293791, 589825, 0, 2359327, 524289, 0, 2359328, 589825, 0, 2424864, 524289, 0, 2424865, 589825, 0, 2490401, 524289, 0, 2490402, 589825, 0, 2555938, 524289, 0, 2555939, 589825, 0, 2621475, 524289, 0, 2621476, 589825, 0, 2883619, 393217, 0, 2883620, 458753, 0, 2818084, 393217, 0, 2818085, 458753, 0, 2752549, 393217, 0, 2752550, 458753, 0, 2687014, 393217, 0, 2687015, 458753, 0)
+layer_0/tile_data = PackedInt32Array(917528, 131073, 0, 983064, 131073, 2, 917527, 65537, 0, 917526, 65537, 0, 917525, 65537, 0, 917524, 65537, 0, 917523, 65537, 0, 917522, 65537, 0, 917521, 65537, 0, 917520, 65537, 0, 917519, 65537, 0, 917518, 65537, 0, 917517, 65537, 0, 917516, 1, 0, 983052, 1, 2, 983053, 65537, 2, 983054, 65537, 2, 983056, 65537, 2, 983057, 65537, 2, 983058, 65537, 2, 983059, 65537, 2, 983060, 65537, 2, 983061, 65537, 2, 983062, 65537, 2, 983063, 65537, 2, 2293787, 65537, 2, 2228251, 65537, 0, 2293786, 65537, 2, 2228250, 65537, 0, 2293785, 65537, 2, 2228249, 65537, 0, 2293784, 65537, 2, 2228248, 65537, 0, 2293783, 65537, 2, 2228247, 65537, 0, 2293782, 65537, 2, 2228246, 65537, 0, 2293781, 65537, 2, 2228245, 65537, 0, 2293780, 65537, 2, 2228244, 65537, 0, 2293779, 65537, 2, 2228243, 65537, 0, 2293778, 65537, 2, 2228242, 65537, 0, 2293777, 65537, 2, 2228241, 65537, 0, 2293776, 65537, 2, 2228240, 65537, 0, 2293775, 65537, 2, 2228239, 65537, 0, 2293774, 1, 2, 2228238, 1, 0, 983055, 65537, 2, 2949154, 1, 0, 2949155, 131073, 0, 3014691, 131073, 1, 3014690, 262145, 1, 3211299, 131073, 2, 3145763, 131073, 1, 3080227, 131073, 1, 3211298, 65537, 2, 3145762, 65537, 1, 3080226, 65537, 1, 3211297, 65537, 2, 3145761, 65537, 1, 3080225, 65537, 1, 3014689, 65537, 0, 3211296, 65537, 2, 3145760, 65537, 1, 3080224, 65537, 1, 3014688, 65537, 0, 3211295, 65537, 2, 3145759, 65537, 1, 3080223, 262145, 1, 3014687, 1, 0, 3211294, 65537, 2, 3145758, 65537, 1, 3080222, 65537, 0, 3211293, 65537, 2, 3145757, 65537, 1, 3080221, 65537, 0, 3211292, 65537, 2, 3145756, 262145, 1, 3080220, 1, 0, 3211291, 65537, 2, 3145755, 65537, 0, 3211290, 65537, 2, 3145754, 65537, 0, 3211289, 65537, 2, 3145753, 1, 0, 3211288, 65537, 2, 3211287, 65537, 2, 3211286, 65537, 2, 3211285, 1, 2, 983069, 458753, 0, 983068, 393217, 0, 917533, 393217, 0, 917534, 458753, 0, 851998, 393217, 0, 851999, 458753, 0, 1048603, 393217, 0, 1048604, 458753, 0, 1114138, 393217, 0, 1114139, 458753, 0, 1179673, 393217, 0, 1179674, 458753, 0, 1245208, 393217, 0, 1245209, 458753, 0, 1441804, 0, 5, 1441805, 0, 4, 1441806, 0, 4, 1441807, 0, 4, 1441808, 0, 4, 1441809, 0, 4, 1441810, 0, 4, 1441811, 0, 4, 1441812, 0, 4, 1441813, 0, 4, 1441814, 0, 4, 1441815, 0, 4, 1441816, 0, 4, 1441818, 0, 2, 1638407, 524289, 0, 1638408, 589825, 0, 1703944, 524289, 0, 1703945, 589825, 0, 1769481, 524289, 0, 1769482, 589825, 0, 1835018, 524289, 0, 1835019, 589825, 0, 1900555, 524289, 0, 1900556, 589825, 0, 2228252, 65537, 0, 2293788, 65537, 2, 2228253, 131073, 0, 2293789, 131073, 2, 2293790, 524289, 0, 2293791, 589825, 0, 2359327, 524289, 0, 2359328, 589825, 0, 2424864, 524289, 0, 2424865, 589825, 0, 2490401, 524289, 0, 2490402, 589825, 0, 2883619, 393217, 0, 2883620, 458753, 0, 2818084, 393217, 0, 2818085, 458753, 0, 2752549, 393217, 0, 2752550, 458753, 0, 2687014, 393217, 0, 2687015, 458753, 0, 2424868, 393217, 0, 2424869, 458753, 0, 2359333, 393217, 0, 2359334, 458753, 0, 2293798, 393217, 0, 2293799, 458753, 0, 2228263, 393217, 0, 2228264, 458753, 0)
 
 [node name="Hammer" parent="." instance=ExtResource("1_cskvg")]
 position = Vector2(192, 32)
 
-[node name="Dominoe" parent="." instance=ExtResource("2_he2ri")]
+[node name="Dominoes" type="Node2D" parent="."]
+
+[node name="Dominoe" parent="Dominoes" instance=ExtResource("2_he2ri")]
 position = Vector2(208, 224)
 
-[node name="Dominoe2" parent="." instance=ExtResource("2_he2ri")]
+[node name="Dominoe2" parent="Dominoes" instance=ExtResource("2_he2ri")]
 position = Vector2(252, 224)
 
-[node name="Dominoe3" parent="." instance=ExtResource("2_he2ri")]
+[node name="Dominoe3" parent="Dominoes" instance=ExtResource("2_he2ri")]
 position = Vector2(296, 224)
 
-[node name="Dominoe4" parent="." instance=ExtResource("2_he2ri")]
+[node name="Dominoe4" parent="Dominoes" instance=ExtResource("2_he2ri")]
 position = Vector2(340, 224)
 
-[node name="Dominoe5" parent="." instance=ExtResource("2_he2ri")]
-position = Vector2(384, 224)
-
-[node name="Dominoe7" parent="." instance=ExtResource("2_he2ri")]
+[node name="Dominoe7" parent="Dominoes" instance=ExtResource("2_he2ri")]
 position = Vector2(244, 544)
 
-[node name="Dominoe8" parent="." instance=ExtResource("2_he2ri")]
+[node name="Dominoe8" parent="Dominoes" instance=ExtResource("2_he2ri")]
 position = Vector2(284, 544)
 
-[node name="Dominoe9" parent="." instance=ExtResource("2_he2ri")]
+[node name="Dominoe9" parent="Dominoes" instance=ExtResource("2_he2ri")]
 position = Vector2(324, 544)
 
-[node name="Dominoe10" parent="." instance=ExtResource("2_he2ri")]
+[node name="Dominoe10" parent="Dominoes" instance=ExtResource("2_he2ri")]
 position = Vector2(364, 544)
 
-[node name="Dominoe11" parent="." instance=ExtResource("2_he2ri")]
+[node name="Dominoe11" parent="Dominoes" instance=ExtResource("2_he2ri")]
 position = Vector2(404, 544)
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(456, 532)
-collision_layer = 8
-collision_mask = 5
-mass = 40.0
-physics_material_override = SubResource("PhysicsMaterial_hy2un")
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-texture = ExtResource("5_gsl47")
-region_enabled = true
-region_rect = Rect2(0, 0, 32, 32)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("CircleShape2D_ni12j")
-
-[node name="Dominoe6" parent="." instance=ExtResource("2_he2ri")]
+[node name="Dominoe6" parent="Dominoes" instance=ExtResource("2_he2ri")]
 position = Vector2(548, 724)
 
-[node name="Dominoe13" parent="." instance=ExtResource("2_he2ri")]
+[node name="Dominoe13" parent="Dominoes" instance=ExtResource("2_he2ri")]
 position = Vector2(500, 740)
 
-[node name="Dominoe14" parent="." instance=ExtResource("2_he2ri")]
+[node name="Dominoe14" parent="Dominoes" instance=ExtResource("2_he2ri")]
 position = Vector2(452, 756)
 
-[node name="Dominoe15" parent="." instance=ExtResource("2_he2ri")]
+[node name="Dominoe15" parent="Dominoes" instance=ExtResource("2_he2ri")]
 position = Vector2(404, 772)
 
-[node name="Dominoe16" parent="." instance=ExtResource("2_he2ri")]
+[node name="Dominoe16" parent="Dominoes" instance=ExtResource("2_he2ri")]
 position = Vector2(356, 788)
+
+[node name="BasketBall" parent="." instance=ExtResource("6_ut3rt")]
+position = Vector2(460, 528)
+
+[node name="BowlingBall" parent="." instance=ExtResource("6_deidr")]
+position = Vector2(392, 208)
+collision_layer = 4
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_ii706")
 
 [node name="Goal" type="Node2D" parent="."]
 position = Vector2(272, 856)
 script = ExtResource("3_mihng")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Goal"]
+collision_layer = 4
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_r1kul")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Goal/StaticBody2D"]
 polygon = PackedVector2Array(0, -6.10352e-05, 0, 39.9999, 48, 39.9999, 48, -6.10352e-05, 60, -6.10352e-05, 60, 51.9999, -12, 51.9999, -12, -6.10352e-05)
 
 [node name="Area2D" type="Area2D" parent="Goal"]
+collision_layer = 8
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal/Area2D"]
 position = Vector2(24, 21.9999)
 shape = SubResource("RectangleShape2D_1dtmj")
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(300, 152)
-
-[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
-scale = Vector2(0.0625, 0.0625)
-texture = ExtResource("5_gnaj7")
 
 [connection signal="body_entered" from="Goal/Area2D" to="Goal" method="_on_area_2d_body_entered"]

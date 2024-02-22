@@ -4,8 +4,6 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
-	var end_position = get_node("Marker2D").global_position
-
 #	var tween = get_tree().create_tween()
 #	tween.finished.connect(_on_marker_tween_completed)
 #	tween.tween_property(%BallBody, "global_position", end_position, 3)

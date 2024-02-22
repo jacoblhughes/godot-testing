@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmpsdqj781kj3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0oj2f"]
+absorbent = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_inrm0"]
+load_path = "res://.godot/imported/bowling_ball.png-43cc2d8220ed3452718338c8364c40c8.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t2cyy"]
+radius = 16.0
+
+[node name="BowlingBall" type="RigidBody2D"]
+position = Vector2(0, -16)
+collision_layer = 8
+collision_mask = 5
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_0oj2f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_inrm0")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_t2cyy")

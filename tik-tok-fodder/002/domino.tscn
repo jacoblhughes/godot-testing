@@ -4,12 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://mw3lbgtgd5la" path="res://002/domino.png" id="2_2koic"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a36v6"]
+friction = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x42wi"]
 size = Vector2(8, 44)
 
 [node name="Dominoe" type="RigidBody2D"]
-collision_mask = 5
+collision_layer = 4
+collision_mask = 4
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_a36v6")
 script = ExtResource("1_ujsrs")
