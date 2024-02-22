@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://co61afopd414b"]
+[gd_scene load_steps=22 format=3 uid="uid://co61afopd414b"]
 
 [ext_resource type="Script" path="res://002/002.gd" id="1_0jph0"]
 [ext_resource type="PackedScene" uid="uid://dvc13q62txbsa" path="res://002/hammer.tscn" id="1_cskvg"]
@@ -232,12 +232,6 @@ friction = 0.5
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_v62wo"]
 b = Vector2(96, 96)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bk1hf"]
-size = Vector2(240, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvegc"]
-size = Vector2(240, 16)
-
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hy2un"]
 friction = 0.5
 
@@ -252,12 +246,24 @@ script = ExtResource("1_0jph0")
 metadata/_edit_horizontal_guides_ = [152.0]
 metadata/_edit_vertical_guides_ = [300.0]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.172549, 0, 0.0235294, 1)
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_i3fs5")
 cell_quadrant_size = 32
 format = 2
 layer_0/name = "level"
-layer_0/tile_data = PackedInt32Array(851974, 0, 5, 851976, 0, 4, 851978, 0, 4, 851975, 0, 4, 851977, 0, 4, 851979, 0, 4, 851980, 0, 4, 851981, 0, 4, 851982, 0, 2, 458764, 196609, 2, 458763, 131073, 0, 458762, 131073, 0, 524300, 196609, 3, 524299, 196609, 1, 524298, 196609, 1, 458761, 131073, 0, 524297, 196609, 1, 524296, 196609, 1, 458760, 131073, 0, 458759, 131073, 0, 524295, 196609, 1, 524294, 131073, 3, 458758, 131073, 2)
+layer_0/tile_data = PackedInt32Array(851974, 0, 5, 851976, 0, 4, 851978, 0, 4, 851975, 0, 4, 851977, 0, 4, 851979, 0, 4, 851980, 0, 4, 851981, 0, 4, 851982, 0, 2, 458764, 196609, 2, 458763, 131073, 0, 458762, 131073, 0, 524300, 196609, 3, 524299, 196609, 1, 524298, 196609, 1, 458761, 131073, 0, 524297, 196609, 1, 524296, 196609, 1, 458760, 131073, 0, 458759, 131073, 0, 524295, 196609, 1, 524294, 131073, 3, 458758, 131073, 2, 1114119, 131073, 2, 1114120, 131073, 0, 1114121, 131073, 0, 1114122, 131073, 0, 1114123, 131073, 0, 1114124, 131073, 0, 1114125, 196609, 2, 1179655, 131073, 3, 1179661, 65537, 2, 1179660, 65537, 2, 1179659, 196609, 1, 1179658, 196609, 1, 1179657, 196609, 1, 1179656, 196609, 1, 1245199, 196609, 3, 1179663, 196609, 2, 1179662, 131073, 0, 1245198, 196609, 1, 1245197, 196609, 1, 1245196, 131073, 3)
 
 [node name="Hammer" parent="." instance=ExtResource("1_cskvg")]
 position = Vector2(192, 32)
@@ -301,41 +307,31 @@ physics_material_override = SubResource("PhysicsMaterial_72dni")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
 shape = SubResource("SegmentShape2D_v62wo")
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="."]
-position = Vector2(328, 560)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
-shape = SubResource("RectangleShape2D_bk1hf")
-
-[node name="StaticBody2D8" type="StaticBody2D" parent="."]
-position = Vector2(404, 600)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
-shape = SubResource("RectangleShape2D_uvegc")
-
 [node name="Dominoe7" parent="." instance=ExtResource("2_he2ri")]
-position = Vector2(244, 552)
+position = Vector2(244, 544)
 
 [node name="Dominoe8" parent="." instance=ExtResource("2_he2ri")]
-position = Vector2(284, 552)
+position = Vector2(284, 544)
 
 [node name="Dominoe9" parent="." instance=ExtResource("2_he2ri")]
-position = Vector2(324, 552)
+position = Vector2(324, 544)
 
 [node name="Dominoe10" parent="." instance=ExtResource("2_he2ri")]
-position = Vector2(364, 552)
+position = Vector2(364, 544)
 
 [node name="Dominoe11" parent="." instance=ExtResource("2_he2ri")]
-position = Vector2(404, 552)
+position = Vector2(404, 544)
 
 [node name="Dominoe12" parent="." instance=ExtResource("2_he2ri")]
-position = Vector2(444, 552)
+position = Vector2(444, 544)
 
 [node name="Dominoe17" parent="." instance=ExtResource("2_he2ri")]
 position = Vector2(164, 424)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(508, 576)
+position = Vector2(504, 560)
+collision_layer = 8
+collision_mask = 5
 mass = 15.0
 physics_material_override = SubResource("PhysicsMaterial_hy2un")
 
