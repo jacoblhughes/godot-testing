@@ -9,6 +9,7 @@
 size = Vector2(8, 44)
 
 [node name="Dominoe" type="RigidBody2D"]
+collision_mask = 5
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_a36v6")
 script = ExtResource("1_ujsrs")
