@@ -1,11 +1,75 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsr82qp1bceer"]
+[gd_scene load_steps=18 format=3 uid="uid://dsr82qp1bceer"]
 
 [ext_resource type="Texture2D" uid="uid://cy85nknvyuj3h" path="res://generic/circle_ball.png" id="1_c6mp5"]
+[ext_resource type="Script" path="res://004/004.gd" id="1_lwghh"]
 [ext_resource type="Texture2D" uid="uid://ctafiw67aqbhs" path="res://004/bowling_alley.png" id="1_st86p"]
 [ext_resource type="PackedScene" uid="uid://b5q68qtsor8bm" path="res://004/bowling_pin.tscn" id="3_30j5s"]
 [ext_resource type="Texture2D" uid="uid://ci8jjybs45cwr" path="res://002/bowling_ball.png" id="4_ebf10"]
+[ext_resource type="Script" path="res://004/bowling_ball.gd" id="4_nxqw6"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fwwp3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ac4ax"]
+atlas = ExtResource("1_st86p")
+region = Rect2(0, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngias"]
+atlas = ExtResource("1_st86p")
+region = Rect2(360, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyd8n"]
+atlas = ExtResource("1_st86p")
+region = Rect2(720, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8vwp"]
+atlas = ExtResource("1_st86p")
+region = Rect2(1080, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y40qq"]
+atlas = ExtResource("1_st86p")
+region = Rect2(1440, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75uah"]
+atlas = ExtResource("1_st86p")
+region = Rect2(1800, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivhdf"]
+atlas = ExtResource("1_st86p")
+region = Rect2(2160, 0, 360, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njkvh"]
+atlas = ExtResource("1_st86p")
+region = Rect2(2520, 0, 360, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u38sb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ac4ax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngias")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyd8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8vwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y40qq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75uah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivhdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njkvh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u00oi"]
 friction = 0.0
@@ -14,11 +78,22 @@ friction = 0.0
 radius = 21.3053
 
 [node name="004" type="Node2D"]
+script = ExtResource("1_lwghh")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(360, 640)
 scale = Vector2(2, 2)
-texture = ExtResource("1_st86p")
+sprite_frames = SubResource("SpriteFrames_u38sb")
+
+[node name="Goal" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(255.217, 113.464)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Goal"]
+polygon = PackedVector2Array(-3.21703, 74.5355, -15.217, 18.5355, 224.783, 18.5355, 212.783, 74.5355)
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -28,35 +103,13 @@ texture = ExtResource("1_c6mp5")
 [node name="Pins" type="Node2D" parent="."]
 
 [node name="BowlingPin" parent="Pins" instance=ExtResource("3_30j5s")]
-position = Vector2(312, 256)
-physics_material_override = SubResource("PhysicsMaterial_fwwp3")
+position = Vector2(344, 204)
 
 [node name="BowlingPin2" parent="Pins" instance=ExtResource("3_30j5s")]
-position = Vector2(344, 256)
+position = Vector2(376, 204)
 
 [node name="BowlingPin3" parent="Pins" instance=ExtResource("3_30j5s")]
-position = Vector2(376, 256)
-
-[node name="BowlingPin4" parent="Pins" instance=ExtResource("3_30j5s")]
-position = Vector2(408, 256)
-
-[node name="BowlingPin5" parent="Pins" instance=ExtResource("3_30j5s")]
-position = Vector2(328, 288)
-
-[node name="BowlingPin6" parent="Pins" instance=ExtResource("3_30j5s")]
-position = Vector2(360, 287)
-
-[node name="BowlingPin7" parent="Pins" instance=ExtResource("3_30j5s")]
-position = Vector2(392, 288)
-
-[node name="BowlingPin8" parent="Pins" instance=ExtResource("3_30j5s")]
-position = Vector2(344, 320)
-
-[node name="BowlingPin9" parent="Pins" instance=ExtResource("3_30j5s")]
-position = Vector2(376, 320)
-
-[node name="BowlingPin10" parent="Pins" instance=ExtResource("3_30j5s")]
-position = Vector2(360, 352)
+position = Vector2(360, 236)
 
 [node name="BowlingBall" type="RigidBody2D" parent="."]
 position = Vector2(342.746, 830.525)
@@ -65,8 +118,10 @@ collision_mask = 4
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_u00oi")
 gravity_scale = 0.0
-linear_velocity = Vector2(0, -150)
+max_contacts_reported = 10
+contact_monitor = true
 linear_damp_mode = 1
+script = ExtResource("4_nxqw6")
 
 [node name="Sprite2D" type="Sprite2D" parent="BowlingBall"]
 scale = Vector2(1.5, 1.5)
@@ -76,3 +131,7 @@ region_rect = Rect2(0, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BowlingBall"]
 shape = SubResource("CircleShape2D_v07l2")
+
+[connection signal="area_entered" from="Goal" to="." method="_on_goal_area_entered"]
+[connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]
+[connection signal="body_entered" from="BowlingBall" to="BowlingBall" method="_on_body_entered"]

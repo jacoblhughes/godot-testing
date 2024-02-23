@@ -2,15 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://crnlfpn1d1rle" path="res://004/bowling_pin.png" id="1_0p3n2"]
 [ext_resource type="Script" path="res://004/bowling_pin.gd" id="1_xme53"]
+[ext_resource type="Script" path="res://004/bowling_pin_area.gd" id="3_sawdc"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bn32b"]
-height = 96.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_4pevh"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_62wve"]
-
-[node name="Node2D" type="Node2D"]
-
-[node name="BowlingPin" type="RigidBody2D" parent="."]
+[node name="Pin" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 4
 gravity_scale = 0.0
@@ -18,19 +14,23 @@ max_contacts_reported = 10
 contact_monitor = true
 script = ExtResource("1_xme53")
 
-[node name="Sprite2D" type="Sprite2D" parent="BowlingPin"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -48)
 scale = Vector2(2, 2)
 texture = ExtResource("1_0p3n2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BowlingPin"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, -48)
-shape = SubResource("CapsuleShape2D_bn32b")
+polygon = PackedVector2Array(-8, 40, 8, 40, 12, 24, 0, -16, -12, 24)
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("3_sawdc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -8)
-shape = SubResource("CircleShape2D_62wve")
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_4pevh")
 
-[connection signal="body_entered" from="BowlingPin" to="BowlingPin" method="_on_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="goaled" from="Area2D" to="." method="_on_area_2d_goaled"]
