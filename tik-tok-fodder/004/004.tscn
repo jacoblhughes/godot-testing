@@ -27,22 +27,45 @@ texture = ExtResource("1_c6mp5")
 
 [node name="Pins" type="Node2D" parent="."]
 
-[node name="BlowlingPin" parent="Pins" instance=ExtResource("3_30j5s")]
-position = Vector2(304, 256)
+[node name="BowlingPin" parent="Pins" instance=ExtResource("3_30j5s")]
+position = Vector2(312, 256)
 physics_material_override = SubResource("PhysicsMaterial_fwwp3")
 
-[node name="BlowlingPin2" parent="Pins" instance=ExtResource("3_30j5s")]
-position = Vector2(356, 332)
+[node name="BowlingPin2" parent="Pins" instance=ExtResource("3_30j5s")]
+position = Vector2(344, 256)
 
-[node name="BlowlingPin3" parent="Pins" instance=ExtResource("3_30j5s")]
-position = Vector2(404, 264)
+[node name="BowlingPin3" parent="Pins" instance=ExtResource("3_30j5s")]
+position = Vector2(376, 256)
+
+[node name="BowlingPin4" parent="Pins" instance=ExtResource("3_30j5s")]
+position = Vector2(408, 256)
+
+[node name="BowlingPin5" parent="Pins" instance=ExtResource("3_30j5s")]
+position = Vector2(328, 288)
+
+[node name="BowlingPin6" parent="Pins" instance=ExtResource("3_30j5s")]
+position = Vector2(360, 287)
+
+[node name="BowlingPin7" parent="Pins" instance=ExtResource("3_30j5s")]
+position = Vector2(392, 288)
+
+[node name="BowlingPin8" parent="Pins" instance=ExtResource("3_30j5s")]
+position = Vector2(344, 320)
+
+[node name="BowlingPin9" parent="Pins" instance=ExtResource("3_30j5s")]
+position = Vector2(376, 320)
+
+[node name="BowlingPin10" parent="Pins" instance=ExtResource("3_30j5s")]
+position = Vector2(360, 352)
 
 [node name="BowlingBall" type="RigidBody2D" parent="."]
 position = Vector2(342.746, 830.525)
+collision_layer = 4
+collision_mask = 4
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_u00oi")
 gravity_scale = 0.0
-linear_velocity = Vector2(0, -50)
+linear_velocity = Vector2(0, -150)
 linear_damp_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="BowlingBall"]

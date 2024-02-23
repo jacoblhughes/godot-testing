@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5q68qtsor8bm"]
+[gd_scene load_steps=4 format=3 uid="uid://b5q68qtsor8bm"]
 
 [ext_resource type="Texture2D" uid="uid://crnlfpn1d1rle" path="res://004/bowling_pin.png" id="1_0p3n2"]
+[ext_resource type="Script" path="res://004/bowling_pin.gd" id="1_xme53"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bn32b"]
 height = 96.0
 
-[node name="BlowlingPin" type="RigidBody2D"]
+[node name="BowlingPin" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 4
 gravity_scale = 0.0
+max_contacts_reported = 10
+contact_monitor = true
+script = ExtResource("1_xme53")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -48)
@@ -16,3 +22,5 @@ texture = ExtResource("1_0p3n2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -48)
 shape = SubResource("CapsuleShape2D_bn32b")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
