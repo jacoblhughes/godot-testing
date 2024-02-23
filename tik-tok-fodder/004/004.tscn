@@ -1,10 +1,55 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsr82qp1bceer"]
+[gd_scene load_steps=8 format=3 uid="uid://dsr82qp1bceer"]
 
 [ext_resource type="Texture2D" uid="uid://cy85nknvyuj3h" path="res://generic/circle_ball.png" id="1_c6mp5"]
+[ext_resource type="Texture2D" uid="uid://ctafiw67aqbhs" path="res://004/bowling_alley.png" id="1_st86p"]
+[ext_resource type="PackedScene" uid="uid://b5q68qtsor8bm" path="res://004/bowling_pin.tscn" id="3_30j5s"]
+[ext_resource type="Texture2D" uid="uid://ci8jjybs45cwr" path="res://002/bowling_ball.png" id="4_ebf10"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fwwp3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u00oi"]
+friction = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v07l2"]
+radius = 21.3053
 
 [node name="004" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(360, 640)
+scale = Vector2(2, 2)
+texture = ExtResource("1_st86p")
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 texture = ExtResource("1_c6mp5")
+
+[node name="Pins" type="Node2D" parent="."]
+
+[node name="BlowlingPin" parent="Pins" instance=ExtResource("3_30j5s")]
+position = Vector2(304, 256)
+physics_material_override = SubResource("PhysicsMaterial_fwwp3")
+
+[node name="BlowlingPin2" parent="Pins" instance=ExtResource("3_30j5s")]
+position = Vector2(356, 332)
+
+[node name="BlowlingPin3" parent="Pins" instance=ExtResource("3_30j5s")]
+position = Vector2(404, 264)
+
+[node name="BowlingBall" type="RigidBody2D" parent="."]
+position = Vector2(342.746, 830.525)
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_u00oi")
+gravity_scale = 0.0
+linear_velocity = Vector2(0, -50)
+linear_damp_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="BowlingBall"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_ebf10")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BowlingBall"]
+shape = SubResource("CircleShape2D_v07l2")
