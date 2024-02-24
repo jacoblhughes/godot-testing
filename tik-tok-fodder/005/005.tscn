@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0nsylpb4hqe1"]
+[gd_scene load_steps=12 format=3 uid="uid://d0nsylpb4hqe1"]
 
-[ext_resource type="Script" path="res://005/domino.gd" id="1_18k0b"]
 [ext_resource type="Script" path="res://005/CharacterBody3D.gd" id="1_mf31w"]
+[ext_resource type="PackedScene" uid="uid://dwhvg58wbas4b" path="res://005/domino_scene.tscn" id="3_qsow0"]
 [ext_resource type="Texture2D" uid="uid://ctmd4s28pgej2" path="res://005/c.png" id="3_vf8l7"]
 
 [sub_resource type="Environment" id="Environment_jh1l5"]
@@ -22,18 +22,12 @@ albedo_color = Color(0.396078, 0.141176, 0.376471, 1)
 material = SubResource("StandardMaterial3D_c75ri")
 size = Vector3(100, 1, 100)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_0ub67"]
-size = Vector3(2, 15, 10)
-
-[sub_resource type="BoxMesh" id="BoxMesh_w5hxm"]
-size = Vector3(2, 15, 10)
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_7w84q"]
 radius = 5.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_gdx31"]
-radius = 10.0
-height = 20.0
+radius = 5.0
+height = 10.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ymfx"]
 albedo_texture = ExtResource("3_vf8l7")
@@ -65,37 +59,19 @@ shape = SubResource("BoxShape3D_mrbj7")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_dl5wo")
 
-[node name="Domino" type="RigidBody3D" parent="."]
-script = ExtResource("1_18k0b")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Domino"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
-shape = SubResource("BoxShape3D_0ub67")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Domino"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
-mesh = SubResource("BoxMesh_w5hxm")
-
-[node name="Domino2" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.12728, 0, 0)
-script = ExtResource("1_18k0b")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Domino2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
-shape = SubResource("BoxShape3D_0ub67")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Domino2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
-mesh = SubResource("BoxMesh_w5hxm")
-
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="StaticBody3D2"]
 depth = 16.0
 polygon = PackedVector2Array(15, 0, 40, 15, 55, 15, 55, 0)
 
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+polygon = PackedVector2Array(15, 0, 40, 15, 55, 15, 55, 0)
+depth = 20.0
+
 [node name="Ball" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.2996, 21.2507, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.2996, 26.4624, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
 shape = SubResource("SphereShape3D_7w84q")
@@ -103,3 +79,12 @@ shape = SubResource("SphereShape3D_7w84q")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ball"]
 mesh = SubResource("SphereMesh_gdx31")
 surface_material_override/0 = SubResource("StandardMaterial3D_3ymfx")
+
+[node name="DominoScene" parent="." instance=ExtResource("3_qsow0")]
+transform = Transform3D(0.977227, 0.212195, 0, -0.212195, 0.977227, 0, 0, 0, 1, -0.799458, 3.98982, 0)
+
+[node name="DominoScene2" parent="." instance=ExtResource("3_qsow0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6012, 6.52869, 0.0508711)
+
+[node name="DominoScene3" parent="." instance=ExtResource("3_qsow0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6147, 8.40741, 0)
