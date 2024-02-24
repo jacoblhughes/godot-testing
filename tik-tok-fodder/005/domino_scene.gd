@@ -7,7 +7,7 @@ func _ready():
 	var domino_transform = get_transform()
 	var new_up_vector = domino_transform.basis.y
 #	var rotation_normalized = rotation.normalized()
-	%Domino.constant_force = gravity * -new_up_vector
+	%Area3D.gravity_direction = -new_up_vector
 	pass # Replace with function body.
 
 
