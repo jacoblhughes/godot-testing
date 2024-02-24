@@ -1,13 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0nsylpb4hqe1"]
+[gd_scene load_steps=13 format=3 uid="uid://d0nsylpb4hqe1"]
 
 [ext_resource type="Script" path="res://005/CharacterBody3D.gd" id="1_mf31w"]
 [ext_resource type="PackedScene" uid="uid://dwhvg58wbas4b" path="res://005/domino_scene.tscn" id="3_qsow0"]
 [ext_resource type="Texture2D" uid="uid://ctmd4s28pgej2" path="res://005/c.png" id="3_vf8l7"]
 
-[sub_resource type="Environment" id="Environment_jh1l5"]
+[sub_resource type="Environment" id="Environment_xxthk"]
 background_mode = 1
 background_color = Color(1, 1, 1, 1)
-ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x2lpv"]
@@ -22,6 +21,9 @@ albedo_color = Color(0.396078, 0.141176, 0.376471, 1)
 material = SubResource("StandardMaterial3D_c75ri")
 size = Vector3(100, 1, 100)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqijk"]
+albedo_color = Color(1, 0, 1, 1)
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_7w84q"]
 radius = 5.0
 
@@ -35,16 +37,15 @@ albedo_texture = ExtResource("3_vf8l7")
 [node name="005" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_jh1l5")
+environment = SubResource("Environment_xxthk")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.99452, 5, 20.8831)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40, 135)
 motion_mode = 1
 script = ExtResource("1_mf31w")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-fov = 135.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -67,6 +68,7 @@ polygon = PackedVector2Array(15, 0, 40, 15, 55, 15, 55, 0)
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+material_override = SubResource("StandardMaterial3D_qqijk")
 polygon = PackedVector2Array(15, 0, 40, 15, 55, 15, 55, 0)
 depth = 20.0
 
@@ -80,11 +82,27 @@ shape = SubResource("SphereShape3D_7w84q")
 mesh = SubResource("SphereMesh_gdx31")
 surface_material_override/0 = SubResource("StandardMaterial3D_3ymfx")
 
-[node name="DominoScene" parent="." instance=ExtResource("3_qsow0")]
-transform = Transform3D(0.977227, 0.212195, 0, -0.212195, 0.977227, 0, 0, 0, 1, -0.799458, 3.98982, 0)
+[node name="Dominoes" type="Node3D" parent="."]
 
-[node name="DominoScene2" parent="." instance=ExtResource("3_qsow0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6012, 6.52869, 0.0508711)
+[node name="DominoScene" parent="Dominoes" instance=ExtResource("3_qsow0")]
 
-[node name="DominoScene3" parent="." instance=ExtResource("3_qsow0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.6147, 8.40741, 0)
+[node name="DominoScene2" parent="Dominoes" instance=ExtResource("3_qsow0")]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, -19.752, 2.636, 0)
+
+[node name="DominoScene3" parent="Dominoes" instance=ExtResource("3_qsow0")]
+transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, -38.074, 10.327, 0)
+
+[node name="DominoScene4" parent="Dominoes" instance=ExtResource("3_qsow0")]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -51.708, 20.713, 0)
+
+[node name="DominoScene5" parent="Dominoes" instance=ExtResource("3_qsow0")]
+transform = Transform3D(0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, -63.7868, 36.6259, 0)
+
+[node name="DominoScene6" parent="Dominoes" instance=ExtResource("3_qsow0")]
+transform = Transform3D(0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0, 1, -71.2574, 55.1165, 0)
+
+[node name="DominoScene7" parent="Dominoes" instance=ExtResource("3_qsow0")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -73.927, 75.0732, 0)
+
+[node name="DominoScene8" parent="Dominoes" instance=ExtResource("3_qsow0")]
+transform = Transform3D(-0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 0, 0, 1, -71.4272, 94.9216, 0)

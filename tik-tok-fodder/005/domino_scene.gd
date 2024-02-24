@@ -4,8 +4,10 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var rotation_normalized = rotation.normalized()
-	%Domino.constant_force = gravity * rotation_normalized
+	var domino_transform = get_transform()
+	var new_up_vector = domino_transform.basis.y
+#	var rotation_normalized = rotation.normalized()
+	%Domino.constant_force = gravity * -new_up_vector
 	pass # Replace with function body.
 
 

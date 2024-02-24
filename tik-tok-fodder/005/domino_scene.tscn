@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwhvg58wbas4b"]
+[gd_scene load_steps=6 format=3 uid="uid://dwhvg58wbas4b"]
 
 [ext_resource type="PackedScene" uid="uid://bie0b0wg1536a" path="res://005/domino.tscn" id="1_0a0rc"]
 [ext_resource type="Script" path="res://005/domino_scene.gd" id="1_p57f5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yh15s"]
-size = Vector3(10, 1, 10)
+size = Vector3(20, 1, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ch84x"]
+size = Vector3(20, 1, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23oiv"]
+albedo_color = Color(1, 1, 0, 1)
 
 [node name="DominoScene" type="Node3D"]
 script = ExtResource("1_p57f5")
@@ -17,3 +23,8 @@ unique_name_in_owner = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_yh15s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_ch84x")
+surface_material_override/0 = SubResource("StandardMaterial3D_23oiv")
