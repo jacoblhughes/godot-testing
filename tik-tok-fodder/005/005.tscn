@@ -1,6 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://d0nsylpb4hqe1"]
 
-[ext_resource type="Script" path="res://005/CharacterBody3D.gd" id="1_mf31w"]
+[ext_resource type="Script" path="res://005/005.gd" id="1_hh45s"]
+[ext_resource type="PackedScene" uid="uid://c6j527diev64n" path="res://005/character_body_3d.tscn" id="2_0oiaa"]
 [ext_resource type="PackedScene" uid="uid://dwhvg58wbas4b" path="res://005/domino_scene.tscn" id="3_qsow0"]
 [ext_resource type="Texture2D" uid="uid://ctmd4s28pgej2" path="res://005/c.png" id="3_vf8l7"]
 
@@ -8,8 +9,6 @@
 background_mode = 1
 background_color = Color(1, 1, 1, 1)
 ambient_light_color = Color(1, 1, 1, 1)
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x2lpv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mrbj7"]
 size = Vector3(100, 1, 100)
@@ -35,21 +34,12 @@ height = 20.0
 albedo_texture = ExtResource("3_vf8l7")
 
 [node name="005" type="Node3D"]
+script = ExtResource("1_hh45s")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xxthk")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40, 135)
-motion_mode = 1
-script = ExtResource("1_mf31w")
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_x2lpv")
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_0oiaa")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -61,6 +51,7 @@ shape = SubResource("BoxShape3D_mrbj7")
 mesh = SubResource("BoxMesh_dl5wo")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.563396, 0, 0.826187, 0, 1, 0, -0.826187, 0, -0.563396, 0, 0, 0)
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="StaticBody3D2"]
 depth = 16.0
@@ -73,7 +64,7 @@ polygon = PackedVector2Array(15, 0, 40, 15, 55, 15, 55, 0)
 depth = 20.0
 
 [node name="Ball" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 26, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.87916, 53.6737, -13.118)
 mass = 20.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
@@ -86,24 +77,25 @@ surface_material_override/0 = SubResource("StandardMaterial3D_3ymfx")
 [node name="Dominoes" type="Node3D" parent="."]
 
 [node name="DominoScene" parent="Dominoes" instance=ExtResource("3_qsow0")]
+transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 0, 0, 41.2522)
 
 [node name="DominoScene2" parent="Dominoes" instance=ExtResource("3_qsow0")]
-transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, -19.752, 2.636, 0)
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, -19.752, 2.636, 41.2522)
 
 [node name="DominoScene3" parent="Dominoes" instance=ExtResource("3_qsow0")]
-transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, -38.074, 10.327, 0)
+transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, -38.074, 10.327, 41.2522)
 
 [node name="DominoScene4" parent="Dominoes" instance=ExtResource("3_qsow0")]
-transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -51.708, 20.713, 0)
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -51.708, 20.713, 41.2522)
 
 [node name="DominoScene5" parent="Dominoes" instance=ExtResource("3_qsow0")]
-transform = Transform3D(0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, -63.7868, 36.6259, 0)
+transform = Transform3D(0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, -63.7868, 36.6259, 41.2522)
 
 [node name="DominoScene6" parent="Dominoes" instance=ExtResource("3_qsow0")]
-transform = Transform3D(0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0, 1, -71.2574, 55.1165, 0)
+transform = Transform3D(0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0, 1, -71.2574, 55.1165, 41.2522)
 
 [node name="DominoScene7" parent="Dominoes" instance=ExtResource("3_qsow0")]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -73.927, 75.0732, 0)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -73.927, 75.0732, 41.2522)
 
 [node name="DominoScene8" parent="Dominoes" instance=ExtResource("3_qsow0")]
-transform = Transform3D(-0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 0, 0, 1, -71.4272, 94.9216, 0)
+transform = Transform3D(-0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 0, 0, 1, -71.4272, 94.9216, 41.2522)
