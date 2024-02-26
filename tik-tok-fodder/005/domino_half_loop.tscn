@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj0ajw365su38"]
+
+[ext_resource type="PackedScene" uid="uid://dwhvg58wbas4b" path="res://005/domino_scene.tscn" id="1_6reum"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DominoScene" parent="." instance=ExtResource("1_6reum")]
+transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 0, 0, 41.2522)
+
+[node name="DominoScene2" parent="." instance=ExtResource("1_6reum")]
+transform = Transform3D(0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, -19.752, 2.636, 41.2522)
+
+[node name="DominoScene3" parent="." instance=ExtResource("1_6reum")]
+transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, -38.074, 10.327, 41.2522)
+
+[node name="DominoScene4" parent="." instance=ExtResource("1_6reum")]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, -51.708, 20.713, 41.2522)
+
+[node name="DominoScene5" parent="." instance=ExtResource("1_6reum")]
+transform = Transform3D(0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0, 1, -63.7868, 36.6259, 41.2522)
+
+[node name="DominoScene6" parent="." instance=ExtResource("1_6reum")]
+transform = Transform3D(0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 0, 0, 1, -71.2574, 55.1165, 41.2522)
+
+[node name="DominoScene7" parent="." instance=ExtResource("1_6reum")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -73.927, 75.0732, 41.2522)
+
+[node name="DominoScene8" parent="." instance=ExtResource("1_6reum")]
+transform = Transform3D(-0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 0, 0, 1, -71.4272, 94.9216, 41.2522)
