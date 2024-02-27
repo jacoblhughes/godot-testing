@@ -16,7 +16,8 @@ func _physics_process(delta):
 #	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 #		velocity.y = JUMP_VELOCITY
 	if Input.is_action_pressed("look_left"):
-		transform.basis.rotation_degrees.y += 5
+		pass
+#		transform.basis.rotation_degrees.y += 5
 	if Input.is_action_pressed("look_right"):
 		rotation_degrees.y -= 5
 	# Get the input direction and handle the movement/deceleration.
