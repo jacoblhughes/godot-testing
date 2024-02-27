@@ -116,3 +116,7 @@ func make_sin_y_x(num_dominoes, wave_amplitude, wave_frequency, spacing, startin
 			temp_starting_position = domino_instance.global_position
 		domino_instance.rotate_appro()
 	return temp_starting_position
+
+func _process(delta):
+	if Input.is_action_just_pressed("reset"):
+		get_tree().reload_current_scene()

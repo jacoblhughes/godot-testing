@@ -23,9 +23,11 @@ size = Vector3(100, 1, 100)
 albedo_color = Color(1, 0, 1, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7w84q"]
-radius = 1.0
+radius = 10.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_gdx31"]
+radius = 10.0
+height = 20.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ymfx"]
 albedo_texture = ExtResource("3_vf8l7")
@@ -62,14 +64,13 @@ polygon = PackedVector2Array(15, 0, 40, 15, 55, 15, 55, 0)
 depth = 20.0
 
 [node name="Ball" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.87916, 53.6737, -13.118)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.6115, 53.6737, -23.8419)
 mass = 20.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
 shape = SubResource("SphereShape3D_7w84q")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ball"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -3)
 mesh = SubResource("SphereMesh_gdx31")
 surface_material_override/0 = SubResource("StandardMaterial3D_3ymfx")
 

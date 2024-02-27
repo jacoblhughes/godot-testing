@@ -15,9 +15,9 @@ func _physics_process(delta):
 	# Handle Jump.
 #	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 #		velocity.y = JUMP_VELOCITY
-	if Input.is_key_pressed(KEY_A):
-		rotation_degrees.y += 5
-	if Input.is_key_pressed(KEY_D):
+	if Input.is_action_pressed("look_left"):
+		transform.basis.rotation_degrees.y += 5
+	if Input.is_action_pressed("look_right"):
 		rotation_degrees.y -= 5
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -31,3 +31,4 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
