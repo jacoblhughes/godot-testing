@@ -26,8 +26,8 @@ var domino_scene = preload("res://005/domino_scene.tscn")
 var final_rotation = Vector3(0, 0, 0)
 func _ready():
 	var starting_position = Vector3(0, 0, 0)
-	starting_position = make_sin_y_x(25, 100, 1, 10, starting_position)
-#	starting_position = make_sin_x_z(100, 100, 2, 10, starting_position)
+#	starting_position = make_sin_y_x(25, 100, 1, 10, starting_position)
+	starting_position = make_sin_x_z(100, 100, 2, 10, starting_position)
 	print(starting_position)
 #	starting_position = make_loop(25, 200, 0, starting_position)
 	

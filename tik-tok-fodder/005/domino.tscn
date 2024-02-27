@@ -3,24 +3,24 @@
 [ext_resource type="Script" path="res://005/domino.gd" id="1_8fhvj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ub67"]
-size = Vector3(2, 20, 10)
+size = Vector3(0.1, 0.5, 0.3)
 
 [sub_resource type="BoxMesh" id="BoxMesh_w5hxm"]
-size = Vector3(2, 20, 10)
+size = Vector3(0.1, 0.5, 0.3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70887"]
 albedo_color = Color(0, 1, 1, 1)
 
 [node name="Domino" type="RigidBody3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
-mass = 10.0
+mass = 0.5
 script = ExtResource("1_8fhvj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_0ub67")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 mesh = SubResource("BoxMesh_w5hxm")
 surface_material_override/0 = SubResource("StandardMaterial3D_70887")
