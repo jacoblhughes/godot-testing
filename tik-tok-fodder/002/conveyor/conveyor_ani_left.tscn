@@ -127,7 +127,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="ConveyorAnimation" type="AnimatedSprite2D"]
+[node name="ConveyorAniLeft" type="AnimatedSprite2D"]
 position = Vector2(0, -32)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_udu0k")

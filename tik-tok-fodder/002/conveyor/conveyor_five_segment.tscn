@@ -7,22 +7,18 @@
 [node name="ConveyorAnimation" parent="." instance=ExtResource("1_n13mw")]
 position = Vector2(32, -32)
 animation = &"clockwise_left"
-frame_progress = 0.0
 
 [node name="ConveyorAnimation2" parent="." instance=ExtResource("1_n13mw")]
 position = Vector2(96, -32)
 animation = &"clockwise_middle"
-frame_progress = 0.0
 
 [node name="ConveyorAnimation3" parent="." instance=ExtResource("1_n13mw")]
 position = Vector2(160, -32)
 animation = &"clockwise_middle"
-frame_progress = 0.0
 
 [node name="ConveyorAnimation4" parent="." instance=ExtResource("1_n13mw")]
 position = Vector2(224, -32)
 animation = &"clockwise_middle"
-frame_progress = 0.0
 
 [node name="ConveyorAnimation5" parent="." instance=ExtResource("1_n13mw")]
 position = Vector2(288, -32)
