@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://r0spoot6bmwr"]
+
+[ext_resource type="PackedScene" uid="uid://cg5fi2g5xuq67" path="res://002/conveyor/conveyor_animation.tscn" id="1_n13mw"]
+
+[node name="ConveyorFiveSegment" type="StaticBody2D"]
+
+[node name="ConveyorAnimation" parent="." instance=ExtResource("1_n13mw")]
+position = Vector2(32, -32)
+animation = &"clockwise_left"
+frame_progress = 0.0
+
+[node name="ConveyorAnimation2" parent="." instance=ExtResource("1_n13mw")]
+position = Vector2(96, -32)
+animation = &"clockwise_middle"
+frame_progress = 0.0
+
+[node name="ConveyorAnimation3" parent="." instance=ExtResource("1_n13mw")]
+position = Vector2(160, -32)
+animation = &"clockwise_middle"
+frame_progress = 0.0
+
+[node name="ConveyorAnimation4" parent="." instance=ExtResource("1_n13mw")]
+position = Vector2(224, -32)
+animation = &"clockwise_middle"
+frame_progress = 0.0
+
+[node name="ConveyorAnimation5" parent="." instance=ExtResource("1_n13mw")]
+position = Vector2(288, -32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(296, -64, 312, -56, 320, -40, 320, -24, 312, -8, 296, 0, 24, 0, 8, -8, 0, -24, 0, -40, 8, -56, 24, -64)

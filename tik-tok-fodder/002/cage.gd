@@ -14,5 +14,6 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body is BowlingBall002:
+		%AnimatedSprite2D.play("default")
 		conveyor.play_all()
 		pass # Replace with function body.
