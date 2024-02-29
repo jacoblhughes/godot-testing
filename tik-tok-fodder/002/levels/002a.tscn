@@ -1,24 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlneoq68dgc2e"]
+[gd_scene load_steps=8 format=3 uid="uid://dlneoq68dgc2e"]
 
 [ext_resource type="PackedScene" uid="uid://c2qkjja24fhge" path="res://002/cage.tscn" id="1_634dj"]
 [ext_resource type="PackedScene" uid="uid://dmpsdqj781kj3" path="res://002/bowling_ball.tscn" id="1_t2g02"]
 [ext_resource type="PackedScene" uid="uid://d3vhorjpkbxa0" path="res://002/belt.tscn" id="4_3yetd"]
 [ext_resource type="PackedScene" uid="uid://r0spoot6bmwr" path="res://002/conveyor/conveyor_five_segment.tscn" id="5_lxmjo"]
 [ext_resource type="PackedScene" uid="uid://bnhdrhfhaji81" path="res://002/basket_ball.tscn" id="5_wilh8"]
+[ext_resource type="PackedScene" uid="uid://glniflu738by" path="res://002/basket_ball_hoop.tscn" id="6_ylyhn"]
+
+[sub_resource type="TileSet" id="TileSet_remux"]
 
 [node name="002a" type="Node2D"]
 
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_remux")
+format = 2
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.290196, 0.262745, 1)
+
 [node name="BowlingBall" parent="." instance=ExtResource("1_t2g02")]
-position = Vector2(96, 884)
+position = Vector2(104, 912)
 
 [node name="BowlingBall2" parent="." instance=ExtResource("1_t2g02")]
 position = Vector2(280, 976)
 
 [node name="BowlingBall3" parent="." instance=ExtResource("1_t2g02")]
-position = Vector2(624, 540)
-
-[node name="BowlingBall4" parent="." instance=ExtResource("1_t2g02")]
-position = Vector2(368, 444)
+position = Vector2(508, 548)
 
 [node name="Belt" parent="." instance=ExtResource("4_3yetd")]
 position = Vector2(448, 832)
@@ -47,9 +62,13 @@ position = Vector2(128, 1056)
 
 [node name="ConveyorFiveSegment2" parent="." instance=ExtResource("5_lxmjo")]
 position = Vector2(384, 640)
+clockwise = false
 
 [node name="ConveyorFiveSegment3" parent="." instance=ExtResource("5_lxmjo")]
 position = Vector2(64, 288)
 
 [node name="BasketBall" parent="." instance=ExtResource("5_wilh8")]
 position = Vector2(260, 156)
+
+[node name="BasketBallHoop" parent="." instance=ExtResource("6_ylyhn")]
+position = Vector2(400, 372)

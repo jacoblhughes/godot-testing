@@ -131,4 +131,4 @@ animations = [{
 position = Vector2(0, -32)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_x7mgy")
-animation = &"clockwise"
+animation = &"counterclockwise"

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://glniflu738by"]
+
+[ext_resource type="Texture2D" uid="uid://8qix84wdivjr" path="res://002/basket_ball_hoop.png" id="1_qkbmb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dib5b"]
+size = Vector2(12, 104)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xmer4"]
+b = Vector2(4, 52)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3ahsj"]
+b = Vector2(-3.99999, 52)
+
+[node name="BasketBallHoop" type="Node2D"]
+
+[node name="Backboard" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Backboard"]
+scale = Vector2(4, 4)
+texture = ExtResource("1_qkbmb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Backboard"]
+position = Vector2(58, 0)
+shape = SubResource("RectangleShape2D_dib5b")
+
+[node name="HoopLeft" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoopLeft"]
+shape = SubResource("SegmentShape2D_xmer4")
+
+[node name="HoopRight" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoopRight"]
+position = Vector2(52, 0)
+shape = SubResource("SegmentShape2D_3ahsj")
