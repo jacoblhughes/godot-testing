@@ -17,6 +17,9 @@ position = Vector2(280, 976)
 [node name="BowlingBall3" parent="." instance=ExtResource("1_t2g02")]
 position = Vector2(624, 540)
 
+[node name="BowlingBall4" parent="." instance=ExtResource("1_t2g02")]
+position = Vector2(368, 444)
+
 [node name="Belt" parent="." instance=ExtResource("4_3yetd")]
 position = Vector2(448, 832)
 rotation = 1.43466
@@ -49,4 +52,4 @@ position = Vector2(384, 640)
 position = Vector2(64, 288)
 
 [node name="BasketBall" parent="." instance=ExtResource("5_wilh8")]
-position = Vector2(228, 976)
+position = Vector2(260, 156)
