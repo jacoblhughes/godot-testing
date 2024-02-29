@@ -2,39 +2,51 @@
 
 [ext_resource type="PackedScene" uid="uid://c2qkjja24fhge" path="res://002/cage.tscn" id="1_634dj"]
 [ext_resource type="PackedScene" uid="uid://dmpsdqj781kj3" path="res://002/bowling_ball.tscn" id="1_t2g02"]
-[ext_resource type="PackedScene" uid="uid://og78t2gb66ls" path="res://002/conveyor_segment.tscn" id="2_3qefr"]
-[ext_resource type="Script" path="res://002/conveyor.gd" id="2_jcy58"]
+[ext_resource type="PackedScene" uid="uid://d3vhorjpkbxa0" path="res://002/belt.tscn" id="4_3yetd"]
 [ext_resource type="PackedScene" uid="uid://r0spoot6bmwr" path="res://002/conveyor/conveyor_five_segment.tscn" id="5_lxmjo"]
+[ext_resource type="PackedScene" uid="uid://bnhdrhfhaji81" path="res://002/basket_ball.tscn" id="5_wilh8"]
 
 [node name="002a" type="Node2D"]
 
 [node name="BowlingBall" parent="." instance=ExtResource("1_t2g02")]
 position = Vector2(96, 884)
 
+[node name="BowlingBall2" parent="." instance=ExtResource("1_t2g02")]
+position = Vector2(280, 976)
+
+[node name="BowlingBall3" parent="." instance=ExtResource("1_t2g02")]
+position = Vector2(624, 540)
+
+[node name="Belt" parent="." instance=ExtResource("4_3yetd")]
+position = Vector2(448, 832)
+rotation = 1.43466
+scale = Vector2(15.9941, 1.9281)
+
+[node name="Belt2" parent="." instance=ExtResource("4_3yetd")]
+position = Vector2(224, 445.92)
+rotation = 0.968658
+scale = Vector2(14.9803, 3.1327)
+
 [node name="Cage" parent="." node_paths=PackedStringArray("conveyor") instance=ExtResource("1_634dj")]
 position = Vector2(96, 1024)
-conveyor = NodePath("../Conveyor1")
+conveyor = NodePath("../ConveyorFiveSegment")
 
-[node name="Conveyor1" type="Node2D" parent="."]
-script = ExtResource("2_jcy58")
+[node name="Cage2" parent="." node_paths=PackedStringArray("conveyor") instance=ExtResource("1_634dj")]
+position = Vector2(480, 1052)
+conveyor = NodePath("../ConveyorFiveSegment2")
 
-[node name="ConveyorSegment" parent="Conveyor1" instance=ExtResource("2_3qefr")]
-position = Vector2(160, 1056)
-current_animation = "left"
-
-[node name="ConveyorSegment2" parent="Conveyor1" instance=ExtResource("2_3qefr")]
-position = Vector2(224, 1056)
-animation_index = 1
-current_animation = "middle"
-
-[node name="ConveyorSegment3" parent="Conveyor1" instance=ExtResource("2_3qefr")]
-position = Vector2(288, 1056)
-animation_index = 1
-current_animation = "middle"
-
-[node name="ConveyorSegment4" parent="Conveyor1" instance=ExtResource("2_3qefr")]
-position = Vector2(352, 1056)
-animation_index = 2
-current_animation = "right"
+[node name="Cage3" parent="." node_paths=PackedStringArray("conveyor") instance=ExtResource("1_634dj")]
+position = Vector2(352, 626)
+conveyor = NodePath("../ConveyorFiveSegment3")
 
 [node name="ConveyorFiveSegment" parent="." instance=ExtResource("5_lxmjo")]
+position = Vector2(128, 1056)
+
+[node name="ConveyorFiveSegment2" parent="." instance=ExtResource("5_lxmjo")]
+position = Vector2(384, 640)
+
+[node name="ConveyorFiveSegment3" parent="." instance=ExtResource("5_lxmjo")]
+position = Vector2(64, 288)
+
+[node name="BasketBall" parent="." instance=ExtResource("5_wilh8")]
+position = Vector2(228, 976)

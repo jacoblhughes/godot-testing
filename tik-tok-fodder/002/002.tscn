@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://002/002.gd" id="1_0jph0"]
 [ext_resource type="PackedScene" uid="uid://dvc13q62txbsa" path="res://002/hammer.tscn" id="1_cskvg"]
 [ext_resource type="PackedScene" uid="uid://dbek0pocl3wbk" path="res://002/domino.tscn" id="2_he2ri"]
-[ext_resource type="Texture2D" uid="uid://bywa4khbumge6" path="res://002/conveyor.png" id="2_txr4g"]
+[ext_resource type="Texture2D" uid="uid://bywa4khbumge6" path="res://002/conveyor/conveyor.png" id="2_ixoi7"]
 [ext_resource type="Script" path="res://002/goal.gd" id="3_mihng"]
 [ext_resource type="Texture2D" uid="uid://l1diubwhjeqo" path="res://002/platforms.png" id="3_qh6pi"]
 [ext_resource type="PackedScene" uid="uid://dmpsdqj781kj3" path="res://002/bowling_ball.tscn" id="6_deidr"]
@@ -17,7 +17,7 @@ friction = 0.7
 friction = 0.3
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1cnw"]
-texture = ExtResource("2_txr4g")
+texture = ExtResource("2_ixoi7")
 texture_region_size = Vector2i(32, 32)
 0:0/animation_columns = 8
 0:0/animation_frame_0/duration = 0.1

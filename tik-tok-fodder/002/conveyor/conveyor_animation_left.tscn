@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://80q8q7b3eb12"]
 
-[ext_resource type="Texture2D" uid="uid://bywa4khbumge6" path="res://002/conveyor.png" id="1_ysrnd"]
+[ext_resource type="Texture2D" uid="uid://bywa4khbumge6" path="res://002/conveyor/conveyor.png" id="1_ysrnd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukk3l"]
 atlas = ExtResource("1_ysrnd")
@@ -127,7 +127,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="ConveyorAniLeft" type="AnimatedSprite2D"]
+[node name="ConveyorAnimationLeft" type="AnimatedSprite2D"]
 position = Vector2(0, -32)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_udu0k")

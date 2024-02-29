@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3vhorjpkbxa0"]
+
+[ext_resource type="Texture2D" uid="uid://bm4tdx7tajpsa" path="res://002/belt.png" id="1_gey8y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wnrb"]
+atlas = ExtResource("1_gey8y")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52iqv"]
+atlas = ExtResource("1_gey8y")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86jje"]
+atlas = ExtResource("1_gey8y")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqef1"]
+atlas = ExtResource("1_gey8y")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e7nyj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wnrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52iqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86jje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqef1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Belt" type="AnimatedSprite2D"]
+position = Vector2(448, 936)
+rotation = 1.28631
+scale = Vector2(8.4512, 1.9281)
+sprite_frames = SubResource("SpriteFrames_e7nyj")

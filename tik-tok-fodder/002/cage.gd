@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@export var conveyor : Node2D
+@export var conveyor : StaticBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,7 +13,8 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
+	print(body)
 	if body is BowlingBall002:
 		%AnimatedSprite2D.play("default")
-		conveyor.play_all()
+		conveyor.run_conveyor()
 		pass # Replace with function body.
