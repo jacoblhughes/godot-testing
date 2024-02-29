@@ -19,7 +19,7 @@ func run_conveyor():
 			if node is AnimatedSprite2D:
 				node.play('clockwise')
 	elif clockwise == false:
-		print('nah')
+
 		self.constant_linear_velocity = -SPEED
 		for node in get_children():
 			if node is AnimatedSprite2D:
