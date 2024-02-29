@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlneoq68dgc2e"]
+
+[ext_resource type="PackedScene" uid="uid://c2qkjja24fhge" path="res://002/cage.tscn" id="1_634dj"]
+[ext_resource type="PackedScene" uid="uid://dmpsdqj781kj3" path="res://002/bowling_ball.tscn" id="1_t2g02"]
+[ext_resource type="PackedScene" uid="uid://og78t2gb66ls" path="res://002/conveyor_segment.tscn" id="2_3qefr"]
+[ext_resource type="Script" path="res://002/conveyor.gd" id="2_jcy58"]
+
+[node name="002a" type="Node2D"]
+
+[node name="BowlingBall" parent="." instance=ExtResource("1_t2g02")]
+position = Vector2(96, 884)
+
+[node name="Cage" parent="." node_paths=PackedStringArray("conveyor") instance=ExtResource("1_634dj")]
+position = Vector2(96, 1024)
+conveyor = NodePath("../Conveyor1")
+
+[node name="Conveyor1" type="Node2D" parent="."]
+script = ExtResource("2_jcy58")
+
+[node name="ConveyorSegment" parent="Conveyor1" instance=ExtResource("2_3qefr")]
+position = Vector2(160, 1056)
+current_animation = "left"
+
+[node name="ConveyorSegment2" parent="Conveyor1" instance=ExtResource("2_3qefr")]
+position = Vector2(224, 1056)
+animation_index = 1
+current_animation = "middle"
+
+[node name="ConveyorSegment3" parent="Conveyor1" instance=ExtResource("2_3qefr")]
+position = Vector2(288, 1056)
+animation_index = 1
+current_animation = "middle"
+
+[node name="ConveyorSegment4" parent="Conveyor1" instance=ExtResource("2_3qefr")]
+position = Vector2(352, 1056)
+animation_index = 2
+current_animation = "right"

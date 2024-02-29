@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://co61afopd414b"]
+[gd_scene load_steps=19 format=3 uid="uid://co61afopd414b"]
 
 [ext_resource type="Script" path="res://002/002.gd" id="1_0jph0"]
 [ext_resource type="PackedScene" uid="uid://dvc13q62txbsa" path="res://002/hammer.tscn" id="1_cskvg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://l1diubwhjeqo" path="res://002/platforms.png" id="3_qh6pi"]
 [ext_resource type="PackedScene" uid="uid://dmpsdqj781kj3" path="res://002/bowling_ball.tscn" id="6_deidr"]
 [ext_resource type="PackedScene" uid="uid://bnhdrhfhaji81" path="res://002/basket_ball.tscn" id="6_ut3rt"]
+[ext_resource type="PackedScene" uid="uid://c2qkjja24fhge" path="res://002/cage.tscn" id="8_3dsfs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dipr4"]
 friction = 0.7
@@ -467,9 +468,11 @@ position = Vector2(460, 528)
 
 [node name="BowlingBall" parent="." instance=ExtResource("6_deidr")]
 position = Vector2(392, 208)
-collision_layer = 4
 collision_mask = 4
 physics_material_override = SubResource("PhysicsMaterial_ii706")
+
+[node name="Cage" parent="." instance=ExtResource("8_3dsfs")]
+position = Vector2(120, 360)
 
 [node name="Goal" type="Node2D" parent="."]
 position = Vector2(408, 972)
