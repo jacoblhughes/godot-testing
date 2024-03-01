@@ -6,6 +6,45 @@
 [ext_resource type="PackedScene" uid="uid://bnhdrhfhaji81" path="res://002/basket_ball.tscn" id="5_wilh8"]
 [ext_resource type="PackedScene" uid="uid://glniflu738by" path="res://002/basket_ball_hoop.tscn" id="6_ylyhn"]
 
+[sub_resource type="Animation" id="Animation_38c0i"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BeltLeft:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BeltMiddle:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BeltRight:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_v2fqh"]
 resource_name = "run"
 length = 0.4
@@ -45,45 +84,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_38c0i"]
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BeltLeft:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BeltMiddle:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("BeltRight:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mxlo7"]
@@ -149,7 +149,6 @@ libraries = {
 position = Vector2(-144, 3.05176e-05)
 texture = SubResource("CompressedTexture2D_yqeeg")
 hframes = 4
-frame = 3
 region_enabled = true
 region_rect = Rect2(0, 0, 96, 24)
 
@@ -158,7 +157,6 @@ texture_repeat = 2
 position = Vector2(36, 0)
 texture = SubResource("CompressedTexture2D_lb0wm")
 hframes = 4
-frame = 3
 region_enabled = true
 region_rect = Rect2(0, 24, 1344, 24)
 
@@ -166,7 +164,6 @@ region_rect = Rect2(0, 24, 1344, 24)
 position = Vector2(216, 3.05176e-05)
 texture = SubResource("CompressedTexture2D_ml72v")
 hframes = 4
-frame = 3
 region_enabled = true
 region_rect = Rect2(0, 48, 96, 24)
 
