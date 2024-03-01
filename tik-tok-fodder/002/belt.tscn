@@ -1,45 +1,125 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3vhorjpkbxa0"]
+[gd_scene load_steps=7 format=3 uid="uid://w1x7y4kmmsbw"]
 
-[ext_resource type="Texture2D" uid="uid://bm4tdx7tajpsa" path="res://002/belt.png" id="1_gey8y"]
+[sub_resource type="Animation" id="Animation_v2fqh"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BeltLeft:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BeltMiddle:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BeltRight:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0wnrb"]
-atlas = ExtResource("1_gey8y")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="Animation" id="Animation_38c0i"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BeltLeft:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BeltMiddle:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BeltRight:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_52iqv"]
-atlas = ExtResource("1_gey8y")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mxlo7"]
+_data = {
+"RESET": SubResource("Animation_38c0i"),
+"run": SubResource("Animation_v2fqh")
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_86jje"]
-atlas = ExtResource("1_gey8y")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yqeeg"]
+load_path = "res://.godot/imported/belt.png-df16452e77b67d35acc3422161ed24cf.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gqef1"]
-atlas = ExtResource("1_gey8y")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lb0wm"]
+load_path = "res://.godot/imported/belt.png-df16452e77b67d35acc3422161ed24cf.ctex"
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_e7nyj"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0wnrb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_52iqv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_86jje")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gqef1")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ml72v"]
+load_path = "res://.godot/imported/belt.png-df16452e77b67d35acc3422161ed24cf.ctex"
 
-[node name="Belt" type="AnimatedSprite2D"]
-position = Vector2(448, 936)
-rotation = 1.28631
-scale = Vector2(8.4512, 1.9281)
-sprite_frames = SubResource("SpriteFrames_e7nyj")
+[node name="Belt" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mxlo7")
+}
+
+[node name="BeltLeft" type="Sprite2D" parent="."]
+position = Vector2(12, 0)
+texture = SubResource("CompressedTexture2D_yqeeg")
+hframes = 4
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 24)
+
+[node name="BeltMiddle" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(36, 0)
+texture = SubResource("CompressedTexture2D_lb0wm")
+hframes = 4
+region_enabled = true
+region_rect = Rect2(0, 24, 96, 24)
+
+[node name="BeltRight" type="Sprite2D" parent="."]
+position = Vector2(60, 0)
+texture = SubResource("CompressedTexture2D_ml72v")
+hframes = 4
+region_enabled = true
+region_rect = Rect2(0, 48, 96, 24)

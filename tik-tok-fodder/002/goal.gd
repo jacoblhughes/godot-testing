@@ -13,7 +13,5 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body is Domino002:
-
-#		body.apply_central_force(Vector2(0,-500000))
-
+		pass
 	pass # Replace with function body.

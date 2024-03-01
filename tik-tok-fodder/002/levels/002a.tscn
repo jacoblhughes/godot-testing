@@ -1,15 +1,174 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlneoq68dgc2e"]
+[gd_scene load_steps=13 format=3 uid="uid://dlneoq68dgc2e"]
 
 [ext_resource type="PackedScene" uid="uid://c2qkjja24fhge" path="res://002/cage.tscn" id="1_634dj"]
 [ext_resource type="PackedScene" uid="uid://dmpsdqj781kj3" path="res://002/bowling_ball.tscn" id="1_t2g02"]
-[ext_resource type="PackedScene" uid="uid://d3vhorjpkbxa0" path="res://002/belt.tscn" id="4_3yetd"]
 [ext_resource type="PackedScene" uid="uid://r0spoot6bmwr" path="res://002/conveyor/conveyor_five_segment.tscn" id="5_lxmjo"]
 [ext_resource type="PackedScene" uid="uid://bnhdrhfhaji81" path="res://002/basket_ball.tscn" id="5_wilh8"]
 [ext_resource type="PackedScene" uid="uid://glniflu738by" path="res://002/basket_ball_hoop.tscn" id="6_ylyhn"]
 
+[sub_resource type="Animation" id="Animation_v2fqh"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BeltLeft:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BeltMiddle:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BeltRight:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_38c0i"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BeltLeft:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BeltMiddle:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BeltRight:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mxlo7"]
+_data = {
+"RESET": SubResource("Animation_38c0i"),
+"run": SubResource("Animation_v2fqh")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yqeeg"]
+load_path = "res://.godot/imported/belt.png-df16452e77b67d35acc3422161ed24cf.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lb0wm"]
+load_path = "res://.godot/imported/belt.png-df16452e77b67d35acc3422161ed24cf.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ml72v"]
+load_path = "res://.godot/imported/belt.png-df16452e77b67d35acc3422161ed24cf.ctex"
+
 [sub_resource type="TileSet" id="TileSet_remux"]
 
 [node name="002a" type="Node2D"]
+
+[node name="Belt" type="Node2D" parent="."]
+position = Vector2(404, 796)
+rotation = 1.29503
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Belt"]
+libraries = {
+"": SubResource("AnimationLibrary_mxlo7")
+}
+
+[node name="BeltLeft" type="Sprite2D" parent="Belt"]
+position = Vector2(-180, -0.101196)
+texture = SubResource("CompressedTexture2D_yqeeg")
+hframes = 4
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 24)
+
+[node name="BeltMiddle" type="Sprite2D" parent="Belt"]
+texture_repeat = 2
+position = Vector2(36, 0)
+texture = SubResource("CompressedTexture2D_lb0wm")
+hframes = 4
+region_enabled = true
+region_rect = Rect2(0, 24, 1632, 24)
+
+[node name="BeltRight" type="Sprite2D" parent="Belt"]
+position = Vector2(252, -6.10352e-05)
+texture = SubResource("CompressedTexture2D_ml72v")
+hframes = 4
+region_enabled = true
+region_rect = Rect2(0, 48, 96, 24)
+
+[node name="Belt2" type="Node2D" parent="."]
+position = Vector2(296, 396)
+rotation = 1.61094
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Belt2"]
+libraries = {
+"": SubResource("AnimationLibrary_mxlo7")
+}
+
+[node name="BeltLeft" type="Sprite2D" parent="Belt2"]
+position = Vector2(-144, 3.05176e-05)
+texture = SubResource("CompressedTexture2D_yqeeg")
+hframes = 4
+frame = 3
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 24)
+
+[node name="BeltMiddle" type="Sprite2D" parent="Belt2"]
+texture_repeat = 2
+position = Vector2(36, 0)
+texture = SubResource("CompressedTexture2D_lb0wm")
+hframes = 4
+frame = 3
+region_enabled = true
+region_rect = Rect2(0, 24, 1344, 24)
+
+[node name="BeltRight" type="Sprite2D" parent="Belt2"]
+position = Vector2(216, 3.05176e-05)
+texture = SubResource("CompressedTexture2D_ml72v")
+hframes = 4
+frame = 3
+region_enabled = true
+region_rect = Rect2(0, 48, 96, 24)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_remux")
@@ -33,42 +192,34 @@ position = Vector2(104, 912)
 position = Vector2(280, 976)
 
 [node name="BowlingBall3" parent="." instance=ExtResource("1_t2g02")]
-position = Vector2(508, 548)
-
-[node name="Belt" parent="." instance=ExtResource("4_3yetd")]
-position = Vector2(448, 832)
-rotation = 1.43466
-scale = Vector2(15.9941, 1.9281)
-
-[node name="Belt2" parent="." instance=ExtResource("4_3yetd")]
-position = Vector2(224, 445.92)
-rotation = 0.968658
-scale = Vector2(14.9803, 3.1327)
+position = Vector2(444, 548)
 
 [node name="Cage" parent="." node_paths=PackedStringArray("conveyor") instance=ExtResource("1_634dj")]
 position = Vector2(96, 1024)
 conveyor = NodePath("../ConveyorFiveSegment")
 
-[node name="Cage2" parent="." node_paths=PackedStringArray("conveyor") instance=ExtResource("1_634dj")]
+[node name="Cage2" parent="." node_paths=PackedStringArray("conveyor", "belt") instance=ExtResource("1_634dj")]
 position = Vector2(480, 1052)
 conveyor = NodePath("../ConveyorFiveSegment2")
+belt = NodePath("../Belt")
 
-[node name="Cage3" parent="." node_paths=PackedStringArray("conveyor") instance=ExtResource("1_634dj")]
-position = Vector2(352, 626)
+[node name="Cage3" parent="." node_paths=PackedStringArray("conveyor", "belt") instance=ExtResource("1_634dj")]
+position = Vector2(288, 626)
 conveyor = NodePath("../ConveyorFiveSegment3")
+belt = NodePath("../Belt2")
 
 [node name="ConveyorFiveSegment" parent="." instance=ExtResource("5_lxmjo")]
 position = Vector2(128, 1056)
 
 [node name="ConveyorFiveSegment2" parent="." instance=ExtResource("5_lxmjo")]
-position = Vector2(384, 640)
+position = Vector2(320, 640)
 clockwise = false
 
 [node name="ConveyorFiveSegment3" parent="." instance=ExtResource("5_lxmjo")]
-position = Vector2(64, 288)
+position = Vector2(272, 288)
 
 [node name="BasketBall" parent="." instance=ExtResource("5_wilh8")]
-position = Vector2(260, 156)
+position = Vector2(468, 156)
 
 [node name="BasketBallHoop" parent="." instance=ExtResource("6_ylyhn")]
-position = Vector2(400, 372)
+position = Vector2(608, 372)
