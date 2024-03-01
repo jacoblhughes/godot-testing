@@ -1,3 +1,91 @@
-[gd_scene format=3 uid="uid://3fxfs6g50d0"]
+[gd_scene load_steps=12 format=3 uid="uid://3fxfs6g50d0"]
+
+[ext_resource type="Script" path="res://002/levels/bellows.gd" id="1_5oh67"]
+[ext_resource type="Texture2D" uid="uid://bna0c8e0ts1n1" path="res://002/bellows.png" id="1_den06"]
+[ext_resource type="PackedScene" uid="uid://dmpsdqj781kj3" path="res://002/bowling_ball.tscn" id="3_dujik"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig4n4"]
+atlas = ExtResource("1_den06")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqe5d"]
+atlas = ExtResource("1_den06")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cex68"]
+atlas = ExtResource("1_den06")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4wms"]
+atlas = ExtResource("1_den06")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awvq3"]
+atlas = ExtResource("1_den06")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy4uw"]
+atlas = ExtResource("1_den06")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_61vrj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig4n4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqe5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cex68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4wms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awvq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy4uw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pgo8g"]
+radius = 16.0
+height = 56.0
 
 [node name="002b" type="Node2D"]
+
+[node name="Bellows" type="StaticBody2D" parent="."]
+position = Vector2(232, 328)
+script = ExtResource("1_5oh67")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bellows"]
+sprite_frames = SubResource("SpriteFrames_61vrj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bellows"]
+polygon = PackedVector2Array(16, 0, -12, -4, -12, 0)
+
+[node name="Area2D" type="Area2D" parent="Bellows"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bellows/Area2D"]
+polygon = PackedVector2Array(16, 0, 16, -8, -8, -24, -16, -24, -16, -16, 8, 0)
+
+[node name="Area2D2" type="Area2D" parent="Bellows"]
+position = Vector2(24, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bellows/Area2D2"]
+position = Vector2(20, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pgo8g")
+
+[node name="BowlingBall" parent="." instance=ExtResource("3_dujik")]
+position = Vector2(236, 212)
+
+[connection signal="body_entered" from="Bellows/Area2D" to="Bellows" method="_on_area_2d_body_entered"]
