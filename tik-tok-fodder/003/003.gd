@@ -3,9 +3,10 @@ extends Node2D
 
 
 var markers = []  # Array to store the Marker2D nodes
-var current_target = 0.0  # Index of the current target marker
+var sound_target = 0.0  # Index of the current target marker
+var marker_target = 0.0
 var tween_duration = 2.0  # Duration of the tween in seconds
-var bpm = 150  # Example BPM value
+var bpm = 75  # Example BPM value
 var current_audio_player
 
 var C1 = "res://sounds/C1.wav"
@@ -98,35 +99,58 @@ func _on_first_tween_completed():
 
 func move_to_next_marker():
 
-	if markers.size() > 0 and current_target+1 < markers.size():
+	if sound_files.size() > 0 and marker_target+1 < markers.size():
+		print(sound_files[sound_target])
 		if current_audio_player:
 			current_audio_player.stop()
 #			current_audio_player.stream.loop_mode = 0
-		if markers[current_target].has_node("AudioStreamPlayer"):
-			current_audio_player = markers[current_target].get_node("AudioStreamPlayer")
-	#		current_audio_player.stream.loop_mode = 1  # Loop the current note
-			current_audio_player.play()
-		if current_target < sound_files.size():
-			tween_duration = sound_files[current_target]['duration']
+		if sound_files[sound_target]['note'] == "rest":
+#			var tween = get_tree().create_tween()
+#			tween.finished.connect(_on_some_tween_completed)
+#			var original_color = %Ball1.modulate
+#			tween.tween_property(%Ball1, "modulate", Color.BLUE, tween_duration/4).set_ease(Tween.EASE_OUT)
+#			tween.tween_property(%Ball1, "scale", Vector2(2,2), tween_duration/4).set_ease(Tween.EASE_OUT)
+#			tween.tween_property(%Ball1, "scale", Vector2(1,1), tween_duration/4).set_ease(Tween.EASE_OUT)
+#			tween.tween_property(%Ball1, "modulate", original_color, tween_duration/4).set_ease(Tween.EASE_OUT)
+			var start_position = markers[marker_target].get_node("Marker2D").global_position
+			var end_position = markers[marker_target+1].get_node("Marker2D").global_position
+			var half_way = (start_position+end_position)/2
+			var tween = get_tree().create_tween()
+			tween.finished.connect(_on_some_tween_completed)
+			tween.tween_property(%Ball1, "global_position", half_way, tween_duration).set_ease(Tween.EASE_OUT)
 		else:
-			tween_duration = 1
-		var start_position = global_position
-		current_target = (current_target + 1)
-		var end_position = markers[current_target].get_node("Marker2D").global_position
-		var tween = get_tree().create_tween()
-		tween.finished.connect(_on_marker_tween_completed)
-		tween.tween_property(%Ball1, "global_position", end_position, tween_duration).set_ease(Tween.EASE_OUT)
-
-func _on_marker_tween_completed():
+		
+			if markers[marker_target].has_node("AudioStreamPlayer"):
+				current_audio_player = markers[marker_target].get_node("AudioStreamPlayer")
+		#		current_audio_player.stream.loop_mode = 1  # Loop the current note
+				current_audio_player.play()
+			if sound_target < sound_files.size():
+				tween_duration = sound_files[sound_target]['duration']
+			else:
+				tween_duration = 1
+			var start_position = global_position
+			marker_target +=1
+			var end_position = markers[marker_target].get_node("Marker2D").global_position
+			var tween = get_tree().create_tween()
+			tween.finished.connect(_on_some_tween_completed)
+			tween.tween_property(%Ball1, "global_position", end_position, tween_duration).set_ease(Tween.EASE_OUT)
+		sound_target+=1
+		
+func _on_some_tween_completed():
 	move_to_next_marker()
 	
 func load_sounds_and_assign_to_walls():
-	for i in range(markers.size()):
-		if i < sound_files.size():
-			var sound = load(sound_files[i]['note'])
-			if sound:
-				var audio_player = AudioStreamPlayer.new()
-				audio_player.stream = sound
-				markers[i].add_child(audio_player,true)
+	var j = 0
+	for i in range(sound_files.size()-1):
+		if j<markers.size():
+			if sound_files[i]['note'] == "rest":
+				pass
 			else:
-				print("Failed to load sound:", sound_files[i])
+				var sound = load(sound_files[i]['note'])
+				if sound:
+					var audio_player = AudioStreamPlayer.new()
+					audio_player.stream = sound
+					markers[j].add_child(audio_player,true)
+					j+=1
+				else:
+					print("Failed to load sound:", sound_files[i])

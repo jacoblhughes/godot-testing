@@ -1,0 +1,119 @@
+[gd_scene load_steps=7 format=3 uid="uid://drbxmfvh0yjs5"]
+
+[ext_resource type="Script" path="res://003/003.gd" id="1_800lx"]
+[ext_resource type="Texture2D" uid="uid://bxuamheu0qub2" path="res://icon.svg" id="1_tscl0"]
+[ext_resource type="PackedScene" uid="uid://du58idcpr40b" path="res://003/standard.tscn" id="2_2hsm8"]
+[ext_resource type="AudioStream" uid="uid://jea63xac2vlx" path="res://sounds/A1.wav" id="3_u0vnu"]
+[ext_resource type="PackedScene" uid="uid://doidugiokrrw" path="res://003/ball_1.tscn" id="4_domtc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwkc7"]
+
+[node name="003" type="Node2D"]
+script = ExtResource("1_800lx")
+
+[node name="Start" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(48, 52)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Start"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start/StaticBody2D"]
+shape = SubResource("RectangleShape2D_dwkc7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Start/StaticBody2D"]
+scale = Vector2(0.511697, 0.267241)
+texture = ExtResource("1_tscl0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Start"]
+stream = ExtResource("3_u0vnu")
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Standard" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(168.749, 266.103)
+
+[node name="Standard2" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(324, 65)
+rotation = -3.14159
+
+[node name="Standard3" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(344, 293)
+rotation = 0.785398
+
+[node name="Standard4" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(624, 293)
+rotation = -0.785398
+
+[node name="Standard5" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(500, 65)
+rotation = 3.14159
+
+[node name="Standard6" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(520, 493)
+rotation = -0.785398
+
+[node name="Standard7" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(68, 481)
+rotation = 0.785398
+
+[node name="Standard8" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(228, 289)
+rotation = 3.14159
+
+[node name="Standard9" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(404, 665)
+rotation = -0.785398
+
+[node name="Standard10" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(192, 549)
+rotation = 3.14159
+
+[node name="Standard11" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(76, 721)
+rotation = 0.785398
+
+[node name="Standard12" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(248, 813)
+
+[node name="Standard13" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(404.749, 913.103)
+
+[node name="Standard14" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(560, 712)
+rotation = -3.14159
+
+[node name="Standard15" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(580, 940)
+rotation = 0.785398
+
+[node name="Standard16" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(860, 940)
+rotation = -0.785398
+
+[node name="Standard17" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(736, 712)
+rotation = 3.14159
+
+[node name="Standard18" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(756, 1140)
+rotation = -0.785398
+
+[node name="Standard19" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(304, 1128)
+rotation = 0.785398
+
+[node name="Standard20" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(464, 936)
+rotation = 3.14159
+
+[node name="Standard21" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(640, 1312)
+rotation = -0.785398
+
+[node name="Standard22" parent="Markers" instance=ExtResource("2_2hsm8")]
+position = Vector2(428, 1196)
+rotation = 3.14159
+
+[node name="Ball1" parent="." instance=ExtResource("4_domtc")]
+unique_name_in_owner = true
+position = Vector2(47, 24)
