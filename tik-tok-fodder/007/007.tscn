@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://yglwnppoc7sr" path="res://007/music_ball.tscn" id="1_xx3ka"]
 [ext_resource type="Script" path="res://007/camera.gd" id="2_jbwxy"]
 
+[sub_resource type="Animation" id="Animation_mwkw5"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_fu6kd"]
 resource_name = "run"
 length = 7.0
@@ -20,9 +23,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 1, 2), Vector3(6, 1, 2), Vector3(6, 3, 2), Vector3(6, 1, 2), Vector3(0, 1, 2), Vector3(0, 3, 2)]
 }
-
-[sub_resource type="Animation" id="Animation_mwkw5"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xd3u5"]
 _data = {
