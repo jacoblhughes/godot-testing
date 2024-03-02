@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnhdrhfhaji81"]
 
-[ext_resource type="Texture2D" uid="uid://87y5nt0fshcs" path="res://002/basket_ball.png" id="1_g7mom"]
+[ext_resource type="Texture2D" uid="uid://87y5nt0fshcs" path="res://002/starters/basket_ball.png" id="1_xelvw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tjkjq"]
 friction = 0.5
@@ -18,7 +18,7 @@ physics_material_override = SubResource("PhysicsMaterial_tjkjq")
 can_sleep = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_g7mom")
+texture = ExtResource("1_xelvw")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 

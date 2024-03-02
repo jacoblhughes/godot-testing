@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://004/004.gd" id="1_lwghh"]
 [ext_resource type="Texture2D" uid="uid://ctafiw67aqbhs" path="res://004/bowling_alley.png" id="1_st86p"]
 [ext_resource type="PackedScene" uid="uid://b5q68qtsor8bm" path="res://004/bowling_pin.tscn" id="3_30j5s"]
-[ext_resource type="Texture2D" uid="uid://ci8jjybs45cwr" path="res://002/bowling_ball.png" id="4_ebf10"]
+[ext_resource type="Texture2D" uid="uid://ci8jjybs45cwr" path="res://002/starters/bowling_ball.png" id="4_ebf10"]
 [ext_resource type="Script" path="res://004/bowling_ball.gd" id="4_nxqw6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ac4ax"]

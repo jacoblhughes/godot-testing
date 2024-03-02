@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://3fxfs6g50d0"]
 
 [ext_resource type="Script" path="res://002/levels/bellows.gd" id="1_5oh67"]
-[ext_resource type="Texture2D" uid="uid://bna0c8e0ts1n1" path="res://002/bellows.png" id="1_den06"]
-[ext_resource type="PackedScene" uid="uid://dmpsdqj781kj3" path="res://002/bowling_ball.tscn" id="3_dujik"]
+[ext_resource type="Texture2D" uid="uid://bna0c8e0ts1n1" path="res://002/intermediates/bellows.png" id="1_den06"]
+[ext_resource type="PackedScene" uid="uid://dmpsdqj781kj3" path="res://002/starters/bowling_ball.tscn" id="3_dujik"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ig4n4"]
 atlas = ExtResource("1_den06")

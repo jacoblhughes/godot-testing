@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://yglwnppoc7sr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_asb2b"]
+radius = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_vq2bp"]
+radius = 1.0
+height = 2.0
+
+[node name="MusicBall" type="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_asb2b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_vq2bp")

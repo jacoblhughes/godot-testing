@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bna0c8e0ts1n1"
-path="res://.godot/imported/bellows.png-2ee73b3705c59e167178462e2ebf23f7.ctex"
+uid="uid://8qix84wdivjr"
+path="res://.godot/imported/basket_ball_hoop.png-51ea284bcda44a940cea572777b60200.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://002/bellows.png"
-dest_files=["res://.godot/imported/bellows.png-2ee73b3705c59e167178462e2ebf23f7.ctex"]
+source_file="res://002/goals/basket_ball_hoop.png"
+dest_files=["res://.godot/imported/basket_ball_hoop.png-51ea284bcda44a940cea572777b60200.ctex"]
 
 [params]
 

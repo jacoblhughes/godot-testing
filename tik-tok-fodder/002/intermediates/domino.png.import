@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mw3lbgtgd5la"
-path.s3tc="res://.godot/imported/domino.png-d7639bf241107338c775ed02e5963600.s3tc.ctex"
+path.s3tc="res://.godot/imported/domino.png-3385644ac156029711506bf3472fb5c8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://002/domino.png"
-dest_files=["res://.godot/imported/domino.png-d7639bf241107338c775ed02e5963600.s3tc.ctex"]
+source_file="res://002/intermediates/domino.png"
+dest_files=["res://.godot/imported/domino.png-3385644ac156029711506bf3472fb5c8.s3tc.ctex"]
 
 [params]
 

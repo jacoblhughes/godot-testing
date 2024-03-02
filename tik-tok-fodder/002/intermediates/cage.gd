@@ -1,9 +1,11 @@
-extends StaticBody2D
+#extends StaticBody2D
+extends Starter002
 
 @export var conveyor : StaticBody2D
 @export var belt : Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("cage: ",self.get_class())
 	pass # Replace with function body.
 
 
@@ -14,7 +16,7 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 
-	if body is BowlingBall002:
+	if body is Starter002:
 		%AnimatedSprite2D.play("default")
 		if conveyor:
 			conveyor.run_conveyor()

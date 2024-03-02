@@ -1,8 +1,8 @@
-extends RigidBody2D
-class_name BowlingBall002
+extends Starter002
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(self.get_class())
 	pass # Replace with function body.
 
 

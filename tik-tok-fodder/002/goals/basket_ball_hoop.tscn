@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://glniflu738by"]
 
-[ext_resource type="Texture2D" uid="uid://8qix84wdivjr" path="res://002/basket_ball_hoop.png" id="1_qkbmb"]
+[ext_resource type="Texture2D" uid="uid://8qix84wdivjr" path="res://002/goals/basket_ball_hoop.png" id="1_qkbmb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dib5b"]
 size = Vector2(12, 104)

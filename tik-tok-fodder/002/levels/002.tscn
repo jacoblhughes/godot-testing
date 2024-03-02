@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://002/levels/002.gd" id="1_exwaq"]
 [ext_resource type="Texture2D" uid="uid://bywa4khbumge6" path="res://002/conveyor/conveyor.png" id="2_r0gw3"]
 [ext_resource type="Texture2D" uid="uid://l1diubwhjeqo" path="res://002/platforms.png" id="3_wxpjw"]
-[ext_resource type="PackedScene" uid="uid://dvc13q62txbsa" path="res://002/hammer.tscn" id="4_dhbde"]
-[ext_resource type="PackedScene" uid="uid://dbek0pocl3wbk" path="res://002/domino.tscn" id="5_5ey38"]
-[ext_resource type="PackedScene" uid="uid://bnhdrhfhaji81" path="res://002/basket_ball.tscn" id="6_e1np1"]
-[ext_resource type="PackedScene" uid="uid://dmpsdqj781kj3" path="res://002/bowling_ball.tscn" id="7_d7byp"]
-[ext_resource type="Script" path="res://002/goal.gd" id="9_5mkjx"]
+[ext_resource type="PackedScene" uid="uid://dvc13q62txbsa" path="res://002/intermediates/hammer.tscn" id="4_dhbde"]
+[ext_resource type="PackedScene" uid="uid://dbek0pocl3wbk" path="res://002/intermediates/domino.tscn" id="5_5ey38"]
+[ext_resource type="PackedScene" uid="uid://bnhdrhfhaji81" path="res://002/starters/basket_ball.tscn" id="6_e1np1"]
+[ext_resource type="PackedScene" uid="uid://dmpsdqj781kj3" path="res://002/starters/bowling_ball.tscn" id="7_d7byp"]
+[ext_resource type="Script" path="res://002/goals/goal.gd" id="9_5mkjx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dipr4"]
 friction = 0.7

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dmpsdqj781kj3"]
 
-[ext_resource type="Script" path="res://002/bowling_ball.gd" id="1_r73mm"]
+[ext_resource type="Script" path="res://002/starters/bowling_ball.gd" id="1_r73mm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0oj2f"]
 absorbent = true
