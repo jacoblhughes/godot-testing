@@ -12,6 +12,6 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if body is Starters002:
+	if body is Starter002:
 		$AnimatedSprite2D.play("default")
 	pass # Replace with function body.

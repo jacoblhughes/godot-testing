@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dlneoq68dgc2e"]
 
-[ext_resource type="PackedScene" path="res://002/intermediates/cage.tscn" id="1_634dj"]
+[ext_resource type="PackedScene" uid="uid://c2qkjja24fhge" path="res://002/intermediates/cage.tscn" id="1_634dj"]
 [ext_resource type="PackedScene" uid="uid://dmpsdqj781kj3" path="res://002/starters/bowling_ball.tscn" id="1_t2g02"]
 [ext_resource type="PackedScene" uid="uid://r0spoot6bmwr" path="res://002/conveyor/conveyor_five_segment.tscn" id="5_lxmjo"]
 [ext_resource type="PackedScene" uid="uid://bnhdrhfhaji81" path="res://002/starters/basket_ball.tscn" id="5_wilh8"]
