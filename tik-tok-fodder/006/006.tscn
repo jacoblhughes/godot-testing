@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg8hvd6icue1d"]
+
+[ext_resource type="Script" path="res://006/006.gd" id="1_vk6su"]
+[ext_resource type="PackedScene" uid="uid://ry16m5sc75f6" path="res://006/gold_club.gltf" id="2_0ws5u"]
+
+[node name="006" type="Node3D"]
+script = ExtResource("1_vk6su")
+
+[node name="gold_club" parent="." instance=ExtResource("2_0ws5u")]
