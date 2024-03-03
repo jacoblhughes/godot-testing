@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://doewgisi23qmv"]
+
+[ext_resource type="Script" path="res://006/club.gd" id="1_q17xr"]
+[ext_resource type="ArrayMesh" uid="uid://cnwu46mev0e18" path="res://006/golf_club_mesh.res" id="2_suvoj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ifjdi"]
+size = Vector3(1, 1, 0.2)
+
+[node name="GolfClub" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.15)
+script = ExtResource("1_q17xr")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+gravity_scale = 0.0
+max_contacts_reported = 10
+contact_monitor = true
+can_sleep = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = ExtResource("2_suvoj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_ifjdi")
+
+[connection signal="body_entered" from="RigidBody3D" to="." method="_on_rigid_body_3d_body_entered"]

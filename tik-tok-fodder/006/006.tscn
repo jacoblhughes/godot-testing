@@ -1,9 +1,70 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg8hvd6icue1d"]
+[gd_scene load_steps=12 format=3 uid="uid://cg8hvd6icue1d"]
 
 [ext_resource type="Script" path="res://006/006.gd" id="1_vk6su"]
-[ext_resource type="PackedScene" uid="uid://ry16m5sc75f6" path="res://006/gold_club.gltf" id="2_0ws5u"]
+[ext_resource type="PackedScene" uid="uid://doewgisi23qmv" path="res://006/golf_club.tscn" id="2_tmnmj"]
+[ext_resource type="Script" path="res://006/golf_ball.gd" id="2_uuj06"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4elix"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_jl4hs"]
+sky_material = SubResource("ProceduralSkyMaterial_4elix")
+
+[sub_resource type="Environment" id="Environment_m3ffr"]
+background_mode = 2
+sky = SubResource("Sky_jl4hs")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_vf5is"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jv8rh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekoif"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5ugtl"]
+size = Vector2(200, 200)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0hbso"]
+size = Vector3(200, 1, 200)
 
 [node name="006" type="Node3D"]
 script = ExtResource("1_vk6su")
 
-[node name="gold_club" parent="." instance=ExtResource("2_0ws5u")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m3ffr")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.707107, -0.353553, -0.612372, 0, 0.866025, -0.5, 0.707107, 0.353553, 0.612372, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.415063, -7.28109)
+
+[node name="GolfBall" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.765179)
+max_contacts_reported = 10
+contact_monitor = true
+can_sleep = false
+script = ExtResource("2_uuj06")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GolfBall"]
+mesh = SubResource("SphereMesh_vf5is")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GolfBall"]
+shape = SubResource("SphereShape3D_jv8rh")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+material_override = SubResource("StandardMaterial3D_ekoif")
+mesh = SubResource("PlaneMesh_5ugtl")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_0hbso")
+
+[node name="GolfClub" parent="." instance=ExtResource("2_tmnmj")]
