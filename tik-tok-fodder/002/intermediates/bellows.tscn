@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://csev23wbsjwm3"]
+
+[ext_resource type="Script" path="res://002/levels/bellows.gd" id="1_2pv75"]
+[ext_resource type="Texture2D" uid="uid://bna0c8e0ts1n1" path="res://002/intermediates/bellows.png" id="2_04i4o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig4n4"]
+atlas = ExtResource("2_04i4o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqe5d"]
+atlas = ExtResource("2_04i4o")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cex68"]
+atlas = ExtResource("2_04i4o")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4wms"]
+atlas = ExtResource("2_04i4o")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awvq3"]
+atlas = ExtResource("2_04i4o")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy4uw"]
+atlas = ExtResource("2_04i4o")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_61vrj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig4n4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqe5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cex68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4wms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awvq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hy4uw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pgo8g"]
+radius = 16.0
+height = 56.0
+
+[node name="Bellows" type="StaticBody2D"]
+position = Vector2(0, -16)
+script = ExtResource("1_2pv75")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_61vrj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(16, 0, -12, -4, -12, 0)
+
+[node name="Activate" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Activate"]
+polygon = PackedVector2Array(16, 0, 16, -8, -8, -24, -16, -24, -16, -16, 8, 0)
+
+[node name="Blow" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(24, 0)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blow"]
+position = Vector2(20, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pgo8g")
+
+[connection signal="body_entered" from="Activate" to="." method="_on_area_2d_body_entered"]
