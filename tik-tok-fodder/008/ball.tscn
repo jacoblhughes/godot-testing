@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://iy82pkutoa6k"]
+
+[ext_resource type="Texture2D" uid="uid://porf1x5y3re8" path="res://008/perry.png" id="1_1pow8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pwdth"]
+friction = 0.3
+bounce = 0.6
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w0qld"]
+radius = 24.1868
+
+[node name="Ball" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_pwdth")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1pow8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w0qld")
