@@ -7,7 +7,7 @@
 friction = 0.7
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6nngv"]
-friction = 0.3
+friction = 0.7
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k1cnw"]
 texture = ExtResource("1_qgvcr")

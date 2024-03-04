@@ -12,10 +12,12 @@ func _process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if body is Starter002:
+	if body is Starter002 or body is Intermediate002:
 		$AnimatedSprite2D.play("default")
+		%Activate.set_deferred("monitoring",false)
+		print(%Activate.monitoring)
 		for overlap in  %Blow.get_overlapping_bodies():
 			if overlap is Intermediate002:
-				overlap.apply_central_impulse(Vector2(1000,100)*scale.x)
+				overlap.apply_central_impulse(Vector2(150,100)*scale.x)
 			
 	pass # Replace with function body.

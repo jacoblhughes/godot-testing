@@ -1,21 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://3fxfs6g50d0"]
+[gd_scene load_steps=9 format=3 uid="uid://3fxfs6g50d0"]
 
 [ext_resource type="TileSet" uid="uid://cadr8dmfpvwil" path="res://002/tile_set_002.tres" id="1_smypp"]
 [ext_resource type="PackedScene" uid="uid://csev23wbsjwm3" path="res://002/intermediates/bellows.tscn" id="2_xysht"]
 [ext_resource type="PackedScene" uid="uid://dmpsdqj781kj3" path="res://002/starters/bowling_ball.tscn" id="3_dujik"]
 [ext_resource type="PackedScene" uid="uid://dkktqlqqxputk" path="res://002/intermediates/balloon.tscn" id="4_4gaxh"]
 [ext_resource type="PackedScene" uid="uid://bnhdrhfhaji81" path="res://002/starters/basket_ball.tscn" id="5_p6n6n"]
+[ext_resource type="PackedScene" uid="uid://glniflu738by" path="res://002/goals/basket_ball_hoop.tscn" id="6_cmu66"]
+[ext_resource type="PackedScene" uid="uid://gnw31gmvxjyo" path="res://002/intermediates/cage.tscn" id="7_k7ppp"]
+[ext_resource type="PackedScene" uid="uid://r0spoot6bmwr" path="res://002/conveyor/conveyor_five_segment.tscn" id="8_quwbq"]
 
 [node name="002b" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 720.0
+offset_bottom = 1280.0
+color = Color(0, 0.278431, 1, 1)
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(384, 584)
+position = Vector2(452, 604)
 zoom = Vector2(1.3, 1.3)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_smypp")
 format = 2
-layer_0/tile_data = PackedInt32Array(1245219, 131073, 2, 1179683, 131073, 0, 1179682, 65537, 0, 1179681, 65537, 0, 1245217, 65537, 2, 1245218, 65537, 2, 1245216, 65537, 2, 1179680, 65537, 0, 1245215, 1, 2, 1179679, 1, 0, 786452, 1, 2, 786453, 65537, 2, 786454, 65537, 2, 786455, 131073, 2, 720919, 131073, 0, 720918, 65537, 0, 720917, 65537, 0, 720916, 1, 0)
+layer_0/tile_data = PackedInt32Array(1245219, 131073, 2, 1179683, 131073, 0, 1179682, 65537, 0, 1179681, 65537, 0, 1245217, 65537, 2, 1245218, 65537, 2, 1245216, 65537, 2, 1179680, 65537, 0, 1245215, 1, 2, 1179679, 1, 0, 786453, 1, 2, 786454, 65537, 2, 786455, 65537, 2, 720919, 65537, 0, 720918, 65537, 0, 720917, 1, 0, 720920, 131073, 0, 786456, 131073, 2, 3538974, 1, 1, 3538975, 65537, 1, 3473439, 65537, 0, 3473438, 1, 0, 3604511, 65537, 2, 3538976, 65537, 1, 3473440, 65537, 0, 3604510, 1, 2, 3604512, 65537, 2, 3538977, 65537, 1, 3538978, 65537, 1, 3473442, 65537, 0, 3473441, 65537, 0, 3604513, 65537, 2, 3604514, 65537, 2, 3538979, 65537, 1, 3538980, 65537, 1, 3538981, 131073, 1, 3473444, 65537, 0, 3473443, 65537, 0, 3604515, 65537, 2, 3604516, 65537, 2, 3604517, 131073, 2, 3473445, 131073, 0, 2555942, 131073, 2, 2555941, 65537, 2, 2555940, 65537, 2, 2555939, 1, 2, 2490403, 1, 0, 2490404, 65537, 0, 2490405, 65537, 0, 2490406, 131073, 0, 2490400, 131073, 0, 2490399, 65537, 0, 2490398, 1, 0, 2555934, 1, 2, 2555935, 65537, 2, 2555936, 131073, 2, 2883608, 393217, 0, 2883609, 458753, 0, 2818073, 393217, 0, 2818074, 458753, 0, 2752538, 393217, 0, 2752539, 458753, 0, 2949143, 393217, 0, 2949144, 458753, 0, 3014678, 393217, 0, 3014679, 458753, 0, 2687003, 393217, 0, 2687004, 458753, 0, 2293777, 524289, 0, 2293778, 589825, 0, 2228240, 524289, 0, 2228241, 589825, 0, 2162703, 524289, 0, 2162704, 589825, 0)
 
 [node name="Bellows" parent="." instance=ExtResource("2_xysht")]
 position = Vector2(592, 340)
@@ -28,4 +39,37 @@ position = Vector2(596, 248)
 position = Vector2(540, 320)
 
 [node name="BasketBall" parent="." instance=ExtResource("5_p6n6n")]
-position = Vector2(380, 160)
+position = Vector2(396, 160)
+
+[node name="BasketBallHoop" parent="." instance=ExtResource("6_cmu66")]
+position = Vector2(400, 456)
+
+[node name="BasketBallHoop3" parent="." instance=ExtResource("6_cmu66")]
+position = Vector2(288, 760)
+scale = Vector2(-1, 1)
+
+[node name="Cage" parent="." node_paths=PackedStringArray("conveyor") instance=ExtResource("7_k7ppp")]
+position = Vector2(248, 980)
+conveyor = NodePath("../ConveyorFiveSegment")
+
+[node name="ConveyorFiveSegment" parent="." instance=ExtResource("8_quwbq")]
+position = Vector2(284, 1016)
+
+[node name="BowlingBall2" parent="." instance=ExtResource("3_dujik")]
+position = Vector2(376, 932)
+
+[node name="Balloon2" parent="." instance=ExtResource("4_4gaxh")]
+position = Vector2(500, 896)
+
+[node name="Bellows2" parent="." instance=ExtResource("2_xysht")]
+position = Vector2(676, 660)
+scale = Vector2(-1, 1)
+
+[node name="BasketBall2" parent="." instance=ExtResource("5_p6n6n")]
+position = Vector2(524, 592)
+
+[node name="Balloon3" parent="." instance=ExtResource("4_4gaxh")]
+position = Vector2(620, 644)
+
+[node name="BasketBallHoop4" parent="." instance=ExtResource("6_cmu66")]
+position = Vector2(304, 812)

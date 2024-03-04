@@ -59,20 +59,23 @@ height = 56.0
 
 [node name="Bellows" type="StaticBody2D"]
 position = Vector2(0, -16)
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_2pv75")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_61vrj")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(16, 0, -12, -4, -12, 0)
+polygon = PackedVector2Array(16, 0, -12, -4, -12, 4)
 
 [node name="Activate" type="Area2D" parent="."]
+unique_name_in_owner = true
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Activate"]
-polygon = PackedVector2Array(16, 0, 16, -8, -8, -24, -16, -24, -16, -16, 8, 0)
+polygon = PackedVector2Array(16, 8, 16, -8, -8, -24, -16, -24, -8, 0, -16, 24, -4, 24)
 
 [node name="Blow" type="Area2D" parent="."]
 unique_name_in_owner = true

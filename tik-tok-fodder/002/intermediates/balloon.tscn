@@ -1,28 +1,26 @@
 [gd_scene load_steps=5 format=3 uid="uid://dkktqlqqxputk"]
 
 [ext_resource type="Script" path="res://002/levels/balloon.gd" id="1_6k4mo"]
-[ext_resource type="Texture2D" uid="uid://bxuamheu0qub2" path="res://icon.svg" id="2_x2g5c"]
+[ext_resource type="Texture2D" uid="uid://driecpe17ejp8" path="res://002/intermediates/balloon.png" id="2_scavs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ubmxx"]
-friction = 0.0
-bounce = 0.25
+friction = 0.2
+bounce = 0.7
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddnnn"]
-size = Vector2(72, 72)
+[sub_resource type="CircleShape2D" id="CircleShape2D_4qegc"]
+radius = 15.0333
 
 [node name="Balloon" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 4
-mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_ubmxx")
 gravity_scale = -0.5
 script = ExtResource("1_6k4mo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 36)
-scale = Vector2(0.5625, 0.5625)
-texture = ExtResource("2_x2g5c")
+position = Vector2(0, 24)
+texture = ExtResource("2_scavs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 36)
-shape = SubResource("RectangleShape2D_ddnnn")
+position = Vector2(0, 16)
+shape = SubResource("CircleShape2D_4qegc")

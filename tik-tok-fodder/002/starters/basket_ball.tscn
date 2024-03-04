@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bnhdrhfhaji81"]
+[gd_scene load_steps=5 format=3 uid="uid://bnhdrhfhaji81"]
 
+[ext_resource type="Script" path="res://002/starters/basket_ball.gd" id="1_6u7te"]
 [ext_resource type="Texture2D" uid="uid://87y5nt0fshcs" path="res://002/starters/basket_ball.png" id="1_xelvw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tjkjq"]
 friction = 0.5
-bounce = 0.75
+bounce = 0.7
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s2b3j"]
 radius = 16.0
@@ -16,6 +17,7 @@ collision_mask = 4
 mass = 5.0
 physics_material_override = SubResource("PhysicsMaterial_tjkjq")
 can_sleep = false
+script = ExtResource("1_6u7te")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_xelvw")
