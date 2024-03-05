@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpy0ldioywqya"]
+[gd_scene load_steps=6 format=3 uid="uid://dpy0ldioywqya"]
+
+[ext_resource type="Script" path="res://008/score.gd" id="1_xk3tx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i6ou3"]
 friction = 0.3
@@ -7,27 +9,41 @@ bounce = 0.1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uu1k6"]
 size = Vector2(640, 448)
 
+[sub_resource type="FontVariation" id="FontVariation_ocrfx"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_seja6"]
 size = Vector2(640, 128)
 
 [node name="Score" type="Node2D"]
+script = ExtResource("1_xk3tx")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Ground" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
 physics_material_override = SubResource("PhysicsMaterial_i6ou3")
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+[node name="ColorRect" type="ColorRect" parent="Ground"]
 offset_right = 640.0
 offset_bottom = 448.0
 color = Color(1, 0, 0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 position = Vector2(320, 224)
 shape = SubResource("RectangleShape2D_uu1k6")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Label" type="Label" parent="Ground"]
+offset_right = 640.0
+offset_bottom = 448.0
+theme_override_fonts/font = SubResource("FontVariation_ocrfx")
+theme_override_font_sizes/font_size = 50
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="ScoringArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoringArea"]
 position = Vector2(320, -64)
 shape = SubResource("RectangleShape2D_seja6")
