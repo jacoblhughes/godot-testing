@@ -1,17 +1,16 @@
-extends Node2D
+extends RigidBody2D
+class_name Ball008
 
-@onready var UI : CanvasLayer = %UI
+@export var assigned_node : Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(assigned_node)
+	print(get_path_to(assigned_node))
+	%RemoteTransform2D.remote_path = assigned_node.get_path()
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("move_right"):
-		%Ball.apply_central_impulse(Vector2(250,0))
 	pass
-
-func update_score(value):
-	UI.update_score(value)

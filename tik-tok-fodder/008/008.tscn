@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd5v3p6hmlpxa"]
+[gd_scene load_steps=8 format=3 uid="uid://cd5v3p6hmlpxa"]
 
 [ext_resource type="PackedScene" uid="uid://iy82pkutoa6k" path="res://008/ball.tscn" id="1_d88bb"]
 [ext_resource type="Script" path="res://008/008.gd" id="1_o5ibw"]
+[ext_resource type="PackedScene" uid="uid://btagvr2k6cgkv" path="res://008/ui.tscn" id="2_ybva5"]
 [ext_resource type="PackedScene" uid="uid://dyrnwwqjkal5" path="res://008/golf_club.tscn" id="3_v8j4f"]
 [ext_resource type="PackedScene" uid="uid://d0aljgu4rhs32" path="res://008/tee.tscn" id="4_rdomw"]
 [ext_resource type="PackedScene" uid="uid://bi03jigi1qwxt" path="res://008/ramp.tscn" id="5_numm4"]
@@ -10,21 +11,21 @@
 [node name="008" type="Node2D"]
 script = ExtResource("1_o5ibw")
 
+[node name="UI" parent="." instance=ExtResource("2_ybva5")]
+unique_name_in_owner = true
+
 [node name="BallPath" type="Node2D" parent="."]
 position = Vector2(152, 808)
 
 [node name="PlayerCamera" type="Camera2D" parent="BallPath"]
 unique_name_in_owner = true
+zoom = Vector2(0.5, 0.5)
 
-[node name="Ball" parent="." instance=ExtResource("1_d88bb")]
+[node name="Ball" parent="." node_paths=PackedStringArray("assigned_node") instance=ExtResource("1_d88bb")]
 unique_name_in_owner = true
 position = Vector2(152, 808)
 mass = 0.1
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Ball"]
-remote_path = NodePath("../../BallPath")
-update_rotation = false
-update_scale = false
+assigned_node = NodePath("../BallPath")
 
 [node name="GolfClub" parent="." instance=ExtResource("3_v8j4f")]
 position = Vector2(104, 832)

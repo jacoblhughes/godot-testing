@@ -1,6 +1,5 @@
-extends Node2D
+extends CanvasLayer
 
-@onready var UI : CanvasLayer = %UI
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,9 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("move_right"):
-		%Ball.apply_central_impulse(Vector2(250,0))
 	pass
-
+	
 func update_score(value):
-	UI.update_score(value)
+	%Distance.text = str(value)

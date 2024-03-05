@@ -24,10 +24,13 @@ func _ready():
 	for i in range(number_of_scoring_sections):
 		var scoring_area = scoring_area_scene.instantiate()
 		add_child(scoring_area)
-		scoring_area.global_position = Vector2(scoring_first_position.x + i*640,scoring_first_position.y)
+		scoring_area.global_position = Vector2(scoring_first_position.x + i*scoring_area.width,scoring_first_position.y)
 		scoring_area.value = scoring_value * (i+1)
 		scoring_area.ground_text.text = str(scoring_value * (i+1))
+		scoring_area.value_achieved.connect(_on_value_acheieved)
 		var color_rect = scoring_area.ground_color  # Adjust the path if necessary
 		color_rect.color = green_shades[i % green_shades.size()]  # Example: Gradually decrease the red component
 		
+func _on_value_acheieved(value):
+	get_parent().update_score(value)
 
