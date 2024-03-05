@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bi03jigi1qwxt"]
 
 [node name="Ramp" type="StaticBody2D"]
-position = Vector2(720, 864)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, -160, -80, -96, -144, -56, -216, -32, -272, -24, -496, 0, 0, 0)

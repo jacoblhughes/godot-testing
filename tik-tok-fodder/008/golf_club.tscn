@@ -5,12 +5,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0w0c"]
 
 [node name="GolfClub" type="Area2D"]
-position = Vector2(72, 768)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(24, 48)
+position = Vector2(0, -48)
 texture = ExtResource("1_tmcgv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(24, 72)
+position = Vector2(0, -24)
 shape = SubResource("RectangleShape2D_c0w0c")
