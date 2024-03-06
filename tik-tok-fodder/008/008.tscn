@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cd5v3p6hmlpxa"]
+[gd_scene load_steps=9 format=3 uid="uid://cd5v3p6hmlpxa"]
 
 [ext_resource type="PackedScene" uid="uid://iy82pkutoa6k" path="res://008/ball.tscn" id="1_d88bb"]
 [ext_resource type="Script" path="res://008/008.gd" id="1_o5ibw"]
+[ext_resource type="Script" path="res://008/dev.gd" id="2_6v43s"]
 [ext_resource type="PackedScene" uid="uid://btagvr2k6cgkv" path="res://008/ui.tscn" id="2_ybva5"]
 [ext_resource type="PackedScene" uid="uid://dyrnwwqjkal5" path="res://008/golf_club.tscn" id="3_v8j4f"]
 [ext_resource type="PackedScene" uid="uid://d0aljgu4rhs32" path="res://008/tee.tscn" id="4_rdomw"]
@@ -10,6 +11,39 @@
 
 [node name="008" type="Node2D"]
 script = ExtResource("1_o5ibw")
+
+[node name="Dev" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_6v43s")
+
+[node name="Control" type="Control" parent="Dev"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Dev/Control"]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 86.0
+offset_bottom = 110.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="Dev/Control/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="Dev/Control/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Velocity: "
+
+[node name="Velocity" type="Label" parent="Dev/Control/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
 
 [node name="DistanceMarker" type="Marker2D" parent="."]
 unique_name_in_owner = true
@@ -27,7 +61,6 @@ unique_name_in_owner = true
 [node name="Ball" parent="." node_paths=PackedStringArray("assigned_node") instance=ExtResource("1_d88bb")]
 unique_name_in_owner = true
 position = Vector2(152, 808)
-mass = 0.1
 assigned_node = NodePath("../BallPath")
 
 [node name="GolfClub" parent="." instance=ExtResource("3_v8j4f")]

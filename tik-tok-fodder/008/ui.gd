@@ -17,7 +17,7 @@ func update_distance(value):
 	%Distance.text = str(value)
 
 func return_coins():
-	return int(%Distance.text)
+	return int(%Coins.text)
 
 func update_coins(value):
 	var old_value = return_coins()

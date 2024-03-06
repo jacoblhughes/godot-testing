@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpy0ldioywqya"]
+[gd_scene load_steps=7 format=3 uid="uid://dpy0ldioywqya"]
 
 [ext_resource type="Script" path="res://008/score.gd" id="1_xk3tx"]
+[ext_resource type="PackedScene" uid="uid://u425ly6pdhb7" path="res://008/coin.tscn" id="2_ce2l3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i6ou3"]
 friction = 0.3
@@ -12,10 +13,13 @@ size = Vector2(640, 448)
 [sub_resource type="FontVariation" id="FontVariation_ocrfx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_seja6"]
-size = Vector2(640, 128)
+size = Vector2(640, 2176)
 
 [node name="Score" type="Node2D"]
 script = ExtResource("1_xk3tx")
+
+[node name="Coin" parent="." instance=ExtResource("2_ce2l3")]
+position = Vector2(320, -24)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 unique_name_in_owner = true
@@ -45,7 +49,7 @@ vertical_alignment = 1
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoringArea"]
-position = Vector2(320, -64)
+position = Vector2(320, -1088)
 shape = SubResource("RectangleShape2D_seja6")
 
 [connection signal="body_entered" from="ScoringArea" to="." method="_on_scoring_area_body_entered"]

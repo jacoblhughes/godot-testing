@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyrnwwqjkal5"]
+[gd_scene load_steps=5 format=3 uid="uid://dyrnwwqjkal5"]
 
 [ext_resource type="Texture2D" uid="uid://bt66jhf41x2pd" path="res://008/golf_club.png" id="1_tmcgv"]
+[ext_resource type="Script" path="res://008/golf_club.gd" id="1_widwx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c0w0c"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pp0oa"]
+size = Vector2(48, 48)
+
 [node name="GolfClub" type="Area2D"]
+script = ExtResource("1_widwx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -48)
@@ -13,3 +18,10 @@ texture = ExtResource("1_tmcgv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -24)
 shape = SubResource("RectangleShape2D_c0w0c")
+
+[node name="Swing" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Swing"]
+position = Vector2(48, -24)
+shape = SubResource("RectangleShape2D_pp0oa")
