@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://bi03jigi1qwxt"]
+[gd_scene load_steps=2 format=3 uid="uid://bi03jigi1qwxt"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4jfbs"]
+friction = 0.6
 
 [node name="Ramp" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_4jfbs")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, -128, -92, -88, -216, -48, -308, -28, -396, -16, -576, 0, 0, 0)
