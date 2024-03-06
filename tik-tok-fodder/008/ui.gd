@@ -23,3 +23,8 @@ func update_coins(value):
 	var old_value = return_coins()
 	var new_value = old_value + value
 	%Coins.text = str(new_value)
+
+
+func _on_upgrade_button_pressed():
+	print('okay')
+	pass # Replace with function body.

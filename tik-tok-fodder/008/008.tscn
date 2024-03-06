@@ -52,6 +52,34 @@ position = Vector2(768, 832)
 [node name="UI" parent="." instance=ExtResource("2_ybva5")]
 unique_name_in_owner = true
 
+[node name="Upgrade" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="Control" type="Control" parent="Upgrade"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Upgrade/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ColorRect" type="ColorRect" parent="Upgrade/Control/MarginContainer"]
+layout_mode = 2
+color = Color(0.431373, 1, 1, 1)
+
 [node name="BallPath" type="Node2D" parent="."]
 position = Vector2(152, 808)
 
