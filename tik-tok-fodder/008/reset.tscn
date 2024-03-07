@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b23wobvhxf7l4"]
+[gd_scene load_steps=3 format=3 uid="uid://b23wobvhxf7l4"]
 
+[ext_resource type="Script" path="res://008/reset.gd" id="1_4e8bf"]
 [ext_resource type="Theme" uid="uid://dbs1vdilrsi5s" path="res://008/base_008.tres" id="1_a1r8c"]
 
 [node name="Reset" type="CanvasLayer"]
+script = ExtResource("1_4e8bf")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -21,8 +23,36 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_a1r8c")
 
-[node name="GridContainer" type="GridContainer" parent="Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
 
-[node name="Container" type="Container" parent="Control/MarginContainer/GridContainer"]
+[node name="Control" type="Control" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control2" type="Control" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer/VBoxContainer/Control2"]
+layout_mode = 0
+offset_right = 660.0
+offset_bottom = 403.0
+size_flags_vertical = 3
+color = Color(0, 0.372549, 1, 0.415686)
+
+[node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Relaunch!"
+
+[node name="Control3" type="Control" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="button_up" from="Control/MarginContainer/VBoxContainer/Control2/Button" to="." method="_on_button_button_up"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Control2/Button" to="." method="_on_button_pressed"]

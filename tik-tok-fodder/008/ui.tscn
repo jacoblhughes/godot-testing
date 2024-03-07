@@ -25,6 +25,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("2_fp8t6")
+theme_type_variation = &"MarginWithinUI"
 
 [node name="GridContainer" type="GridContainer" parent="Control/MarginContainer"]
 layout_mode = 2

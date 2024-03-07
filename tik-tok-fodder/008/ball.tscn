@@ -12,6 +12,7 @@ radius = 24.1868
 
 [node name="Ball" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_pwdth")
+can_sleep = false
 script = ExtResource("1_tb1qn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

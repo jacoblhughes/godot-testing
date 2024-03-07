@@ -51,6 +51,10 @@ text = "0"
 unique_name_in_owner = true
 position = Vector2(768, 832)
 
+[node name="StartingMarker" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(152, 808)
+
 [node name="UI" parent="." instance=ExtResource("2_ybva5")]
 unique_name_in_owner = true
 
@@ -59,6 +63,8 @@ unique_name_in_owner = true
 visible = false
 
 [node name="Reset" parent="." instance=ExtResource("5_7khxs")]
+unique_name_in_owner = true
+visible = false
 
 [node name="BallPath" type="Node2D" parent="."]
 position = Vector2(152, 808)
