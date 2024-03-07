@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlucgs1vslyi4"]
+
+[ext_resource type="Texture2D" uid="uid://d4mhikvcs6bi5" path="res://008/perry_coin.png" id="1_4pb34"]
+[ext_resource type="Theme" uid="uid://dbs1vdilrsi5s" path="res://008/base_008.tres" id="1_5isb4"]
+
+[node name="Upgrade" type="CanvasLayer"]
+layer = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5isb4")
+
+[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer"]
+layout_mode = 2
+color = Color(0.431373, 0, 0.101961, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_5isb4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_4pb34")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Buy Coins"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("1_4pb34")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Buy Coins"

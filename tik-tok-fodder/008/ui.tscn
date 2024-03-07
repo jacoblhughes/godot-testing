@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://btagvr2k6cgkv"]
+[gd_scene load_steps=5 format=3 uid="uid://btagvr2k6cgkv"]
 
 [ext_resource type="Script" path="res://008/ui.gd" id="1_5a812"]
+[ext_resource type="Theme" uid="uid://dbs1vdilrsi5s" path="res://008/base_008.tres" id="2_fp8t6"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_nnc8t"]
+device = -1
+keycode = 85
+unicode = 117
+
+[sub_resource type="Shortcut" id="Shortcut_s3pb4"]
+events = [SubResource("InputEventKey_nnc8t")]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_5a812")
@@ -15,10 +24,7 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme = ExtResource("2_fp8t6")
 
 [node name="GridContainer" type="GridContainer" parent="Control/MarginContainer"]
 layout_mode = 2
@@ -40,6 +46,7 @@ text = "Coins: "
 [node name="Coins" type="Label" parent="Control/MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+text = "0"
 
 [node name="Control2" type="Control" parent="."]
 layout_mode = 3
@@ -76,9 +83,10 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="UpgradeButton" type="Button" parent="Control2/MarginContainer/GridContainer"]
+[node name="UpgradeButton" type="TextureButton" parent="Control2/MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Upgrade"
+button_mask = 0
+shortcut = SubResource("Shortcut_s3pb4")
 
 [connection signal="pressed" from="Control2/MarginContainer/GridContainer/UpgradeButton" to="." method="_on_upgrade_button_pressed"]

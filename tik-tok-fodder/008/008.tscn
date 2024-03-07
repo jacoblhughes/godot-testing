@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cd5v3p6hmlpxa"]
+[gd_scene load_steps=11 format=3 uid="uid://cd5v3p6hmlpxa"]
 
 [ext_resource type="PackedScene" uid="uid://iy82pkutoa6k" path="res://008/ball.tscn" id="1_d88bb"]
 [ext_resource type="Script" path="res://008/008.gd" id="1_o5ibw"]
 [ext_resource type="Script" path="res://008/dev.gd" id="2_6v43s"]
 [ext_resource type="PackedScene" uid="uid://btagvr2k6cgkv" path="res://008/ui.tscn" id="2_ybva5"]
 [ext_resource type="PackedScene" uid="uid://dyrnwwqjkal5" path="res://008/golf_club.tscn" id="3_v8j4f"]
-[ext_resource type="Texture2D" uid="uid://d4mhikvcs6bi5" path="res://008/perry_coin.png" id="4_c4nop"]
+[ext_resource type="PackedScene" uid="uid://dlucgs1vslyi4" path="res://008/upgrade.tscn" id="4_ieg6m"]
 [ext_resource type="PackedScene" uid="uid://d0aljgu4rhs32" path="res://008/tee.tscn" id="4_rdomw"]
+[ext_resource type="PackedScene" uid="uid://b23wobvhxf7l4" path="res://008/reset.tscn" id="5_7khxs"]
 [ext_resource type="PackedScene" uid="uid://bi03jigi1qwxt" path="res://008/ramp.tscn" id="5_numm4"]
 [ext_resource type="Script" path="res://008/scoring_zones.gd" id="6_6wpf3"]
 
@@ -53,52 +54,11 @@ position = Vector2(768, 832)
 [node name="UI" parent="." instance=ExtResource("2_ybva5")]
 unique_name_in_owner = true
 
-[node name="Upgrade" type="CanvasLayer" parent="."]
-layer = 2
+[node name="Upgrade" parent="." instance=ExtResource("4_ieg6m")]
+unique_name_in_owner = true
+visible = false
 
-[node name="Control" type="Control" parent="Upgrade"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Upgrade/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="ColorRect" type="ColorRect" parent="Upgrade/Control/MarginContainer"]
-layout_mode = 2
-color = Color(0.431373, 0, 0.101961, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="Upgrade/Control/MarginContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="GridContainer" type="GridContainer" parent="Upgrade/Control/MarginContainer/MarginContainer"]
-layout_mode = 2
-columns = 3
-
-[node name="TextureButton" type="TextureButton" parent="Upgrade/Control/MarginContainer/MarginContainer/GridContainer"]
-layout_mode = 2
-texture_normal = ExtResource("4_c4nop")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="Upgrade/Control/MarginContainer/MarginContainer/GridContainer"]
-layout_mode = 2
-text = "Buy Coins"
+[node name="Reset" parent="." instance=ExtResource("5_7khxs")]
 
 [node name="BallPath" type="Node2D" parent="."]
 position = Vector2(152, 808)
@@ -106,10 +66,11 @@ position = Vector2(152, 808)
 [node name="PlayerCamera" type="Camera2D" parent="BallPath"]
 unique_name_in_owner = true
 
-[node name="Ball" parent="." node_paths=PackedStringArray("assigned_node") instance=ExtResource("1_d88bb")]
+[node name="Ball" parent="." node_paths=PackedStringArray("assigned_node", "distance_marker") instance=ExtResource("1_d88bb")]
 unique_name_in_owner = true
 position = Vector2(152, 808)
 assigned_node = NodePath("../BallPath")
+distance_marker = NodePath("../DistanceMarker")
 
 [node name="GolfClub" parent="." instance=ExtResource("3_v8j4f")]
 position = Vector2(104, 832)

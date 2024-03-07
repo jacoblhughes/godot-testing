@@ -1,8 +1,8 @@
 extends CanvasLayer
-
-
+signal upgrade_pressed
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	pass # Replace with function body.
 
 
@@ -15,16 +15,11 @@ func update_score(value):
 
 func update_distance(value):
 	%Distance.text = str(value)
-
-func return_coins():
-	return int(%Coins.text)
-
+	
 func update_coins(value):
-	var old_value = return_coins()
-	var new_value = old_value + value
-	%Coins.text = str(new_value)
+	%Coins.text = str(value)
 
 
 func _on_upgrade_button_pressed():
-	print('okay')
+	upgrade_pressed.emit()
 	pass # Replace with function body.

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dpy0ldioywqya"]
 
 [ext_resource type="Script" path="res://008/score.gd" id="1_xk3tx"]
-[ext_resource type="PackedScene" path="res://008/coin.tscn" id="2_ce2l3"]
+[ext_resource type="PackedScene" uid="uid://u425ly6pdhb7" path="res://008/coin.tscn" id="2_ce2l3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i6ou3"]
 friction = 0.3

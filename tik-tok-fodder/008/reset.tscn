@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://b23wobvhxf7l4"]
+
+[ext_resource type="Theme" uid="uid://dbs1vdilrsi5s" path="res://008/base_008.tres" id="1_a1r8c"]
+
+[node name="Reset" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_a1r8c")
+
+[node name="GridContainer" type="GridContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Container" type="Container" parent="Control/MarginContainer/GridContainer"]
+layout_mode = 2
