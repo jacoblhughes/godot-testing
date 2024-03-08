@@ -10,11 +10,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	for item in %Swing.get_overlapping_bodies():
-		print(item)
-		if item is Ball008:
-			printerr('YES')
+
 		if item is Ball008 and Input.is_action_just_pressed("move_right"):
-			printerr('BOOM')
+
 			item.apply_central_impulse(Vector2(punch,0))
 	pass
 	

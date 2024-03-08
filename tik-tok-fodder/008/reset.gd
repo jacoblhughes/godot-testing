@@ -11,18 +11,13 @@ func _process(delta):
 	pass
 
 
-func _on_button_pressed():
-
-	pass # Replace with function body.
 
 func reset_show():
-	visible = true
+	show()
 	
 func reset_hide():
-	visible = false
+	hide()
 
-
-func _on_button_button_up():
+func _on_button_button_down():
 	relaunch.emit()
-	visible = false
-	pass # Replace with function body.
+	pass

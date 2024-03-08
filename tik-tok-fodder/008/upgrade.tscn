@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlucgs1vslyi4"]
+[gd_scene load_steps=4 format=3 uid="uid://dlucgs1vslyi4"]
 
 [ext_resource type="Texture2D" uid="uid://d4mhikvcs6bi5" path="res://008/perry_coin.png" id="1_4pb34"]
 [ext_resource type="Theme" uid="uid://dbs1vdilrsi5s" path="res://008/base_008.tres" id="1_5isb4"]
+[ext_resource type="Script" path="res://008/upgrade.gd" id="1_8oeyk"]
 
 [node name="Upgrade" type="CanvasLayer"]
 layer = 2
+script = ExtResource("1_8oeyk")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -27,36 +29,72 @@ theme = ExtResource("1_5isb4")
 layout_mode = 2
 color = Color(0.431373, 0, 0.101961, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/HFlowContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_4pb34")
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "X"
+
+[node name="Coins" type="Label" parent="Control/MarginContainer/VBoxContainer/HFlowContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="TextureButton" type="TextureButton" parent="Control/MarginContainer/VBoxContainer/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_4pb34")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_5isb4")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 100
 alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="UpgradeWeight" type="TextureButton" parent="Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("1_4pb34")
-stretch_mode = 0
 
-[node name="Label" type="Label" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Buy Coins"
+text = "Buy Weight"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 100
 alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="UpgradeImpulse" type="TextureButton" parent="Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 texture_normal = ExtResource("1_4pb34")
-stretch_mode = 0
 
-[node name="Label" type="Label" parent="Control/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-text = "Buy Coins"
+text = "Buy Impulse"
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/HFlowContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/UpgradeWeight" to="." method="_on_upgrade_weight_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer2/UpgradeImpulse" to="." method="_on_upgrade_impulse_pressed"]

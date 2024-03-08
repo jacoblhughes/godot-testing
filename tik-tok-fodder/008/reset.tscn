@@ -54,5 +54,4 @@ text = "Relaunch!"
 layout_mode = 2
 size_flags_vertical = 3
 
-[connection signal="button_up" from="Control/MarginContainer/VBoxContainer/Control2/Button" to="." method="_on_button_button_up"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Control2/Button" to="." method="_on_button_pressed"]
+[connection signal="button_down" from="Control/MarginContainer/VBoxContainer/Control2/Button" to="." method="_on_button_button_down"]

@@ -14,6 +14,14 @@
 [node name="008" type="Node2D"]
 script = ExtResource("1_o5ibw")
 
+[node name="DistanceMarker" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(768, 832)
+
+[node name="StartingMarker" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(152, 808)
+
 [node name="Dev" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_6v43s")
@@ -47,14 +55,6 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="DistanceMarker" type="Marker2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(768, 832)
-
-[node name="StartingMarker" type="Marker2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(152, 808)
-
 [node name="UI" parent="." instance=ExtResource("2_ybva5")]
 unique_name_in_owner = true
 
@@ -79,10 +79,12 @@ assigned_node = NodePath("../BallPath")
 distance_marker = NodePath("../DistanceMarker")
 
 [node name="GolfClub" parent="." instance=ExtResource("3_v8j4f")]
+unique_name_in_owner = true
 position = Vector2(104, 832)
 
 [node name="Tee" parent="." instance=ExtResource("4_rdomw")]
 position = Vector2(384, 1072)
+metadata/_edit_lock_ = true
 
 [node name="Ramp" parent="." instance=ExtResource("5_numm4")]
 position = Vector2(768, 832)
