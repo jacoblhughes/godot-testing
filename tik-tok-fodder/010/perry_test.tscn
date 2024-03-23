@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://e5qq34t1n2n6"]
+
+[ext_resource type="Script" path="res://010/perry_test.gd" id="1_2uom4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oj272"]
+size = Vector2(304, 336)
+
+[node name="PerryTest" type="Node2D"]
+script = ExtResource("1_2uom4")
+
+[node name="WowZone" type="Area2D" parent="."]
+position = Vector2(336, 568)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WowZone"]
+shape = SubResource("RectangleShape2D_oj272")
+
+[connection signal="input_event" from="WowZone" to="." method="_on_wow_zone_input_event"]
