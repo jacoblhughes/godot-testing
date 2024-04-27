@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://pnum4ath488j"]
+
+[ext_resource type="Script" path="res://src/perry_squash/perry_squash.gd" id="1_6oioj"]
+[ext_resource type="PackedScene" uid="uid://cnlirpbudccmv" path="res://src/perry_squash/player.tscn" id="1_271ir"]
+[ext_resource type="PackedScene" uid="uid://bjum3iaij0uld" path="res://src/perry_squash/ground.tscn" id="2_gtkpu"]
+[ext_resource type="PackedScene" uid="uid://co3afwdf18sx8" path="res://src/perry_squash/enemy.tscn" id="2_y2efm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kdbok"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_gam51"]
+sky_material = SubResource("ProceduralSkyMaterial_kdbok")
+
+[sub_resource type="Environment" id="Environment_0a6ah"]
+background_mode = 2
+sky = SubResource("Sky_gam51")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Curve3D" id="Curve3D_dcwns"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -15, 0.7, -29, 0, 0, 0, 0, 0, 0, 15, 0.7, -29, 0, 0, 0, 0, 0, 0, 15, 0.7, 29, 0, 0, 0, 0, 0, 0, -15, 0.7, 29, 0, 0, 0, 0, 0, 0, -15, 0.7, -29),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_iqcbo"]
+top_radius = 0.75
+height = 0.5
+
+[node name="PerrySquash" type="Node3D"]
+script = ExtResource("1_6oioj")
+mob_scene = ExtResource("2_y2efm")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0a6ah")
+
+[node name="Player" parent="." instance=ExtResource("1_271ir")]
+unique_name_in_owner = true
+
+[node name="LightNode" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="LightNode"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 30, 0)
+sky_mode = 1
+
+[node name="Ground" parent="." instance=ExtResource("2_gtkpu")]
+collision_layer = 2
+
+[node name="EnemyTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+
+[node name="CameraNode" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+projection = 1
+current = true
+size = 45.0
+near = 1.0
+far = 75.0
+
+[node name="SpawnPath" type="Path3D" parent="."]
+curve = SubResource("Curve3D_dcwns")
+
+[node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath"]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -15, 0.7, -29)
+
+[node name="Spotlight" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
+mesh = SubResource("CylinderMesh_iqcbo")
