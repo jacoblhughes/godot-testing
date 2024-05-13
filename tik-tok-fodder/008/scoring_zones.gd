@@ -30,7 +30,7 @@ func _ready():
 		scoring_area.value_achieved.connect(_on_value_acheieved)
 		var color_rect = scoring_area.ground_color  # Adjust the path if necessary
 		color_rect.color = green_shades[i % green_shades.size()]  # Example: Gradually decrease the red component
-		
+
 func _on_value_acheieved(value):
 	get_parent().update_score(value)
 

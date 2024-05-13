@@ -33,9 +33,9 @@ func _physics_process(delta):
 		ball.global_position = starting_marker.global_position
 		ball.rotation = 0
 		ball.freeze=false
-		reset_canvas.call_deferred("reset_hide") 
+		reset_canvas.call_deferred("reset_hide")
 		reset = false
-		
+
 	pass
 func _on_visibile_change():
 	printerr("CHANGED")
@@ -55,11 +55,11 @@ func _on_upgrade_pressed():
 	var visibility = upgrade_canvas.visible
 	upgrade_canvas.visible = !visibility
 	print('var')
-	
+
 func _on_round_over():
 	reset_canvas.reset_show()
 
-	
+
 func _on_reset_relaunch():
 	reset = true
 	%Ball.braked = false
