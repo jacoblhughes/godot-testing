@@ -10,6 +10,8 @@ var yform = 0
 var xatio = 0
 var yatio = 0
 
+var clicks = 0
+
 signal nodes_moved
 
 # Called when the node enters the scene tree for the first time.
@@ -20,15 +22,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	%Clicks.text = str(clicks)
 	pass
 
 func _on_window_resized():
-	
+
 	var xform = float(DisplayServer.window_get_size().x)
 	var yform = float(DisplayServer.window_get_size().y)
 
 	var xatio = xform/1920.00
-	var yatio = yform/200.00
+	var yatio = yform/216.00
 	print(xform , " " , yform)
 
 	if xform > 1920.00:
@@ -39,10 +42,14 @@ func _on_window_resized():
 		for node in nodes_to_scale_x:
 			node.scale.x *= xatio
 
-	if yform > 200.00:
+	if yform > 216.00:
 		for node in nodes_to_move_y:
 			node.position.y *= yatio
 		for node in nodes_to_scale_y:
 			node.scale.y *= yatio
 
 	nodes_moved.emit()
+
+func add_clicks(val):
+	var new_clicks = clicks + val
+	clicks = new_clicks
