@@ -9,13 +9,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-	
+
 func update_score(value):
 	%Score.text = str(value)
 
 func update_distance(value):
 	%Distance.text = str(value)
-	
+
 func update_coins(value):
 	%Coins.text = str(value)
 

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://uqd0olodpwm4"]
+
+[ext_resource type="Script" path="res://011/main.gd" id="1_h4a71"]
+[ext_resource type="Script" path="res://011/player.gd" id="2_fpgff"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_h4a71")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+script = ExtResource("2_fpgff")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
