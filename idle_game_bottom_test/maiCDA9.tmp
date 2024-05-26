@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://br3a84v16scmo"]
+[gd_scene load_steps=10 format=3 uid="uid://br3a84v16scmo"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_6fuw8"]
 [ext_resource type="Script" path="res://player.gd" id="2_5tu0f"]
@@ -27,10 +27,6 @@ sources/0 = SubResource("TileSetAtlasSource_obto5")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5ks3"]
 size = Vector2(32, 32)
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_kgl6o"]
-source_geometry_group_name = &"navigation_polygon_source_group"
-cell_size = 16.0
 
 [node name="Main" type="Node"]
 script = ExtResource("1_6fuw8")
@@ -105,10 +101,3 @@ texture = ExtResource("2_lkq6y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Player"]
 shape = SubResource("RectangleShape2D_a5ks3")
-
-[node name="Line2D" type="Line2D" parent="Game"]
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Game"]
-navigation_polygon = SubResource("NavigationPolygon_kgl6o")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Game"]

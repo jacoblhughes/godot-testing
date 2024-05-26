@@ -2,6 +2,7 @@ extends Area2D
 
 @export var start_position : Marker2D
 @export var end_position : Marker2D
+
 var moving_to_end = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
