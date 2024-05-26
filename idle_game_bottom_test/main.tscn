@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://br3a84v16scmo"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_6fuw8"]
+[ext_resource type="Script" path="res://player.gd" id="2_5tu0f"]
+[ext_resource type="Script" path="res://game.gd" id="2_g7n0w"]
+[ext_resource type="Texture2D" uid="uid://gxwhhrmvhs63" path="res://icon.svg" id="2_lkq6y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5ks3"]
+size = Vector2(128, 128)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_6fuw8")
+metadata/_edit_horizontal_guides_ = [104.0, 100.0]
+
+[node name="Game" type="Node2D" parent="." node_paths=PackedStringArray("nodes_to_move_x")]
+script = ExtResource("2_g7n0w")
+nodes_to_move_x = [NodePath("Marker2D"), NodePath("Marker2D2")]
+
+[node name="Player" type="Area2D" parent="Game" node_paths=PackedStringArray("start_position", "end_position")]
+position = Vector2(84, 100)
+script = ExtResource("2_5tu0f")
+start_position = NodePath("../Marker2D")
+end_position = NodePath("../Marker2D2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/Player"]
+texture = ExtResource("2_lkq6y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Player"]
+shape = SubResource("RectangleShape2D_a5ks3")
+
+[node name="Marker2D" type="Marker2D" parent="Game"]
+position = Vector2(84, 100)
+
+[node name="Marker2D2" type="Marker2D" parent="Game"]
+position = Vector2(1768, 100)
