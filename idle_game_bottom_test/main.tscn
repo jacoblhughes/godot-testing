@@ -1,21 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://br3a84v16scmo"]
+[gd_scene load_steps=9 format=3 uid="uid://br3a84v16scmo"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_6fuw8"]
 [ext_resource type="Script" path="res://player.gd" id="2_5tu0f"]
 [ext_resource type="Script" path="res://game.gd" id="2_g7n0w"]
 [ext_resource type="Texture2D" uid="uid://gxwhhrmvhs63" path="res://icon.svg" id="2_lkq6y"]
+[ext_resource type="Texture2D" uid="uid://bgwli6dkekyti" path="res://terrain.png" id="5_2g0dy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5ks3"]
 size = Vector2(128, 128)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_obto5"]
+texture = ExtResource("5_2g0dy")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_fnnev"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_obto5")
+
 [node name="Main" type="Node"]
 script = ExtResource("1_6fuw8")
-metadata/_edit_horizontal_guides_ = [104.0, 100.0]
+metadata/_edit_horizontal_guides_ = [108.0]
 
 [node name="Game" type="Node2D" parent="." node_paths=PackedStringArray("nodes_to_move_x", "nodes_to_move_y", "nodes_to_scale_y")]
 script = ExtResource("2_g7n0w")
 nodes_to_move_x = [NodePath("Marker2D"), NodePath("Marker2D2")]
-nodes_to_move_y = [NodePath("Player")]
+nodes_to_move_y = [NodePath("Player"), NodePath("Marker2D"), NodePath("Marker2D2")]
 nodes_to_scale_y = [NodePath("Player")]
 
 [node name="HUD" type="CanvasLayer" parent="Game"]
@@ -55,7 +66,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="Player" type="Area2D" parent="Game" node_paths=PackedStringArray("start_position", "end_position")]
-position = Vector2(84, 100)
+position = Vector2(84, 108)
 script = ExtResource("2_5tu0f")
 start_position = NodePath("../Marker2D")
 end_position = NodePath("../Marker2D2")
@@ -67,7 +78,12 @@ texture = ExtResource("2_lkq6y")
 shape = SubResource("RectangleShape2D_a5ks3")
 
 [node name="Marker2D" type="Marker2D" parent="Game"]
-position = Vector2(84, 100)
+position = Vector2(84, 108)
 
 [node name="Marker2D2" type="Marker2D" parent="Game"]
-position = Vector2(1768, 100)
+position = Vector2(1768, 108)
+
+[node name="TileMap" type="TileMap" parent="Game"]
+tile_set = SubResource("TileSet_fnnev")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 65536, 0, 131072, 0, 0, 196608, 65536, 0, 262144, 0, 0, 327680, 65536, 0, 393216, 0, 0, 458752, 65536, 0)
