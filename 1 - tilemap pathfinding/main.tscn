@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cn47x1fhbe8vx"]
+[gd_scene load_steps=13 format=3 uid="uid://cn47x1fhbe8vx"]
 
 [ext_resource type="Texture2D" uid="uid://ch8vswaargmd5" path="res://assets/terrain_tiles_v2.png" id="1_iadtq"]
 [ext_resource type="Script" path="res://Enemy.gd" id="2_46iim"]
@@ -7,7 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://bc03a1itncfpo" path="res://icon.svg" id="3_xwo0b"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5atqt"]
+vertices = PackedVector2Array(694, 106, 694, 182, 682, 182, 682, 150, 630, 106, 534, 150, 490, 118, 618, 278, 586, 278, 586, 202, 630, 202, 630, 234, 662, 234, 662, 374, 618, 330, 490, 374, 534, 330, 278, 118, 278, 150, 150, 150, 106, 74, 394, 278, 202, 278, 202, 202, 330, 202, 330, 170, 438, 170, 438, 374, 394, 330, 202, 374, 202, 342, 150, 330, 138, 342, 138, 310, 106, 310, 630, 74, 795, -8, 825, 541, 746, 266, 746, 54, 682, 54, 682, 22, 54, 362, 86, 362, 86, 394, -7, 520, 150, 394, 150, 426, 714, 426, 714, 266, 8, 10, 54, 22)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5, 6), PackedInt32Array(7, 8, 9, 10, 11), PackedInt32Array(7, 11, 12, 13, 14), PackedInt32Array(14, 13, 15, 16), PackedInt32Array(16, 15, 6, 5), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(24, 25, 26, 21), PackedInt32Array(21, 26, 27, 28), PackedInt32Array(28, 27, 29, 30), PackedInt32Array(31, 28, 30, 32), PackedInt32Array(31, 32, 33, 19), PackedInt32Array(33, 34, 20, 19), PackedInt32Array(17, 20, 35, 4, 6), PackedInt32Array(36, 37, 38, 39), PackedInt32Array(39, 40, 41, 36), PackedInt32Array(42, 43, 44, 45), PackedInt32Array(44, 46, 47, 45), PackedInt32Array(48, 49, 38, 37), PackedInt32Array(48, 37, 45, 47), PackedInt32Array(42, 45, 50, 51), PackedInt32Array(51, 50, 36, 41)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1, 1, 805, -19, 836, 552, -18, 530)])
 source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_sqmm5"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y858o"]
 texture = ExtResource("1_iadtq")
@@ -97,6 +107,7 @@ texture_region_size = Vector2i(32, 32)
 5:1/0/terrains_peering_bit/top_left_corner = 0
 5:1/0/terrains_peering_bit/top_side = 0
 5:1/0/terrains_peering_bit/top_right_corner = 0
+5:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_sqmm5")
 6:1/0 = 0
 6:1/0/terrain_set = 0
 6:1/0/terrain = 0
@@ -697,6 +708,7 @@ terrain_set_0/terrain_0/color = Color(0.615686, 0.117647, 0.588235, 1)
 terrain_set_1/mode = 0
 terrain_set_1/terrain_0/name = "Fence"
 terrain_set_1/terrain_0/color = Color(0.156863, 0.556863, 0.329412, 1)
+navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_y858o")
 sources/1 = SubResource("TileSetAtlasSource_dh8vo")
 

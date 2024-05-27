@@ -9,12 +9,12 @@ var acceleration = 7
 
 func _physics_process(delta):
 	var direction = Vector2.ZERO
-	
+
 	direction = navigation_agent.get_next_path_position() - global_position
 	direction = direction.normalized()
-	
+
 	velocity = velocity.lerp(direction * speed, acceleration * delta)
-	
+
 	move_and_slide()
 
 
