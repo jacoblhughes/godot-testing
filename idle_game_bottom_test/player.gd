@@ -12,15 +12,15 @@ func _ready():
 	hide()
 	get_parent().nodes_moved.connect(_on_nodes_moved)
 	input_event.connect(_on_input_event)
-	NavigationServer2D.map_set_cell_size(NavigationServer2D.get_maps()[0],16.0)
+
 	NavigationServer2D.map_changed.connect(_on_map_ready)
 
-	
+
 func _on_nodes_moved():
 	position = start_position.position
 	show()
 	await get_tree().create_timer(2).timeout
-	
+
 	pass # Replace with function body.
 
 
@@ -29,9 +29,9 @@ func _physics_process(delta):
 	if can_move:
 		var direction = Vector2.ZERO
 		navigation_agent.target_position = end_position.position
-		direction = navigation_agent.get_next_path_position()-GameManager.get_cell_size()/2 - global_position
+		direction = navigation_agent.get_next_path_position() - global_position
 		direction = direction.normalized()
-	
+
 		velocity = 1000 * direction * delta
 		move_and_slide()
 	pass
@@ -56,6 +56,6 @@ func _move():
 		#return
 
 	pass
-	
+
 func _on_map_ready(map):
 	can_move = true

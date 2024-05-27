@@ -17,3 +17,8 @@ func set_window_height(val):
 func get_window_height():
 	return window_height
 
+func set_cell_size(val):
+	cell_size = val
+
+func get_cell_size():
+	return cell_size
