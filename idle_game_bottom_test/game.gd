@@ -37,9 +37,6 @@ func _ready():
 	end = Vector2i(end_position.position)
 	cell_size = tile_map.get_tileset().tile_size
 	GameManager.set_cell_size(cell_size)
-	NavigationServer2D.map_set_cell_size(NavigationServer2D.get_maps()[0],32)
-
-	pass # Replace with function body.
 
 func _draw():
 	draw_rect(Rect2(start - (cell_size/2), cell_size), Color.GHOST_WHITE)
