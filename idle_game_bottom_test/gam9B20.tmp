@@ -87,6 +87,7 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_x41h3"]
 resource_name = "river_current"
 scenes/1/scene = ExtResource("3_tvqu6")
+scenes/1/display_placeholder = ExtResource("3_tvqu6")
 
 [sub_resource type="TileSet" id="TileSet_7ftru"]
 tile_size = Vector2i(32, 32)
@@ -106,7 +107,7 @@ sources/1 = SubResource("TileSetScenesCollectionSource_x41h3")
 [sub_resource type="CircleShape2D" id="CircleShape2D_48a7q"]
 
 [node name="Game2" type="Node2D"]
-metadata/_edit_vertical_guides_ = [400.0, 32.0]
+metadata/_edit_vertical_guides_ = [400.0]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_nqo47")
