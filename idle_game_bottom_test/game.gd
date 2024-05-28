@@ -65,11 +65,13 @@ func _on_window_resized():
 		for node in nodes_to_scale_x:
 			node.scale.x *= xatio
 
-	if yform > 216.00:
-		for node in nodes_to_move_y:
-			node.position.y *= yatio
-		for node in nodes_to_scale_y:
-			node.scale.y *= yatio
+	if yform > 256.00:
+		if !nodes_to_move_y.is_empty():
+			for node in nodes_to_move_y:
+				node.position.y *= yatio
+		if !nodes_to_scale_y.is_empty():
+			for node in nodes_to_scale_y:
+				node.scale.y *= yatio
 
 	nodes_moved.emit()
 
