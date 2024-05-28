@@ -22,6 +22,7 @@ func _on_input_event(viewport, event, shape_idx):
 		print(type)
 		if type == 1:
 			direction = Vector2(-1,0)
+			
 		if type == 2:
 			direction = Vector2(1,0)
 
