@@ -11,6 +11,7 @@ func _ready():
 	input_event.connect(_on_input_event)
 	next_coords = get_parent().local_to_map(global_position)
 	next_position = get_parent().map_to_local(next_coords)
+	pass
 
 func _process(delta):
 	if overlaps_body(player):
@@ -19,8 +20,7 @@ func _process(delta):
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseMotion:
 		if event.button_mask == 2:
-			direction = Vector2i(0,0)
-			get_parent().set_cell(0, coords, 0, Vector2i(3,0))
+			type = 10
 
 		elif event.pressure > 0.1 and event.button_mask == 1:
 			match event.relative:
@@ -89,9 +89,8 @@ func update_direction_and_cell():
 		9:
 			direction = Vector2i(-1,-1)
 			get_parent().set_cell(0, coords, 0, Vector2i(0,0))
-
+		10:
+			direction = Vector2i(0,0)
+			get_parent().set_cell(0, coords, 0, Vector2i(3,0))
 	next_coords = get_parent().local_to_map(global_position) + direction
 	next_position = get_parent().map_to_local(next_coords)
-
-func set_type(val):
-	type = val
