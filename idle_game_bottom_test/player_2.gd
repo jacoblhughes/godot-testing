@@ -10,12 +10,12 @@ var next_position = Vector2.ZERO
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
-	print(tile_map.local_to_map(global_position))
+
 	next_coords = tile_map.local_to_map(global_position) + Vector2i(1,0)
-	print(next_coords)
+
 	NavigationServer2D.map_changed.connect(_on_map_ready)
 	next_position = tile_map.map_to_local(next_coords)
-	print(next_position)
+
 
 func _physics_process(delta):
 	if can_move:

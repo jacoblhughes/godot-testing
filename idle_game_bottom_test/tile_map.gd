@@ -44,6 +44,6 @@ func _call_deferred():
 			child.update_direction_and_cell()
 
 		if get_cell_atlas_coords(0,child_coord,false) == Vector2i(3,0):
-			print(true)
+
 			child.type = 10
 			pass

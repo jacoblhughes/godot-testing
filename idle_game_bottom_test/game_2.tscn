@@ -88,7 +88,6 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_x41h3"]
 resource_name = "river_current"
 scenes/1/scene = ExtResource("3_tvqu6")
-scenes/1/display_placeholder = ExtResource("3_tvqu6")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_u010b"]
 resource_name = "village"
