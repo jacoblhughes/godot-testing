@@ -1,6 +1,7 @@
 extends Area2D
 
 var type = 0
+var input_diection = Vector2i.ZERO
 var direction = Vector2i.ZERO
 var next_position = Vector2.ZERO
 var coords : Vector2i = Vector2i.ZERO
@@ -23,42 +24,58 @@ func _on_input_event(viewport, event, shape_idx):
 			type = 10
 
 		elif event.pressure > 0.1 and event.button_mask == 1:
-			match event.relative:
-				Vector2(0,0):
-					type = 1
-					get_parent().set_cell(0, coords, 0, Vector2i(1,1))
-				Vector2(-1,0):
-					type = 2
-					get_parent().set_cell(0, coords, 0, Vector2i(0,1))
-				Vector2(-1,1):
-					type = 3
-					get_parent().set_cell(0, coords, 0, Vector2i(0,2))
-				Vector2(0,1):
-					type = 4
-					get_parent().set_cell(0, coords, 0, Vector2i(1,2))
-				Vector2(1,1):
-					type = 5
-					get_parent().set_cell(0, coords, 0, Vector2i(2,2))
-				Vector2(1,0):
-					type = 6
-					get_parent().set_cell(0, coords, 0, Vector2i(2,1))
-				Vector2(1,-1):
-					type = 7
-					get_parent().set_cell(0, coords, 0, Vector2i(2,0))
-				Vector2(0,-1):
-					type = 8
-					get_parent().set_cell(0, coords, 0, Vector2i(1,0))
-				Vector2(-1,-1):
-					type = 9
-					get_parent().set_cell(0, coords, 0, Vector2i(0,0))
-
+			var angle = event.relative.angle()
+			input_diection = get_direction_from_angle(angle)
+			update_type_and_cell()
 		update_direction_and_cell()
 
 	elif event is InputEventMouseButton and event.pressed and event.button_index == 1:
-		type = (type % 9) + 1
+		type = (type % 10) + 1
 		update_direction_and_cell()
 
+func get_direction_from_angle(angle):
+		if abs(angle) < PI / 8:
+			return Vector2i(1, 0)   # Right
+		elif abs(angle - PI/4) < PI / 8:
+			return Vector2i(1, 1)   # Down-Right
+		elif abs(angle - PI/2) < PI / 8:
+			return Vector2i(0, 1)   # Down
+		elif abs(angle - 3*PI/4) < PI / 8:
+			return Vector2i(-1, 1)  # Down-Left
+		elif abs(abs(angle) - PI) < PI / 8:
+			return Vector2i(-1, 0)  # Left
+		elif abs(angle + 3*PI/4) < PI / 8:
+			return Vector2i(-1, -1) # Up-Left
+		elif abs(angle + PI/2) < PI / 8:
+			return Vector2i(0, -1)  # Up
+		elif abs(angle + PI/4) < PI / 8:
+			return Vector2i(1, -1)  # Up-Right
 
+
+func update_type_and_cell():
+	match input_diection:
+		Vector2i(0, 0):
+			type = 1
+		Vector2i(-1, 0):
+			type = 2
+		Vector2i(-1, 1):
+			type = 3
+		Vector2i(0, 1):
+			type = 4
+		Vector2i(1, 1):
+			type = 5
+		Vector2i(1, 0):
+			type = 6
+		Vector2i(1, -1):
+			type = 7
+		Vector2i(0, -1):
+			type = 8
+		Vector2i(-1, -1):
+			type = 9
+		_:
+			type = 0  # Default type if none matched
+
+	update_direction_and_cell()
 
 func set_coords(val):
 	coords = val
