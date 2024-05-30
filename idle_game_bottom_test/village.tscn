@@ -1,19 +1,87 @@
-[gd_scene load_steps=4 format=3 uid="uid://clc20tdm46ykb"]
+[gd_scene load_steps=13 format=3 uid="uid://clc20tdm46ykb"]
 
 [ext_resource type="Script" path="res://village.gd" id="1_7an8m"]
+[ext_resource type="Texture2D" uid="uid://0vam2bjriex1" path="res://grass.png" id="2_kb80w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh7sa"]
+atlas = ExtResource("2_kb80w")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbtn8"]
+atlas = ExtResource("2_kb80w")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yscu5"]
+atlas = ExtResource("2_kb80w")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gow62"]
+atlas = ExtResource("2_kb80w")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7um5"]
+atlas = ExtResource("2_kb80w")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axx1q"]
+atlas = ExtResource("2_kb80w")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n01ow"]
+atlas = ExtResource("2_kb80w")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rivs3"]
+atlas = ExtResource("2_kb80w")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qybha"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mh7sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbtn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yscu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gow62")
+}],
+"loop": false,
+"name": &"flowers",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7um5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axx1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n01ow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rivs3")
+}],
+"loop": false,
+"name": &"grass",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wodm8"]
 size = Vector2(32, 32)
 
-[node name="Village" type="Area2D" groups=["village"]]
+[node name="Village" type="Area2D" node_paths=PackedStringArray("flowers") groups=["village"]]
 script = ExtResource("1_7an8m")
+flowers = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_qybha")
+animation = &"grass"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wodm8")
