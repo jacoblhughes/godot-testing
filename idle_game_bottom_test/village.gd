@@ -16,16 +16,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print('jere')
 	check_for_growth()
 	pass
 
 func check_for_growth():
-	print(type)
-	if type == 10:
-		flowers.show()
+	var tile_data = get_parent().get_cell_tile_data(0,coords,false)
+	var base_type = tile_data.get_custom_data("base_type")
+	if base_type == "ground":
+		flowers.visible = true
 	else:
-		flowers.hide()
+		flowers.visible = false
 
 func set_coords(val):
 	coords = val

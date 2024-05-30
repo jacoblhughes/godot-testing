@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://cyt88vgmb6w50"]
 
-[ext_resource type="Script" path="res://river_current.gd" id="1_gkitn"]
+[ext_resource type="Script" path="res://base.gd" id="1_k21nm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shr3j"]
 size = Vector2(32, 32)
 
-[node name="RiverCurrent" type="Area2D"]
-script = ExtResource("1_gkitn")
+[node name="RiverCurrent" type="Area2D" groups=["river_current"]]
+script = ExtResource("1_k21nm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_shr3j")

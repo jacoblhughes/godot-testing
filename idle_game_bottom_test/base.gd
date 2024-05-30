@@ -52,16 +52,21 @@ func _on_input_event(viewport, event, shape_idx):
 					type = 9
 					get_parent().set_cell(0, coords, 0, Vector2i(0,0))
 
+		update_direction_and_cell()
+
 	elif event is InputEventMouseButton and event.pressed and event.button_index == 1:
 		type = (type % 9) + 1
+		update_direction_and_cell()
 
-	update_direction_and_cell()
+
 
 func set_coords(val):
 	coords = val
 
 func update_direction_and_cell():
+
 	match type:
+
 		1:
 			direction = Vector2i(0,0)
 			get_parent().set_cell(0, coords, 0, Vector2i(1,1))
@@ -92,5 +97,6 @@ func update_direction_and_cell():
 		10:
 			direction = Vector2i(0,0)
 			get_parent().set_cell(0, coords, 0, Vector2i(3,0))
+
 	next_coords = get_parent().local_to_map(global_position) + direction
 	next_position = get_parent().map_to_local(next_coords)
