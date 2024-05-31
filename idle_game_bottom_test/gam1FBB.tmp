@@ -169,6 +169,5 @@ shape = SubResource("CircleShape2D_48a7q")
 path_postprocessing = 1
 debug_enabled = true
 
-[node name="GarbageSpawn" type="Node2D" parent="." node_paths=PackedStringArray("tile_map")]
+[node name="GarbageSpawn" type="Node2D" parent="."]
 script = ExtResource("7_qpvsd")
-tile_map = NodePath("../NavigationRegion2D/TileMap")

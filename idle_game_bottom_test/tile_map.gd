@@ -6,9 +6,6 @@ func _ready():
 	call_deferred("_call_deferred")
 
 func _call_deferred():
-
-
-
 	for child in get_children():
 		var child_coord: Vector2i = local_to_map(child.position)
 		child.set_coords(child_coord)
