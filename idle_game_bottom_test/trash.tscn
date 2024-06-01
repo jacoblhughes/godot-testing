@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dikevsx42k3if"]
+
+[ext_resource type="Texture2D" uid="uid://ham1gky38xlm" path="res://garbage.png" id="1_0oktq"]
+[ext_resource type="Script" path="res://garbage.gd" id="2_l5edn"]
+
+[node name="Sprite2D" type="Sprite2D" groups=["garbage"]]
+texture = ExtResource("1_0oktq")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+script = ExtResource("2_l5edn")
