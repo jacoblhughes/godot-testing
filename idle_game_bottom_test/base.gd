@@ -19,24 +19,24 @@ func _process(delta):
 		player.next_position = next_position
 
 func _on_input_event(viewport, event, shape_idx):
+	if GameManager.get_game_enabled():
+		if event is InputEventMouseMotion and not Input.is_action_pressed("shift"):
+			if event.button_mask == 2:
+				type = 10
 
-	if event is InputEventMouseMotion and not Input.is_action_pressed("shift"):
-		if event.button_mask == 2:
-			type = 10
+			elif event.pressure > 0.1 and event.button_mask == 1:
+				var angle = event.relative.angle()
+				input_diection = get_direction_from_angle(angle)
+				update_type_and_cell()
+			update_direction_and_cell()
 
-		elif event.pressure > 0.1 and event.button_mask == 1:
-			var angle = event.relative.angle()
-			input_diection = get_direction_from_angle(angle)
-			update_type_and_cell()
-		update_direction_and_cell()
+		elif event is InputEventMouseButton and event.pressed and event.button_index == 1 and not Input.is_action_pressed("shift"):
+			type = (type % 12) + 1
+			update_direction_and_cell()
 
-	elif event is InputEventMouseButton and event.pressed and event.button_index == 1 and not Input.is_action_pressed("shift"):
-		type = (type % 11) + 1
-		update_direction_and_cell()
+		elif event is InputEventMouseButton and event.pressed and event.button_index == 1 and Input.is_action_pressed("shift"):
 
-	elif event is InputEventMouseButton and event.pressed and event.button_index == 1 and Input.is_action_pressed("shift"):
-		print('here')
-		get_parent().set_cell(3,coords,3,Vector2i(0, 0),1)
+			get_parent().set_cell(3,coords,3,Vector2i(0, 0),1)
 
 #set_cell(layer: int, coords: Vector2i, source_id: int = -1, atlas_coords: Vector2i = Vector2i(-1, -1), alternative_tile: int = 0)
 func get_direction_from_angle(angle):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cdo06fqgghlix"]
+[gd_scene load_steps=43 format=3 uid="uid://cdo06fqgghlix"]
 
 [ext_resource type="Script" path="res://game_2.gd" id="1_7ofkx"]
 [ext_resource type="Texture2D" uid="uid://bgwli6dkekyti" path="res://terrain.png" id="1_di1b5"]
@@ -22,10 +22,10 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mmya0"]
 friction = 0.0
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_0ikeb"]
-vertices = PackedVector2Array(14, 14, -14, 14, -14, -14, 14, -14)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-14, -14, 14, -14, 14, 14, -14, 14)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_7nmti"]
+vertices = PackedVector2Array(16, -15, 16, 15, 15, 16, -15, 16, -16, 15, -16, -15, -15, -16, 15, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -15, -15, -16, 15, -16, 16, -15, 16, 15, 15, 16, -15, 16, -16, 15)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
@@ -33,13 +33,6 @@ agent_radius = 0.0
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
-source_geometry_group_name = &"navigation_polygon_source_group"
-agent_radius = 0.0
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_k0lmb"]
-vertices = PackedVector2Array(14, 14, -14, 14, -14, -14, 14, -14)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-14, -14, 14, -14, 14, 14, -14, 14)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
@@ -57,7 +50,7 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/terrains_peering_bit/right_side = 0
 0:0/0/terrains_peering_bit/bottom_right_corner = 1
 0:0/0/terrains_peering_bit/bottom_side = 0
-0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0ikeb")
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7nmti")
 0:0/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_8pq6m")
 0:0/0/custom_data_0 = "water"
 1:0/next_alternative_id = 2
@@ -66,7 +59,7 @@ texture_region_size = Vector2i(32, 32)
 1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_1/angular_velocity = 0.0
-1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0ikeb")
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7nmti")
 1:0/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_8pq6m")
 1:0/0/custom_data_0 = "water"
 2:0/next_alternative_id = 5
@@ -75,7 +68,7 @@ texture_region_size = Vector2i(32, 32)
 2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_1/angular_velocity = 0.0
-2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_k0lmb")
+2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7nmti")
 2:0/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_8pq6m")
 2:0/0/custom_data_0 = "water"
 0:1/0 = 0
@@ -83,7 +76,7 @@ texture_region_size = Vector2i(32, 32)
 0:1/0/physics_layer_0/angular_velocity = 0.0
 0:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_1/angular_velocity = 0.0
-0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0ikeb")
+0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7nmti")
 0:1/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_8pq6m")
 0:1/0/custom_data_0 = "water"
 1:1/0 = 0
@@ -91,7 +84,7 @@ texture_region_size = Vector2i(32, 32)
 1:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_1/angular_velocity = 0.0
-1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0ikeb")
+1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7nmti")
 1:1/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_8pq6m")
 1:1/0/custom_data_0 = "water"
 2:1/0 = 0
@@ -99,7 +92,7 @@ texture_region_size = Vector2i(32, 32)
 2:1/0/physics_layer_0/angular_velocity = 0.0
 2:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 2:1/0/physics_layer_1/angular_velocity = 0.0
-2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0ikeb")
+2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7nmti")
 2:1/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_8pq6m")
 2:1/0/custom_data_0 = "water"
 0:2/0 = 0
@@ -107,7 +100,7 @@ texture_region_size = Vector2i(32, 32)
 0:2/0/physics_layer_0/angular_velocity = 0.0
 0:2/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:2/0/physics_layer_1/angular_velocity = 0.0
-0:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0ikeb")
+0:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7nmti")
 0:2/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_8pq6m")
 0:2/0/custom_data_0 = "water"
 1:2/0 = 0
@@ -115,7 +108,7 @@ texture_region_size = Vector2i(32, 32)
 1:2/0/physics_layer_0/angular_velocity = 0.0
 1:2/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 1:2/0/physics_layer_1/angular_velocity = 0.0
-1:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0ikeb")
+1:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7nmti")
 1:2/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_8pq6m")
 1:2/0/custom_data_0 = "water"
 2:2/0 = 0
@@ -123,7 +116,7 @@ texture_region_size = Vector2i(32, 32)
 2:2/0/physics_layer_0/angular_velocity = 0.0
 2:2/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 2:2/0/physics_layer_1/angular_velocity = 0.0
-2:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0ikeb")
+2:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7nmti")
 2:2/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_8pq6m")
 2:2/0/custom_data_0 = "water"
 3:0/next_alternative_id = 2
@@ -135,7 +128,7 @@ texture_region_size = Vector2i(32, 32)
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, -8, -16, 8, -16, 12, -12, 16, -8, 16, 8, 12, 12, 8, 16, -8, 16, -12, 12, -16, 8, -16, -8)
 3:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_1/angular_velocity = 0.0
-3:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_k0lmb")
+3:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7nmti")
 3:0/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_8pq6m")
 3:0/0/custom_data_0 = "ground"
 3:1/next_alternative_id = 2
@@ -163,7 +156,7 @@ texture_region_size = Vector2i(32, 32)
 0:3/0/physics_layer_0/angular_velocity = 0.0
 0:3/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:3/0/physics_layer_1/angular_velocity = 0.0
-0:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0ikeb")
+0:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7nmti")
 0:3/0/navigation_layer_1/polygon = SubResource("NavigationPolygon_8pq6m")
 0:3/0/custom_data_0 = "recycle"
 
@@ -393,6 +386,7 @@ shape = SubResource("CircleShape2D_48a7q")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Player"]
 path_postprocessing = 1
+debug_enabled = true
 
 [node name="GarbageSpawn" type="Node2D" parent="." node_paths=PackedStringArray("tile_map", "collector")]
 script = ExtResource("7_qpvsd")
@@ -422,3 +416,4 @@ shape = SubResource("RectangleShape2D_gcy0x")
 target_desired_distance = 25.0
 navigation_layers = 2
 path_postprocessing = 1
+debug_enabled = true

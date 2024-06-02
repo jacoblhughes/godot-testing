@@ -9,7 +9,7 @@ func _ready():
 	print(tile_map.get_used_cells(3))
 	print(tile_map.get_cell_alternative_tile(3,Vector2i(1,1),false))
 	print(tile_map.get_cell_alternative_tile(3,Vector2i(2,2),false))
-	print('ererere')
+
 	pass # Replace with function body.
 
 

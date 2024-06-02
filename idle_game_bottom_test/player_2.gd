@@ -20,7 +20,7 @@ func _ready():
 func _physics_process(delta):
 	if can_move:
 		var direction = Vector2.ZERO
-
+		
 		navigation_agent.target_position = next_position
 		direction = navigation_agent.get_next_path_position() - global_position
 		direction = direction.normalized()

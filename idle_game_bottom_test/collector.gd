@@ -34,7 +34,7 @@ func _physics_process(delta):
 	if can_move:
 		if current_garbage_in_storage < max_garbage_storage and not garbage_locations.is_empty() and not garbage_seeking and not recycle_seeking:
 			garbage_seeking= true
-			garbage_for_target = garbage_locations[0]
+			garbage_for_target = garbage_locations[randi() % garbage_locations.size() ]
 			garbage_for_target_location = tile_map.map_to_local(garbage_for_target)
 			navigation_agent.target_position = garbage_for_target_location
 
@@ -83,7 +83,7 @@ func _on_target_reached():
 
 func _check_for_recycle_location():
 	if tile_map.get_used_cells_by_id(0,0,Vector2i(0,3),false) != []:
-		recycle_location = tile_map.map_to_local(tile_map.get_used_cells_by_id(0,0,Vector2i(0,3),false)[0])
+		recycle_location = tile_map.map_to_local(tile_map.get_used_cells_by_id(0,0,Vector2i(0,3),false)[randi() % tile_map.get_used_cells_by_id(0,0,Vector2i(0,3),false).size()])
 	else:
 		recycle_location = null
 
