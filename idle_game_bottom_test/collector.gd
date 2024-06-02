@@ -1,28 +1,30 @@
 extends CharacterBody2D
 
-
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@export var navigation_agent : NavigationAgent2D
+@export var tile_map : TileMap
 var dump_location
+var garbage_locations : Array = []
+var garbage_exists = false
+var holding_garbage = false
+var garbage_for_target = null
+var garbage_for_target_location = null
+var speed = 300
+var acceleration = 7
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
-func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()
+#
+#func _physics_process(delta):
+	#var direction = Vector2.ZERO
+	#if not garbage_locations.is_empty() and not garbage_exists:
+		#garbage_exists = true
+		#garbage_for_target = garbage_locations[0]
+		#garbage_for_target_location = tile_map.map_to_local(garbage_for_target)
+		#navigation_agent.target_position = garbage_for_target_location
+	#direction = navigation_agent.get_next_path_position() - global_position
+	#direction = direction.normalized()
+#
+	#velocity = velocity.lerp(direction * speed, acceleration * delta)
+#
+	#move_and_slide()
