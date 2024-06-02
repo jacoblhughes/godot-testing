@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var navigation_agent : NavigationAgent2D
 @export var tile_map : TileMap
+@export var animated_sprite : AnimatedSprite2D
 var dump_location
 var garbage_locations : Array = []
 var garbage_seeking = false
@@ -16,6 +17,7 @@ var current_garbage_in_storage = 0
 var recycle_location = null
 var wandering = false
 var can_move = false
+var collecting = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 func _ready():
 	navigation_agent.target_reached.connect(_on_target_reached)
@@ -25,7 +27,8 @@ func _call_deferred():
 	can_move = true
 
 func _physics_process(delta):
-
+	if not collecting:
+		_check_for_ground()
 	_check_for_recycle_location()
 	var direction = Vector2.ZERO
 	if can_move:
@@ -50,7 +53,11 @@ func _physics_process(delta):
 		direction = direction.normalized()
 
 		velocity = velocity.lerp(direction * speed, acceleration * delta)
-
+	if not collecting:
+		if velocity.x < 0:
+			animated_sprite.set_flip_h(true)
+		else:
+			animated_sprite.set_flip_h(false)
 	move_and_slide()
 
 func provide_garbage(garbage_array):
@@ -58,10 +65,14 @@ func provide_garbage(garbage_array):
 
 func _on_target_reached():
 	if garbage_seeking:
+		collecting = true
+		animated_sprite.play('collecting')
 		tile_map.erase_cell(3,garbage_for_target)
 		garbage_locations.clear()
+		await animated_sprite.animation_finished
 		current_garbage_in_storage += 1
 		garbage_seeking = false
+		collecting = false
 	if recycle_seeking:
 		recycle_seeking = false
 		current_garbage_in_storage = 0
@@ -75,3 +86,13 @@ func _check_for_recycle_location():
 		recycle_location = tile_map.map_to_local(tile_map.get_used_cells_by_id(0,0,Vector2i(0,3),false)[0])
 	else:
 		recycle_location = null
+
+func _check_for_ground():
+	var current_coords = tile_map.local_to_map(position)
+	var tile_data = tile_map.get_cell_tile_data(0, current_coords, false)
+	var base_type = tile_data.get_custom_data("base_type")
+	if base_type == 'water':
+		animated_sprite.play("swimming")
+	elif base_type == 'ground':
+		animated_sprite.play("walking")
+	pass
