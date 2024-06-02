@@ -248,7 +248,6 @@ shape = SubResource("CircleShape2D_48a7q")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Player"]
 path_postprocessing = 1
-debug_enabled = true
 
 [node name="GarbageSpawn" type="Node2D" parent="." node_paths=PackedStringArray("tile_map", "collector")]
 script = ExtResource("7_qpvsd")
@@ -276,4 +275,3 @@ shape = SubResource("RectangleShape2D_gcy0x")
 target_desired_distance = 25.0
 navigation_layers = 2
 path_postprocessing = 1
-debug_enabled = true
