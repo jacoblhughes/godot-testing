@@ -4,6 +4,7 @@ extends Node2D
 @export var collector : CharacterBody2D
 var max_garbage = 1
 var current_garbage : Array = []
+
 func _ready():
 	print(tile_map.get_used_cells(3))
 	print(tile_map.get_cell_alternative_tile(3,Vector2i(1,1),false))
@@ -20,7 +21,8 @@ func _process(delta):
 
 func _check_for_current_garbage():
 	for location in tile_map.get_used_cells(3):
-		current_garbage.add(location)
-		
+		if not current_garbage.has(location):
+			current_garbage.append(location)
+
 	collector.provide_garbage(current_garbage)
-	
+
