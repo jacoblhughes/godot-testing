@@ -19,7 +19,8 @@ func _process(delta):
 		player.next_position = next_position
 
 func _on_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseMotion:
+
+	if event is InputEventMouseMotion and not Input.is_action_pressed("shift"):
 		if event.button_mask == 2:
 			type = 10
 
@@ -29,10 +30,15 @@ func _on_input_event(viewport, event, shape_idx):
 			update_type_and_cell()
 		update_direction_and_cell()
 
-	elif event is InputEventMouseButton and event.pressed and event.button_index == 1:
-		type = (type % 10) + 1
+	elif event is InputEventMouseButton and event.pressed and event.button_index == 1 and not Input.is_action_pressed("shift"):
+		type = (type % 11) + 1
 		update_direction_and_cell()
 
+	elif event is InputEventMouseButton and event.pressed and event.button_index == 1 and Input.is_action_pressed("shift"):
+		print('here')
+		get_parent().set_cell(3,coords,3,Vector2i(0, 0),1)
+
+#set_cell(layer: int, coords: Vector2i, source_id: int = -1, atlas_coords: Vector2i = Vector2i(-1, -1), alternative_tile: int = 0)
 func get_direction_from_angle(angle):
 		if abs(angle) < PI / 8:
 			return Vector2i(1, 0)   # Right
@@ -114,6 +120,9 @@ func update_direction_and_cell():
 		10:
 			direction = Vector2i(0,0)
 			get_parent().set_cell(0, coords, 0, Vector2i(3,0))
+		11:
+			direction = Vector2i(0,0)
+			get_parent().set_cell(0, coords, 0, Vector2i(0,3))
 
 	next_coords = get_parent().local_to_map(global_position) + direction
 	next_position = get_parent().map_to_local(next_coords)
