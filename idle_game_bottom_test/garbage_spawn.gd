@@ -15,8 +15,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#var test = TileMap.new()
-	#test.local_to_map()
+	_check_for_current_garbage()
+
 	pass
 
 func _check_for_current_garbage():
