@@ -10,17 +10,13 @@ func _ready():
 	# Defer the resizing to allow the window to maximize first
 	call_deferred("_resize_window")
 
-func _notification(what):
-	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT or what == NOTIFICATION_WM_WINDOW_FOCUS_IN:
-		print(NOTIFICATION_WM_WINDOW_FOCUS_IN)
-		if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT and GameManager.get_game_enabled():
-			GameManager.set_game_enabled(false)
-			print('out')
-			print(GameManager.get_game_enabled())
-		if what == NOTIFICATION_WM_WINDOW_FOCUS_IN and not GameManager.get_game_enabled():
-			print('here')
-			GameManager.set_game_enabled(true)
-			print('in')
+#func _notification(what):
+	#if what == NOTIFICATION_APPLICATION_FOCUS_IN or what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		#if what == NOTIFICATION_APPLICATION_FOCUS_OUT and GameManager.get_game_enabled():
+			#GameManager.set_game_enabled(false)
+		#if what == NOTIFICATION_APPLICATION_FOCUS_IN and not GameManager.get_game_enabled():
+			#GameManager.set_game_enabled(true)
+
 		
 func _process(delta):
 	if Input.is_action_just_pressed('pc_reset'):

@@ -7,7 +7,7 @@ var next_position = Vector2.ZERO
 var coords : Vector2i = Vector2i.ZERO
 var next_coords : Vector2i = Vector2i.ZERO
 var player : CharacterBody2D
-
+var focus_lost = false
 func _ready():
 	input_event.connect(_on_input_event)
 	next_coords = get_parent().local_to_map(global_position)
@@ -17,9 +17,27 @@ func _ready():
 func _process(delta):
 	if overlaps_body(player):
 		player.next_position = next_position
-
+		
+func _notification(what):
+	if what == NOTIFICATION_APPLICATION_FOCUS_IN or what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		if what == NOTIFICATION_APPLICATION_FOCUS_OUT and GameManager.get_game_enabled():
+			GameManager.set_game_enabled(false)
+			focus_lost = true
+			print('out')
+			
+		if what == NOTIFICATION_APPLICATION_FOCUS_IN and not GameManager.get_game_enabled():
+			GameManager.set_game_enabled(true)
+			print('here')
+			print(focus_lost)
+			
 func _on_input_event(viewport, event, shape_idx):
-	if GameManager.get_game_enabled():
+	print( GameManager.get_game_enabled(), focus_lost)
+	if event is InputEventMouseButton and event.pressed and GameManager.get_game_enabled() and focus_lost:
+		print('regain_focus')
+		focus_lost = false
+		return
+	if GameManager.get_game_enabled() and not focus_lost:
+		
 		if event is InputEventMouseMotion and not Input.is_action_pressed("shift"):
 			if event.button_mask == 2:
 				type = 10
