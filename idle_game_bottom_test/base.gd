@@ -1,13 +1,14 @@
 extends Area2D
 
 var type = 0
-var input_diection = Vector2i.ZERO
+var input_direction = Vector2i.ZERO
 var direction = Vector2i.ZERO
 var next_position = Vector2.ZERO
 var coords : Vector2i = Vector2i.ZERO
 var next_coords : Vector2i = Vector2i.ZERO
 var player : CharacterBody2D
-var focus_lost = false
+var focus_lost : bool
+
 func _ready():
 	input_event.connect(_on_input_event)
 	next_coords = get_parent().local_to_map(global_position)
@@ -15,36 +16,30 @@ func _ready():
 	pass
 
 func _process(delta):
+
 	if overlaps_body(player):
 		player.next_position = next_position
-		
-func _notification(what):
-	if what == NOTIFICATION_APPLICATION_FOCUS_IN or what == NOTIFICATION_APPLICATION_FOCUS_OUT:
-		if what == NOTIFICATION_APPLICATION_FOCUS_OUT and GameManager.get_game_enabled():
-			GameManager.set_game_enabled(false)
-			focus_lost = true
-			print('out')
-			
-		if what == NOTIFICATION_APPLICATION_FOCUS_IN and not GameManager.get_game_enabled():
-			GameManager.set_game_enabled(true)
-			print('here')
-			print(focus_lost)
-			
+
+#func _notification(what):
+	#if what == NOTIFICATION_WM_WINDOW_FOCUS_IN or what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
+		#if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT and GameManager.get_game_enabled():
+			#GameManager.set_game_enabled.call_deferred(false)
+			#_set_focus_lost(true)
+		#if what == NOTIFICATION_WM_WINDOW_FOCUS_IN and not GameManager.get_game_enabled():
+			#GameManager.set_game_enabled(true)
+
 func _on_input_event(viewport, event, shape_idx):
-	print( GameManager.get_game_enabled(), focus_lost)
+
 	if event is InputEventMouseButton and event.pressed and GameManager.get_game_enabled() and focus_lost:
-		print('regain_focus')
-		focus_lost = false
-		return
-	if GameManager.get_game_enabled() and not focus_lost:
-		
+		_set_focus_lost.call_deferred(false)
+	if GameManager.get_game_enabled() and focus_lost == false:
 		if event is InputEventMouseMotion and not Input.is_action_pressed("shift"):
 			if event.button_mask == 2:
 				type = 10
 
 			elif event.pressure > 0.1 and event.button_mask == 1:
 				var angle = event.relative.angle()
-				input_diection = get_direction_from_angle(angle)
+				input_direction = get_direction_from_angle(angle)
 				update_type_and_cell()
 			update_direction_and_cell()
 
@@ -53,7 +48,6 @@ func _on_input_event(viewport, event, shape_idx):
 			update_direction_and_cell()
 
 		elif event is InputEventMouseButton and event.pressed and event.button_index == 1 and Input.is_action_pressed("shift"):
-
 			get_parent().set_cell(3,coords,3,Vector2i(0, 0),1)
 
 #set_cell(layer: int, coords: Vector2i, source_id: int = -1, atlas_coords: Vector2i = Vector2i(-1, -1), alternative_tile: int = 0)
@@ -77,7 +71,7 @@ func get_direction_from_angle(angle):
 
 
 func update_type_and_cell():
-	match input_diection:
+	match input_direction:
 		Vector2i(0, 0):
 			type = 1
 		Vector2i(-1, 0):
@@ -144,3 +138,7 @@ func update_direction_and_cell():
 
 	next_coords = get_parent().local_to_map(global_position) + direction
 	next_position = get_parent().map_to_local(next_coords)
+
+func _set_focus_lost(val):
+
+	focus_lost = val

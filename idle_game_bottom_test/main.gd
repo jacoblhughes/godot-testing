@@ -17,7 +17,7 @@ func _ready():
 		#if what == NOTIFICATION_APPLICATION_FOCUS_IN and not GameManager.get_game_enabled():
 			#GameManager.set_game_enabled(true)
 
-		
+
 func _process(delta):
 	if Input.is_action_just_pressed('pc_reset'):
 		get_tree().reload_current_scene()
@@ -38,4 +38,3 @@ func _resize_window():
 	# Optionally, make the window always on top
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_ALWAYS_ON_TOP,true)
 	window_resized.emit()
-	print('window_resized')
