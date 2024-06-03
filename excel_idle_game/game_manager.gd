@@ -3,6 +3,7 @@ extends Node
 var window_height = 1080/5
 var cell_size = 0
 var game_enabled : bool = true
+var new_cells = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -28,3 +29,9 @@ func set_game_enabled(val):
 
 func get_game_enabled():
 	return game_enabled
+
+func set_new_cells(val):
+	new_cells = val
+
+func get_new_cells():
+	return new_cells
