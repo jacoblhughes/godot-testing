@@ -21,17 +21,18 @@ func _process(delta):
 		player.next_position = next_position
 
 #func _notification(what):
-	#if what == NOTIFICATION_WM_WINDOW_FOCUS_IN or what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
-		#if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT and GameManager.get_game_enabled():
-			#GameManager.set_game_enabled.call_deferred(false)
+	#if what == NOTIFICATION_APPLICATION_FOCUS_IN or what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		#if what == NOTIFICATION_APPLICATION_FOCUS_OUT and focus_lost == false:
+			##print('herererer')
 			#_set_focus_lost(true)
-		#if what == NOTIFICATION_WM_WINDOW_FOCUS_IN and not GameManager.get_game_enabled():
-			#GameManager.set_game_enabled(true)
 
 func _on_input_event(viewport, event, shape_idx):
 
-	if event is InputEventMouseButton and event.pressed and GameManager.get_game_enabled() and focus_lost:
-		_set_focus_lost.call_deferred(false)
+	#if event is InputEventMouseButton and event.pressed and focus_lost:
+			#print('herererer')
+			#_set_focus_lost(false)
+			#return
+			
 	if GameManager.get_game_enabled() and focus_lost == false:
 		if event is InputEventMouseMotion and not Input.is_action_pressed("shift"):
 			if event.button_mask == 2:
@@ -48,7 +49,8 @@ func _on_input_event(viewport, event, shape_idx):
 			update_direction_and_cell()
 
 		elif event is InputEventMouseButton and event.pressed and event.button_index == 1 and Input.is_action_pressed("shift"):
-			get_parent().set_cell(3,coords,3,Vector2i(0, 0),1)
+			var number_of_garbages = get_parent().get_tileset().get_source(3).get_scene_tiles_count()
+			get_parent().set_cell(3,coords,3,Vector2i(0, 0),randi_range(1,number_of_garbages))
 
 #set_cell(layer: int, coords: Vector2i, source_id: int = -1, atlas_coords: Vector2i = Vector2i(-1, -1), alternative_tile: int = 0)
 func get_direction_from_angle(angle):
