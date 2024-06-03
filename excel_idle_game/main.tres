@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://by0q2a6mponki"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nprkx"]
+bg_color = Color(0.14902, 0.14902, 0.14902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xiyv8"]
+bg_color = Color(0.14902, 0.14902, 0.14902, 1)
+
+[resource]
+LabelLeftSideCells/base_type = &"Label"
+LabelLeftSideCells/colors/font_color = Color(0.854902, 0.639216, 0.411765, 1)
+LabelLeftSideCells/font_sizes/font_size = 12
+PanelLeftSideLabel/base_type = &"Panel"
+PanelLeftSideLabel/styles/panel = SubResource("StyleBoxFlat_nprkx")
+PanelRightSideScroll/base_type = &"Panel"
+PanelRightSideScroll/styles/panel = SubResource("StyleBoxFlat_xiyv8")
