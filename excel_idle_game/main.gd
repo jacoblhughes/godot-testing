@@ -29,6 +29,7 @@ func _resize_window():
 	var window_height = 260
 	var window_position = Vector2(0,  DisplayServer.screen_get_usable_rect().size.y - window_height - 59)
 	DisplayServer.window_set_position(window_position)
+	print(DisplayServer.screen_get_size())
 	DisplayServer.window_set_size(Vector2(DisplayServer.screen_get_size().x - 22, window_height))
 	# Optionally, make the window always on top
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_ALWAYS_ON_TOP,true)

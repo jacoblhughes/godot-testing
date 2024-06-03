@@ -13,7 +13,7 @@ func _call_deferred():
 	for cell in get_tree().get_nodes_in_group("left_side_label"):
 		cell.set_panel_text(24+i)
 		i  += 1
-		print(i)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
