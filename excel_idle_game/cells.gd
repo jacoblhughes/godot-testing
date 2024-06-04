@@ -1,18 +1,24 @@
 extends TileMap
 
+signal cells_added
+
 func _ready():
+	get_parent().get_parent().window_resized.connect(_on_window_resized)
+	
+	
+func _on_window_resized():
 	var initial_x_cell = get_used_rect().size.x
-
-	for i in range(GameManager.get_new_cells()):
-		if i > 0:
+	if GameManager.get_new_cells() > 0:
+		for i in range(GameManager.get_new_cells()):
 			for y in get_used_rect().size.y:
-				set_cell(0,Vector2i(initial_x_cell+i,y),0,Vector2i(0,0))
-				print(i)
+				set_cell(0,Vector2i(initial_x_cell+i,y),1,Vector2i(0,0))
 
-	#self.set_cell(0,)
+	cells_added.emit()
 	pass
+	
 func _draw():
 	pass
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	
+
 func _process(delta):
 	pass

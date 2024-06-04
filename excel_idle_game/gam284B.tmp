@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdajprneborrt"]
+[gd_scene load_steps=12 format=3 uid="uid://cdajprneborrt"]
 
 [ext_resource type="Texture2D" uid="uid://cqwn6puo2utng" path="res://cell.png" id="1_550my"]
 [ext_resource type="Script" path="res://game.gd" id="1_aw7p6"]
 [ext_resource type="Script" path="res://grid.gd" id="1_qspmv"]
+[ext_resource type="Theme" uid="uid://by0q2a6mponki" path="res://main.tres" id="2_deegl"]
 [ext_resource type="Script" path="res://cells.gd" id="2_nfb3i"]
 [ext_resource type="PackedScene" uid="uid://bkpys85n30pok" path="res://left_side_cell.tscn" id="5_cwyxy"]
 [ext_resource type="Script" path="res://left_side.gd" id="6_cj67c"]
@@ -28,6 +29,34 @@ sources/0 = SubResource("TileSetScenesCollectionSource_ms65o")
 script = ExtResource("1_aw7p6")
 tile_map = NodePath("Cells")
 grid = NodePath("Cells/Grid")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -130.0
+offset_bottom = 130.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("2_deegl")
+theme_type_variation = &"PanelRightSideScroll"
 
 [node name="Cells" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_l8hjy")
