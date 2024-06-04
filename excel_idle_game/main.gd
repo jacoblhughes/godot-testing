@@ -1,6 +1,6 @@
 extends Node
 
-signal window_resized
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
@@ -27,10 +27,14 @@ func _resize_window():
 	#GameManager.set_window_height(256)
 	#var window_height = GameManager.get_window_height()
 	var window_height = 260
-	var window_position = Vector2(0,  DisplayServer.screen_get_usable_rect().size.y - window_height - 59)
+	var window_position = Vector2(0,  DisplayServer.screen_get_usable_rect().size.y - window_height*3 - 59)
 	DisplayServer.window_set_position(window_position)
 	print(DisplayServer.screen_get_size())
 	DisplayServer.window_set_size(Vector2(DisplayServer.screen_get_size().x - 22, window_height))
 	# Optionally, make the window always on top
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_ALWAYS_ON_TOP,true)
-	window_resized.emit()
+	var length = DisplayServer.screen_get_size().x - 1920
+	var new_cells = length % 64
+	GameManager.set_new_cells(new_cells)
+	print(new_cells)
+

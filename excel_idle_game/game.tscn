@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://game.gd" id="1_aw7p6"]
 [ext_resource type="Script" path="res://grid.gd" id="1_qspmv"]
 [ext_resource type="Theme" uid="uid://by0q2a6mponki" path="res://main.tres" id="2_deegl"]
-[ext_resource type="Script" path="res://tile_map.gd" id="2_nfb3i"]
+[ext_resource type="Script" path="res://cells.gd" id="2_nfb3i"]
 [ext_resource type="PackedScene" uid="uid://bkpys85n30pok" path="res://left_side_cell.tscn" id="5_cwyxy"]
 [ext_resource type="Script" path="res://left_side.gd" id="6_cj67c"]
 
