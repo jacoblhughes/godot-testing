@@ -20,7 +20,7 @@ func _process(delta):
 
 func _resize_window():
 
-	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,true)
+	#DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,true)
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	var _taskbar_height = DisplayServer.screen_get_size().y - DisplayServer.screen_get_usable_rect().size.y
 	#GameManager.set_window_height(DisplayServer.screen_get_usable_rect().size.y/5)
