@@ -72,12 +72,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 theme = SubResource("Theme_rwdg3")
 
 [node name="Units" type="Control" parent="HUD/MarginContainer"]
 layout_mode = 2
 
 [node name="Menu" type="CanvasLayer" parent="." node_paths=PackedStringArray("close_menu_button", "quit_button", "hud")]
+layer = 2
 visible = false
 script = ExtResource("3_n7gyd")
 close_menu_button = NodePath("MarginContainer/VBoxContainer/Close")
@@ -90,29 +92,32 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 theme = ExtResource("2_rdqp6")
 theme_type_variation = &"MarginContainerMenu"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
 layout_mode = 2
+mouse_filter = 0
 
 [node name="Title" type="Label" parent="Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 7
+mouse_filter = 0
 text = "Shmexcel"
 label_settings = SubResource("LabelSettings_2d1so")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Close" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 7
-text = "Close"
-
 [node name="Quit" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 7
 text = "Quit"
+
+[node name="Close" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 7
+text = "Close"
 
 [node name="Cells" type="TileMap" parent="." node_paths=PackedStringArray("menu", "hud")]
 position = Vector2(26, 0)

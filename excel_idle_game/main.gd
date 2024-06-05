@@ -21,14 +21,14 @@ func _process(delta):
 
 func _resize_window():
 
-	#DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,true)
+	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,true)
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	var _taskbar_height = DisplayServer.screen_get_size().y - DisplayServer.screen_get_usable_rect().size.y
 	#GameManager.set_window_height(DisplayServer.screen_get_usable_rect().size.y/5)
 	#GameManager.set_window_height(256)
 	#var window_height = GameManager.get_window_height()
 	var window_height = 260
-	var window_position = Vector2(0,  DisplayServer.screen_get_usable_rect().size.y - window_height*3 - 59)
+	var window_position = Vector2(0,  DisplayServer.screen_get_usable_rect().size.y - window_height - 59)
 	DisplayServer.window_set_position(window_position)
 	print(DisplayServer.screen_get_size())
 	DisplayServer.window_set_size(Vector2(DisplayServer.screen_get_size().x - 22, window_height))
