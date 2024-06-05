@@ -6,8 +6,18 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	close_menu_button.pressed.connect(_on_close_menu_button_pressed)
-	quit_button.pressed.connect(_on_quit_button_pressed)
+	visibility_changed.connect(_on_visibility_changed)
+
+func _on_visibility_changed():
+	if visible:
+		close_menu_button.button_up.connect(_on_close_menu_button_pressed)
+		quit_button.button_up.connect(_on_quit_button_pressed)
+
+	else:
+		if close_menu_button.button_up.is_connected(_on_close_menu_button_pressed):
+			close_menu_button.button_up.disconnect(_on_close_menu_button_pressed)
+		if quit_button.button_up.is_connected(_on_quit_button_pressed):
+			quit_button.button_up.disconnect(_on_quit_button_pressed)
 	pass # Replace with function body.
 
 
@@ -17,8 +27,8 @@ func _process(delta):
 
 func _on_close_menu_button_pressed():
 	self.hide()
-	hud.show()
 
 func _on_quit_button_pressed():
 	print('here')
 	get_tree().quit()
+
