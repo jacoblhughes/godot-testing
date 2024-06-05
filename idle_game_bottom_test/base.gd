@@ -32,7 +32,7 @@ func _on_input_event(viewport, event, shape_idx):
 			#print('herererer')
 			#_set_focus_lost(false)
 			#return
-			
+
 	if GameManager.get_game_enabled() and focus_lost == false:
 		if event is InputEventMouseMotion and not Input.is_action_pressed("shift"):
 			if event.button_mask == 2:

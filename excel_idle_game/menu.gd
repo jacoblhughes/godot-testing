@@ -32,3 +32,5 @@ func _on_quit_button_pressed():
 	print('here')
 	get_tree().quit()
 
+func _unhandled_input(event) -> void:
+	pass

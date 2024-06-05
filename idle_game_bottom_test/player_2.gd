@@ -7,7 +7,7 @@ var direction = Vector2.ZERO
 var next_coords : Vector2i = Vector2i.ZERO
 var next_position = Vector2.ZERO
 # Get the gravity from the prsoject settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
 
 func _ready():
 
