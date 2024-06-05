@@ -78,10 +78,9 @@ theme = SubResource("Theme_rwdg3")
 layout_mode = 2
 
 [node name="Menu" type="CanvasLayer" parent="." node_paths=PackedStringArray("close_menu_button", "quit_button", "hud")]
-visible = false
 script = ExtResource("3_n7gyd")
-close_menu_button = NodePath("MarginContainer/VBoxContainer/Close")
-quit_button = NodePath("MarginContainer/VBoxContainer/Quit")
+close_menu_button = NodePath("MarginContainer/Panel/VBoxContainer/Close")
+quit_button = NodePath("MarginContainer/Panel/VBoxContainer/Quit")
 hud = NodePath("../HUD")
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
@@ -93,10 +92,15 @@ grow_vertical = 2
 theme = ExtResource("2_rdqp6")
 theme_type_variation = &"MarginContainerMenu"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
+[node name="Panel" type="Panel" parent="Menu/MarginContainer"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Menu/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer/Panel"]
+layout_mode = 2
+offset_right = 1884.0
+offset_bottom = 240.0
+
+[node name="Title" type="Label" parent="Menu/MarginContainer/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 7
 text = "Shmexcel"
@@ -104,15 +108,15 @@ label_settings = SubResource("LabelSettings_2d1so")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Close" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 7
-text = "Close"
-
-[node name="Quit" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="Menu/MarginContainer/Panel/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 7
 text = "Quit"
+
+[node name="Close" type="Button" parent="Menu/MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 7
+text = "Close"
 
 [node name="Cells" type="TileMap" parent="." node_paths=PackedStringArray("menu", "hud")]
 position = Vector2(26, 0)
