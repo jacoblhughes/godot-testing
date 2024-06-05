@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cdajprneborrt"]
+[gd_scene load_steps=18 format=3 uid="uid://cdajprneborrt"]
 
 [ext_resource type="Texture2D" uid="uid://cqwn6puo2utng" path="res://cell.png" id="1_550my"]
 [ext_resource type="Script" path="res://game.gd" id="1_aw7p6"]
@@ -17,6 +17,9 @@ MarginContainerHUD/constants/margin_bottom = 10
 MarginContainerHUD/constants/margin_left = 26
 MarginContainerHUD/constants/margin_right = 10
 MarginContainerHUD/constants/margin_top = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_ond0t"]
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2d1so"]
 font_color = Color(0, 0, 0, 1)
@@ -76,6 +79,20 @@ theme = SubResource("Theme_rwdg3")
 
 [node name="Units" type="Control" parent="HUD/MarginContainer"]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/MarginContainer/Units"]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 23.0
+text = "Lumber"
+label_settings = SubResource("LabelSettings_ond0t")
+
+[node name="Label2" type="Label" parent="HUD/MarginContainer/Units"]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 23.0
+text = "Wood"
+label_settings = SubResource("LabelSettings_ond0t")
 
 [node name="Menu" type="CanvasLayer" parent="." node_paths=PackedStringArray("close_menu_button", "quit_button", "hud")]
 visible = false

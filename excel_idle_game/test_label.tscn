@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3ud1mfck4k0g"]
+
+[ext_resource type="Script" path="res://test_label.gd" id="1_wb6ko"]
+
+[sub_resource type="Theme" id="Theme_1q3ti"]
+LabelHUD/base_type = &"Label"
+LabelHUD/colors/font_color = Color(0, 0, 0, 1)
+LabelHUD/font_sizes/font_size = 12
+
+[node name="Control" type="Control" node_paths=PackedStringArray("label")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wb6ko")
+label = NodePath("Control/Label")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.5
+offset_top = -9.5
+offset_right = 31.5
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_1q3ti")
+theme_type_variation = &"LabelHUD"
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

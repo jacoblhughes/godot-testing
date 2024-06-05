@@ -1,15 +1,15 @@
-extends Node2D
+extends Control
 
-@export var cells_tile_map : TileMap
-@export var grid : Node2D
+@export var label : Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#cells_tile_map.position.x += 26
-
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func set_label(val):
+	label.text = str(val)
