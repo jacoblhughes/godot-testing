@@ -53,5 +53,9 @@ func update_visibility():
 	#for node in self.get_children():
 		#node.visible = nodes_visible
 	print(get_parent())
-	get_parent().visible = false
-	game_cells_node.show()
+	get_parent().call_deferred("hide")
+	game_cells_node.call_deferred("show")
+	if menu.is_visible():
+		menu.hide()
+	if not hud.is_visible():
+		hud.show()

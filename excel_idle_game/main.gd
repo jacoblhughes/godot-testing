@@ -27,7 +27,7 @@ func _resize_window():
 	#GameManager.set_window_height(DisplayServer.screen_get_usable_rect().size.y/5)
 	#GameManager.set_window_height(256)
 	#var window_height = GameManager.get_window_height()
-	var window_height = 260
+	var window_height = 247
 	var window_position = Vector2(0,  DisplayServer.screen_get_usable_rect().size.y - window_height - 59)
 	DisplayServer.window_set_position(window_position)
 	print(DisplayServer.screen_get_size())

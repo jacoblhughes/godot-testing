@@ -50,5 +50,9 @@ func _input(event):
 func update_visibility():
 	#for node in self.get_children():
 		#node.visible = nodes_visible
-	get_parent().get_parent().hide()
-	cover_cells_node.show()
+	get_parent().get_parent().call_deferred("hide")
+	cover_cells_node.call_deferred("show")
+	if menu.is_visible():
+		menu.hide()
+	if hud.is_visible():
+		hud.hide()

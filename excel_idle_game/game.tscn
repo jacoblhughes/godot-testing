@@ -26,6 +26,8 @@ MarginContainerHUD/constants/margin_top = 10
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_v0e4x"]
+vertices = PackedVector2Array(142, 10, 1910, 10, 1910, 237, 10, 237, 10, 10, 99, 10, 142, -9, 99, -9)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5), PackedInt32Array(0, 3, 5, 6), PackedInt32Array(6, 5, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1920, 0, 1920, 247, 0, 247, 0, 0)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
@@ -71,12 +73,15 @@ scenes/1/scene = ExtResource("5_cwyxy")
 tile_size = Vector2i(26, 19)
 sources/0 = SubResource("TileSetScenesCollectionSource_ms65o")
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("cells_tile_map", "grid")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("cells_tile_map", "grid", "menu", "hud")]
 script = ExtResource("1_aw7p6")
 cells_tile_map = NodePath("Board/NavigationRegion2D/GameCells")
 grid = NodePath("Board/NavigationRegion2D/GameCells/Grid")
+menu = NodePath("Menu")
+hud = NodePath("HUD")
 
 [node name="HUD" type="CanvasLayer" parent="." node_paths=PackedStringArray("cell_tile_map", "units_control")]
+visible = false
 script = ExtResource("2_h446w")
 cell_tile_map = NodePath("../Board/NavigationRegion2D/GameCells")
 units_control = NodePath("MarginContainer/Units")
@@ -142,10 +147,10 @@ text = "Quit"
 autostart = true
 
 [node name="Board" type="Node2D" parent="."]
-visible = false
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Board"]
 navigation_polygon = SubResource("NavigationPolygon_v0e4x")
+use_edge_connections = false
 
 [node name="GameCells" type="TileMap" parent="Board/NavigationRegion2D" node_paths=PackedStringArray("menu", "hud", "cover_cells_node")]
 position = Vector2(26, 0)
@@ -162,25 +167,23 @@ cover_cells_node = NodePath("../../../Cover")
 script = ExtResource("1_qspmv")
 
 [node name="ByteSpawner" type="Node2D" parent="Board"]
-position = Vector2(186, 0)
 script = ExtResource("11_j5k4r")
 
 [node name="Marker2D" type="Marker2D" parent="Board/ByteSpawner"]
-position = Vector2(-65.5, -9.5)
+position = Vector2(120.5, -9.5)
 
-[node name="Sprite2D" type="Sprite2D" parent="Board/ByteSpawner" node_paths=PackedStringArray("navigation_agent", "tile_map")]
-position = Vector2(-65.5, -9.5)
-scale = Vector2(1, 1)
+[node name="Sprite2D" type="Sprite2D" parent="Board/ByteSpawner/Marker2D" node_paths=PackedStringArray("navigation_agent", "tile_map")]
 texture = ExtResource("12_qwwii")
 script = ExtResource("13_hkqvy")
 navigation_agent = NodePath("NavigationAgent2D")
-tile_map = NodePath("../../NavigationRegion2D/GameCells")
+tile_map = NodePath("../../../NavigationRegion2D/GameCells")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Board/ByteSpawner/Sprite2D"]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Board/ByteSpawner/Marker2D/Sprite2D"]
 path_postprocessing = 1
 debug_enabled = true
 
 [node name="Cover" type="Node2D" parent="."]
+position = Vector2(32, -352)
 
 [node name="CoverCells" type="TileMap" parent="Cover" node_paths=PackedStringArray("menu", "hud", "game_cells_node")]
 position = Vector2(26, 0)
