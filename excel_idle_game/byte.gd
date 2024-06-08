@@ -5,12 +5,7 @@ var can_move = true
 @export var navigation_agent : NavigationAgent2D
 
 func _ready():
-<<<<<<< HEAD
-=======
-	next_coords =  Vector2i(29,13)
-	NavigationServer2D.map_changed.connect(_on_map_ready)
-	next_position = tile_map.map_to_local(next_coords)
->>>>>>> a19b26ec2fb79031fc82a3f8a6e4246651241167
+
 	navigation_agent.target_reached.connect(_on_target_reached)
 
 
