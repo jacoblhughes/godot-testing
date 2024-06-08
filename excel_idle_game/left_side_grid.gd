@@ -9,13 +9,9 @@ func _ready():
 	pass
 	
 func _draw():
-	
-	tilemap_size = GameManager.get_final_tilemap_size()
-
-	tile_size = GameManager.get_tile_size()
-
+	tilemap_size = get_parent().get_used_rect().size
+	tile_size = get_parent().get_tileset().tile_size
 	var color = Color('#d4d4d4') # RGB values range from 0 to 1 in Godot
-
 	for y in range(tilemap_size.y):
 		draw_line(Vector2(0, tile_size.y * y), Vector2( tilemap_size.x * tile_size.x ,tile_size.y * y), color)
 

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://do25thh6ac7wk"]
+
+[ext_resource type="Texture2D" uid="uid://dbab4j7r8fgkt" path="res://byte.png" id="1_nwlid"]
+[ext_resource type="Script" path="res://byte.gd" id="2_io4s5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqc5w"]
+size = Vector2(63, 19)
+
+[node name="Byte" type="Area2D" node_paths=PackedStringArray("navigation_agent")]
+script = ExtResource("2_io4s5")
+navigation_agent = NodePath("NavigationAgent2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nwlid")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uqc5w")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+debug_enabled = true

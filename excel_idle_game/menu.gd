@@ -29,7 +29,7 @@ func _on_close_menu_button_pressed():
 	self.hide()
 
 func _on_quit_button_pressed():
-	print('here')
+
 	get_tree().quit()
 
 func _unhandled_input(event) -> void:

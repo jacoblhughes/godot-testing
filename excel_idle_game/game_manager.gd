@@ -4,6 +4,9 @@ var window_height = 1080/5
 var cell_size = 0
 var game_enabled : bool = true
 var new_cells = 0
+var tilemap_final_size : Vector2i = Vector2i.ZERO
+var tile_size : Vector2i = Vector2i.ZERO
+var tilemap_initial_size : Vector2i = Vector2i.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -35,3 +38,21 @@ func set_new_cells(val):
 
 func get_new_cells():
 	return new_cells
+
+func set_final_tilemap_size(val):
+	tilemap_final_size = val
+
+func get_final_tilemap_size():
+	return tilemap_final_size
+	
+func set_tile_size(val):
+	tile_size = val
+	
+func get_tile_size():
+	return tile_size
+
+func set_initial_size(val):
+	tilemap_initial_size = val
+	
+func get_initial_size():
+	return tilemap_initial_size
