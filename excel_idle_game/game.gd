@@ -35,7 +35,7 @@ func _on_window_resized():
 
 func _process(delta):
 	pass
-	
+
 func _add_to_score():
 	var new_score = score + 1
 	score = new_score

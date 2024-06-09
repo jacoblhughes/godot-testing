@@ -7,9 +7,9 @@ var tile_size = Vector2()
 
 func _ready():
 	pass
-	
+
 func _draw():
-	
+
 	tilemap_size = GameManager.get_final_tilemap_size()
 
 	tile_size = GameManager.get_tile_size()

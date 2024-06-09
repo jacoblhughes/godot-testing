@@ -19,19 +19,34 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
-		if get_parent().visible == true:
-			var coords_of_event = self.local_to_map(to_local(get_global_mouse_position()))
-			if coords_of_event == menu_cells["Menu"]:
-				menu_cell_clicked +=1
-				if menu_cell_clicked >= 3:
-					menu.show()
-					menu_cell_clicked = 0
-					hud.hide()
-			if coords_of_event == menu_cells["Visibility"]:
-				update_visibility()
+		if node_version == 0:
+			if get_parent().get_parent().visible == true:
+				var coords_of_event = self.local_to_map(to_local(get_global_mouse_position()))
+				if coords_of_event == menu_cells["Menu"]:
+					menu_cell_clicked +=1
+					if menu_cell_clicked >= 3:
+						menu.show()
+						menu_cell_clicked = 0
+						hud.hide()
+				if coords_of_event == menu_cells["Visibility"]:
+					print('shoudl')
+					update_visibility()
+		if node_version == 1:
+			if get_parent().visible == true:
+				var coords_of_event = self.local_to_map(to_local(get_global_mouse_position()))
+				if coords_of_event == menu_cells["Menu"]:
+					menu_cell_clicked +=1
+					if menu_cell_clicked >= 3:
+						menu.show()
+						menu_cell_clicked = 0
+						hud.hide()
+				if coords_of_event == menu_cells["Visibility"]:
+					print('shoudl')
+					update_visibility()
 
 func update_visibility():
 	if node_version == 0:
+		print('Board')
 		home_node.call_deferred("hide")
 		other_node.call_deferred("show")
 		if menu.is_visible():
@@ -39,6 +54,7 @@ func update_visibility():
 		if hud.is_visible():
 			hud.hide()
 	if node_version == 1:
+		print('Cover')
 		home_node.call_deferred("hide")
 		other_node.call_deferred("show")
 		if menu.is_visible():
