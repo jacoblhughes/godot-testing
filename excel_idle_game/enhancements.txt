@@ -1,0 +1,5 @@
+probably use an Astar instead of the tilemap grid
+
+destringify all of the connections
+	examples
+		tilemap reference in the bytespawner thise could just be a tile cell call based on rect size and tilesize

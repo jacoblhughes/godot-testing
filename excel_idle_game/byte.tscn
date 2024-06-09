@@ -18,4 +18,3 @@ shape = SubResource("RectangleShape2D_uqc5w")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
-debug_enabled = true

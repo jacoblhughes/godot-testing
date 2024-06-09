@@ -19,7 +19,7 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
-		if get_parent().get_parent().visible == true:
+		if get_parent().visible == true:
 			var coords_of_event = self.local_to_map(to_local(get_global_mouse_position()))
 			if coords_of_event == menu_cells["Menu"]:
 				menu_cell_clicked +=1

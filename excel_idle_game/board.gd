@@ -2,10 +2,11 @@ extends Node2D
 
 @export var tile_map : TileMap
 @export var timer : Timer
-@export var marker : Marker2D
 @export var byte_scene : PackedScene
 var final_position : Vector2
 @export var main : Node
+@export var game : Node2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	main.window_resized.connect(_on_window_resized)
@@ -21,9 +22,11 @@ func _on_window_resized():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_timer_timeout():
+	print('here')
 	var byte = byte_scene.instantiate()
-	byte.position = marker.position
-
+	byte.tile_map = tile_map
+	byte.position = to_global(tile_map.map_to_local(Vector2i(1,-1)) + tile_map.position)
 	byte.end_position = final_position
+	byte.clicked_on.connect(game._add_to_score)
 	add_child(byte)
 	pass
