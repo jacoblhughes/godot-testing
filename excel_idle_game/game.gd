@@ -9,6 +9,7 @@ extends Node2D
 @export var cover_tilemap : TileMap
 @export var board_tilemap : TileMap
 
+signal tiles_added
 
 var score = 0
 
@@ -28,6 +29,7 @@ func _on_window_resized():
 	board_tilemap.add_tiles()
 	cover_tilemap.add_tiles()
 
+	tiles_added.emit()
 
 
 	pass # Replace with function body.

@@ -3,12 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://dbab4j7r8fgkt" path="res://byte.png" id="1_nwlid"]
 [ext_resource type="Script" path="res://byte.gd" id="2_io4s5"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_irgs7"]
-radius = 4.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqc5w"]
+size = Vector2(48, 14.5)
 
 [node name="Byte" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
 motion_mode = 1
-wall_min_slide_angle = 0.0
 script = ExtResource("2_io4s5")
 navigation_agent = NodePath("NavigationAgent2D")
 
@@ -17,7 +16,7 @@ texture = ExtResource("1_nwlid")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.75)
-shape = SubResource("CircleShape2D_irgs7")
+shape = SubResource("RectangleShape2D_uqc5w")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1

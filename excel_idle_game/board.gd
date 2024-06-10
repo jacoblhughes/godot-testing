@@ -10,9 +10,9 @@ var final_position : Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	main.window_resized.connect(_on_window_resized)
+	get_parent().tiles_added.connect(_on_tiles_added)
 
-func _on_window_resized():
+func _on_tiles_added():
 	var final_position_coord = Vector2i(GameManager.get_final_tilemap_size().x,GameManager.get_final_tilemap_size().y+1)
 	final_position = tile_map.map_to_local(final_position_coord)
 	timer.timeout.connect(_on_timer_timeout)

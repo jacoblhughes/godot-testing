@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 var end_position : Vector2 = Vector2.ZERO
 var can_move = true
@@ -8,7 +8,7 @@ var grid_size = Vector2i.ZERO
 var tile_map : TileMap
 @export var navigation_agent : NavigationAgent2D
 signal clicked_on
-
+var direction = Vector2.ZERO
 func _ready():
 	#astar_grid.region = tile_map.get_used_cells_by_id(0,0,Vector2i(0,1))
 	#astar_grid.cell_size = GameManager.get_cell_size()
@@ -16,7 +16,7 @@ func _ready():
 	#astar_grid.update()
 
 	#NavigationServer2D.map_get_path(0,,,false)
-	navigation_agent.pathfinding_algorithm = NavigationPathQueryParameters2D.PATHFINDING_ALGORITHM_ASTAR
+	#navigation_agent.pathfinding_algorithm = NavigationPathQueryParameters2D.PATHFINDING_ALGORITHM_ASTAR
 	navigation_agent.target_reached.connect(_on_target_reached)
 
 
@@ -28,10 +28,12 @@ func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int):
 func _physics_process(delta):
 	if can_move:
 		var direction = Vector2.ZERO
+
 		navigation_agent.target_position = end_position
 		direction = navigation_agent.get_next_path_position() - global_position
 		direction = direction.normalized()
-		position += 50 * direction * delta
+		velocity = 10000 * direction * delta
+		move_and_slide()
 
 func _on_target_reached():
 	can_move = false
