@@ -9,6 +9,7 @@ var tile_map : TileMap
 @export var navigation_agent : NavigationAgent2D
 signal clicked_on
 var direction = Vector2.ZERO
+var speed = 2500
 func _ready():
 	#astar_grid.region = tile_map.get_used_cells_by_id(0,0,Vector2i(0,1))
 	#astar_grid.cell_size = GameManager.get_cell_size()
@@ -18,9 +19,9 @@ func _ready():
 	#NavigationServer2D.map_get_path(0,,,false)
 	#navigation_agent.pathfinding_algorithm = NavigationPathQueryParameters2D.PATHFINDING_ALGORITHM_ASTAR
 	navigation_agent.target_reached.connect(_on_target_reached)
+	%ClickArea.input_event.connect(_on_click_area_input_event)
 
-
-func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int):
+func _on_click_area_input_event(viewport: Viewport, event: InputEvent, shape_idx: int):
 	if event is InputEventMouseButton and event.pressed:
 		clicked_on.emit()
 		begone()
@@ -28,14 +29,14 @@ func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int):
 func _physics_process(delta):
 	if can_move:
 		var direction = Vector2.ZERO
-
 		navigation_agent.target_position = end_position
 		direction = navigation_agent.get_next_path_position() - global_position
 		direction = direction.normalized()
-		velocity = 10000 * direction * delta
+		velocity = speed * direction * delta
 		move_and_slide()
 
 func _on_target_reached():
+
 	can_move = false
 	begone()
 

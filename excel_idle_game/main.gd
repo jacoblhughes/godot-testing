@@ -38,5 +38,5 @@ func _resize_window():
 	GameManager.set_new_cells(new_cells)
 	GameManager.set_final_tilemap_size(Vector2i(30+new_cells,13))
 	GameManager.set_tile_size(Vector2i(63,19))
-	print(GameManager.get_final_tilemap_size())
+
 	window_resized.emit()

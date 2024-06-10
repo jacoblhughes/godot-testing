@@ -8,7 +8,5 @@ func add_tiles():
 				set_cell(0,Vector2i(initial_x_cell+i,y),0,Vector2i(0,0))
 
 			set_cell(0,Vector2i(initial_x_cell+i,get_used_rect().size.y-1),0,Vector2i(0,1))
-	print(get_used_rect())
-	print('-----')
 	set_cell(0,Vector2i(1,-1),0,Vector2i(0,1))
 	set_cell(0,Vector2i(get_used_rect().size.x-1,get_used_rect().size.y-1),0,Vector2i(0,1))

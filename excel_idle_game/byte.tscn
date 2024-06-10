@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://do25thh6ac7wk"]
+[gd_scene load_steps=5 format=3 uid="uid://do25thh6ac7wk"]
 
 [ext_resource type="Texture2D" uid="uid://dbab4j7r8fgkt" path="res://byte.png" id="1_nwlid"]
 [ext_resource type="Script" path="res://byte.gd" id="2_io4s5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_irgs7"]
 radius = 4.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kinrx"]
+size = Vector2(62, 20)
 
 [node name="Byte" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
 motion_mode = 1
@@ -22,3 +25,9 @@ shape = SubResource("CircleShape2D_irgs7")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
 debug_enabled = true
+
+[node name="ClickArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
+shape = SubResource("RectangleShape2D_kinrx")

@@ -29,7 +29,7 @@ func _input(event):
 						menu_cell_clicked = 0
 						hud.hide()
 				if coords_of_event == menu_cells["Visibility"]:
-					print('shoudl')
+
 					update_visibility()
 		if node_version == 1:
 			if get_parent().visible == true:
@@ -41,12 +41,12 @@ func _input(event):
 						menu_cell_clicked = 0
 						hud.hide()
 				if coords_of_event == menu_cells["Visibility"]:
-					print('shoudl')
+
 					update_visibility()
 
 func update_visibility():
 	if node_version == 0:
-		print('Board')
+
 		home_node.call_deferred("hide")
 		other_node.call_deferred("show")
 		if menu.is_visible():
@@ -54,7 +54,7 @@ func update_visibility():
 		if hud.is_visible():
 			hud.hide()
 	if node_version == 1:
-		print('Cover')
+
 		home_node.call_deferred("hide")
 		other_node.call_deferred("show")
 		if menu.is_visible():
