@@ -27,7 +27,7 @@ func _on_timer_timeout():
 	var byte = byte_scene.instantiate()
 	byte.tile_map = tile_map
 	byte.position = to_global(tile_map.map_to_local(Vector2i(1,-1)) + tile_map.position)
-	byte.end_position = final_position
+	byte.end_position = final_position + Vector2(tile_map.get_tileset().tile_size.x/2,tile_map.get_tileset().tile_size.y/4)
 	byte.clicked_on.connect(game._add_to_score)
 	add_child(byte)
 	pass

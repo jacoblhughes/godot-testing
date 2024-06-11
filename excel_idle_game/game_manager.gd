@@ -44,15 +44,15 @@ func set_final_tilemap_size(val):
 
 func get_final_tilemap_size():
 	return tilemap_final_size
-	
+
 func set_tile_size(val):
 	tile_size = val
-	
+
 func get_tile_size():
 	return tile_size
 
 func set_initial_size(val):
 	tilemap_initial_size = val
-	
+
 func get_initial_size():
 	return tilemap_initial_size
