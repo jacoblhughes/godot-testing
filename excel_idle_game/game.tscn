@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cdajprneborrt"]
+[gd_scene load_steps=28 format=3 uid="uid://cdajprneborrt"]
 
 [ext_resource type="Texture2D" uid="uid://dk288an35qjnj" path="res://cell.png" id="1_550my"]
 [ext_resource type="Script" path="res://game.gd" id="1_aw7p6"]
@@ -21,7 +21,18 @@ MarginContainerHUD/base_type = &"MarginContainer"
 MarginContainerHUD/constants/margin_bottom = 10
 MarginContainerHUD/constants/margin_left = 26
 MarginContainerHUD/constants/margin_right = 10
-MarginContainerHUD/constants/margin_top = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btb3s"]
+atlas = ExtResource("1_550my")
+region = Rect2(0, 38, 63, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hku5l"]
+atlas = ExtResource("1_550my")
+region = Rect2(0, 76, 63, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7ffe"]
+atlas = ExtResource("1_550my")
+region = Rect2(0, 57, 63, 19)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2d1so"]
 font_color = Color(0, 0, 0, 1)
@@ -121,6 +132,26 @@ theme_type_variation = &"MarginContainerHUD"
 [node name="Units" type="Control" parent="Game/HUD/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
+
+[node name="Control" type="Control" parent="Game/HUD/MarginContainer"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="Game/HUD/MarginContainer/Control"]
+layout_mode = 2
+offset_right = 63.0
+offset_bottom = 20.0
+item_count = 4
+popup/item_0/text = "Menu"
+popup/item_0/id = 0
+popup/item_1/text = "grass"
+popup/item_1/icon = SubResource("AtlasTexture_btb3s")
+popup/item_1/id = 1
+popup/item_2/text = "factory"
+popup/item_2/icon = SubResource("AtlasTexture_hku5l")
+popup/item_2/id = 2
+popup/item_3/text = "gold"
+popup/item_3/icon = SubResource("AtlasTexture_q7ffe")
+popup/item_3/id = 3
 
 [node name="Menu" type="CanvasLayer" parent="Game" node_paths=PackedStringArray("close_menu_button", "quit_button", "hud")]
 layer = 2

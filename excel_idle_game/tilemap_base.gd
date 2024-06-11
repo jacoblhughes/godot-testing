@@ -22,15 +22,21 @@ func _input(event):
 		if node_version == 0:
 			if get_parent().get_parent().visible == true:
 				var coords_of_event = self.local_to_map(to_local(get_global_mouse_position()))
+				var tile_data = get_cell_tile_data(0,coords_of_event,false)
+				var base_data = tile_data.get_custom_data("base")
 				if coords_of_event == menu_cells["Menu"]:
 					menu_cell_clicked +=1
 					if menu_cell_clicked >= 3:
 						menu.show()
 						menu_cell_clicked = 0
 						hud.hide()
+					return
 				if coords_of_event == menu_cells["Visibility"]:
-
 					update_visibility()
+					return
+				if base_data == "gold":
+					print('goldgold')
+
 		if node_version == 1:
 			if get_parent().visible == true:
 				var coords_of_event = self.local_to_map(to_local(get_global_mouse_position()))
@@ -41,9 +47,7 @@ func _input(event):
 						menu_cell_clicked = 0
 						hud.hide()
 				if coords_of_event == menu_cells["Visibility"]:
-
 					update_visibility()
-
 func update_visibility():
 	if node_version == 0:
 
