@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cdajprneborrt"]
+[gd_scene load_steps=27 format=3 uid="uid://cdajprneborrt"]
 
 [ext_resource type="Texture2D" uid="uid://dk288an35qjnj" path="res://cell.png" id="1_550my"]
 [ext_resource type="Script" path="res://game.gd" id="1_aw7p6"]
@@ -15,12 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://do25thh6ac7wk" path="res://byte.tscn" id="10_x2txf"]
 [ext_resource type="Script" path="res://tilemap_cover.gd" id="13_wfpnl"]
 [ext_resource type="Script" path="res://left_side_grid.gd" id="15_7dbfy"]
-
-[sub_resource type="Theme" id="Theme_rwdg3"]
-MarginContainerHUD/base_type = &"MarginContainer"
-MarginContainerHUD/constants/margin_bottom = 10
-MarginContainerHUD/constants/margin_left = 26
-MarginContainerHUD/constants/margin_right = 10
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_btb3s"]
 atlas = ExtResource("1_550my")
@@ -126,7 +120,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_rwdg3")
+theme = ExtResource("2_rdqp6")
 theme_type_variation = &"MarginContainerHUD"
 
 [node name="Units" type="Control" parent="Game/HUD/MarginContainer"]
@@ -140,8 +134,11 @@ layout_mode = 2
 layout_mode = 2
 offset_right = 63.0
 offset_bottom = 20.0
+theme = ExtResource("2_rdqp6")
+theme_type_variation = &"OptionButtonHUD"
 item_count = 4
-popup/item_0/text = "Menu"
+fit_to_longest_item = false
+popup/item_0/text = "None"
 popup/item_0/id = 0
 popup/item_1/text = "grass"
 popup/item_1/icon = SubResource("AtlasTexture_btb3s")
