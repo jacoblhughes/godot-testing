@@ -17,7 +17,7 @@ func _ready():
 		var label_name = hud_label_presets[key].name
 		var label_starting_text = hud_label_presets[key].starting_text
 		var hud_label = hud_label_scene.instantiate()
-		hud_label.global_position = cell_tile_map.to_global(cell_tile_map.map_to_local(Vector2i(2 + i, 0)))
+		hud_label.global_position = cell_tile_map.to_global(cell_tile_map.map_to_local(Vector2i(2 + i, 0))) - Vector2(hud_label.get_label_size().x/2,0)
 		hud_label.name = label_name
 		hud_label.set_label(label_starting_text)
 		if label_name == "ProfitScore":

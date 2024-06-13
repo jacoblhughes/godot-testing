@@ -7,6 +7,7 @@ var new_cells = 0
 var tilemap_final_size : Vector2i = Vector2i.ZERO
 var tile_size : Vector2i = Vector2i.ZERO
 var tilemap_initial_size : Vector2i = Vector2i.ZERO
+var tile_type : String = ""
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -56,3 +57,9 @@ func set_initial_size(val):
 
 func get_initial_size():
 	return tilemap_initial_size
+
+func set_tile_type_selection(val):
+	tile_type = val
+
+func get_tile_type_selection():
+	return tile_type

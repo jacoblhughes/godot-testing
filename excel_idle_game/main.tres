@@ -1,4 +1,49 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://by0q2a6mponki"]
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://by0q2a6mponki"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a72qm"]
+bg_color = Color(0.85098, 0.341176, 0.388235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atwd0"]
+bg_color = Color(0.85098, 0.341176, 0.388235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s28vr"]
+bg_color = Color(0.85098, 0.341176, 0.388235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfm36"]
+bg_color = Color(0.85098, 0.341176, 0.388235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aurhd"]
+bg_color = Color(0.85098, 0.341176, 0.388235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atm86"]
+bg_color = Color(0.984314, 0.952941, 0.266667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f32el"]
+bg_color = Color(0.984314, 0.952941, 0.266667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6kj6w"]
+bg_color = Color(0.984314, 0.952941, 0.266667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5t4p"]
+bg_color = Color(0.984314, 0.952941, 0.266667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_olmrq"]
+bg_color = Color(0.984314, 0.952941, 0.266667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ln21w"]
+bg_color = Color(0.415686, 0.745098, 0.188235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srsep"]
+bg_color = Color(0.415686, 0.745098, 0.188235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8oxg"]
+bg_color = Color(0.415686, 0.745098, 0.188235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lah5n"]
+bg_color = Color(0.415686, 0.745098, 0.188235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mt63q"]
+bg_color = Color(0.415686, 0.745098, 0.188235, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nprkx"]
 bg_color = Color(0.14902, 0.14902, 0.14902, 1)
@@ -7,6 +52,27 @@ bg_color = Color(0.14902, 0.14902, 0.14902, 1)
 bg_color = Color(0.14902, 0.14902, 0.14902, 1)
 
 [resource]
+ButtonFactory/base_type = &"Button"
+ButtonFactory/colors/font_color = Color(0, 0, 0, 1)
+ButtonFactory/styles/disabled = SubResource("StyleBoxFlat_a72qm")
+ButtonFactory/styles/focus = SubResource("StyleBoxFlat_atwd0")
+ButtonFactory/styles/hover = SubResource("StyleBoxFlat_s28vr")
+ButtonFactory/styles/normal = SubResource("StyleBoxFlat_wfm36")
+ButtonFactory/styles/pressed = SubResource("StyleBoxFlat_aurhd")
+ButtonGold/base_type = &"Button"
+ButtonGold/colors/font_color = Color(0, 0, 0, 1)
+ButtonGold/styles/disabled = SubResource("StyleBoxFlat_atm86")
+ButtonGold/styles/focus = SubResource("StyleBoxFlat_f32el")
+ButtonGold/styles/hover = SubResource("StyleBoxFlat_6kj6w")
+ButtonGold/styles/normal = SubResource("StyleBoxFlat_n5t4p")
+ButtonGold/styles/pressed = SubResource("StyleBoxFlat_olmrq")
+ButtonGrass/base_type = &"Button"
+ButtonGrass/colors/font_color = Color(0, 0, 0, 1)
+ButtonGrass/styles/disabled = SubResource("StyleBoxFlat_ln21w")
+ButtonGrass/styles/focus = SubResource("StyleBoxFlat_srsep")
+ButtonGrass/styles/hover = SubResource("StyleBoxFlat_g8oxg")
+ButtonGrass/styles/normal = SubResource("StyleBoxFlat_lah5n")
+ButtonGrass/styles/pressed = SubResource("StyleBoxFlat_mt63q")
 LabelLeftSideCells/base_type = &"Label"
 LabelLeftSideCells/colors/font_color = Color(0.854902, 0.639216, 0.411765, 1)
 LabelLeftSideCells/font_sizes/font_size = 12
@@ -16,10 +82,10 @@ MarginContainerHUD/constants/margin_left = 26
 MarginContainerHUD/constants/margin_right = 10
 MarginContainerHUD/constants/margin_top = 0
 MarginContainerMenu/base_type = &"MarginContainer"
-MarginContainerMenu/constants/margin_bottom = 10
+MarginContainerMenu/constants/margin_bottom = 20
 MarginContainerMenu/constants/margin_left = 36
-MarginContainerMenu/constants/margin_right = 10
-MarginContainerMenu/constants/margin_top = 10
+MarginContainerMenu/constants/margin_right = 20
+MarginContainerMenu/constants/margin_top = 20
 OptionButtonHUD/base_type = &"OptionButton"
 OptionButtonHUD/font_sizes/font_size = 8
 PanelLeftSideLabel/base_type = &"Panel"

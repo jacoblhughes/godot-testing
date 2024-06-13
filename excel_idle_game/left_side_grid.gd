@@ -7,7 +7,7 @@ var tile_size = Vector2()
 
 func _ready():
 	pass
-	
+
 func _draw():
 	tilemap_size = get_parent().get_used_rect().size
 	tile_size = get_parent().get_tileset().tile_size

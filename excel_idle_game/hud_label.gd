@@ -13,3 +13,6 @@ func _process(delta):
 
 func set_label(val):
 	label.text = str(val)
+
+func get_label_size():
+	return $Control.size

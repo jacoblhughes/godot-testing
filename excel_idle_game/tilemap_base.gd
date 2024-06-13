@@ -11,6 +11,8 @@ signal cells_added
 var menu_cells = {"Menu":Vector2i(0,0),"Visibility":Vector2i(1,0)}
 var menu_cell_clicked = 0
 
+
+
 func _ready():
 
 	pass
@@ -29,13 +31,10 @@ func _input(event):
 					if menu_cell_clicked >= 3:
 						menu.show()
 						menu_cell_clicked = 0
-						hud.hide()
 					return
 				if coords_of_event == menu_cells["Visibility"]:
 					update_visibility()
 					return
-				if base_data == "gold":
-					print('goldgold')
 
 		if node_version == 1:
 			if get_parent().visible == true:
@@ -48,6 +47,7 @@ func _input(event):
 						hud.hide()
 				if coords_of_event == menu_cells["Visibility"]:
 					update_visibility()
+
 func update_visibility():
 	if node_version == 0:
 

@@ -11,10 +11,12 @@ extends Node2D
 
 signal tiles_added
 
-var score = 0
+var score = 250
+var tile_type = null
 
 func _ready():
 	get_parent().window_resized.connect(_on_window_resized)
+	hud.update_score(score)
 
 func _on_window_resized():
 	if menu.is_visible():
@@ -38,7 +40,10 @@ func _on_window_resized():
 func _process(delta):
 	pass
 
-func _add_to_score():
-	var new_score = score + 1
+func add_to_score(val):
+	var new_score = score + val
 	score = new_score
 	hud.update_score(score)
+
+func get_score():
+	return score
