@@ -11,7 +11,7 @@ extends Node2D
 
 signal tiles_added
 
-var score = 250
+var score = 0
 var tile_type = null
 
 func _ready():
