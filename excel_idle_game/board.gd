@@ -35,12 +35,14 @@ func _on_timer_timeout():
 	pass
 
 func _check_tile_types():
+	grass_cells = tile_map.get_used_cells_by_id(0,0,Vector2i(0,2),-1)
 	gold_cells = tile_map.get_used_cells_by_id(0,0,Vector2i(0,3),-1)
 	factory_cells = tile_map.get_used_cells_by_id(0,0,Vector2i(0,4),-1)
-	var gold_points = len(gold_cells)
-	game.add_to_score(gold_points)
+	var gold_points = len(gold_cells)*5
+	var grass_points = len(grass_cells)
+	game.add_to_score(gold_points - grass_points)
 	_spawn_byte()
-	
+
 func _spawn_byte():
 	var byte = byte_scene.instantiate()
 	byte.tile_map = tile_map

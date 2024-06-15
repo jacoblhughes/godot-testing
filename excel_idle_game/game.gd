@@ -21,8 +21,8 @@ var tile_type = null
 func _ready():
 	get_parent().window_resized.connect(_on_window_resized)
 	hud.update_score(score)
-	
-	
+
+
 func _on_window_resized():
 	if menu.is_visible():
 		menu.hide()
@@ -34,7 +34,7 @@ func _on_window_resized():
 		cover.show()
 
 
-	
+
 	file_exists = FileAccess.file_exists(excel_idle_cfg_path	)
 	if(!file_exists):
 
@@ -62,13 +62,13 @@ func _on_window_resized():
 		else:
 			config.set_value("main", "board_pattern",DEFAULT_FLOAT)
 			config.save(excel_idle_cfg_path)
-			
+
 		if config.get_value("main", "cover_pattern", null) != null:
 			pass
 		else:
 			config.set_value("main", "cover_pattern",DEFAULT_FLOAT)
 			config.save(excel_idle_cfg_path)
-			
+
 		board_tilemap.set_pattern(0,Vector2i(0,-1),config.get_value("main","board_pattern",null))
 		cover_tilemap.set_pattern(0,Vector2i(0,0),config.get_value("main","cover_pattern",null))
 	var new_score = config.get_value("main", "score")
@@ -84,6 +84,13 @@ func _process(delta):
 func add_to_score(val):
 	var new_score = score + val
 	score = new_score
+
+
+	if score < 0:
+		for coord in board_tilemap.get_used_cells_by_id(0,0,Vector2i(0,2),-1):
+			board_tilemap.set_cell(0,coord,0,Vector2i(0,0),0)
+			score += 1
+		pass
 	hud.update_score(score)
 	get_board_tilemap_pattern()
 func get_score():
