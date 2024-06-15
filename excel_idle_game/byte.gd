@@ -9,7 +9,8 @@ var tile_map : TileMap
 @export var navigation_agent : NavigationAgent2D
 signal clicked_on
 var direction = Vector2.ZERO
-var speed = 25000
+var speed = 7500
+
 func _ready():
 	#astar_grid.region = tile_map.get_used_cells_by_id(0,0,Vector2i(0,1))
 	#astar_grid.cell_size = GameManager.get_cell_size()

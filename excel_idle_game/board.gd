@@ -32,12 +32,6 @@ func _on_tiles_added():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_timer_timeout():
 	_check_tile_types()
-	var byte = byte_scene.instantiate()
-	byte.tile_map = tile_map
-	byte.position = to_global(tile_map.map_to_local(Vector2i(1,-1)) + tile_map.position)
-	byte.end_position = final_position + Vector2(tile_map.get_tileset().tile_size.x/2,tile_map.get_tileset().tile_size.y/4)
-	byte.clicked_on.connect(game.add_to_score.bind((max(1, 1 * len(factory_cells)))))
-	add_child(byte)
 	pass
 
 func _check_tile_types():
@@ -45,3 +39,12 @@ func _check_tile_types():
 	factory_cells = tile_map.get_used_cells_by_id(0,0,Vector2i(0,4),-1)
 	var gold_points = len(gold_cells)
 	game.add_to_score(gold_points)
+	_spawn_byte()
+	
+func _spawn_byte():
+	var byte = byte_scene.instantiate()
+	byte.tile_map = tile_map
+	byte.position = to_global(tile_map.map_to_local(Vector2i(1,-1)) + tile_map.position)
+	byte.end_position = final_position + Vector2(tile_map.get_tileset().tile_size.x/2,tile_map.get_tileset().tile_size.y/4)
+	byte.clicked_on.connect(game.add_to_score.bind((max(1, 1 * len(factory_cells),1+len(factory_cells)))))
+	add_child(byte)

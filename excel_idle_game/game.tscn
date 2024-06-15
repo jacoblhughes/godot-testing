@@ -38,49 +38,49 @@ agent_radius = 0.0
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mekfe"]
 friction = 0.0
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_xkepy"]
-vertices = PackedVector2Array(32, 10, -32, 10, -32, -10, 32, -10)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-31.5, -9.5, 31.5, -9.5, 31.5, 9.5, -31.5, 9.5)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lmekg"]
+vertices = PackedVector2Array(32, -8, 32, 7, 30, 10, -28, 10, -32, 8, -32, -6, -28, -10, 28, -10)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -6.25, -28, -10, 28, -10, 32, -7.5, 32, 6.875, 30, 10, -28, 10, -32, 8.125)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8e0hd"]
 resource_name = "cells"
 texture = ExtResource("1_550my")
-texture_region_size = Vector2i(63, 19)
+texture_region_size = Vector2i(64, 20)
 0:0/next_alternative_id = 7
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31.5, -9.5, 31.5, -9.5, 31.5, 9.5, -31.5, 9.5)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -10, 32, -10, 32, 10, -32, 10)
 0:1/next_alternative_id = 7
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_xkepy")
+0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lmekg")
 0:2/next_alternative_id = 3
 0:2/0 = 0
 0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:2/0/physics_layer_0/angular_velocity = 0.0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31.5, -9.5, 31.5, -9.5, 31.5, 9.5, -31.5, 9.5)
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -10, 32, -10, 32, 10, -32, 10)
 0:3/next_alternative_id = 3
 0:3/0 = 0
 0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:3/0/physics_layer_0/angular_velocity = 0.0
-0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31.5, -9.5, 31.5, -9.5, 31.5, 9.5, -31.5, 9.5)
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -10, 32, -10, 32, 10, -32, 10)
 0:3/0/custom_data_0 = "gold"
 0:4/next_alternative_id = 2
 0:4/0 = 0
 0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:4/0/physics_layer_0/angular_velocity = 0.0
-0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31.5, -9.5, 31.5, -9.5, 31.5, 9.5, -31.5, 9.5)
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -10, 32, -10, 32, 10, -32, 10)
 0:5/0 = 0
 0:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:5/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_l8hjy"]
-tile_size = Vector2i(63, 19)
+tile_size = Vector2i(64, 20)
 physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_mekfe")
 navigation_layer_0/layers = 1
@@ -93,7 +93,7 @@ resource_name = "label"
 scenes/1/scene = ExtResource("5_cwyxy")
 
 [sub_resource type="TileSet" id="TileSet_yjyvx"]
-tile_size = Vector2i(26, 19)
+tile_size = Vector2i(26, 20)
 sources/0 = SubResource("TileSetScenesCollectionSource_ms65o")
 
 [node name="Main" type="Node" node_paths=PackedStringArray("game_cell_test")]
@@ -202,7 +202,7 @@ mouse_filter = 0
 [node name="Close" type="Button" parent="Game/Menu/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 7
-text = "Close"
+text = "Close Menu"
 
 [node name="Quit" type="Button" parent="Game/Menu/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -219,13 +219,12 @@ game = NodePath("..")
 navigation_region = NodePath("NavigationRegion2D")
 
 [node name="ScoringTimer" type="Timer" parent="Game/Board"]
-wait_time = 3.0
+wait_time = 10.0
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Game/Board"]
 navigation_polygon = SubResource("NavigationPolygon_7wxmo")
 
 [node name="BoardMap" type="TileMap" parent="Game/Board/NavigationRegion2D" node_paths=PackedStringArray("game", "menu", "hud", "other_node", "home_node")]
-position = Vector2(26, 0)
 tile_set = SubResource("TileSet_l8hjy")
 format = 2
 layer_0/name = "cells"
@@ -241,7 +240,6 @@ home_node = NodePath("../..")
 visible = false
 
 [node name="CoverMap" type="TileMap" parent="Game/Cover" node_paths=PackedStringArray("menu", "hud", "other_node", "home_node")]
-position = Vector2(26, 0)
 tile_set = SubResource("TileSet_l8hjy")
 format = 2
 layer_0/name = "cells"
@@ -254,6 +252,7 @@ home_node = NodePath("..")
 node_version = 1
 
 [node name="LeftSide" type="Node2D" parent="Game"]
+visible = false
 
 [node name="LeftSide" type="TileMap" parent="Game/LeftSide"]
 tile_set = SubResource("TileSet_yjyvx")
@@ -265,5 +264,4 @@ script = ExtResource("6_cj67c")
 script = ExtResource("15_7dbfy")
 
 [node name="Grid" type="Node2D" parent="Game"]
-position = Vector2(26, 0)
 script = ExtResource("1_qspmv")

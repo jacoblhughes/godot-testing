@@ -20,17 +20,15 @@ func _ready():
 #BASE
 
 func _input(event):
-	if event is InputEventMouseButton and event.pressed:
+
+	if event is InputEventMouseButton and event.pressed and event.button_index == 1:
 		if node_version == 0:
 			if get_parent().get_parent().visible == true:
 				var coords_of_event = self.local_to_map(to_local(get_global_mouse_position()))
 				var tile_data = get_cell_tile_data(0,coords_of_event,false)
 				var base_data = tile_data.get_custom_data("base")
 				if coords_of_event == menu_cells["Menu"]:
-					menu_cell_clicked +=1
-					if menu_cell_clicked >= 3:
-						menu.show()
-						menu_cell_clicked = 0
+					menu.show()
 					return
 				if coords_of_event == menu_cells["Visibility"]:
 					update_visibility()
@@ -40,11 +38,7 @@ func _input(event):
 			if get_parent().visible == true:
 				var coords_of_event = self.local_to_map(to_local(get_global_mouse_position()))
 				if coords_of_event == menu_cells["Menu"]:
-					menu_cell_clicked +=1
-					if menu_cell_clicked >= 3:
-						menu.show()
-						menu_cell_clicked = 0
-						hud.hide()
+					get_tree().quit()
 				if coords_of_event == menu_cells["Visibility"]:
 					update_visibility()
 

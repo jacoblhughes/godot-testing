@@ -21,22 +21,22 @@ func _process(delta):
 
 func _resize_window():
 
-	#DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,true)
+	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,true)
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	var _taskbar_height = DisplayServer.screen_get_size().y - DisplayServer.screen_get_usable_rect().size.y
 	#GameManager.set_window_height(DisplayServer.screen_get_usable_rect().size.y/5)
 	#GameManager.set_window_height(256)
 	#var window_height = GameManager.get_window_height()
-	var window_height = 247
-	var window_position = Vector2(0,  DisplayServer.screen_get_usable_rect().size.y - window_height - 59)
+	var window_height = 259
+	var window_position = Vector2(26,  DisplayServer.screen_get_usable_rect().size.y - 261 - 48)
 	DisplayServer.window_set_position(window_position)
-	DisplayServer.window_set_size(Vector2(DisplayServer.screen_get_size().x - 22, window_height))
+	DisplayServer.window_set_size(Vector2(DisplayServer.screen_get_size().x - 48, window_height))
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_ALWAYS_ON_TOP,true)
 	var length = DisplayServer.screen_get_size().x - 1920
 	var new_cells = int(length / 64)
 	GameManager.set_initial_size(Vector2i(30,13))
 	GameManager.set_new_cells(new_cells)
 	GameManager.set_final_tilemap_size(Vector2i(30+new_cells,13))
-	GameManager.set_tile_size(Vector2i(63,19))
+	GameManager.set_tile_size(Vector2i(64,20))
 
 	window_resized.emit()

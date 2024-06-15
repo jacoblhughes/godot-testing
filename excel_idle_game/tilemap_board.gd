@@ -7,7 +7,6 @@ var river_cells = []
 func _ready():
 	river_cells = get_used_cells_by_id(0,0,Vector2i(0,1),-1)
 
-
 	pass
 
 func add_tiles():
@@ -29,6 +28,7 @@ func _unhandled_input(event):
 		if coords_of_event not in river_cells:
 			if GameManager.get_tile_type_selection() == 'grass':
 				set_cell(0,coords_of_event,0,Vector2i(0,2),0)
+				game.get_board_tilemap_pattern()
 			if GameManager.get_tile_type_selection() == 'gold' and game.get_score() >= 100:
 				set_cell(0,coords_of_event,0,Vector2i(0,3),0)
 				game.add_to_score(-100)
@@ -40,6 +40,7 @@ func _unhandled_input(event):
 				if valid:
 					set_cell(0,coords_of_event,0,Vector2i(0,4),0)
 					game.add_to_score(-10)
+
 	if event is InputEventMouseButton and event.pressed and event.button_index == 2:
 		Input.set_custom_mouse_cursor(null)
 		GameManager.set_tile_type_selection("")

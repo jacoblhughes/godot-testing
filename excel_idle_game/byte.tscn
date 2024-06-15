@@ -4,14 +4,15 @@
 [ext_resource type="Script" path="res://byte.gd" id="2_io4s5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_irgs7"]
-radius = 4.0
+radius = 2.01556
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kinrx"]
-size = Vector2(62, 20)
+size = Vector2(60, 20)
 
 [node name="Byte" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
 motion_mode = 1
 wall_min_slide_angle = 0.0
+safe_margin = 0.25
 script = ExtResource("2_io4s5")
 navigation_agent = NodePath("NavigationAgent2D")
 
