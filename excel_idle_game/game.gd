@@ -84,8 +84,6 @@ func _process(delta):
 func add_to_score(val):
 	var new_score = score + val
 	score = new_score
-
-
 	if score < 0:
 		for coord in board_tilemap.get_used_cells_by_id(0,0,Vector2i(0,2),-1):
 			board_tilemap.set_cell(0,coord,0,Vector2i(0,0),0)

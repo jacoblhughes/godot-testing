@@ -17,7 +17,6 @@ var friend
 func _ready():
 	get_parent().tiles_added.connect(_on_tiles_added)
 
-
 func _on_tiles_added():
 	var final_position_coord = Vector2i(GameManager.get_final_tilemap_size().x-1,GameManager.get_final_tilemap_size().y)
 	final_position = tile_map.map_to_local(final_position_coord)
