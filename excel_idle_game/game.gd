@@ -60,13 +60,13 @@ func _on_window_resized():
 		if config.get_value("main", "board_pattern", null) != null:
 			pass
 		else:
-			config.set_value("main", "board_pattern",DEFAULT_FLOAT)
+			config.set_value("main", "board_pattern",null)
 			config.save(excel_idle_cfg_path)
 
 		if config.get_value("main", "cover_pattern", null) != null:
 			pass
 		else:
-			config.set_value("main", "cover_pattern",DEFAULT_FLOAT)
+			config.set_value("main", "cover_pattern",null)
 			config.save(excel_idle_cfg_path)
 
 		board_tilemap.set_pattern(0,Vector2i(0,-1),config.get_value("main","board_pattern",null))

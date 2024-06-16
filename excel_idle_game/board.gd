@@ -26,6 +26,7 @@ func _on_tiles_added():
 	grass_cells = tile_map.get_used_cells_by_id(0,0,Vector2i(0,2),-1)
 	gold_cells = tile_map.get_used_cells_by_id(0,0,Vector2i(0,3),-1)
 	factory_cells = tile_map.get_used_cells_by_id(0,0,Vector2i(0,4),-1)
+	_check_tile_types()
 	pass # Replace with function body.
 
 
@@ -45,12 +46,13 @@ func _check_tile_types():
 	if len(grass_cells) >=4 and friend_spawned == false:
 		var friend = friend_scene.instantiate()
 		friend.position = to_global(tile_map.map_to_local(grass_cells[0]) + tile_map.position)
+		friend.board_tilemap = tile_map
 		friend_spawned = true
 		add_child(friend)
 	if len(grass_cells) < 4 and friend_spawned == true:
 		friend.queue_free()
 		friend_spawned = false
-		
+	navigation_region.bake_navigation_polygon()
 	_spawn_byte()
 
 func _spawn_byte():

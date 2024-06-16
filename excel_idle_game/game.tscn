@@ -225,6 +225,7 @@ wait_time = 10.0
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Game/Board"]
 navigation_polygon = SubResource("NavigationPolygon_7wxmo")
+navigation_layers = 3
 
 [node name="BoardMap" type="TileMap" parent="Game/Board/NavigationRegion2D" node_paths=PackedStringArray("game", "menu", "hud", "other_node", "home_node")]
 tile_set = SubResource("TileSet_l8hjy")
