@@ -10,7 +10,9 @@ var final_position : Vector2
 var grass_cells = []
 var gold_cells = []
 var factory_cells = []
-
+@export var friend_scene : PackedScene
+var friend_spawned = false
+var friend
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_parent().tiles_added.connect(_on_tiles_added)
@@ -41,6 +43,15 @@ func _check_tile_types():
 	var gold_points = len(gold_cells)*5
 	var grass_points = len(grass_cells)
 	game.add_to_score(gold_points - grass_points)
+	if len(grass_cells) >=4 and friend_spawned == false:
+		var friend = friend_scene.instantiate()
+		friend.position = to_global(tile_map.map_to_local(grass_cells[0]) + tile_map.position)
+		friend_spawned = true
+		add_child(friend)
+	if len(grass_cells) < 4 and friend_spawned == true:
+		friend.queue_free()
+		friend_spawned = false
+		
 	_spawn_byte()
 
 func _spawn_byte():

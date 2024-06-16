@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cdajprneborrt"]
+[gd_scene load_steps=28 format=3 uid="uid://cdajprneborrt"]
 
 [ext_resource type="Texture2D" uid="uid://dk288an35qjnj" path="res://cell.png" id="1_550my"]
 [ext_resource type="Script" path="res://game.gd" id="1_aw7p6"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://left_side.gd" id="6_cj67c"]
 [ext_resource type="Script" path="res://board.gd" id="7_swqr8"]
 [ext_resource type="Script" path="res://tilemap_board.gd" id="9_gajdk"]
+[ext_resource type="PackedScene" uid="uid://cnichsvlsb2gy" path="res://friend.tscn" id="10_sitqm"]
 [ext_resource type="PackedScene" uid="uid://do25thh6ac7wk" path="res://byte.tscn" id="10_x2txf"]
 [ext_resource type="Script" path="res://tilemap_cover.gd" id="13_wfpnl"]
 [ext_resource type="Script" path="res://left_side_grid.gd" id="15_7dbfy"]
@@ -217,6 +218,7 @@ byte_scene = ExtResource("10_x2txf")
 main = NodePath("../..")
 game = NodePath("..")
 navigation_region = NodePath("NavigationRegion2D")
+friend_scene = ExtResource("10_sitqm")
 
 [node name="ScoringTimer" type="Timer" parent="Game/Board"]
 wait_time = 10.0

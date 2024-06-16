@@ -19,8 +19,9 @@ func add_tiles():
 			set_cell(0,Vector2i(initial_x_cell+i,get_used_rect().size.y-1),0,Vector2i(0,1))
 	set_cell(0,Vector2i(1,-1),0,Vector2i(0,1))
 	set_cell(0,Vector2i(get_used_rect().size.x-1,get_used_rect().size.y-1),0,Vector2i(0,1))
-
+	river_cells = get_used_cells_by_id(0,0,Vector2i(0,1),-1)
 func _unhandled_input(event):
+	river_cells = get_used_cells_by_id(0,0,Vector2i(0,1),-1)
 	if event is InputEventMouseButton and event.pressed and event.button_index == 1:
 		var coords_of_event = self.local_to_map(to_local(get_global_mouse_position()))
 		var tile_data = get_cell_tile_data(0,coords_of_event,false)
@@ -35,6 +36,7 @@ func _unhandled_input(event):
 			if GameManager.get_tile_type_selection() == 'factory' and game.get_score() >= 10:
 				var valid = false
 				for item in get_surrounding_cells(coords_of_event):
+					print(item)
 					if item in river_cells:
 						valid = true
 				if valid:
