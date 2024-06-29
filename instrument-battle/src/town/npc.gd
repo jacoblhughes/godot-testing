@@ -28,7 +28,6 @@ func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta):
-	print(should_be, player_view)
 	if !paused:
 		if Input.is_action_just_pressed("a") and should_be:
 			player.on_npc_interact(%Marker2D.global_position)

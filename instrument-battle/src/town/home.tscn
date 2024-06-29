@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckqvhq5vtuem4"]
+[gd_scene load_steps=13 format=3 uid="uid://ckqvhq5vtuem4"]
 
 [ext_resource type="Texture2D" uid="uid://chrydlko6a7sm" path="res://textures/level.png" id="1_g2oie"]
+[ext_resource type="Texture2D" uid="uid://bktf4g0d3shcp" path="res://textures/trumpet_boom.png" id="3_qfqgf"]
 [ext_resource type="PackedScene" uid="uid://clxmivsqbcd26" path="res://src/levels/portal.tscn" id="3_y81wh"]
 
 [sub_resource type="GDScript" id="GDScript_aja8h"]
@@ -17,6 +18,67 @@ func _ready():
 func _process(delta):
 	pass
 "
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chn7e"]
+atlas = ExtResource("3_qfqgf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmiis"]
+atlas = ExtResource("3_qfqgf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ihy7"]
+atlas = ExtResource("3_qfqgf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwiqr"]
+atlas = ExtResource("3_qfqgf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elmga"]
+atlas = ExtResource("3_qfqgf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjx2o"]
+atlas = ExtResource("3_qfqgf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_21e7c"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chn7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmiis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ihy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwiqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elmga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjx2o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chn7e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5807"]
+resource_local_to_scene = true
+size = Vector2(16, 16)
 
 [node name="Home" type="Node2D"]
 position = Vector2(0, 8)
@@ -38,6 +100,12 @@ polygon = PackedVector2Array(-32, -64, -24, -64, -8, -64, 32, -64, 32, -32, 0, -
 [node name="Home" parent="." instance=ExtResource("3_y81wh")]
 position = Vector2(-16, -8)
 destination_scene = "home_inside"
+
+[node name="AnimatedSprite2D" parent="Home/Area2D" index="0"]
+sprite_frames = SubResource("SpriteFrames_21e7c")
+
+[node name="CollisionShape2D" parent="Home/Area2D" index="1"]
+shape = SubResource("RectangleShape2D_n5807")
 
 [node name="Marker2D" parent="Home" index="1"]
 position = Vector2(0, 24)
