@@ -1,0 +1,142 @@
+[gd_scene load_steps=11 format=3 uid="uid://pwad780m5lv4"]
+
+[ext_resource type="PackedScene" uid="uid://rdca8git2heu" path="res://013/wall.tscn" id="1_6soxi"]
+[ext_resource type="PackedScene" uid="uid://cks0jh8dp56dg" path="res://013/barrier.tscn" id="1_jvsto"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ttd3"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_7kyg0"]
+sky_material = SubResource("ProceduralSkyMaterial_2ttd3")
+
+[sub_resource type="Environment" id="Environment_ki4r8"]
+background_mode = 2
+sky = SubResource("Sky_7kyg0")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_da0po"]
+albedo_color = Color(0.764706, 0, 0.580392, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k1pn0"]
+material = SubResource("StandardMaterial3D_da0po")
+size = Vector2(100, 500)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kvjn4"]
+bounce = 0.7
+
+[sub_resource type="SphereMesh" id="SphereMesh_f0mqp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nlfr0"]
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ki4r8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -7.3127)
+mesh = SubResource("PlaneMesh_k1pn0")
+
+[node name="Ball" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 230, 0)
+collision_mask = 6
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_kvjn4")
+can_sleep = false
+
+[node name="Camera3D" type="Camera3D" parent="Ball"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ball"]
+mesh = SubResource("SphereMesh_f0mqp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
+shape = SubResource("SphereShape3D_nlfr0")
+
+[node name="Wall" parent="." instance=ExtResource("1_6soxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0)
+
+[node name="Wall2" parent="." instance=ExtResource("1_6soxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Barrier" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 225, 0)
+
+[node name="Barrier2" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 220, 0)
+
+[node name="Barrier3" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 215, 0)
+
+[node name="Barrier4" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 210, 0)
+
+[node name="Barrier5" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 205, 0)
+
+[node name="Barrier6" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 200, 0)
+
+[node name="Barrier7" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 195, 0)
+
+[node name="Barrier8" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 190, 0)
+
+[node name="Barrier9" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 185, 0)
+
+[node name="Barrier10" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 180, 0)
+
+[node name="Barrier11" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 175, 0)
+
+[node name="Barrier12" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 170, 0)
+
+[node name="Barrier13" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 165, 0)
+
+[node name="Barrier14" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 160, 0)
+
+[node name="Barrier15" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 155, 0)
+
+[node name="Barrier16" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 150, 0)
+
+[node name="Barrier17" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 145, 0)
+
+[node name="Barrier18" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 140, 0)
+
+[node name="Barrier19" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 135, 0)
+
+[node name="Barrier20" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 130, 0)
+
+[node name="Barrier21" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 125, 0)
+
+[node name="Barrier22" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 120, 0)
+
+[node name="Barrier23" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 115, 0)
+
+[node name="Barrier24" parent="Node3D" instance=ExtResource("1_jvsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 110, 0)

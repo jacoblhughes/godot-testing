@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb4f0h8l4gfvf"]
+
+[ext_resource type="Texture2D" uid="uid://bxuamheu0qub2" path="res://icon.svg" id="1_bntif"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0euov"]
+friction = 0.75
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rslu8"]
+radius = 64.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10rnl"]
+size = Vector2(720, 20)
+
+[node name="Main" type="Node2D"]
+metadata/_edit_vertical_guides_ = [360.0]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(360, 640)
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(212, 108)
+physics_material_override = SubResource("PhysicsMaterial_0euov")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+texture = ExtResource("1_bntif")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_rslu8")
+
+[node name="Ball2" type="RigidBody2D" parent="."]
+position = Vector2(212, 108)
+physics_material_override = SubResource("PhysicsMaterial_0euov")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball2"]
+texture = ExtResource("1_bntif")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball2"]
+shape = SubResource("CircleShape2D_rslu8")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(360, 428)
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+scale = Vector2(5.625, 0.1875)
+texture = ExtResource("1_bntif")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+shape = SubResource("RectangleShape2D_10rnl")
+
+[node name="AnimatableBody2D2" type="AnimatableBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatableBody2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D2"]
