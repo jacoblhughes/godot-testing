@@ -33,4 +33,3 @@ func _ready():
 
 func _on_value_acheieved(value):
 	get_parent().update_score(value)
-
