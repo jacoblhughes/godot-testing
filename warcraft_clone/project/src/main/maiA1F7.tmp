@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3rwjs8qfnly3"]
+
+[ext_resource type="Script" path="res://src/main/main.gd" id="1_4xcrv"]
+[ext_resource type="PackedScene" uid="uid://b3ni0tddeminb" path="res://src/player/player.tscn" id="2_3fg0c"]
+[ext_resource type="PackedScene" uid="uid://xpr86sbxnavy" path="res://src/main/selection.tscn" id="2_d8q3n"]
+[ext_resource type="PackedScene" uid="uid://b01snbmpqbi6s" path="res://src/main/ui.tscn" id="2_j7i2c"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_kdigp"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_4xcrv")
+player_scene = ExtResource("2_3fg0c")
+
+[node name="UI" parent="." instance=ExtResource("2_j7i2c")]
+
+[node name="Selection" parent="." node_paths=PackedStringArray("UI") instance=ExtResource("2_d8q3n")]
+UI = NodePath("../UI")
+
+[node name="SpawnPositions" type="Node2D" parent="."]
+
+[node name="0" type="Node2D" parent="SpawnPositions" groups=["PlayerSpawns"]]
+position = Vector2(128, 320)
+
+[node name="1" type="Node2D" parent="SpawnPositions" groups=["PlayerSpawns"]]
+position = Vector2(1024, 320)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_kdigp")

@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://yefmyhv5gf48"]
+
+[ext_resource type="Script" path="res://src/lobby/lobby.gd" id="1_gf16r"]
+[ext_resource type="PackedScene" uid="uid://b3ni0tddeminb" path="res://src/player/player.tscn" id="2_wxvc1"]
+[ext_resource type="PackedScene" uid="uid://0infepu6ysw4" path="res://src/base/base.tscn" id="3_alf4x"]
+[ext_resource type="PackedScene" uid="uid://c3rwjs8qfnly3" path="res://src/main/main.tscn" id="4_bmqe2"]
+
+[node name="Lobby" type="Control" node_paths=PackedStringArray("host_button", "join_button", "start_button")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_gf16r")
+player_scene = ExtResource("2_wxvc1")
+host_button = NodePath("host")
+join_button = NodePath("join")
+start_button = NodePath("start")
+base_scene = ExtResource("3_alf4x")
+main_scene = ExtResource("4_bmqe2")
+
+[node name="host" type="Button" parent="."]
+layout_mode = 0
+offset_right = 43.0
+offset_bottom = 31.0
+text = "host"
+
+[node name="join" type="Button" parent="."]
+layout_mode = 0
+offset_left = 59.0
+offset_right = 104.0
+offset_bottom = 31.0
+text = "join"
+
+[node name="start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.311
+anchor_right = -1.311
+offset_left = 117.998
+offset_right = 162.998
+offset_bottom = 31.0
+text = "start"

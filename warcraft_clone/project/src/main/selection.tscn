@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://xpr86sbxnavy"]
+
+[ext_resource type="Script" path="res://src/main/selection.gd" id="1_k8afe"]
+[ext_resource type="PackedScene" uid="uid://cgx0ndh6liy8i" path="res://src/base/base_sprite.tscn" id="2_dho2j"]
+[ext_resource type="PackedScene" uid="uid://0infepu6ysw4" path="res://src/base/base.tscn" id="3_hnkr0"]
+
+[node name="Selection" type="Node2D"]
+script = ExtResource("1_k8afe")
+base_sprite_scene = ExtResource("2_dho2j")
+base_scene = ExtResource("3_hnkr0")
