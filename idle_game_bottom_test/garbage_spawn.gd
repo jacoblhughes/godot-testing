@@ -25,4 +25,3 @@ func _check_for_current_garbage():
 			current_garbage.append(location)
 
 	collector.provide_garbage(current_garbage)
-

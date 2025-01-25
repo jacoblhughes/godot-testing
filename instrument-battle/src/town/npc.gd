@@ -60,4 +60,3 @@ func _on_dialogue_completed():
 	if has_quest and !quest_given and PlotManager.has_instrument:
 		quest_given = true
 		quest_start.emit()
-
